@@ -1,5 +1,5 @@
 <?php
-# vim: foldmarker=(,) foldmethod=marker :
+# vim: foldmarker={{,}} foldlevel=0 foldmethod=marker :
 
 /**
  * Implement hook_views_data().
@@ -15,9 +15,9 @@ function bb_views_data() {
   $data = array();
 
   // --------------------------------------------------------
-  // gbb_gmodu
+  // gbb_gmodu et toutes ses colonnes
   // --------------------------------------------------------
-
+  //{{
   $data['gbb_gmodu']['table'] = array(
     'group' => t('gbb_gmodu'),
     'base' => array(
@@ -181,9 +181,14 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  //}}
+
   // ........................................................
   // Responsable organisationnel pour un module (co_tres=2)
+  // nomu+prenom
   // Intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  //{{
   $data['gbb_gdire_orga']['table'] = array(
     'group' => t('gbb_gdire_orga'),
     'join' => array(
@@ -221,9 +226,14 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  //}}
+
   // ........................................................
   // Responsable pedagogique pour un module (co_tres=3)
+  // nomu+prenom
   // Intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  //{{
   $data['gbb_gdire_peda']['table'] = array(
     'group' => t('gdire_peda'),
     'join' => array(
@@ -261,11 +271,12 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  //}}
 
   // --------------------------------------------------------
-  // gbb_gdisp
+  // gbb_gdisp et toutes ses colonnes
   // --------------------------------------------------------
-
+  //{{
   $data['gbb_gdire']['table'] = array(
     'group' => t('gbb_gdire'),
     'join' => array(
@@ -344,8 +355,12 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
+  //}}
 
   // ........................................................
+  // session : sess_id d'une session envoyée
+  // ........................................................
+  //{{
   $data['gbb_session_sent']['table'] = array(
     'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
     'join' => array(
@@ -364,7 +379,12 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
+  //}}
 
+  // ........................................................
+  // session : sess_id d'une session en attente
+  // ........................................................
+  //{{
   $data['gbb_session_attente']['table'] = array(
     'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
     'join' => array(
@@ -383,10 +403,36 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
+  //}}
 
+  // ........................................................
+  // session : sess_id d'une session en cours
+  // ........................................................
+  //{{
+  $data['gbb_session_encours']['table'] = array(
+    'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_encours.co_degre = gbb_gmodu.co_degre AND gbb_session_encours.en_attente=0 AND gbb_session_encours.convoc_sent=0',
+      ),
+    ),
+  );
+  $data['gbb_session_encours']['sess_id'] = array(
+    'title' => t('sess_id_enCours'),
+    'help' => t('Identifiant de la session enCours'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
 
-
-
+  // ........................................................
+  // gbb_session : et toutes ses colonnes
+  // ........................................................
+  //{{
   $data['gbb_session']['table'] = array(
     'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
     'join' => array(
@@ -405,6 +451,7 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
+  //}}
 
 
   return $data;
