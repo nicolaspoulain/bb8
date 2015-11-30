@@ -345,6 +345,25 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
 
+  // ........................................................
+  $data['gbb_session']['table'] = array(
+    'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  $data['gbb_session']['sess_id'] = array(
+    'title' => t('sess_id'),
+    'help' => t('Identifiant de la session'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
 
 
   return $data;
