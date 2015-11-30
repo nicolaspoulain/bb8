@@ -3,6 +3,6 @@ langcode: fr
 status: true
 dependencies: {  }
 id: main
-label: 'Navigation principale'
+label: Main
 description: 'Liens de section du site'
 locked: true
