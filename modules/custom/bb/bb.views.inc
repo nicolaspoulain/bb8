@@ -346,6 +346,47 @@ function bb_views_data() {
   );
 
   // ........................................................
+  $data['gbb_session_sent']['table'] = array(
+    'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_sent.convoc_sent=1',
+      ),
+    ),
+  );
+  $data['gbb_session_sent']['sess_id'] = array(
+    'title' => t('sess_id_sent'),
+    'help' => t('Identifiant de la session sent'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+
+  $data['gbb_session_attente']['table'] = array(
+    'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_attente.co_degre = gbb_gmodu.co_degre AND gbb_session_attente.en_attente=1',
+      ),
+    ),
+  );
+  $data['gbb_session_attente']['sess_id'] = array(
+    'title' => t('sess_id_attente'),
+    'help' => t('Identifiant de la session attente'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+
+
+
+
   $data['gbb_session']['table'] = array(
     'group' => t('gbb_gmodu'),  // visible comme champ de gmodu directement
     'join' => array(
