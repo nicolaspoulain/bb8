@@ -1,0 +1,1 @@
+for i in file gdiof gdiof_dafor gdire gdisp gmodu gmodu_plus gmodu_taxonomy gmoof gresp gresp_dafor gresp_plus ncont netab_dafor norie ntcan session ; do mysqldump --user=root --password=plop d8rc1 gbb_$i | mysql --user=root --password=plop d801; done
