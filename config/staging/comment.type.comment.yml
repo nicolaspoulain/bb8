@@ -1,0 +1,8 @@
+uuid: ca4ec92c-e194-4275-8a3d-61cb5e34f42d
+langcode: fr
+status: true
+dependencies: {  }
+id: comment
+label: 'Commentaires par défaut'
+target_entity_type_id: node
+description: 'Autorise à commenter le contenu'

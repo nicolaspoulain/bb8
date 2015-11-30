@@ -1,0 +1,15 @@
+uuid: 439d7e81-3223-4d7e-9234-527bfe014c70
+langcode: fr
+status: true
+dependencies: {  }
+name: medium
+label: 'Moyen (220x220)'
+effects:
+  bddf0d06-42f9-4c75-a700-a33cafa25ea0:
+    uuid: bddf0d06-42f9-4c75-a700-a33cafa25ea0
+    id: image_scale
+    weight: 0
+    data:
+      width: 220
+      height: 220
+      upscale: false

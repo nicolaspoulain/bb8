@@ -1,0 +1,14 @@
+uuid: 2adc0e8f-383e-4247-ac03-3efb7f9d7ce4
+langcode: fr
+status: true
+dependencies: {  }
+id: anonymous
+label: 'Utilisateur anonyme'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'use text format restricted_html'
+  - 'access comments'
+  - 'access site-wide contact form'
+  - 'search content'

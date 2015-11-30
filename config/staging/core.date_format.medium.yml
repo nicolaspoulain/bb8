@@ -1,0 +1,8 @@
+uuid: 3b2ca4ef-5fd7-4efa-933a-58bfa340807e
+langcode: fr
+status: true
+dependencies: {  }
+id: medium
+label: 'Date moyenne par défaut'
+locked: false
+pattern: 'D d/m/Y - H:i'

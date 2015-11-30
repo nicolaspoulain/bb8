@@ -1,0 +1,12 @@
+uuid: 28c85c0a-73d4-4f82-9800-a544905d8ac0
+name: d801
+mail: nico.poulain@gmail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: fr
+default_langcode: fr

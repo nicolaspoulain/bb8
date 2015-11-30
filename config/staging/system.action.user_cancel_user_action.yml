@@ -1,0 +1,11 @@
+uuid: 356a1203-bbc7-4046-b100-d20d58452b50
+langcode: fr
+status: true
+dependencies:
+  module:
+    - user
+id: user_cancel_user_action
+label: 'Annuler l''(les) utilisateur(s) sélectionné(s)'
+type: user
+plugin: user_cancel_user_action
+configuration: {  }

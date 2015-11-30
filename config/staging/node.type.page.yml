@@ -1,0 +1,11 @@
+uuid: 65aba9b5-4971-4a6d-b760-9685577fb2fa
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Page de base'
+type: page
+description: 'Utilisez les <em>pages de base</em> pour votre contenu statique, tel que la page ''Qui sommes-nous''.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
