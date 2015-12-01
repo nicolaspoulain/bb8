@@ -2,3 +2,7 @@ fontawesome:
   css:
     theme:
       css/font-awesome.min.css: {}
+datatables:
+  js:
+    js/jquery.dataTables.js: {}
+    js/jquery.dataTables.load.js: {}
