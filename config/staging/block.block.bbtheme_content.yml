@@ -1,0 +1,20 @@
+uuid: f1972917-4bd9-4145-a662-9819de388ea0
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+id: bbtheme_content
+theme: bbtheme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenu de la page principale'
+  provider: system
+  label_display: '0'
+visibility: {  }

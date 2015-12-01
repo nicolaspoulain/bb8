@@ -1,0 +1,4 @@
+fontawesome:
+  css:
+    theme:
+      css/font-awesome.min.css: {}

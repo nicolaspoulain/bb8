@@ -1,0 +1,20 @@
+uuid: 1981fb6d-572a-4310-9300-c7e80f09e322
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bbtheme
+id: bbtheme_help
+theme: bbtheme
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Aide
+  provider: help
+  label_display: '0'
+visibility: {  }

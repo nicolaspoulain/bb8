@@ -44,7 +44,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 25
+          items_per_page: 300
           offset: 0
           id: 0
           total_pages: null
@@ -219,10 +219,10 @@ display:
           set_precision: false
           precision: 0
           decimal: .
-          separator: ','
+          separator: ''
           format_plural: false
           format_plural_string: "1\x03@count"
-          prefix: 's:'
+          prefix: ''
           suffix: ''
           plugin_id: numeric
         sess_id_1:
@@ -279,7 +279,7 @@ display:
           separator: ','
           format_plural: false
           format_plural_string: "1\x03@count"
-          prefix: 'a:'
+          prefix: ''
           suffix: ''
           plugin_id: numeric
         sess_id_2:
@@ -336,7 +336,7 @@ display:
           separator: ','
           format_plural: false
           format_plural_string: "1\x03@count"
-          prefix: 'e:'
+          prefix: ''
           suffix: ''
           plugin_id: numeric
         nothing:
@@ -346,11 +346,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Sessions
+          label: ''
           exclude: false
           alter:
             alter_text: true
-            text: '{{ sess_id }} {{ sess_id_1 }} {{ sess_id_2 }} '
+            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope\"></i>{{ sess_id }}\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause\"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play\"></i>{{ sess_id_2 }}\n{% endif %}\n"
             make_link: false
             path: ''
             absolute: false
@@ -379,7 +379,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -552,7 +552,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Resp.Orga
+          label: R.Orga
           exclude: false
           alter:
             alter_text: false
@@ -601,7 +601,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Resp.Péda
+          label: R.Péda
           exclude: false
           alter:
             alter_text: false
@@ -654,7 +654,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_tcan == \"3\" %} \nPubD\n{% endif %}"
+            text: "{% if co_tcan == \"3\" %} \n<i class=\"fa fa-user-plus\"></i>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -699,7 +699,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: co_camp
+          label: ''
           exclude: false
           alter:
             alter_text: true
@@ -732,7 +732,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -896,7 +896,7 @@ display:
         groups:
           1: AND
           2: OR
-      use_ajax: true
+      use_ajax: false
       group_by: true
     cache_metadata:
       max-age: 0

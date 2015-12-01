@@ -1,0 +1,20 @@
+uuid: 96292f61-808d-4bdc-9419-25709fa8071a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+id: bbtheme_powered
+theme: bbtheme
+region: sidebar_first
+weight: 10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Propulsé par Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

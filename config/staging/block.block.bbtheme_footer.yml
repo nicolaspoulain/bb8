@@ -1,0 +1,24 @@
+uuid: 8dd321bf-427c-4440-b700-bb3dc6ba3ce6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bbtheme
+id: bbtheme_footer
+theme: bbtheme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Menu Pied de page'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

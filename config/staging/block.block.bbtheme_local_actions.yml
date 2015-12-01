@@ -1,0 +1,18 @@
+uuid: 93e19cd6-901e-4ef7-a900-d5f706ae6dfd
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - bbtheme
+id: bbtheme_local_actions
+theme: bbtheme
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
