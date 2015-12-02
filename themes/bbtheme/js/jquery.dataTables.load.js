@@ -17,7 +17,7 @@ jQuery(document).ready(function() {
 
   var oTable = jQuery('#table-id').dataTable( {
     "oLanguage": {
-        "sSearch": "Filtrage en directiii:",
+        "sSearch": "Filtrage en direct :",
         "sInfo": "Affichage des modules _START_ à _END_ (sur _TOTAL_)",
     },
     "bStateSave": true,
@@ -26,7 +26,6 @@ jQuery(document).ready(function() {
     "bAutoWidth": false,
     "aoColumns": [
             { "bVisible": false },
-            null,
             null,
             null,
             null,

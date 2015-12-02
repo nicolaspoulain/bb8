@@ -176,6 +176,104 @@ display:
       row:
         type: fields
       fields:
+        co_tcan:
+          id: co_tcan
+          table: gbb_gdisp
+          field: co_tcan
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if co_tcan == \"3\" %} \n<i class=\"fa fa-user-plus\"></i>\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if  co_camp  == \"BS\" %}\n    FIL\n{% else %}\n    PAF\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         lib_1:
           id: lib_1
           table: gbb_gdisp
@@ -236,7 +334,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ id_disp }}  {{ lib_1 }}'
+            text: "<div class={{ co_camp }}>\n{{ co_camp }} {{ id_disp }}  {{ lib_1 }}\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -456,7 +554,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope\"></i>{{ sess_id }}\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause\"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play\"></i>{{ sess_id_2 }}\n{% endif %}\n"
+            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope green\"></i><span class=\"fa green\">{{ sess_id }}</span>\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause\"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\n{% endif %}\n"
             make_link: false
             path: ''
             absolute: false
@@ -692,104 +790,6 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_tcan:
-          id: co_tcan
-          table: gbb_gdisp
-          field: co_tcan
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{% if co_tcan == \"3\" %} \n<i class=\"fa fa-user-plus\"></i>\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_camp:
-          id: co_camp
-          table: gbb_gdisp
-          field: co_camp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{% if  co_camp  == \"BS\" %}\n    FIL {{ co_tcan }}\n{% else %}\n    PAF {{ co_tcan }}\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
