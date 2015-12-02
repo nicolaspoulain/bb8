@@ -117,7 +117,6 @@ AddEncoding gzip svgz
   # For example if your site is at http://example.com/drupal uncomment and
   # modify the following line:
   # RewriteBase /drupal
-   RewriteBase /~nico/d801/
   #
   # If your site is running in a VirtualDocumentRoot at http://example.com/,
   # uncomment the following line:

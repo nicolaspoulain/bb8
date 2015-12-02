@@ -757,7 +757,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: "{% if  co_camp  == \"BS\" %}\n    FIL {{ co_tcan }}\n{% else %}\n    PAF {{ co_tcan }}\n{% endif %}"

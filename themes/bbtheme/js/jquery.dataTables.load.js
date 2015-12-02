@@ -14,30 +14,22 @@ function fnFormatDetails ( nTr )
 
 
 jQuery(document).ready(function() {
-  jQuery('#table-id tbody tr').click( function () {
-    if ( oTable.fnIsOpen(this) ) {
-      oTable.fnClose( this );
-    } else {
-      var aData = oTable.fnGetData( this );
-      oTable.fnOpen( this, aData[3], "info_row" );
-    }
-  } );
 
   var oTable = jQuery('#table-id').dataTable( {
     "oLanguage": {
-        "sSearch": "Filtrage en direct:",
+        "sSearch": "Filtrage en directiii:",
         "sInfo": "Affichage des modules _START_ à _END_ (sur _TOTAL_)",
     },
     "bStateSave": true,
     "bPaginate": false,
-    "aaSortingFixed": [[ 0, 'asc' ]],
-    "aaSorting": [[ 1, 'asc' ]],
+    "aaSortingFixed": [[ 0, 'asc' ],[ 2, 'asc' ]],
     "bAutoWidth": false,
     "aoColumns": [
             { "bVisible": false },
             null,
             null,
-            { "bVisible": false },
+            null,
+            null,
             null,
         ],
     "sDom": 'lfr<"giveHeight"t>ip',
