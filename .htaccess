@@ -120,7 +120,8 @@ AddEncoding gzip svgz
   #
   # If your site is running in a VirtualDocumentRoot at http://example.com/,
   # uncomment the following line:
-  # RewriteBase /
+  #RewriteBase /
+  RewriteBase /~nico/d801/
 
   # Redirect common PHP files to their new locations.
   RewriteCond %{REQUEST_URI} ^(.*)?/(install.php) [OR]
