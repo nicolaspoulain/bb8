@@ -65,7 +65,7 @@ class SessionForm extends FormBase {
       );
 
     if ( $form_state->isValueEmpty('sessid')) {
-      // Insertion
+      // Insert
       $DBWriteStatus = SessionCrudController::insert($entry);
     } else {
       // Update
