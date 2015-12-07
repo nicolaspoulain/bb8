@@ -61,20 +61,19 @@ class SessionCrudController {
 
     $account = \Drupal::currentUser();
     // Logging Framework. loggeur : Database Logging (dblog) [table watchdog]
-    
+
+    $message = 'Session %sessid modifiée';
+
     \Drupal::logger('BB')->info(
-      'UUU -%query - %username (id=%id) is programming a new module',
-      array('%username' => $account->getUsername(), 
-      '%id' => $account->id(),
-      '%query' => $entry['sessid'],
-    )
+      $message, array(
+        '%sessid' => $entry['sessid'],
+      )
     );
 
-    drupal_set_message(
-      t('Your email address is @email- @DBWriteStatus', 
-        array('@email' => $entry['sessid'],
-        '@DBWriteStatus' => $DBWriteStatus)
-      )
+    drupal_set_message( t($message . ' par %username', array(
+        '%sessid' => $entry['sessid'],
+        '%username' => $account->getUsername(), 
+      ))
     );
 
     return TRUE;
@@ -107,17 +106,14 @@ class SessionCrudController {
 
     $account = \Drupal::currentUser();
 
-    // Logging Framework. loggeur : Database Logging (dblog) [table watchdog]
-    \Drupal::logger('BB')->info(
-      'IIIII %username (id=%id) is programming a new module',
-      array('%username' => $account->getUsername(), '%id' => $account->id())
-    );
+    $message = 'Nouvelle session créee';
 
-    drupal_set_message(
-      t('Your email address is @email- @DBWriteStatus', 
-      array('@email' => 'email',
-      '@DBWriteStatus' => $DBWriteStatus)
-      )
+    // Logging Framework. loggeur : Database Logging (dblog) [table watchdog]
+    \Drupal::logger('BB')->info( $message);
+
+    drupal_set_message( t($message . ' par %username', array(
+        '%username' => $account->getUsername(), 
+      ))
     );
 
     return TRUE;

@@ -57,30 +57,19 @@ class SessionForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $account = \Drupal::currentUser();
 
-
-    if ( $form_state->hasValue('sessid')) {
       $entry = array(
         'uid' => $account->id(),
         'name'  => $form_state->getValue('name'),
         'email' => $form_state->getValue('email'),
         'created' => '2000-01-01',
       );
+
+    if ( $form_state->isValueEmpty('sessid')) {
+      // Insertion
       $DBWriteStatus = SessionCrudController::insert($entry);
     } else {
-      $entry = array(
-        'sessid'  => $form_state->getValue('sessid'),
-        'uid' => $account->id(),
-        'name'  => $form_state->getValue('name'),
-        'email' => $form_state->getValue('email'),
-        'created' => '2001-01-01',
-      );
-    \Drupal::logger('BB')->info(
-      'UrrrUU -%query - %username (id=%id) is programming a new module',
-      array('%username' => $account->getUsername(), 
-      '%id' => $account->id(),
-      '%query' => $entry['sessid'],
-    )
-    );
+      // Update
+      $entry['sessid']  = $form_state->getValue('sessid');
       $DBWriteStatus = SessionCrudController::update($entry);
     };
 
