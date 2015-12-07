@@ -21,7 +21,7 @@ class CrudController {
    */
   public static function load($entry = array()) {
     // the following is for "SELECT * FROM bb AS b"
-    $select = db_select('bb', 'b');
+    $select = db_select('gbb_aaa', 'b');
     $select->fields('b');
 
     // Add each field and value as a condition to this query.
