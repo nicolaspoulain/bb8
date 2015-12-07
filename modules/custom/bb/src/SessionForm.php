@@ -23,7 +23,11 @@ class SessionForm extends FormBase {
    * {@inheritdoc}.
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
+    $current_uri = \Drupal::request()->getRequestUri();
+
     
+
     // Form constructor
     $form['sessid'] = array(
       '#type' => 'textfield',
@@ -35,7 +39,8 @@ class SessionForm extends FormBase {
     );
     $form['email'] = array(
       '#type' => 'email',
-      '#title' => $this->t('Email address.')
+      '#title' => $this->t('Email address.'),
+      '#title' => $current_uri
     );
     $form['show'] = array(
       '#type' => 'submit',

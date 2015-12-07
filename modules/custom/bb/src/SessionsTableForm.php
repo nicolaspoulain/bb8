@@ -39,13 +39,13 @@ class SessionsTableForm extends FormBase {
     //Build the rows.
     $options = array();
     foreach ($rows as $row) {
-     drupal_set_message('<pre>'. print_r($row->sessid, TRUE) .'</pre>');
+     // drupal_set_message('<pre>'. print_r($row->sessid, TRUE) .'</pre>');
      $options[$row->sessid] = array(
          'name' => $row->name,
          'email' => $row->email,
        );
     };
-    drupal_set_message('<pre>'. print_r($options, TRUE) .'</pre>');
+    // drupal_set_message('<pre>'. print_r($options, TRUE) .'</pre>');
 
     // print_r($options,TRUE);
     $form['table'] = array(
@@ -75,24 +75,17 @@ class SessionsTableForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $account = \Drupal::currentUser();
+    // drupal_set_message('<pre>'. print_r(array_filter($form_state->getValue('table')), TRUE) .'</pre>');
 
-      $entry = array(
-        'uid' => $account->id(),
-        'name'  => $form_state->getValue('name'),
-        'email' => $form_state->getValue('email'),
-        'created' => '2000-01-01',
-      );
+    foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
 
-    if ( $form_state->isValueEmpty('sessid')) {
-      // Insert
-      $DBWriteStatus = SessionCrudController::insert($entry);
-    } else {
-      // Update
-      $entry['sessid']  = $form_state->getValue('sessid');
-      $DBWriteStatus = SessionCrudController::update($entry);
-    };
-
+    $form_state->setRedirect('bb.sessionform',
+      array(
+        'query' => array(
+          'sessid' => $id,
+        ),
+      )
+    );
 
   }
 
