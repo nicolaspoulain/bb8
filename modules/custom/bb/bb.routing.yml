@@ -1,0 +1,17 @@
+bb.myform:
+  path: '/myform'
+  defaults:
+    _form: '\Drupal\bb\MyForm'
+    _title: 'Mon Formulaire'
+  requirements:
+    _permission: 'access content'
+
+bb.list: 
+  path: '/list'
+  defaults:
+    _title: 'List'
+    _controller: '\Drupal\bb\BbDBController::entryList'
+  requirements:
+    _access: 'TRUE'
+
+
