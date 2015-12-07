@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\bb\BbDBController
+ * Contains \Drupal\bb\SessionController
  */
 
 namespace Drupal\bb;
@@ -12,7 +12,7 @@ use Drupal\Core\Controller\ControllerBase;
 /**
  * Controller for bb table operations
  */
-class BbDBController extends ControllerBase {
+class SessionController extends ControllerBase {
 
   /**
    * Render a list of entries in the database.
@@ -25,9 +25,9 @@ class BbDBController extends ControllerBase {
     );
 
     $rows = array();
-    $headers = array(t('Id'), t('Name'), t('Email'));
+    $headers = array(t('Id'), t('Uid'), t('Name'), t('Email'));
 
-    foreach ($entries = CrudController::load() as $entry) {
+    foreach ($entries = SessionCrudController::load() as $entry) {
       // Sanitize each entry.
       $rows[] = array_map('Drupal\Component\Utility\SafeMarkup::checkPlain', (array) $entry);
     }
@@ -43,4 +43,7 @@ class BbDBController extends ControllerBase {
 
     return $content;
   }
+
+
+
 }

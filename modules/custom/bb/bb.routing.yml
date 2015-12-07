@@ -1,8 +1,8 @@
-bb.myform:
-  path: '/myform'
+bb.sessionform:
+  path: '/sessionform'
   defaults:
-    _form: '\Drupal\bb\MyForm'
-    _title: 'Mon Formulaire'
+    _form: '\Drupal\bb\SessionForm'
+    _title: 'Mon Formulaire pour les sessions'
   requirements:
     _permission: 'access content'
 
@@ -10,7 +10,7 @@ bb.list:
   path: '/list'
   defaults:
     _title: 'List'
-    _controller: '\Drupal\bb\BbDBController::entryList'
+    _controller: '\Drupal\bb\SessionController::entryList'
   requirements:
     _access: 'TRUE'
 
