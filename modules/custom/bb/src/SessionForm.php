@@ -9,6 +9,8 @@ namespace Drupal\bb;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\UrlHelper;
+
 
 class SessionForm extends FormBase {
   
@@ -25,7 +27,9 @@ class SessionForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $current_uri = \Drupal::request()->getRequestUri();
+    $options = UrlHelper::parse($current_uri);
 
+     drupal_set_message('<pre>'. print_r($options['query']['query']['sessid'], TRUE) .'</pre>');
     
 
     // Form constructor
@@ -40,7 +44,6 @@ class SessionForm extends FormBase {
     $form['email'] = array(
       '#type' => 'email',
       '#title' => $this->t('Email address.'),
-      '#title' => $current_uri
     );
     $form['show'] = array(
       '#type' => 'submit',
