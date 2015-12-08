@@ -25,7 +25,7 @@ class SessionController extends ControllerBase {
     );
 
     $rows = array();
-    $headers = array(t('Id'), t('Uid'), t('Name'), t('Email'));
+    $headers = array(t('Id'), t('Uid'), t('Name'), t('Email'), t('Date'));
 
     foreach ($entries = SessionCrudController::load() as $entry) {
       // Sanitize each entry.

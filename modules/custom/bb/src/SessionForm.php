@@ -29,21 +29,30 @@ class SessionForm extends FormBase {
     $current_uri = \Drupal::request()->getRequestUri();
     $options = UrlHelper::parse($current_uri);
 
-     drupal_set_message('<pre>'. print_r($options['query']['query']['sessid'], TRUE) .'</pre>');
+    // drupal_set_message('<pre>'. print_r($options['query']['query']['sessid'], TRUE) .'</pre>');
+    $sessid = $options['query']['query']['sessid'];
+    foreach ($entries = SessionCrudController::load(array('sessid' => $sessid)) as $entry) {
+      // Sanitize each entry.
+      $rows[] = array_map('Drupal\Component\Utility\SafeMarkup::checkPlain', (array) $entry);
+    }
+    drupal_set_message('<pre>'. print_r($entries, TRUE) .'</pre>');
     
 
     // Form constructor
     $form['sessid'] = array(
       '#type' => 'textfield',
       '#title' => t('sessid'),
+      '#default_value' => $sessid,
     );
     $form['name'] = array(
       '#type' => 'textfield',
       '#title' => t('Name'),
+      '#default_value' => $entries[0]->name,
     );
     $form['email'] = array(
       '#type' => 'email',
       '#title' => $this->t('Email address.'),
+      '#default_value' => $entries[0]->email,
     );
     $form['show'] = array(
       '#type' => 'submit',
