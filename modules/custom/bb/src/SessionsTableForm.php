@@ -25,6 +25,11 @@ class SessionsTableForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    // get sessid from URL
+    $current_uri = \Drupal::request()->getRequestUri();
+    $options = UrlHelper::parse($current_uri);
+    $sessid = $options['query']['query']['sessid'];
+
     // Tableselect Form constructor
     $options = array();
     foreach ($entries = SessionCrudController::load() as $entry) {
@@ -34,25 +39,22 @@ class SessionsTableForm extends FormBase {
       );
     }
     $header = array(
-      'name' => array('data' => t('Type'), 'field' => 'n.type'),
-      'email' => t('Author'),
+      'name' =>  t('Name'),
+      'email' => t('Email'),
     );
-    $form['list']['#method'] = 'get';
+
     $form['list']['table'] = array(
       '#type' => 'tableselect',
       '#header' => $header,
       '#options' => $options,
       '#empty' => t('No entries available.'),
-    );
-    $form['list']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Submit'),
-    );
+      '#default_value' => array($sessid => TRUE),
 
-    // get sessid from URL
-    $current_uri = \Drupal::request()->getRequestUri();
-    $options = UrlHelper::parse($current_uri);
-    $sessid = $options['query']['query']['sessid'];
+    );
+    $form['list']['edit'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Edit').$default_value[28],
+    );
 
     // Field edit Form constructor if sessid provided
     if (is_numeric($sessid)) {
