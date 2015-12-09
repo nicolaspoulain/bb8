@@ -284,8 +284,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lib_1 | replace({''&#039;'': '' '',''&amp;#8217;'':'' ''}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -334,7 +334,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class={{ co_camp }}>\n{{ co_camp }} {{ id_disp }}  {{ lib_1 }}\n</div>"
+            text: "<div class={{ co_camp }}>\n{{ co_camp }} {{ id_disp }} {{ lib_1 }}\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -652,7 +652,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ co_modu }} {{ lib }}'
+            text: '{{ co_modu }} {{ lib | replace({''&#039;'': '' ''}) }}'
             make_link: false
             path: ''
             absolute: false
