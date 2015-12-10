@@ -21,8 +21,14 @@ class SessionCrudController {
    */
   public static function load($entry = array()) {
     // the following is for "SELECT * FROM bb AS b"
-    $select = db_select('gbb_aaa', 'b');
-    $select->fields('b');
+    $select = db_select('gbb_session', 's');
+    $select->leftJoin('gbb_netab_dafor', 'e', 'e.co_lieu = s.co_lieu');
+    $select->leftjoin('gbb_gresp_dafor', 'r',
+                             'r.co_resp=s.co_resp AND r.co_degre=s.co_degre');
+    $select->fields('s')
+           ->fields('e', array('denom_comp', 'sigle'))
+           ->fields('r', array('co_resp', 'nomu', 'prenom'))
+           ->range(0,100);
 
     // Add each field and value as a condition to this query.
     foreach ($entry as $field => $value) {

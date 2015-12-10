@@ -34,14 +34,26 @@ class SessionsTableForm extends FormBase {
     // Tableselect Form constructor
     $options = array();
     foreach ($entries = SessionCrudController::load() as $entry) {
-      $options[$entry->sessid] = array(
-        'name' => $entry->name,
-        'email' => $entry->email,
+      $options[$entry->sess_id] = array(
+        'date' => $entry->date,
+        'horaires' => $entry->horaires,
+        'groupe' => $entry->groupe,
+        'lieu' =>  $entry->sigle.' '.$entry->denom_comp,
+        'formateur' =>  $entry->prenom.' '.$entry->nomu,
+        'dap' => $entry->duree_a_payer,
+        'dp' => $entry->duree_prevue,
+        'type_paiement' => $entry->type_paiement,
       );
     }
     $header = array(
-      'name' =>  t('Name'),
-      'email' => t('Email'),
+      'date' =>  t('Date'),
+      'horaires' => t('Horaires'),
+      'lieu' => t('Lieu'),
+      'groupe' => t('Gr'),
+      'formateur' => t('Formateur'),
+      'dap' => t('dap'),
+      'dp' => t('dp'),
+      'type_paiement' => t('Type pmt'),
     );
 
     // On applique le theme session
