@@ -21,7 +21,7 @@ class SessionsTableForm extends FormBase {
   }
   
  /**
-   * {@inheritdoc}.
+   * Create form to list and edit sessions
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
@@ -54,6 +54,8 @@ class SessionsTableForm extends FormBase {
     $form['list']['edit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Edit').$default_value[28],
+      '#submit' => array('::submitEditListForm'),
+      '#validate' => array(),
     );
 
     // Field edit Form constructor if sessid provided
@@ -77,9 +79,11 @@ class SessionsTableForm extends FormBase {
         '#title' => $this->t('Email'),
         '#default_value' => $entries[0]->email,
       );
-      $form['modif']['show'] = array(
+      $form['modif']['save'] = array(
         '#type' => 'submit',
-        '#value' => $this->t('Submit'),
+        '#value' => $this->t('Save'),
+        '#submit' => array('::submitSaveModifForm'),
+        '#validate' => array(),
       );
     }
 
@@ -88,47 +92,51 @@ class SessionsTableForm extends FormBase {
 
     return $form;
   }
-  
+
   /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
   }
-  
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+  }
+
  /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state) {
-    $id = -1;
+  public function submitEditListForm(array &$form, FormStateInterface $form_state) {
     foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
+    drupal_set_message(t('iii'));
+    $form_state->setRedirect('bb.sessionstableform',
+      array(
+        'query' => array(
+          'sessid' => $id,
+        ),
+      )
+    );
+  }
+ /**
+   * {@inheritdoc}
+   */
+  public function submitSaveModifForm(array &$form, FormStateInterface $form_state) {
 
-    if ( $id == -1 ) {
-      $account = \Drupal::currentUser();
+    $account = \Drupal::currentUser();
 
-        $entry = array(
-          'uid' => $account->id(),
-          'name'  => $form_state->getValue('name'),
-          'email' => $form_state->getValue('email'),
-          'created' => '2000-01-01',
-        );
+    $entry = array(
+      'uid' => $account->id(),
+      'name'  => $form_state->getValue('name'),
+      'email' => $form_state->getValue('email'),
+      'created' => '2000-01-01',
+    );
 
-      if ( $form_state->isValueEmpty('sessid')) {
-        // Insert
-        $DBWriteStatus = SessionCrudController::insert($entry);
-      } else {
-        // Update
-        $entry['sessid']  = $form_state->getValue('sessid');
-        $DBWriteStatus = SessionCrudController::update($entry);
-      };
+    if ( $form_state->isValueEmpty('sessid')) {
+      // Insert
+      $DBWriteStatus = SessionCrudController::insert($entry);
     } else {
-      $form_state->setRedirect('bb.sessionstableform',
-        array(
-          'query' => array(
-            'sessid' => $id,
-          ),
-        )
-      );
-    }
+      // Update
+      $entry['sessid']  = $form_state->getValue('sessid');
+      $DBWriteStatus = SessionCrudController::update($entry);
+    };
   }
 
 }
