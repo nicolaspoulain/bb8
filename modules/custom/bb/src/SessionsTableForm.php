@@ -44,6 +44,10 @@ class SessionsTableForm extends FormBase {
       'email' => t('Email'),
     );
 
+    // On applique le theme session
+    // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
+    $form['#theme'] = 'session';
+
     $form['list']['table'] = array(
       '#type' => 'tableselect',
       '#header' => $header,

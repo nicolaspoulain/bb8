@@ -11,3 +11,18 @@ function bb_views_api()
     'path' => '.',
                             );
 }
+function bb_theme($existing, $type, $theme, $path) {
+
+  return array(
+    // theme pour src/SessionsTableForm.php
+    // le template est appelé ci-dessous
+    // voir themes/bbtheme/session-form.html.twig 
+    'session' => array(
+      'template' => 'session-form',
+      'render element' => 'form',
+
+    ),
+  );
+
+}
+
