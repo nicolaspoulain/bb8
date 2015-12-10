@@ -1,10 +1,26 @@
+<div>
+<span class="ultra-small">Template : themes/bbtheme/session-form.html.twig</span>
+</div>
+
+{{ form.form_token }} {# required #}
+{{ form.form_build_id }} {# required #}
+{{ form.form_id }} {# required #}
 
 {{ form.list.table }}
 {{ form.list.edit }}
 {{ form.list.add}}
 
-
 {{ form.modif.sessid }}
 {{ form.modif.name }}
 {{ form.modif.email }}
 {{ form.modif.save }}
+
+
+{#  Pour le debug
+ # --------------
+<pre> {{ dump(form.form_id) }} </pre>
+
+{% for user in form|keys %}
+<li>{{ user }}</li>
+{% endfor %}
+#}
