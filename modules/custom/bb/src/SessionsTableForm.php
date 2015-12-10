@@ -44,6 +44,7 @@ class SessionsTableForm extends FormBase {
       'email' => t('Email'),
     );
 
+    $form['#theme'] = 'session';
     $form['list']['table'] = array(
       '#type' => 'tableselect',
       '#header' => $header,
