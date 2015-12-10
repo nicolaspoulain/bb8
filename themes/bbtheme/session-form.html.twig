@@ -2,6 +2,39 @@
 <span class="ultra-small">Template : themes/bbtheme/session-form.html.twig</span>
 </div>
 
+
+<table data-drupal-selector="edit-table" id="edit-table" class="responsive-enabled" data-striping="1">
+<thead>
+<tr>
+{% for v in form.list.table['#header'] %}
+<td>{{ v }}</td>
+{% endfor %}
+</tr>
+</thead>
+{% for k,v in form.list.table['#options'] %}
+<tr>
+{% for kk,vv in v %}
+<td> {{vv}} </td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+
+<p>-----------</p>
+{#
+{% for kk,val in form.list.table %}
+<li> kk:{{kk}} v:{{ val }}</li>
+{% for k,cell in val %}
+k:{{k}} c:{{ cell }}
+{% for ki,celli in cell %}
+ki:{{ki}} ci:{{ celli }}
+{% endfor %}
+{% endfor %}
+
+{% endfor %}
+#}
+
 {{ form.form_token }} {# required #}
 {{ form.form_build_id }} {# required #}
 {{ form.form_id }} {# required #}
@@ -20,7 +53,7 @@
  # --------------
 <pre> {{ dump(form.form_id) }} </pre>
 
-{% for user in form|keys %}
-<li>{{ user }}</li>
+{% for i in form.list.table|keys %}
+<li>{{ i }}</li>
 {% endfor %}
 #}
