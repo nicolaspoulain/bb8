@@ -29,6 +29,7 @@ class SessionsTableForm extends FormBase {
     $current_uri = \Drupal::request()->getRequestUri();
     $options = UrlHelper::parse($current_uri);
     $sessid = $options['query']['query']['sessid'];
+    if ($options['query']['query']['action'] == 'add') $sessid = -1;
 
     // Tableselect Form constructor
     $options = array();
@@ -53,9 +54,15 @@ class SessionsTableForm extends FormBase {
     );
     $form['list']['edit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Edit').$default_value[28],
-      '#submit' => array('::submitEditListForm'),
-      '#validate' => array(),
+      '#value' => $this->t('Edit'),
+      '#submit' =>   array(  '::submitEditListForm'),
+      '#validate' => array('::validateEditListForm'),
+    );
+    $form['list']['add'] = array(
+      '#type' => 'submit',
+      '#value' => $this->t('Add'),
+      '#submit' =>   array(  '::submitAddListForm'),
+      '#validate' => array(''),
     );
 
     // Field edit Form constructor if sessid provided
@@ -65,9 +72,8 @@ class SessionsTableForm extends FormBase {
       $entries = SessionCrudController::load(array('sessid' => $sessid));
 
       $form['modif']['sessid'] = array(
-        '#type' => 'textfield',
-        '#title' => t('sessid'),
-        '#default_value' => $sessid,
+        '#type' => 'hidden',
+        '#value' => $sessid,
       );
       $form['modif']['name'] = array(
         '#type' => 'textfield',
@@ -102,15 +108,36 @@ class SessionsTableForm extends FormBase {
   }
 
  /**
+   * Verification du formulaire tableselect 
+   */
+  public function validateEditListForm(array &$form, FormStateInterface $form_state) {
+    if (count(array_filter($form_state->getValue('table'))) != 1) {
+      $form_state->setErrorByName('' ,
+        $this->t('Une et une seule session doit être cochée.'));
+    }
+  }
+ /**
    * {@inheritdoc}
    */
   public function submitEditListForm(array &$form, FormStateInterface $form_state) {
-    foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
-    drupal_set_message(t('iii'));
+      foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
     $form_state->setRedirect('bb.sessionstableform',
       array(
         'query' => array(
           'sessid' => $id,
+          'action' => $form_state->getValue('add'),
+        ),
+      )
+    );
+  }
+ /**
+   * {@inheritdoc}
+   */
+  public function submitAddListForm(array &$form, FormStateInterface $form_state) {
+    $form_state->setRedirect('bb.sessionstableform',
+      array(
+        'query' => array(
+          'action' => 'add',
         ),
       )
     );
@@ -129,7 +156,7 @@ class SessionsTableForm extends FormBase {
       'created' => '2000-01-01',
     );
 
-    if ( $form_state->isValueEmpty('sessid')) {
+    if ( $form_state->getValue('sessid') ==-1) {
       // Insert
       $DBWriteStatus = SessionCrudController::insert($entry);
     } else {
