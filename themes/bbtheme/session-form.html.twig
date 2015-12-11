@@ -3,37 +3,6 @@
 </div>
 
 
-<table data-drupal-selector="edit-table" id="edit-table" class="responsive-enabled" data-striping="1">
-<thead>
-<tr>
-{% for v in form.list.table['#header'] %}
-<td>{{ v }}</td>
-{% endfor %}
-</tr>
-</thead>
-{% for k,v in form.list.table['#options'] %}
-<tr>
-{% for kk,vv in v %}
-<td> {{vv}} </td>
-{% endfor %}
-</tr>
-{% endfor %}
-</table>
-
-
-<p>-----------</p>
-{#
-{% for kk,val in form.list.table %}
-<li> kk:{{kk}} v:{{ val }}</li>
-{% for k,cell in val %}
-k:{{k}} c:{{ cell }}
-{% for ki,celli in cell %}
-ki:{{ki}} ci:{{ celli }}
-{% endfor %}
-{% endfor %}
-
-{% endfor %}
-#}
 
 {{ form.form_token }} {# required #}
 {{ form.form_build_id }} {# required #}
@@ -44,9 +13,14 @@ ki:{{ki}} ci:{{ celli }}
 {{ form.list.add}}
 
 {{ form.modif.sessid }}
-{{ form.modif.name }}
-{{ form.modif.email }}
-{{ form.modif.save }}
+{{ form.modif.date }}
+{{ form.modif.horaires }}
+{{ form.modif.lieu }}
+{{ form.modif.groupe }}
+{{ form.modif.formateur }}
+{{ form.modif.duree_a_payer }}
+{{ form.modif.duree_prevue }}
+{{ form.modif.type_paiement }}
 
 
 {#  Pour le debug
@@ -57,3 +31,57 @@ ki:{{ki}} ci:{{ celli }}
 <li>{{ i }}</li>
 {% endfor %}
 #}
+
+
+{#
+<table data-drupal-selector="edit-table" id="edit-table" class="responsive-enabled" data-striping="1">
+<thead>
+<tr>
+<td>ck</td>
+{% for v in form.list.table['#header'] %}
+<td>{{ v }}</td>
+{% endfor %}
+</tr>
+</thead>
+{% for k,v in form.list.table['#options'] %}
+<tr>
+<td>
+{% for key,sid in form.list.table if key == k%}
+{{sid}}
+{% endfor %}
+</td>
+{% for kk,vv in v %}
+<td> {{vv}} </td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+<p>-----------</p>
+{{form.list.table.41}}
+<p>-----------</p>
+<ul>
+{% for k,v in form.list.table %}
+  <li> k:{{k}} v:{{v}}
+  <ul>
+  {% for kk,vv in v %}
+    <li> kk:{{kk}} vv:{{vv}}
+    <ul>
+    {%for kkk,vvv in vv %}
+      <li> kkk:{{kkk}} vvv:{{vvv}}
+      <ul>
+      {%for kkkk,vvvv in vvv %}
+        <li> kkkk:{{kkkk}} vvvv:{{vvvv}}
+      {% endfor %}
+      </ul>
+      </li>
+    {% endfor %}
+    </ul>
+    </li>
+  {% endfor %}
+  </ul>
+  </li>
+{% endfor %}
+</ul>
+#}
+

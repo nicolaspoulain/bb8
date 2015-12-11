@@ -25,11 +25,11 @@ class SessionsTableForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // get sessid from URL
+    // get sess_id from URL
     $current_uri = \Drupal::request()->getRequestUri();
     $options = UrlHelper::parse($current_uri);
-    $sessid = $options['query']['query']['sessid'];
-    if ($options['query']['query']['action'] == 'add') $sessid = -1;
+    $sess_id = $options['query']['query']['sess_id'];
+    if ($options['query']['query']['action'] == 'add') $sess_id = -1;
 
     // Tableselect Form constructor
     $options = array();
@@ -65,7 +65,7 @@ class SessionsTableForm extends FormBase {
       '#header' => $header,
       '#options' => $options,
       '#empty' => t('No entries available.'),
-      '#default_value' => array($sessid => TRUE),
+      '#default_value' => array($sess_id => TRUE),
 
     );
     $form['list']['edit'] = array(
@@ -81,25 +81,55 @@ class SessionsTableForm extends FormBase {
       '#validate' => array(''),
     );
 
-    // Field edit Form constructor if sessid provided
-    if (is_numeric($sessid)) {
+    // Field edit Form constructor if sess_id provided
+    if (is_numeric($sess_id)) {
 
-      // load values for current sessid
-      $entries = SessionCrudController::load(array('sessid' => $sessid));
+      // load values for current sess_id
+      $entries = SessionCrudController::load(array('sess_id' => $sess_id));
 
-      $form['modif']['sessid'] = array(
+      $form['modif']['sess_id'] = array(
         '#type' => 'hidden',
-        '#value' => $sessid,
+        '#value' => $sess_id,
       );
-      $form['modif']['name'] = array(
+      $form['modif']['date'] = array(
         '#type' => 'textfield',
-        '#title' => t('Name'),
-        '#default_value' => $entries[0]->name,
+        '#title' => t('Date'),
+        '#default_value' => $entries[0]->date,
       );
-      $form['modif']['email'] = array(
-        '#type' => 'email',
-        '#title' => $this->t('Email'),
-        '#default_value' => $entries[0]->email,
+      $form['modif']['horaires'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Horaires'),
+        '#default_value' => $entries[0]->horaires,
+      );
+      $form['modif']['lieu'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Lieu'),
+        '#default_value' => $entries[0]->lieu,
+      );
+      $form['modif']['formateur'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Formateur'),
+        '#default_value' => $entries[0]->formateur,
+      );
+      $form['modif']['duree_a_payer'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Duree_a_payer'),
+        '#default_value' => $entries[0]->duree_a_payer,
+      );
+      $form['modif']['duree_prevue'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('duree_prevue'),
+        '#default_value' => $entries[0]->duree_prevue,
+      );
+      $form['modif']['type_paiement'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Type pmt'),
+        '#default_value' => $entries[0]->type_paiement,
+      );
+      $form['modif']['groupe'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Groupe'),
+        '#default_value' => $entries[0]->groupe,
       );
       $form['modif']['save'] = array(
         '#type' => 'submit',
@@ -140,7 +170,7 @@ class SessionsTableForm extends FormBase {
     $form_state->setRedirect('bb.sessionstableform',
       array(
         'query' => array(
-          'sessid' => $id,
+          'sess_id' => $id,
           'action' => $form_state->getValue('add'),
         ),
       )
@@ -172,12 +202,12 @@ class SessionsTableForm extends FormBase {
       'created' => '2000-01-01',
     );
 
-    if ( $form_state->getValue('sessid') ==-1) {
+    if ( $form_state->getValue('sess_id') ==-1) {
       // Insert
       $DBWriteStatus = SessionCrudController::insert($entry);
     } else {
       // Update
-      $entry['sessid']  = $form_state->getValue('sessid');
+      $entry['sess_id']  = $form_state->getValue('sess_id');
       $DBWriteStatus = SessionCrudController::update($entry);
     };
   }
