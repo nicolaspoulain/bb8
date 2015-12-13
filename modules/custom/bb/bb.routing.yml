@@ -5,3 +5,17 @@ bb.sessionstableform:
     _title: 'Mon Formulaire pour les sessions'
   requirements:
     _permission: 'access content'
+
+bb.autocomplete.formateur:
+  path: '/autocompFormateur'
+  defaults:
+    _controller: '\Drupal\bb\Autocomplete::autocompFormateur'
+  requirements:
+    _permission: 'access content'
+
+bb.autocomplete.lieu:
+  path: '/autocompLieu'
+  defaults:
+    _controller: '\Drupal\bb\Autocomplete::autocompLieu'
+  requirements:
+    _permission: 'access content'

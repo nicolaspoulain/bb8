@@ -105,12 +105,14 @@ class SessionsTableForm extends FormBase {
         '#type' => 'textfield',
         '#title' => $this->t('Lieu'),
         '#default_value' => $entries[0]->lieu,
+        '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       );
       $form['modif']['formateur'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Formateur'),
         '#default_value' => $entries[0]->formateur,
-      );
+        '#autocomplete_route_name' => 'bb.autocomplete.formateur',
+        );
       $form['modif']['duree_a_payer'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Duree_a_payer'),
