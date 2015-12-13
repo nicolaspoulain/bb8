@@ -199,9 +199,14 @@ class SessionsTableForm extends FormBase {
 
     $entry = array(
       'uid' => $account->id(),
-      'name'  => $form_state->getValue('name'),
-      'email' => $form_state->getValue('email'),
-      'created' => '2000-01-01',
+      'date'  => $form_state->getValue('date'),
+      'horaires' => $form_state->getValue('horaires'),
+      'lieu' => $form_state->getValue('lieu'),
+      'formateur' => $form_state->getValue('formateur'),
+      'duree_a_payer' => $form_state->getValue('duree_a_payer'),
+      'duree_prevue' => $form_state->getValue('duree_prevue'),
+      'type_paiement' => $form_state->getValue('type_paiement'),
+      'groupe' => $form_state->getValue('groupe'),
     );
 
     if ( $form_state->getValue('sess_id') ==-1) {

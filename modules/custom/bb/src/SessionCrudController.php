@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\bb\CrudController
+ * Contains \Drupal\bb\SessionCrudController
  */
 
 namespace Drupal\bb;
