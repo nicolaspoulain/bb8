@@ -52,9 +52,9 @@ class SessionCrudController {
   public static function update($entry) {
     try {
       // db_update()...->execute() returns the status of update process
-    $DBWriteStatus = db_update('gbb_aaa')
+    $DBWriteStatus = db_update('gbb_session')
       ->fields($entry)
-      ->condition('sessid', $entry['sessid'])
+      ->condition('sess_id', $entry['sess_id'])
       ->execute();
     }
     catch (\Exception $e) {
@@ -98,7 +98,7 @@ class SessionCrudController {
   public static function insert($entry) {
     try {
       // db_update()...->execute() returns the status of update process
-    $DBWriteStatus = db_insert('gbb_aaa')
+    $DBWriteStatus = db_insert('gbb_session')
       ->fields($entry)
       ->execute();
     }
