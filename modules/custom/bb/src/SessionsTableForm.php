@@ -30,6 +30,7 @@ class SessionsTableForm extends FormBase {
     $options = UrlHelper::parse($current_uri);
     $sess_id = $options['query']['query']['sess_id'];
     if ($options['query']['query']['action'] == 'add') $sess_id = -1;
+dpm(explode('/',$options['path']));
 
     // Tableselect Form constructor
     $options = array();
@@ -45,6 +46,8 @@ class SessionsTableForm extends FormBase {
         'type_paiement' => $entry->type_paiement,
       );
     }
+$param = "dd";
+// $param = $route_match->getRawParameters('co_modu');
     $header = array(
       'date' =>  t('Date'),
       'horaires' => t('Horaires'),
