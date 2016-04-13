@@ -12,15 +12,15 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 
 class SessionsTableForm extends FormBase {
-  
+
   /**
    * {@inheritdoc}.
    */
   public function getFormId() {
     return 'session_form';
   }
-  
- /**
+
+  /**
    * Create form to list and edit sessions
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
@@ -30,32 +30,32 @@ class SessionsTableForm extends FormBase {
     $options = UrlHelper::parse($current_uri);
     $sess_id = $options['query']['query']['sess_id'];
     if ($options['query']['query']['action'] == 'add') $sess_id = -1;
-dpm(explode('/',$options['path']));
+    dpm(explode('/',$options['path']));
 
     // Tableselect Form constructor
     $options = array();
     foreach ($entries = SessionCrudController::load() as $entry) {
       $options[$entry->sess_id] = array(
-        'date' => $entry->date,
-        'horaires' => $entry->horaires,
-        'groupe' => $entry->groupe,
-        'lieu' =>  $entry->sigle.' '.$entry->denom_comp,
-        'formateur' =>  $entry->prenom.' '.$entry->nomu,
-        'dap' => $entry->duree_a_payer,
-        'dp' => $entry->duree_prevue,
+        'date'          => $entry->date,
+        'horaires'      => $entry->horaires,
+        'groupe'        => $entry->groupe,
+        'lieu'          => $entry->sigle .' '.$entry->denom_comp,
+        'formateur'     => $entry->prenom.' '.$entry->nomu,
+        'dap'           => $entry->duree_a_payer,
+        'dp'            => $entry->duree_prevue,
         'type_paiement' => $entry->type_paiement,
       );
     }
-$param = "dd";
-// $param = $route_match->getRawParameters('co_modu');
+    $param = "dd";
+    // $param = $route_match->getRawParameters('co_modu');
     $header = array(
-      'date' =>  t('Date'),
-      'horaires' => t('Horaires'),
-      'lieu' => t('Lieu'),
-      'groupe' => t('Gr'),
-      'formateur' => t('Formateur'),
-      'dap' => t('dap'),
-      'dp' => t('dp'),
+      'date'          => t('Date'),
+      'horaires'      => t('Horaires'),
+      'lieu'          => t('Lieu'),
+      'groupe'        => t('Gr'),
+      'formateur'     => t('Formateur'),
+      'dap'           => t('dap'),
+      'dp'            => t('dp'),
       'type_paiement' => t('Type pmt'),
     );
 
@@ -64,23 +64,23 @@ $param = "dd";
     $form['#theme'] = 'session';
 
     $form['list']['table'] = array(
-      '#type' => 'tableselect',
-      '#header' => $header,
-      '#options' => $options,
-      '#empty' => t('No entries available.'),
+      '#type'          => 'tableselect',
+      '#header'        => $header,
+      '#options'       => $options,
+      '#empty'         => t('No entries available.'),
       '#default_value' => array($sess_id => TRUE),
 
     );
     $form['list']['edit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Edit'),
-      '#submit' =>   array(  '::submitEditListForm'),
+      '#type'     => 'submit',
+      '#value'    => $this->t('Edit'),
+      '#submit'   => array(  '::submitEditListForm'),
       '#validate' => array('::validateEditListForm'),
     );
     $form['list']['add'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Add'),
-      '#submit' =>   array(  '::submitAddListForm'),
+      '#type'     => 'submit',
+      '#value'    => $this->t('Add'),
+      '#submit'   => array(  '::submitAddListForm'),
       '#validate' => array(''),
     );
 
@@ -95,8 +95,9 @@ $param = "dd";
         '#value' => $sess_id,
       );
       $form['modif']['date'] = array(
-        '#type' => 'textfield',
+        '#type' => 'date',
         '#title' => t('Date'),
+        '#required' => TRUE,
         '#default_value' => $entries[0]->date,
       );
       $form['modif']['horaires'] = array(
@@ -105,25 +106,29 @@ $param = "dd";
         '#default_value' => $entries[0]->horaires,
       );
       $form['modif']['lieu'] = array(
-        '#type' => 'textfield',
+        '#type' => 'search',
         '#title' => $this->t('Lieu'),
+        '#required' => TRUE,
         '#default_value' => $entries[0]->lieu,
         '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       );
       $form['modif']['formateur'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Formateur'),
+        '#required' => TRUE,
         '#default_value' => $entries[0]->formateur,
         '#autocomplete_route_name' => 'bb.autocomplete.formateur',
-        );
+      );
       $form['modif']['duree_a_payer'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Duree_a_payer'),
+        '#size' => 10, 
         '#default_value' => $entries[0]->duree_a_payer,
       );
       $form['modif']['duree_prevue'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('duree_prevue'),
+        '#size' => 10, 
         '#default_value' => $entries[0]->duree_prevue,
       );
       $form['modif']['type_paiement'] = array(
@@ -132,14 +137,19 @@ $param = "dd";
         '#default_value' => $entries[0]->type_paiement,
       );
       $form['modif']['groupe'] = array(
-        '#type' => 'textfield',
+        '#type' => 'number',
         '#title' => $this->t('Groupe'),
         '#default_value' => $entries[0]->groupe,
+        '#attributes' => array(
+          'min'  => 1,
+          'max'  => 99,
+          'step' => 1,
+        ),
       );
       $form['modif']['save'] = array(
-        '#type' => 'submit',
-        '#value' => $this->t('Save'),
-        '#submit' => array('::submitSaveModifForm'),
+        '#type'     => 'submit',
+        '#value'    => $this->t('Save'),
+        '#submit'   => array('::submitSaveModifForm'),
         '#validate' => array(),
       );
     }
@@ -158,7 +168,7 @@ $param = "dd";
   public function submitForm(array &$form, FormStateInterface $form_state) {
   }
 
- /**
+  /**
    * Verification du formulaire tableselect 
    */
   public function validateEditListForm(array &$form, FormStateInterface $form_state) {
@@ -167,11 +177,11 @@ $param = "dd";
         $this->t('Une et une seule session doit être cochée.'));
     }
   }
- /**
+  /**
    * {@inheritdoc}
    */
   public function submitEditListForm(array &$form, FormStateInterface $form_state) {
-      foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
+    foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
     $form_state->setRedirect('bb.sessionstableform',
       array(
         'query' => array(
@@ -181,7 +191,7 @@ $param = "dd";
       )
     );
   }
- /**
+  /**
    * {@inheritdoc}
    */
   public function submitAddListForm(array &$form, FormStateInterface $form_state) {
@@ -193,7 +203,7 @@ $param = "dd";
       )
     );
   }
- /**
+  /**
    * {@inheritdoc}
    */
   public function submitSaveModifForm(array &$form, FormStateInterface $form_state) {
@@ -201,15 +211,15 @@ $param = "dd";
     $account = \Drupal::currentUser();
 
     $entry = array(
-      'uid' => $account->id(),
-      'date'  => $form_state->getValue('date'),
-      'horaires' => $form_state->getValue('horaires'),
-      'co_lieu' => $form_state->getValue('lieu'),
-      'co_resp' => $form_state->getValue('formateur'),
+      'uid'           => $account->id(),
+      'date'          => $form_state->getValue('date'),
+      'horaires'      => $form_state->getValue('horaires'),
+      'co_lieu'       => $form_state->getValue('lieu'),
+      'co_resp'       => $form_state->getValue('formateur'),
       'duree_a_payer' => $form_state->getValue('duree_a_payer'),
-      'duree_prevue' => $form_state->getValue('duree_prevue'),
+      'duree_prevue'  => $form_state->getValue('duree_prevue'),
       'type_paiement' => $form_state->getValue('type_paiement'),
-      'groupe' => $form_state->getValue('groupe'),
+      'groupe'        => $form_state->getValue('groupe'),
     );
 
     if ( $form_state->getValue('sess_id') ==-1) {
