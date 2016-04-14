@@ -6,7 +6,7 @@ id: liste_modules
 label: 'Liste modules'
 module: views
 description: ''
-tag: ''
+tag: bb
 base_table: gbb_gmodu
 base_field: co_modu
 core: 8.x
