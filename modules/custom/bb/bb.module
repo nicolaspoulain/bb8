@@ -17,10 +17,13 @@ function bb_theme($existing, $type, $theme, $path) {
     // theme pour src/SessionsTableForm.php
     // le template est appelé ci-dessous
     // voir themes/bbtheme/session-form.html.twig 
+    'module' => array(
+      'template' => 'module-form',
+      'render element' => 'form',
+    ),
     'session' => array(
       'template' => 'session-form',
       'render element' => 'form',
-
     ),
   );
 

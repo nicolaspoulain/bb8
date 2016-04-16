@@ -7,6 +7,15 @@ bb.sessionstableform:
   requirements:
     _permission: 'access content'
 
+bb.moduleEdit:
+  path: '/module/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\ModuleForm'
+    _title: 'Module'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.autocomplete.formateur:
   path: '/autocompFormateur'
   defaults:

@@ -1,0 +1,27 @@
+{{ drupal_view('infos_module', 'block_1') }}
+
+{# voir http://jquerytools.github.io/demos/combine/html5-form/index.html 
+pour un ovelay #}
+
+
+{{ form.form_token }} {# required #}
+{{ form.form_build_id }} {# required #}
+{{ form.form_id }} {# required #}
+
+{% for k,i in form.new%}
+{% if k matches '/^\\d+$/' %}
+ <div class="row">
+  <div class="col-md-3">{{ i.date }}</div>
+  <div class="col-md-2">{{ i.horaires }}</div>
+  <div class="col-md-3">{{ i.lieu }}</div>
+  <div class="col-md-1">{{ i.groupe }}</div>
+  <div class="col-md-3">{{ i.formateur }}</div>
+ </div>
+{% endif %}
+{% endfor %}
+
+
+<div>
+<span class="ultra-small">Template : themes/bbtheme/module-edit-form.html.twig</span>
+</div>
+

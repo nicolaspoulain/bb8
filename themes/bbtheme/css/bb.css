@@ -1,14 +1,20 @@
 .FIL {
-      color: #8b00a6;
-          font-weight: bold;
-        }
+  color: #8b00a6;
+  font-weight: bold;
+}
 .PAF {
-      color: #004a78;
-          font-weight: bold;
-        }
-        .green {
-              color: green;
-            }
-            .blue {
-                  color: blue;
-                }
+  color: #004a78;
+  font-weight: bold;
+}
+.green {
+  color: green;
+}
+.blue {
+  color: blue;
+}
+
+.form-item {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
