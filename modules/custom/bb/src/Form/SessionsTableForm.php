@@ -3,10 +3,10 @@
 
 /**
  * @file
- * Contains \Drupal\bb\SessionsTableForm.
+ * Contains \Drupal\bb\Form\SessionsTableForm.
  */
 
-namespace Drupal\bb;
+namespace Drupal\bb\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;

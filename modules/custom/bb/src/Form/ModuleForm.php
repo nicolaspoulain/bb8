@@ -3,10 +3,10 @@
 
 /**
  * @file
- * Contains \Drupal\bb\ModuleForm.
+ * Contains \Drupal\bb\Form\ModuleForm.
  */
 
-namespace Drupal\bb;
+namespace Drupal\bb\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;

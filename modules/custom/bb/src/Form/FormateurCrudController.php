@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\bb\FormateurCrudController
+ * Contains \Drupal\bb\Form\FormateurCrudController
  */
 
-namespace Drupal\bb;
+namespace Drupal\bb\Form;
 
 class FormateurCrudController {
 

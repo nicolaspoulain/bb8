@@ -1,7 +1,7 @@
 bb.sessionstableform:
   path: '/session/{co_modu}'
   defaults:
-    _form: '\Drupal\bb\SessionsTableForm'
+    _form: '\Drupal\bb\Form\SessionsTableForm'
     _title: 'Mon Formulaire pour les sessions'
     co_modu: '1'
   requirements:
@@ -10,7 +10,7 @@ bb.sessionstableform:
 bb.moduleEdit:
   path: '/module/{co_modu}'
   defaults:
-    _form: '\Drupal\bb\ModuleForm'
+    _form: '\Drupal\bb\Form\ModuleForm'
     _title: 'Module'
     co_modu: '1'
   requirements:
@@ -19,13 +19,13 @@ bb.moduleEdit:
 bb.autocomplete.formateur:
   path: '/autocompFormateur'
   defaults:
-    _controller: '\Drupal\bb\Autocomplete::autocompFormateur'
+    _controller: '\Drupal\bb\Form\Autocomplete::autocompFormateur'
   requirements:
     _permission: 'access content'
 
 bb.autocomplete.lieu:
   path: '/autocompLieu'
   defaults:
-    _controller: '\Drupal\bb\Autocomplete::autocompLieu'
+    _controller: '\Drupal\bb\Form\Autocomplete::autocompLieu'
   requirements:
     _permission: 'access content'

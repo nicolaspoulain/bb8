@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\bb\Autocomplete
+ * Contains \Drupal\bb\Form\Autocomplete
  */
 
-namespace Drupal\bb;
+namespace Drupal\bb\Form;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

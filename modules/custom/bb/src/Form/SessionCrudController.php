@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains \Drupal\bb\SessionCrudController
+ * Contains \Drupal\bb\Form\SessionCrudController
  */
 
-namespace Drupal\bb;
+namespace Drupal\bb\Form;
 
 class SessionCrudController {
 
