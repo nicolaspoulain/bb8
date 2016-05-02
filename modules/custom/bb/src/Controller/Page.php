@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Contains Drupal\bb\Controller\Page.
@@ -29,17 +28,12 @@ class Page extends ControllerBase {
     $content['links'] = [
       '#theme' => 'item_list',
       '#items' => [
-        // Attributes are used by the core dialog libraries to invoke the modal.
         Link::createFromRoute(
           $this->t('Modal Example'),
           'bb.modal_form',
-           [],
-           [
-             'attributes' => [
-               'class' => ['use-ajax'],
-               'data-dialog-type' => 'modal',
-             ]
-           ]
+          array('sess_id'=>'18'),
+          // Attributes are used by core dialog libraries to invoke the modal.
+          ['attributes' => ['class'=>['use-ajax'],'data-dialog-type'=>'modal']]
         ),
       ],
     ];
@@ -52,7 +46,7 @@ class Page extends ControllerBase {
     ];
 
     $content['sessions'] =
-        \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
 
     return $content;
   }

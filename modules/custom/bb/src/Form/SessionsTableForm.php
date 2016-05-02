@@ -48,7 +48,7 @@ class SessionsTableForm extends FormBase {
         'edit'          => Link::createFromRoute(
           $this->t('Edt'),
           'bb.modal_form',
-          [],
+           array('sess_id'=>$entry->sess_id),
           [
             'attributes' => [
               'class' => ['use-ajax'],

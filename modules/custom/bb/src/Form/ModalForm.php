@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Contains Drupal\bb\Form\ModalForm.
@@ -30,7 +29,7 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state,$sess_id = 1) {
     $form['#prefix'] = '<div id="fapi-example-modal-form">';
     $form['#suffix'] = '</div>';
     // $form['title'] = [
@@ -52,6 +51,7 @@ class ModalForm extends FormBase {
         '#type' => 'textfield',
         '#title' => $this->t('Horaires'),
         '#default_value' => $entries[0]->horaires,
+        '#default_value' => $sess_id,
       );
       $form['lieu'] = array(
         '#type' => 'search',
