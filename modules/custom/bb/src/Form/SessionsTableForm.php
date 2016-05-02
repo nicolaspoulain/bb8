@@ -1,6 +1,4 @@
 <?php
-// vim:tw=78 foldmarker={,} foldlevel=0 foldmethod=marker nospell :
-
 /**
  * @file
  * Contains \Drupal\bb\Form\SessionsTableForm.
@@ -11,6 +9,8 @@ namespace Drupal\bb\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
+use Drupal\bb\Controller\SessionCrudController;
+use Drupal\Core\Link;
 
 class SessionsTableForm extends FormBase {
 
@@ -25,41 +25,6 @@ class SessionsTableForm extends FormBase {
    * Create form to list and edit sessions
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-
-    foreach ($entries = SessionCrudController::load() as $entry) {
-      $form['new'][$entry->sess_id]['date'] = array(
-        '#type' => 'date',
-        '#required' => TRUE,
-        '#default_value' => $entry->date,
-      );
-      $form['new'][$entry->sess_id]['horaires'] = array(
-        '#type' => 'textfield',
-        '#size' => 10, 
-        '#default_value' => $entry->horaires,
-      );
-      $form['new'][$entry->sess_id]['groupe'] = array(
-        '#type' => 'number',
-        '#default_value' => $entry->groupe,
-        '#attributes' => array(
-          'min'  => 1,
-          'max'  => 99,
-          'step' => 1,
-      ),
-      );
-      $form['new'][$entry->sess_id]['lieu'] = array(
-        '#type' => 'textfield',
-        '#required' => TRUE,
-        '#default_value' => $entry->denom_comp,
-        '#autocomplete_route_name' => 'bb.autocomplete.lieu',
-      );
-      $form['new'][$entry->sess_id]['formateur'] = array(
-        '#type' => 'textfield',
-        '#required' => TRUE,
-        '#default_value' => $entry->nomu,
-        '#autocomplete_route_name' => 'bb.autocomplete.formateur',
-      );
-    }
-
 
     // get sess_id from URL
     $current_uri = \Drupal::request()->getRequestUri();
@@ -80,6 +45,17 @@ class SessionsTableForm extends FormBase {
         'dap'           => $entry->duree_a_payer,
         'dp'            => $entry->duree_prevue,
         'type_paiement' => $entry->type_paiement,
+        'edit'          => Link::createFromRoute(
+          $this->t('Edt'),
+          'bb.modal_form',
+          [],
+          [
+            'attributes' => [
+              'class' => ['use-ajax'],
+              'data-dialog-type' => 'modal',
+            ]
+          ]
+        ),
       );
     }
     $param = "dd";
@@ -93,6 +69,7 @@ class SessionsTableForm extends FormBase {
       'dap'           => t('dap'),
       'dp'            => t('dp'),
       'type_paiement' => t('Type pmt'),
+      'edit' => t('Edt'),
     );
 
     // On applique le theme session

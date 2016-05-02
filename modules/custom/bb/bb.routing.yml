@@ -1,3 +1,11 @@
+bb.module:
+  path: '/module'
+  defaults:
+    _controller: '\Drupal\bb\Controller\ModuleController::foobarPage'
+    _title: 'Module'
+  requirements:
+    _permission: 'access content'
+
 bb.sessionstableform:
   path: '/session/{co_modu}'
   defaults:
@@ -7,12 +15,19 @@ bb.sessionstableform:
   requirements:
     _permission: 'access content'
 
-bb.moduleEdit:
-  path: '/module/{co_modu}'
+bb.description:
+  path: '/page'
   defaults:
-    _form: '\Drupal\bb\Form\ModuleForm'
-    _title: 'Module'
-    co_modu: '1'
+    _controller:  '\Drupal\bb\Controller\Page::description'
+    _title: 'Form API Examples'
+  requirements:
+    _permission: 'access content'
+
+bb.modal_form:
+  path: '/modal_form'
+  defaults:
+    _form:  '\Drupal\bb\Form\ModalForm'
+    _title: 'Modal Form Example'
   requirements:
     _permission: 'access content'
 

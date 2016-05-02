@@ -5,7 +5,7 @@
  * Contains \Drupal\bb\Form\SessionCrudController
  */
 
-namespace Drupal\bb\Form;
+namespace Drupal\bb\Controller;
 
 class SessionCrudController {
 
