@@ -12,6 +12,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\bb\Controller\SessionCrudController;
 
 /**
  * Implements the ModalForm form controller.
@@ -30,6 +31,7 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state,$sess_id = 1) {
+    $entries = SessionCrudController::load( [ 'sess_id' => $sess_id ] );
     $form['#prefix'] = '<div id="fapi-example-modal-form">';
     $form['#suffix'] = '</div>';
     // $form['title'] = [
@@ -51,7 +53,6 @@ class ModalForm extends FormBase {
         '#type' => 'textfield',
         '#title' => $this->t('Horaires'),
         '#default_value' => $entries[0]->horaires,
-        '#default_value' => $sess_id,
       );
       $form['lieu'] = array(
         '#type' => 'search',
