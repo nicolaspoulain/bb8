@@ -58,14 +58,14 @@ class ModalForm extends FormBase {
         '#type' => 'search',
         '#title' => $this->t('Lieu'),
         // '#required' => TRUE,
-        '#default_value' => $entries[0]->lieu,
+        '#default_value' => $entries[0]->denom_comp,
         '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       );
       $form['formateur'] = array(
         '#type' => 'textfield',
         '#title' => $this->t('Formateur'),
         // '#required' => TRUE,
-        '#default_value' => $entries[0]->formateur,
+        '#default_value' => $entries[0]->nomu,
         '#autocomplete_route_name' => 'bb.autocomplete.formateur',
       );
       $form['duree_a_payer'] = array(
