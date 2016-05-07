@@ -27,7 +27,7 @@ bb.modal_form:
   path: '/modal_form/{sess_id}'
   defaults:
     _form:  '\Drupal\bb\Form\ModalForm'
-    _title: 'Modal Form Example'
+    _title_callback:  '\Drupal\bb\Form\ModalForm::getTitle'
     sess_id: 21
   requirements:
     _permission: 'access content'

@@ -22,6 +22,20 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
+  public function getTitle($sess_id) {
+    return 'Modification de la session n°'.$sess_id;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getFormId() {
+    return 'fapi_example_modal_form';
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function buildForm(array $form, FormStateInterface
     $form_state,$sess_id = 1) {
 
@@ -101,13 +115,6 @@ class ModalForm extends FormBase {
     ];
 
     return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getFormId() {
-    return 'fapi_example_modal_form';
   }
 
   /**
