@@ -107,10 +107,11 @@ class ModalForm extends FormBase {
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Submit'),
-      '#ajax' => [
-        'callback' => '::ajaxSubmitForm',
-        'event' => 'click',
-      ]
+      '#submit'   => array('::submitForm'),
+      // '#ajax' => [
+        // 'callback' => '::ajaxSubmitForm',
+        // 'event' => 'click',
+      // ]
     ];
 
     return $form;
@@ -127,6 +128,7 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $form_state->setRedirect('bb.description',array());
     $title = $form_state->getValue('title');
     $message = t('Submit handler: You specified a title of %title.', ['%title' => $title]);
     drupal_set_message($message);
