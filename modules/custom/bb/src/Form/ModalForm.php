@@ -24,6 +24,7 @@ class ModalForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface
     $form_state,$sess_id = 1) {
+
     $entries = SessionCrudController::load( [ 'sess_id' => $sess_id ] );
     $form['sess_id'] = array(
       '#type' => 'hidden',
@@ -110,9 +111,34 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+
+    $account = \Drupal::currentUser();
+
+    $entry = array(
+      'uid'           => $account->id(),
+      'date'          => $form_state->getValue('date'),
+      'horaires'      => $form_state->getValue('horaires'),
+      'co_lieu'       => $form_state->getValue('lieu'),
+      'co_resp'       => $form_state->getValue('formateur'),
+      'duree_a_payer' => $form_state->getValue('duree_a_payer'),
+      'duree_prevue'  => $form_state->getValue('duree_prevue'),
+      'type_paiement' => $form_state->getValue('type_paiement'),
+      'groupe'        => $form_state->getValue('groupe'),
+    );
+
+    if ( $form_state->getValue('sess_id') ==-1) {
+      // Insert
+      $DBWriteStatus = SessionCrudController::insert($entry);
+    } else {
+      // Update
+      $entry['sess_id']  = $form_state->getValue('sess_id');
+      $DBWriteStatus = SessionCrudController::update($entry);
+    };
+
     $form_state->setRedirect('bb.description',array());
-    $title = $form_state->getValue('title');
-    $message = t('Submit handler: You specified a title of %title.', ['%title' => $title]);
+
+    $message = t('Modifications enregistrées');
+    $form_state->setRedirect('bb.description',array());
     drupal_set_message($message);
   }
 
