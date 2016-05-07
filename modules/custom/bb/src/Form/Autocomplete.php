@@ -20,11 +20,17 @@ class Autocomplete {
   public function autocompFormateur(Request $request) {
     $string = $request->query->get('q');
     $matches = array();
-    if ($string) {
-      $matches[] = array('value' => '114', 'label' => 'Poulain N');
-      $matches[] = array('value' => '2712', 'label' => 'Poulain A');
-      $matches[] = array('value' => '106', 'label' => 'PANDAZOPOULOS');
-      $matches[] = array('value' => '1343', 'label' => 'Baldacci J');
+    $result = db_select('gbb_gresp_dafor')
+      ->fields('gbb_gresp_dafor', array('co_resp', 'nomu', 'prenom'))
+      ->condition('nomu', db_like($string) . '%', 'LIKE')
+      ->range(0, 10)
+      ->execute();
+    foreach ($result as $resp) {
+      // In the simplest case (see user_autocomplete), the key and the value are
+      // the same. Here we'll display the uid along with the username in the
+      // dropdown.
+      $matches[] = array('value' => "$resp->nomu $resp->prenom ($resp->co_resp)",
+                         'label' => "$resp->nomu $resp->prenom ($resp->co_resp)",) ;
     }
 
     return new JsonResponse($matches);

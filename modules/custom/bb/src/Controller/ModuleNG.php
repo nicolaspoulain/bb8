@@ -24,27 +24,6 @@ class ModuleNG extends ControllerBase {
       '#markup' => '<p>' . $this->t('Examples from Drupal Form API.') . '</p>',
     ];
 
-    // Create a list of links to the form examples.
-    $content['links'] = [
-      '#theme' => 'item_list',
-      '#items' => [
-        Link::createFromRoute(
-          $this->t('Modal Example'),
-          'bb.modal_form',
-          array('sess_id'=>'18'),
-          // Attributes are used by core dialog libraries to invoke the modal.
-          ['attributes' => ['class'=>['use-ajax'],'data-dialog-type'=>'modal']]
-        ),
-      ],
-    ];
-
-    // The message container is used by the modal form example it is an empty
-    // tag that will be replaced by content.
-    $content['message'] = [
-      '#type' => 'container',
-      '#attributes' => ['id' => 'fapi-example-message'],
-    ];
-
     $content['sessions'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
 
