@@ -45,7 +45,8 @@ class ModalForm extends FormBase {
       '#type' => 'search',
       '#title' => $this->t('Lieu'),
       // '#required' => TRUE,
-      '#default_value' => $entries[0]->denom_comp,
+      '#default_value' => $entries[0]->sigle . " " . $entries[0]->denom_comp .
+      " (" . $entries[0]->co_lieu . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
     );
     $form['formateur'] = array(
@@ -53,6 +54,8 @@ class ModalForm extends FormBase {
       '#title' => $this->t('Formateur'),
       // '#required' => TRUE,
       '#default_value' => $entries[0]->nomu,
+      '#default_value' => $entries[0]->nomu . " " . $entries[0]->prenom .
+      " (" . $entries[0]->co_resp . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
     );
     $form['duree_a_payer'] = array(
@@ -115,6 +118,11 @@ class ModalForm extends FormBase {
     $form_state->setValue('formateur', $co_resp[1]);
     if ( !is_numeric($co_resp[1]) )
       $form_state->setErrorByName('formateur', $this->t('Problème !'));
+
+    preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
+    $form_state->setValue('lieu', $co_lieu[1]);
+    if ( FALSE )
+      $form_state->setErrorByName('lieu', $this->t('Problème !'));
   }
 
   /**

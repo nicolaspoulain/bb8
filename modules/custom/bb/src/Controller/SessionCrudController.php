@@ -26,7 +26,7 @@ class SessionCrudController {
     $select->leftjoin('gbb_gresp_dafor', 'r',
                              'r.co_resp=s.co_resp AND r.co_degre=s.co_degre');
     $select->fields('s')
-           ->fields('e', array('denom_comp', 'sigle'))
+           ->fields('e', array('denom_comp', 'sigle', 'co_lieu'))
            ->fields('r', array('co_resp', 'nomu', 'prenom'))
            ->range(0,5);
 
