@@ -110,6 +110,16 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
+    $form_state->setValue('formateur', $co_resp[1]);
+    if ( !is_numeric($co_resp[1]) )
+      $form_state->setErrorByName('formateur', $this->t('Problème !'));
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $account = \Drupal::currentUser();

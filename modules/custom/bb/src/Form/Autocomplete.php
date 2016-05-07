@@ -20,28 +20,33 @@ class Autocomplete {
   public function autocompFormateur(Request $request) {
     $string = $request->query->get('q');
     $matches = array();
-    $result = db_select('gbb_gresp_dafor')
-      ->fields('gbb_gresp_dafor', array('co_resp', 'nomu', 'prenom'))
-      ->condition('nomu', db_like($string) . '%', 'LIKE')
-      ->range(0, 10)
-      ->execute();
-    foreach ($result as $resp) {
-      // In the simplest case (see user_autocomplete), the key and the value are
-      // the same. Here we'll display the uid along with the username in the
-      // dropdown.
-      $matches[] = array('value' => "$resp->nomu $resp->prenom ($resp->co_resp)",
-                         'label' => "$resp->nomu $resp->prenom ($resp->co_resp)",) ;
+    if ($string) {
+      $result = db_select('gbb_gresp_dafor')
+        ->fields('gbb_gresp_dafor', array('co_resp', 'nomu', 'prenom'))
+        ->condition('nomu', db_like($string) . '%', 'LIKE')
+        ->range(0, 10)
+        ->execute();
+      foreach ($result as $res) {
+        $matches[] = array('value' => "$res->nomu $res->prenom ($res->co_resp)",
+          'label' => "$res->nomu $res->prenom ($res->co_resp)",) ;
+      }
     }
-
     return new JsonResponse($matches);
   }
+
   public function autocompLieu(Request $request) {
     $string = $request->query->get('q');
     $matches = array();
     if ($string) {
-      $matches[] = array('value' => '0759999L', 'label' => 'Rectorat');
-      $matches[] = array('value' => '0753345D', 'label' => 'Michelet');
-      $matches[] = array('value' => '0752251P', 'label' => 'Louise Michel');
+      $result = db_select('gbb_netab_dafor')
+        ->fields('gbb_netab_dafor', array('co_lieu', 'denom_comp', 'sigle'))
+        ->condition('denom_comp', '%' . db_like($string) . '%', 'LIKE')
+        ->range(0, 10)
+        ->execute();
+      foreach ($result as $res) {
+        $matches[] = array('value' => "$res->sigle $res->denom_comp ($res->co_lieu)",
+          'label' => "$res->sigle $res->denom_comp ($res->co_lieu)",) ;
+      }
     }
 
     return new JsonResponse($matches);
