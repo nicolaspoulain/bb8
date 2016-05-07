@@ -31,7 +31,7 @@ class SessionsTableForm extends FormBase {
     $options = UrlHelper::parse($current_uri);
     $sess_id = $options['query']['query']['sess_id'];
     if ($options['query']['query']['action'] == 'add') $sess_id = -1;
-    dpm(explode('/',$options['path']));
+    // dpm(explode('/',$options['path']));
 
     // Tableselect Form constructor
     $options = array();

@@ -135,11 +135,7 @@ class ModalForm extends FormBase {
       $DBWriteStatus = SessionCrudController::update($entry);
     };
 
-    $form_state->setRedirect('bb.description',array());
-
-    $message = t('Modifications enregistrées');
-    $form_state->setRedirect('bb.description',array());
-    drupal_set_message($message);
+    $form_state->setRedirect('bb.moduleng',array());
   }
 
 }
