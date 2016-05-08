@@ -20,13 +20,17 @@ class ModuleNG extends ControllerBase {
     $content['#attached']['library'][] = 'core/drupal.ajax';
     $content['#attached']['library'][] = 'core/drupal.dialog';
     $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
-    $content['intro'] = [
-      '#markup' => '<p>' . $this->t('Examples from Drupal Form API.') . '</p>',
-    ];
 
+    // See bb.module function bbtheme
+    $content['#theme'] = 'moduleng';
+
+    $content['intro'] = [ '#markup' => 'Examples from Drupal Form API.' ];
+
+    // Get form
     $content['sessions'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
 
+    // dpm($content);
     return $content;
   }
 
