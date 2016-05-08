@@ -1,22 +1,24 @@
-uuid: 3177685b-8163-4142-b806-060e7f08b9a3
+uuid: dbac95af-ab16-4043-be3b-d57690b4e55f
 langcode: fr
-status: false
+status: true
 dependencies:
   config:
     - system.menu.tools
   module:
     - system
   theme:
-    - bbtheme
-id: bbtheme_tools
-theme: bbtheme
-region: '-1'
+    - bootstrap
+_core:
+  default_config_hash: f3Dd5TnUiFDjFZp9yEGJInwt6cUzs7O6SvLTFTATSlU
+id: bootstrap_tools
+theme: bootstrap
+region: sidebar_second
 weight: 0
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
   id: 'system_menu_block:tools'
-  label: Outils
+  label: Tools
   provider: system
   label_display: visible
   level: 1
