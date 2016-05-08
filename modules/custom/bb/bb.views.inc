@@ -40,6 +40,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['co_anmo'] = array(
     'title'  => t('co_anmo'),
@@ -47,6 +48,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['lib'] = array(
     'title'  => t('lib'),
@@ -110,6 +112,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['nb_eff_groupe'] = array(
     'title'  => t('nb_eff_groupe'),
@@ -117,6 +120,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['duree_prev'] = array(
     'title'  => t('duree_prev'),
@@ -124,6 +128,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['nb_place_prev'] = array(
     'title'  => t('nb_place_prev'),
@@ -131,6 +136,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['nb_h_interv'] = array(
     'title'  => t('nb_h_interv'),
@@ -138,6 +144,7 @@ function bb_views_data() {
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   $data['gbb_gmodu']['co_prna'] = array(
     'title'  => t('co_prna'),
