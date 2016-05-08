@@ -16,10 +16,12 @@ bb.sessionstableform:
     _permission: 'access content'
 
 bb.moduleng:
-  path: '/moduleng'
+  path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
     _controller:  '\Drupal\bb\Controller\ModuleNG::sessions'
     _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
   requirements:
     _permission: 'access content'
 

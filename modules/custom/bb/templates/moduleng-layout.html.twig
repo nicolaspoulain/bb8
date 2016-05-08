@@ -1,4 +1,9 @@
-{{ _context[''].intro }}
+<p>{{ _context[''].intro }}</p>
+
+{% if "administrator" in user.roles %}
+{{ kint() }}
+<p><a href="../../admin/structure/views/view/infos_module">Edit next block</a></p>
+{% endif %}
 
 {{ drupal_view('infos_module', 'block_1') }}
 
