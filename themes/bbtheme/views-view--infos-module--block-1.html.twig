@@ -1,0 +1,20 @@
+
+{% set foo = rows[0]['#rows'][0]['#row'] %}
+{% set bar = rows[0]['#rows'][0]['#view'] %}
+
+{% if "administrator" in user.roles %}
+<p>voir themes/bbtheme/views-view--infos-module--block-1.html.twig<p>
+{{ kint(bar) }}
+{% endif %}
+
+
+
+{{ foo.gbb_gmodu_co_degre}}
+{{ foo.gbb_gdisp_id_disp}}
+{{ foo.gbb_gdisp_lib }}
+{{ foo.gbb_gmodu_lib }}
+{{ foo.gbb_gdisp_lobjt }}
+
+{{ foo.co_modu}}
+
+
