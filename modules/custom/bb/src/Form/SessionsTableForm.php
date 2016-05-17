@@ -29,13 +29,16 @@ class SessionsTableForm extends FormBase {
     // get sess_id from URL
     $current_uri = \Drupal::request()->getRequestUri();
     $options = UrlHelper::parse($current_uri);
+    // dpm(explode('/',$options['path']));
+    $degre = explode('/',$options['path'])[4];
+    $comodu = explode('/',$options['path'])[5];
+
     $sess_id = $options['query']['query']['sess_id'];
     if ($options['query']['query']['action'] == 'add') $sess_id = -1;
-    // dpm(explode('/',$options['path']));
 
     // Tableselect Form constructor
     $options = array();
-    foreach ($entries = SessionCrudController::load() as $entry) {
+    foreach ($entries = SessionCrudController::load(['co_modu'=>$comodu,'s.co_degre'=>$degre]) as $entry) {
       $options[$entry->sess_id] = array(
         'date'          => $entry->date,
         'horaires'      => $entry->horaires,
