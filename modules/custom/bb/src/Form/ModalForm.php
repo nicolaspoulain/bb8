@@ -40,6 +40,11 @@ class ModalForm extends FormBase {
     $form_state,$sess_id = 1) {
 
     $entries = SessionCrudController::load( [ 'sess_id' => $sess_id ] );
+
+    // On applique le theme session
+    // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
+    $form['#theme'] = 'modal';
+
     $form['sess_id'] = array(
       '#type' => 'hidden',
       '#value' => $sess_id,
