@@ -1,19 +1,24 @@
-<p>{{ _context[''].intro }}</p>
-
 {% if "administrator" in user.roles %}
-{{ kint() }}
 {% endif %}
 
-{{ drupal_view('infos_module', 'block_1') }}
 
 
+{{ _context[''].form_build_id }} {# required #}
+{{ _context[''].form_id }} {# required #}
+
+        <div class="pure-g">
 
 {{ _context[''].date }}
 {{ _context[''].horaires }}
 {{ _context[''].lieu }}
+        </div>
 {{ _context[''].formateur }}
 {{ _context[''].duree_a_payer }}
 {{ _context[''].duree_prevue }}
 {{ _context[''].type_paiement }}
 {{ _context[''].groupe }}
+
+
+
+{{ _context[''].actions }}
 

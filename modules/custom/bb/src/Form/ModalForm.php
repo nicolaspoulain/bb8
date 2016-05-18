@@ -45,6 +45,8 @@ class ModalForm extends FormBase {
     // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
     $form['#theme'] = 'modal';
 
+    $form['#attributes'] = array('class' => array('pure-form','pure-form-stacked'));
+
     $form['sess_id'] = array(
       '#type' => 'hidden',
       '#value' => $sess_id,
@@ -54,11 +56,15 @@ class ModalForm extends FormBase {
       '#title' => t('Date'),
       // '#required' => TRUE,
       '#default_value' => $entries[0]->date,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
     );
     $form['horaires'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Horaires'),
       '#default_value' => $entries[0]->horaires,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
     );
     $form['lieu'] = array(
       '#type' => 'search',
@@ -67,6 +73,8 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->sigle . " " . $entries[0]->denom_comp .
       " (" . $entries[0]->co_lieu . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
     );
     $form['formateur'] = array(
       '#type' => 'textfield',
