@@ -56,6 +56,8 @@ class SessionsTableForm extends FormBase {
             'attributes' => [
               'class' => ['use-ajax'],
               'data-dialog-type' => 'modal',
+              // 'data-dialog-options' => json_encode(['height' => 400, 'width' => 700]),
+              'data-dialog-options' => '{"width": "80%"}',
             ]
           ]
         ),
