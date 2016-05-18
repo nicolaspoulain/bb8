@@ -3,6 +3,7 @@ fontawesome:
     theme:
       css/font-awesome.min.css: {}
       css/pure-min.css: {}
+      css/grids-responsive-min.css: {}
       css/bb.css: {}
 datatables:
   js:
