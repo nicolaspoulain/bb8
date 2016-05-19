@@ -1,24 +1,7 @@
 {% if "administrator" in user.roles %}
 {% endif %}
 
-
-
-{{ _context[''].form_build_id }} {# required #}
-{{ _context[''].form_id }} {# required #}
-
-        <div class="pure-g">
-
-{{ _context[''].date }}
-{{ _context[''].horaires }}
-{{ _context[''].lieu }}
-        </div>
-{{ _context[''].formateur }}
-{{ _context[''].duree_a_payer }}
-{{ _context[''].duree_prevue }}
-{{ _context[''].type_paiement }}
-{{ _context[''].groupe }}
-
-
-
-{{ _context[''].actions }}
+<div class="pure-g">
+{{ _context[''] }}
+</div>
 

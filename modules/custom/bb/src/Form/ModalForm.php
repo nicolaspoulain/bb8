@@ -51,20 +51,28 @@ class ModalForm extends FormBase {
       '#type' => 'hidden',
       '#value' => $sess_id,
     );
+    $form['co_modu'] = array(
+      '#type' => 'hidden',
+      '#default_value' => $entries[0]->co_modu,
+    );
+    $form['co_degre'] = array(
+      '#type' => 'hidden',
+      '#default_value' => $entries[0]->co_degre,
+    );
     $form['date'] = array(
       '#type' => 'date',
       '#title' => t('Date'),
       // '#required' => TRUE,
       '#default_value' => $entries[0]->date,
       '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
     $form['horaires'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Horaires'),
       '#default_value' => $entries[0]->horaires,
       '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
     $form['lieu'] = array(
       '#type' => 'search',
@@ -74,7 +82,7 @@ class ModalForm extends FormBase {
       " (" . $entries[0]->co_lieu . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-3')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
     $form['formateur'] = array(
       '#type' => 'textfield',
@@ -84,23 +92,31 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->nomu . " " . $entries[0]->prenom .
       " (" . $entries[0]->co_resp . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
     $form['duree_a_payer'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Duree_a_payer'),
       '#size' => 10, 
       '#default_value' => $entries[0]->duree_a_payer,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['duree_prevue'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('duree_prevue'),
       '#size' => 10, 
       '#default_value' => $entries[0]->duree_prevue,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['type_paiement'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Type pmt'),
       '#default_value' => $entries[0]->type_paiement,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['groupe'] = array(
       '#type' => 'number',
@@ -111,6 +127,8 @@ class ModalForm extends FormBase {
         'max'  => 99,
         'step' => 1,
       ),
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
 
     // Group submit handlers in an actions element with a key of "actions" so
@@ -173,7 +191,12 @@ class ModalForm extends FormBase {
       $DBWriteStatus = SessionCrudController::update($entry);
     };
 
-    $form_state->setRedirect('bb.moduleng',array());
+    $form_state->setRedirect('bb.moduleng',
+      array(
+        'co_degre' => $form_state->getValue('co_degre'),
+        'co_modu'  => $form_state->getValue('co_modu')
+      )
+    );
   }
 
 }
