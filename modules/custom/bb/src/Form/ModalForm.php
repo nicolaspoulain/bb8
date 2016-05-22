@@ -85,30 +85,30 @@ class ModalForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
     $form['formateur'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Formateur'),
-      // '#required' => TRUE,
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Formateur'),
+      // '#required'   => TRUE,
       '#default_value' => $entries[0]->nomu,
-      '#default_value' => $entries[0]->nomu . " " . $entries[0]->prenom .
-      " (" . $entries[0]->co_resp . ")",
+      '#default_value' => $entries[0]->nomu . " "  . $entries[0]->prenom
+                                            . " (" . $entries[0]->co_resp . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
       '#attributes' => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
     $form['duree_a_payer'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Duree_a_payer'),
-      '#size' => 10, 
+      '#type'          => 'textfield',
+      '#title'         => $this->t('Duree_a_payer'),
+      '#size'          => 10, 
       '#default_value' => $entries[0]->duree_a_payer,
-      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#attributes'    => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['duree_prevue'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('duree_prevue'),
-      '#size' => 10, 
+      '#type'          => 'textfield',
+      '#title'         => $this->t('duree_prevue'),
+      '#size'          => 10, 
       '#default_value' => $entries[0]->duree_prevue,
-      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#attributes'    => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['type_paiement'] = array(
@@ -119,10 +119,10 @@ class ModalForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
     $form['groupe'] = array(
-      '#type' => 'number',
-      '#title' => $this->t('Groupe'),
+      '#type'          => 'number',
+      '#title'         => $this->t('Groupe'),
       '#default_value' => $entries[0]->groupe,
-      '#attributes' => array(
+      '#attributes'    => array(
         'min'  => 1,
         'max'  => 99,
         'step' => 1,
@@ -140,9 +140,9 @@ class ModalForm extends FormBase {
 
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Submit'),
-      '#submit'   => array('::submitForm'),
+      '#type'   => 'submit',
+      '#value'  => $this->t('Submit'),
+      '#submit' => array('::submitForm'),
     ];
 
     return $form;
