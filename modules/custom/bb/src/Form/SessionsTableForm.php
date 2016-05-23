@@ -49,9 +49,9 @@ class SessionsTableForm extends FormBase {
         'dp'            => $entry->duree_prevue,
         'type_paiement' => $entry->type_paiement,
         'edit'          => Link::createFromRoute(
-          $this->t('Edt'),
+          $this->t('&#9998;'),
           'bb.modal_form',
-           array('sess_id'=>$entry->sess_id),
+          array('sess_id'=>$entry->sess_id),
           [
             'attributes' => [
               'class' => ['use-ajax'],
@@ -74,7 +74,7 @@ class SessionsTableForm extends FormBase {
       'dap'           => t('dap'),
       'dp'            => t('dp'),
       'type_paiement' => t('Type pmt'),
-      'edit' => t('Edt'),
+      'edit'          => t(''),
     );
 
     // On applique le theme session
