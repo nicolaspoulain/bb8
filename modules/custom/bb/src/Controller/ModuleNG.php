@@ -21,10 +21,10 @@ class ModuleNG extends ControllerBase {
     $content['#attached']['library'][] = 'core/drupal.dialog';
     $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
 
+    $content['intro'] = [ '#markup' => 'src/Controller/ModuleNG.php' ];
     // See bb.module function bbtheme
     $content['#theme'] = 'moduleng';
-
-    $content['intro'] = [ '#markup' => 'Examples from Drupal Form API.' ];
+    // moduleng-layout/html.twig 
 
     // Get form
     $content['sessions'] =

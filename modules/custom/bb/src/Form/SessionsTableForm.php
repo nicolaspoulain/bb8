@@ -38,7 +38,14 @@ class SessionsTableForm extends FormBase {
 
     // Tableselect Form constructor
     $options = array();
-    foreach ($entries = SessionCrudController::load(['co_modu'=>$comodu,'s.co_degre'=>$degre]) as $entry) {
+    foreach (
+      $entries = SessionCrudController::load(
+        [
+          'co_modu'    => $comodu,
+          's.co_degre' => $degre
+        ]
+      ) 
+      as $entry) {
       $options[$entry->sess_id] = array(
         'date'          => $entry->date,
         'horaires'      => $entry->horaires,
@@ -51,9 +58,9 @@ class SessionsTableForm extends FormBase {
         'edit'          => Link::createFromRoute(
           $this->t('&#9998;'),
           'bb.modal_form',
-          array('sess_id'=>$entry->sess_id),
-          [
-            'attributes' => [
+          array( 'sess_id'=>$entry->sess_id ),
+          [ 'attributes' =>
+            [
               'class' => ['use-ajax'],
               'data-dialog-type' => 'modal',
               // 'data-dialog-options' => json_encode(['height' => 400, 'width' => 700]),
@@ -63,8 +70,6 @@ class SessionsTableForm extends FormBase {
         ),
       );
     }
-    $param = "dd";
-    // $param = $route_match->getRawParameters('co_modu');
     $header = array(
       'date'          => t('Date'),
       'horaires'      => t('Horaires'),
