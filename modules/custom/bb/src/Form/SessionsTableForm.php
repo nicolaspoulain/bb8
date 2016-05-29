@@ -33,8 +33,8 @@ class SessionsTableForm extends FormBase {
     $degre = explode('/',$options['path'])[4];
     $comodu = explode('/',$options['path'])[5];
 
-    $sess_id = $options['query']['query']['sess_id'];
-    if ($options['query']['query']['action'] == 'add') $sess_id = -1;
+    // $sess_id = $options['query']['query']['sess_id'];
+    // if ($options['query']['query']['action'] == 'add') $sess_id = -1;
 
     // Tableselect Form constructor
     $options = array();
@@ -75,7 +75,7 @@ class SessionsTableForm extends FormBase {
               ]
             ]
           ),
-          'icon'         => $icon,
+          'icon'          => $this->t($icon),
           'horaires'      => $entry->horaires,
           'groupe'        => $entry->groupe,
           'lieu'          => $entry->sigle .' '.$entry->denom_comp,
@@ -100,6 +100,14 @@ class SessionsTableForm extends FormBase {
     // On applique le theme session
     // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
     // $form['#theme'] = 'session';
+    $form['list']['co_modu'] = array(
+      '#type' => 'hidden',
+      '#value' => $comodu,
+    );
+    $form['list']['co_degre'] = array(
+      '#type' => 'hidden',
+      '#value' => $degre,
+    );
 
     $form['list']['table'] = array(
       '#type'          => 'tableselect',
@@ -121,76 +129,6 @@ class SessionsTableForm extends FormBase {
       '#submit'   => array(  '::submitAddListForm'),
       '#validate' => array(''),
     );
-
-    // Field edit Form constructor if sess_id provided
-    if (is_numeric($sess_id)) {
-
-      // load values for current sess_id
-      $entries = SessionCrudController::load(array('sess_id' => $sess_id));
-
-      $form['modif']['sess_id'] = array(
-        '#type' => 'hidden',
-        '#value' => $sess_id,
-      );
-      $form['modif']['date'] = array(
-        '#type' => 'date',
-        '#title' => t('Date'),
-        '#required' => TRUE,
-        '#default_value' => $entries[0]->date,
-      );
-      $form['modif']['horaires'] = array(
-        '#type' => 'textfield',
-        '#title' => $this->t('Horaires'),
-        '#default_value' => $entries[0]->horaires,
-      );
-      $form['modif']['lieu'] = array(
-        '#type' => 'search',
-        '#title' => $this->t('Lieu'),
-        '#required' => TRUE,
-        '#default_value' => $entries[0]->lieu,
-        '#autocomplete_route_name' => 'bb.autocomplete.lieu',
-      );
-      $form['modif']['formateur'] = array(
-        '#type' => 'textfield',
-        '#title' => $this->t('Formateur'),
-        '#required' => TRUE,
-        '#default_value' => $entries[0]->formateur,
-        '#autocomplete_route_name' => 'bb.autocomplete.formateur',
-      );
-      $form['modif']['duree_a_payer'] = array(
-        '#type' => 'textfield',
-        '#title' => $this->t('Duree_a_payer'),
-        '#size' => 10, 
-        '#default_value' => $entries[0]->duree_a_payer,
-      );
-      $form['modif']['duree_prevue'] = array(
-        '#type' => 'textfield',
-        '#title' => $this->t('duree_prevue'),
-        '#size' => 10, 
-        '#default_value' => $entries[0]->duree_prevue,
-      );
-      $form['modif']['type_paiement'] = array(
-        '#type' => 'textfield',
-        '#title' => $this->t('Type pmt'),
-        '#default_value' => $entries[0]->type_paiement,
-      );
-      $form['modif']['groupe'] = array(
-        '#type' => 'number',
-        '#title' => $this->t('Groupe'),
-        '#default_value' => $entries[0]->groupe,
-        '#attributes' => array(
-          'min'  => 1,
-          'max'  => 99,
-          'step' => 1,
-        ),
-      );
-      $form['modif']['save'] = array(
-        '#type'     => 'submit',
-        '#value'    => $this->t('Save'),
-        '#submit'   => array('::submitSaveModifForm'),
-        '#validate' => array(),
-      );
-    }
 
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;
@@ -233,11 +171,10 @@ class SessionsTableForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitAddListForm(array &$form, FormStateInterface $form_state) {
-    $form_state->setRedirect('bb.sessionstableform',
+    $form_state->setRedirect('bb.moduleng',
       array(
-        'query' => array(
-          'action' => 'add',
-        ),
+        'co_degre' => $form_state->getValue('co_degre'),
+        'co_modu'  => $form_state->getValue('co_modu')
       )
     );
   }
