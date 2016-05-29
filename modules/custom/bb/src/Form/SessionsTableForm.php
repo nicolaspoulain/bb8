@@ -46,6 +46,19 @@ class SessionsTableForm extends FormBase {
         ]
       )
       as $entry) {
+
+      $icon = "yyy";
+      if ($entry->en_attente) {
+        $icon = \Drupal::state()->get('ico_attente');
+      } elseif ($entry->session_alert) {
+        $icon = \Drupal::state()->get('ico_alert');
+      } elseif ($entry->convoc_sent) {
+        $icon = \Drupal::state()->get('ico_sent');
+      } else {
+        $icon = \Drupal::state()->get('ico_notAttente');
+      };
+
+
       $options[$entry->sess_id] = array
         (
           'date' => Link::createFromRoute
@@ -62,6 +75,7 @@ class SessionsTableForm extends FormBase {
               ]
             ]
           ),
+          'icon'         => $icon,
           'horaires'      => $entry->horaires,
           'groupe'        => $entry->groupe,
           'lieu'          => $entry->sigle .' '.$entry->denom_comp,
@@ -73,6 +87,7 @@ class SessionsTableForm extends FormBase {
     }
     $header = array(
       'date'          => t('Date'),
+      'icon'          => t(''),
       'horaires'      => t('Horaires'),
       'lieu'          => t('Lieu'),
       'groupe'        => t('Gr'),
