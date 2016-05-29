@@ -44,31 +44,29 @@ class SessionsTableForm extends FormBase {
           'co_modu'    => $comodu,
           's.co_degre' => $degre
         ]
-      ) 
+      )
       as $entry) {
       $options[$entry->sess_id] = array(
-        'date'          => $entry->date,
-        'horaires'      => $entry->horaires,
-        'groupe'        => $entry->groupe,
-        'lieu'          => $entry->sigle .' '.$entry->denom_comp,
-        'formateur'     => $entry->prenom.' '.$entry->nomu,
-        'dap'           => $entry->duree_a_payer,
-        'dp'            => $entry->duree_prevue,
-        'type_paiement' => $entry->type_paiement,
-        'edit'          => Link::createFromRoute(
-          $this->t('&#9998;'),
+        'date' => Link::createFromRoute(
+          $this->t('<i class="fa fa-edit"> ' . $entry->date .'</i>'),
           'bb.modal_form',
           array( 'sess_id'=>$entry->sess_id ),
           [ 'attributes' =>
-            [
-              'class' => ['use-ajax'],
-              'data-dialog-type' => 'modal',
-              // 'data-dialog-options' => json_encode(['height' => 400, 'width' => 700]),
-              'data-dialog-options' => '{"width": "80%"}',
-            ]
+          [
+            'class' => ['use-ajax'],
+            'data-dialog-type' => 'modal',
+            'data-dialog-options' => '{"width": "80%"}',
           ]
-        ),
-      );
+        ]
+      ) ,
+      'horaires'      => $entry->horaires,
+      'groupe'        => $entry->groupe,
+      'lieu'          => $entry->sigle .' '.$entry->denom_comp,
+      'formateur'     => $entry->prenom.' '.$entry->nomu,
+      'dap'           => $entry->duree_a_payer,
+      'dp'            => $entry->duree_prevue,
+      'type_paiement' => $entry->type_paiement,
+    );
     }
     $header = array(
       'date'          => t('Date'),
@@ -79,7 +77,6 @@ class SessionsTableForm extends FormBase {
       'dap'           => t('dap'),
       'dp'            => t('dp'),
       'type_paiement' => t('Type pmt'),
-      'edit'          => t(''),
     );
 
     // On applique le theme session
