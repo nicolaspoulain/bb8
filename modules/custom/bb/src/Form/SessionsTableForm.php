@@ -46,27 +46,30 @@ class SessionsTableForm extends FormBase {
         ]
       )
       as $entry) {
-      $options[$entry->sess_id] = array(
-        'date' => Link::createFromRoute(
-          $this->t('<i class="fa fa-edit"> ' . $entry->date .'</i>'),
-          'bb.modal_form',
-          array( 'sess_id'=>$entry->sess_id ),
-          [ 'attributes' =>
-          [
-            'class' => ['use-ajax'],
-            'data-dialog-type' => 'modal',
-            'data-dialog-options' => '{"width": "80%"}',
-          ]
-        ]
-      ) ,
-      'horaires'      => $entry->horaires,
-      'groupe'        => $entry->groupe,
-      'lieu'          => $entry->sigle .' '.$entry->denom_comp,
-      'formateur'     => $entry->prenom.' '.$entry->nomu,
-      'dap'           => $entry->duree_a_payer,
-      'dp'            => $entry->duree_prevue,
-      'type_paiement' => $entry->type_paiement,
-    );
+      $options[$entry->sess_id] = array
+        (
+          'date' => Link::createFromRoute
+          (
+            $this->t('<i class="fa fa-edit"> ' . $entry->date .'</i>'),
+            'bb.modal_form',
+            array( 'sess_id'=>$entry->sess_id ),
+            [
+              'attributes' =>
+              [
+                'class' => ['use-ajax'],
+                'data-dialog-type' => 'modal',
+                'data-dialog-options' => '{"width": "80%"}',
+              ]
+            ]
+          ),
+          'horaires'      => $entry->horaires,
+          'groupe'        => $entry->groupe,
+          'lieu'          => $entry->sigle .' '.$entry->denom_comp,
+          'formateur'     => $entry->prenom.' '.$entry->nomu,
+          'dap'           => $entry->duree_a_payer,
+          'dp'            => $entry->duree_prevue,
+          'type_paiement' => $entry->type_paiement,
+        );
     }
     $header = array(
       'date'          => t('Date'),
