@@ -45,8 +45,6 @@ class SessionsTableForm extends FormBase
       )
       as $entry) {
 
-echo $entry->sess_id . " - ";
-
       $icon = "yyy";
       if ($entry->en_attente) {
         $icon = \Drupal::state()->get('ico_attente');
