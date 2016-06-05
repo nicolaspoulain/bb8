@@ -45,6 +45,8 @@ class SessionsTableForm extends FormBase
       )
       as $entry) {
 
+echo $entry->sess_id . " - ";
+
       $icon = "yyy";
       if ($entry->en_attente) {
         $icon = \Drupal::state()->get('ico_attente');
@@ -120,7 +122,7 @@ class SessionsTableForm extends FormBase
     );
     $form['list']['add'] = array(
       '#type'     => 'submit',
-      '#value'    => $this->t('Add'),
+      '#value'    => $this->t('Ajouter session'),
       '#submit'   => array(  '::submitAddListForm'),
       '#validate' => array(''),
     );
@@ -134,12 +136,8 @@ class SessionsTableForm extends FormBase
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state)
-  {
-  }
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
-  }
+  public function validateForm(array &$form, FormStateInterface $form_state) { }
+  public function   submitForm(array &$form, FormStateInterface $form_state) { }
 
   /**
    * Verification du formulaire tableselect
@@ -156,7 +154,9 @@ class SessionsTableForm extends FormBase
    */
   public function submitEditListForm(array &$form, FormStateInterface $form_state)
   {
-    foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
+    foreach (array_filter($form_state->getValue('table')) as $i) {
+      if ($i != 0) $id = $i; 
+    };
     $form_state->setRedirect('bb.moduleng',
       array(
         'co_degre' => $form_state->getValue('co_degre'),
@@ -165,10 +165,26 @@ class SessionsTableForm extends FormBase
     );
   }
   /**
-   * {@inheritdoc}
+   * Ajout d'une nouvelle session
    */
   public function submitAddListForm(array &$form, FormStateInterface $form_state)
   {
+    $entry = array(
+      'uid'           => 0,
+      'co_degre'      => $form_state->getValue('co_degre'),
+      'co_modu'       => $form_state->getValue('co_modu'),
+      'date_modif'    => date('Y-m-d'),
+      'date'          => date('Y-m-d'),
+      'horaires'      => '9h-17h',
+      'co_lieu'       => 0,
+      'co_resp'       => 0,
+      'duree_a_payer' => 0,
+      'duree_prevue'  => 0,
+      'type_paiement' => 'VAC',
+      'groupe'        => 1,
+    );
+    // Insert
+    $DBWriteStatus = SessionCrudController::insert($entry);
     $form_state->setRedirect('bb.moduleng',
       array(
         'co_degre' => $form_state->getValue('co_degre'),

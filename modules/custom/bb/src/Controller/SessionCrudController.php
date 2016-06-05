@@ -28,7 +28,7 @@ class SessionCrudController {
     $select->fields('s')
            ->fields('e', array('denom_comp', 'sigle', 'co_lieu'))
            ->fields('r', array('co_resp', 'nomu', 'prenom'))
-           ->range(0,5);
+           ->range(0,1000);
 
     // Add each field and value as a condition to this query.
     foreach ($entry as $field => $value) {
