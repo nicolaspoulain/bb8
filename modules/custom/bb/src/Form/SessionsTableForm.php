@@ -12,29 +12,27 @@ use Drupal\Component\Utility\UrlHelper;
 use Drupal\bb\Controller\SessionCrudController;
 use Drupal\Core\Link;
 
-class SessionsTableForm extends FormBase {
-
+class SessionsTableForm extends FormBase
+{
   /**
    * {@inheritdoc}.
    */
-  public function getFormId() {
+  public function getFormId()
+  {
     return 'session_form';
   }
 
   /**
    * Create form to list and edit sessions
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
+  public function buildForm(array $form, FormStateInterface $form_state)
+  {
     // get sess_id from URL
     $current_uri = \Drupal::request()->getRequestUri();
     $options = UrlHelper::parse($current_uri);
     // dpm(explode('/',$options['path']));
     $degre = explode('/',$options['path'])[4];
     $comodu = explode('/',$options['path'])[5];
-
-    // $sess_id = $options['query']['query']['sess_id'];
-    // if ($options['query']['query']['action'] == 'add') $sess_id = -1;
 
     // Tableselect Form constructor
     $options = array();
@@ -57,7 +55,6 @@ class SessionsTableForm extends FormBase {
       } else {
         $icon = \Drupal::state()->get('ico_notAttente');
       };
-
 
       $options[$entry->sess_id] = array
         (
@@ -97,25 +94,23 @@ class SessionsTableForm extends FormBase {
       'type_paiement' => t('Type pmt'),
     );
 
-    // On applique le theme session
     // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
     // $form['#theme'] = 'session';
+
     $form['list']['co_modu'] = array(
-      '#type' => 'hidden',
+      '#type'  => 'hidden',
       '#value' => $comodu,
     );
     $form['list']['co_degre'] = array(
-      '#type' => 'hidden',
+      '#type'  => 'hidden',
       '#value' => $degre,
     );
-
     $form['list']['table'] = array(
       '#type'          => 'tableselect',
       '#header'        => $header,
       '#options'       => $options,
       '#empty'         => t('No entries available.'),
       '#default_value' => array($sess_id => TRUE),
-
     );
     $form['list']['edit'] = array(
       '#type'     => 'submit',
@@ -139,15 +134,18 @@ class SessionsTableForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
+  public function validateForm(array &$form, FormStateInterface $form_state)
+  {
   }
-  public function submitForm(array &$form, FormStateInterface $form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state)
+  {
   }
 
   /**
-   * Verification du formulaire tableselect 
+   * Verification du formulaire tableselect
    */
-  public function validateEditListForm(array &$form, FormStateInterface $form_state) {
+  public function validateEditListForm(array &$form, FormStateInterface $form_state)
+  {
     if (count(array_filter($form_state->getValue('table'))) != 1) {
       $form_state->setErrorByName('' ,
         $this->t('Une et une seule session doit être cochée.'));
@@ -156,21 +154,9 @@ class SessionsTableForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitEditListForm(array &$form, FormStateInterface $form_state) {
+  public function submitEditListForm(array &$form, FormStateInterface $form_state)
+  {
     foreach (array_filter($form_state->getValue('table')) as $i) { if ($i != 0) $id = $i; };
-    $form_state->setRedirect('bb.sessionstableform',
-      array(
-        'query' => array(
-          'sess_id' => $id,
-          'action' => $form_state->getValue('add'),
-        ),
-      )
-    );
-  }
-  /**
-   * {@inheritdoc}
-   */
-  public function submitAddListForm(array &$form, FormStateInterface $form_state) {
     $form_state->setRedirect('bb.moduleng',
       array(
         'co_degre' => $form_state->getValue('co_degre'),
@@ -181,8 +167,20 @@ class SessionsTableForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitSaveModifForm(array &$form, FormStateInterface $form_state) {
-
+  public function submitAddListForm(array &$form, FormStateInterface $form_state)
+  {
+    $form_state->setRedirect('bb.moduleng',
+      array(
+        'co_degre' => $form_state->getValue('co_degre'),
+        'co_modu'  => $form_state->getValue('co_modu')
+      )
+    );
+  }
+  /**
+   * {@inheritdoc}
+   */
+  public function submitSaveModifForm(array &$form, FormStateInterface $form_state)
+  {
     $account = \Drupal::currentUser();
 
     $entry = array(
