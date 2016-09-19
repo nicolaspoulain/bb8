@@ -1009,7 +1009,7 @@ display:
         operator: AND
         groups:
           1: AND
-          2: OR
+          2: AND
       use_ajax: false
       group_by: true
     cache_metadata:
