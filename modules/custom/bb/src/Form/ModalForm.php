@@ -95,29 +95,6 @@ class ModalForm extends FormBase {
       '#attributes' => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
-    $form['duree_a_payer'] = array(
-      '#type'          => 'textfield',
-      '#title'         => $this->t('Duree_a_payer'),
-      '#size'          => 10, 
-      '#default_value' => $entries[0]->duree_a_payer,
-      '#attributes'    => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-    );
-    $form['duree_prevue'] = array(
-      '#type'          => 'textfield',
-      '#title'         => $this->t('duree_prevue'),
-      '#size'          => 10, 
-      '#default_value' => $entries[0]->duree_prevue,
-      '#attributes'    => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-    );
-    $form['type_paiement'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Type pmt'),
-      '#default_value' => $entries[0]->type_paiement,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-    );
     $form['groupe'] = array(
       '#type'          => 'number',
       '#title'         => $this->t('Groupe'),
@@ -127,6 +104,29 @@ class ModalForm extends FormBase {
         'max'  => 99,
         'step' => 1,
       ),
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+    );
+    $form['duree_a_payer'] = array(
+      '#type'          => 'textfield',
+      '#title'         => $this->t('DàP'),
+      '#size'          => 10,
+      '#default_value' => $entries[0]->duree_a_payer,
+      '#attributes'    => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+    );
+    $form['duree_prevue'] = array(
+      '#type'          => 'textfield',
+      '#title'         => $this->t('DP'),
+      '#size'          => 10,
+      '#default_value' => $entries[0]->duree_prevue,
+      '#attributes'    => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+    );
+    $form['type_paiement'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Type pmt'),
+      '#default_value' => $entries[0]->type_paiement,
       '#attributes' => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );

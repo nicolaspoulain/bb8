@@ -12,9 +12,21 @@
 .blue {
   color: blue;
 }
-
+.red {
+  color: red;
+}
+.orange {
+  color: orange;
+}
 .form-item {
   margin-top: 0em;
   margin-bottom: 0em;
 }
-
+ul.no-dot {
+  list-style-type: none;
+  padding: 0;
+}
+.no-link {
+  text-decoration: none;
+  border-bottom: 0px solid;
+}

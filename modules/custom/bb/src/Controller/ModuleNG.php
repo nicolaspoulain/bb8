@@ -12,9 +12,7 @@ use Drupal\Core\Link;
  * Simple ModuleNG controller for drupal.
  */
 class ModuleNG extends ControllerBase {
-  /**
-   * Lists the examples provided by form_example.
-   */
+
   public function sessions() {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';

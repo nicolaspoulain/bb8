@@ -61,6 +61,29 @@ class SessionsTableForm extends FormBase
 
       $options[$entry->sess_id] = array
         (
+          'edit' => Link::createFromRoute
+          (
+            $this->t('<ul class="no-dot">
+           <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+             <i class="fa fa-gear"></i>
+             <ul class="pure-menu-children">
+               <li class="pure-menu-item pure-menu-link fa fa-pencil green"> Editer</li>
+               <li class="pure-menu-item"><a href="'.$comodu.'/'.$entry->sess_id.'/Dup/" class="pure-menu-link fa fa-copy"> Dupliquer</a></li>
+               <li class="pure-menu-item"><a href="'.$comodu.'/'.$entry->sess_id.'/Del/" class="pure-menu-link fa fa-trash red"> Supprimer</a></li>
+             </ul>
+            </li></ul>
+            '),
+            'bb.modal_form',
+            array( 'sess_id'=>$entry->sess_id ),
+            [
+              'attributes' =>
+              [
+                'class' => ['use-ajax no-link'],
+                'data-dialog-type' => 'modal',
+                'data-dialog-options' => '{"width": "80%"}',
+              ]
+            ]
+          ),
           'date' => Link::createFromRoute
           (
             $this->t('<i class="fa fa-edit"> ' . $entry->date .'</i>'),
@@ -75,6 +98,7 @@ class SessionsTableForm extends FormBase
               ]
             ]
           ),
+          'date'          => $entry->date,
           'icon'          => $this->t($icon),
           'horaires'      => $entry->horaires,
           'groupe'        => $entry->groupe,
@@ -86,6 +110,7 @@ class SessionsTableForm extends FormBase
         );
     }
     $header = array(
+      'edit'          => t(''),
       'date'          => t('Date'),
       'icon'          => t(''),
       'horaires'      => t('Horaires'),
@@ -115,18 +140,18 @@ class SessionsTableForm extends FormBase
       '#empty'         => t('No entries available.'),
       '#default_value' => array($sess_id => TRUE),
     );
-    $form['list']['edit'] = array(
-      '#type'     => 'submit',
-      '#value'    => $this->t('Edit'),
-      '#submit'   => array(  '::submitEditListForm'),
-      '#validate' => array('::validateEditListForm'),
-    );
+    // $form['list']['edit'] = array(
+      // '#type'     => 'submit',
+      // '#value'    => $this->t('Edit'),
+      // '#submit'   => array(  '::submitEditListForm'),
+      // '#validate' => array('::validateEditListForm'),
+    // );
     $form['list']['add'] = array(
       '#type'     => 'submit',
       '#value'    => $this->t('Ajouter session'),
       // '#submit'   => array(  '::submitAddListForm'),
       // '#validate' => array(''),
-      '#ajax' => array( // here we add Ajax callback where we will process  
+      '#ajax' => array( // here we add Ajax callback where we will process
                 'callback' => '::open_modal',  // the data that came from the form and that we will receive as a result in the modal window
                       ),
     );
@@ -158,31 +183,26 @@ class SessionsTableForm extends FormBase
   public function validateForm(array &$form, FormStateInterface $form_state) { }
   public function   submitForm(array &$form, FormStateInterface $form_state) { }
 
-  /**
-   * Verification du formulaire tableselect
-   */
-  public function validateEditListForm(array &$form, FormStateInterface $form_state)
-  {
-    if (count(array_filter($form_state->getValue('table'))) != 1) {
-      $form_state->setErrorByName('' ,
-        $this->t('Une et une seule session doit être cochée.'));
-    }
-  }
-  /**
-   * {@inheritdoc}
-   */
-  public function submitEditListForm(array &$form, FormStateInterface $form_state)
-  {
-    foreach (array_filter($form_state->getValue('table')) as $i) {
-      if ($i != 0) $id = $i; 
-    };
-    $form_state->setRedirect('bb.moduleng',
-      array(
-        'co_degre' => $form_state->getValue('co_degre'),
-        'co_modu'  => $form_state->getValue('co_modu')
-      )
-    );
-  }
+  // public function validateEditListForm(array &$form, FormStateInterface $form_state)
+  // {
+    // if (count(array_filter($form_state->getValue('table'))) != 1) {
+      // $form_state->setErrorByName('' ,
+        // $this->t('Une et une seule session doit être cochée.'));
+    // }
+  // }
+  // public function submitEditListForm(array &$form, FormStateInterface $form_state)
+  // {
+    // foreach (array_filter($form_state->getValue('table')) as $i) {
+      // if ($i != 0) $id = $i;
+    // };
+    // $form_state->setRedirect('bb.moduleng',
+      // array(
+        // 'co_degre' => $form_state->getValue('co_degre'),
+        // 'co_modu'  => $form_state->getValue('co_modu')
+      // )
+    // );
+  // }
+
   /**
    * Ajout d'une nouvelle session
    */

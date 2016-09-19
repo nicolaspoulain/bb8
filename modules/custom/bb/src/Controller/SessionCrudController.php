@@ -10,6 +10,28 @@ namespace Drupal\bb\Controller;
 class SessionCrudController {
 
   /**
+   * DELETE from the database using a filter array.
+   *
+   * @param array $entry
+   *   An array containing all the fields used to search the entries in the
+   *   table.
+   *
+   * @return object
+   *   An object containing the loaded entries if found.
+   */
+  public static function delete($entry = array()) {
+    $delete = db_delete('gbb_session', 's');
+    $delete->range(0,1000);
+
+    // Add each field and value as a condition to this query.
+    foreach ($entry as $field => $value) {
+      $delete->condition($field, $value);
+    }
+    // Return the result in object format.
+    return $delete->execute();
+  }
+
+  /**
    * READ from the database using a filter array.
    *
    * @param array $entry
@@ -37,7 +59,7 @@ class SessionCrudController {
     // Return the result in object format.
     return $select->execute()->fetchAll();
   }
-  
+
   /**
    * Update an entry in the database.
    *
@@ -78,7 +100,7 @@ class SessionCrudController {
 
     drupal_set_message( t($message . ' par %username', array(
         '%sessid' => $entry['sessid'],
-        '%username' => $account->getUsername(), 
+        '%username' => $account->getUsername(),
       ))
     );
 
@@ -118,7 +140,7 @@ class SessionCrudController {
     \Drupal::logger('BB')->info( $message);
 
     drupal_set_message( t($message . ' par %username', array(
-        '%username' => $account->getUsername(), 
+        '%username' => $account->getUsername(),
       ))
     );
 
