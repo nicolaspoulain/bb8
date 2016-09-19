@@ -1,10 +1,10 @@
-bb.module:
-  path: '/module'
-  defaults:
-    _controller: '\Drupal\bb\Controller\ModuleController::foobarPage'
-    _title: 'Module'
-  requirements:
-    _permission: 'access content'
+#bb.module:
+#  path: '/module'
+#  defaults:
+#    _controller: '\Drupal\bb\Controller\ModuleController::foobarPage'
+#    _title: 'Module'
+#  requirements:
+#    _permission: 'access content'
 
 bb.sessionstableform:
   path: '/session/{co_modu}'
