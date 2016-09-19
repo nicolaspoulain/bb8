@@ -10,6 +10,9 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\bb\Controller\SessionCrudController;
+use Drupal\Core\Ajax\AjaxResponse;
+// use Drupal\Core\Ajax;
+use Drupal\Core\Ajax\OpenModalDialogCommand;
 use Drupal\Core\Link;
 
 class SessionsTableForm extends FormBase
@@ -121,14 +124,32 @@ class SessionsTableForm extends FormBase
     $form['list']['add'] = array(
       '#type'     => 'submit',
       '#value'    => $this->t('Ajouter session'),
-      '#submit'   => array(  '::submitAddListForm'),
-      '#validate' => array(''),
+      // '#submit'   => array(  '::submitAddListForm'),
+      // '#validate' => array(''),
+      '#ajax' => array( // here we add Ajax callback where we will process  
+                'callback' => '::open_modal',  // the data that came from the form and that we will receive as a result in the modal window
+                      ),
     );
 
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;
 
     return $form;
+  }
+
+
+  public function open_modal(array &$form, FormStateInterface $form_state) {
+    $response = new AjaxResponse();
+    $title = 'Node ID';
+    $content = '<div class="test-popup-content"> Node ID is: ' . $id . '</div>';
+    $options = array(
+      'dialogClass' => 'popup-dialog-class',
+      'width' => '300',
+      'height' => '300',
+    );
+    // $content = \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
+    $response->addCommand(new OpenModalDialogCommand($title, $content, $options));
+    return $response;
   }
 
   /**
