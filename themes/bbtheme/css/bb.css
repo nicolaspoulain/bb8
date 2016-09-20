@@ -30,3 +30,12 @@ ul.no-dot {
   text-decoration: none;
   border-bottom: 0px solid;
 }
+.mq-table th.highlight {
+      background-color: rgb(255, 234, 133);
+      color: #676767;
+    }
+
+    .mq-table td.highlight {
+          background-color: rgb(255, 250, 229);
+      color: #676767;
+        }

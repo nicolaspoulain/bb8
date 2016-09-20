@@ -9,3 +9,4 @@ datatables:
   js:
     js/jquery.dataTables.js: {}
     js/jquery.dataTables.load.js: {}
+    js/alert.js: {}

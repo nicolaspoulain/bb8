@@ -20,8 +20,7 @@ class SessionCrudController {
    *   An object containing the loaded entries if found.
    */
   public static function delete($entry = array()) {
-    $delete = db_delete('gbb_session', 's');
-    $delete->range(0,1000);
+    $delete = db_delete('gbb_session');
 
     // Add each field and value as a condition to this query.
     foreach ($entry as $field => $value) {
