@@ -2,12 +2,12 @@
 {% set foo = rows[0]['#rows'][0]['#row'] %}
 {% set bar = rows[0]['#rows'][0]['#view'] %}
 
-{% if "administrator" in user.roles %}
-<p><a href="../../admin/structure/views/view/infos_module">Edit next block</a> 
-(mis en forme par themes/bbtheme/views-view--infos-module--block-1.html.twig)<p>
-{% endif %}
 
-Degré {{ foo.gbb_gmodu_co_degre}}<br/>
+Degré {{ foo.gbb_gmodu_co_degre}}
+{% if "administrator" in user.roles %}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gear red"><a href="../../admin/structure/views/view/infos_module" class="red">EditView</a> (mis en forme par themes/bbtheme/views-view--infos-module--block-1.html.twig)  cf src/Controller/ModuleNG.php</i>
+{% endif %}
+<br/>
 Dispo :  {{ foo.gbb_gdisp_id_disp}} {{ foo.gbb_gdisp_lib }} <br/>
 Module : {{ foo.co_modu}}           {{ foo.gbb_gmodu_lib }} <br/>
 {{ foo.gbb_gdisp_lobjt }}<br/>

@@ -37,10 +37,8 @@ class ModuleNG extends ControllerBase {
     }
     // kill unwanted informations
     unset($tab['sess_id']);
-    unset($tab['denom_comp']);
-    unset($tab['sigle']);
-    unset($tab['nomu']);
-    unset($tab['prenom']);
+    unset($tab['denom_comp'], $tab['sigle']);
+    unset($tab['nomu'], $tab['prenom']);
 
     // insert new row
     $DBWriteStatus = SessionCrudController::insert($tab);
