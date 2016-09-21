@@ -68,7 +68,7 @@ class SessionsTableForm extends FormBase
              <i class="fa fa-gear"></i>
              <ul class="pure-menu-children">
                <li class="pure-menu-item pure-menu-link fa fa-pencil blue"> Modifier</li>
-               <li class="pure-menu-item"><a href="'.$comodu.'/'.$entry->sess_id.'/Dup/" class="pure-menu-link fa fa-copy"> Dupliquer</a></li>
+               <li class="pure-menu-item"><a href="../../sessionduplicate/'.$degre.'/'.$comodu.'/'.$entry->sess_id.'" class="pure-menu-link fa fa-copy"> Dupliquer</a></li>
                <li class="pure-menu-item"><a href="../../sessiondelete/'.$degre.'/'.$comodu.'/'.$entry->sess_id.'" class="pure-menu-link fa fa-trash red delAlertJs"> Supprimer</a></li>
              </ul>
             </li></ul>

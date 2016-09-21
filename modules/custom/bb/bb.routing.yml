@@ -27,6 +27,16 @@ bb.sessiondelete:
   requirements:
     _permission: 'access content'
 
+bb.sessionduplicate:
+  path: '/sessionduplicate/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::sessionduplicate'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.modal_form:
   path: '/modal_form/{sess_id}'
   defaults:

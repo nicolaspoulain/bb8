@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class ModuleNG extends ControllerBase {
 
   public function sessiondelete($co_degre, $co_modu, $sessid) {
-
     // delete session
     $entry = array('sess_id' => $sessid);
     $DBWriteStatus = SessionCrudController::delete($entry);
@@ -28,6 +27,31 @@ class ModuleNG extends ControllerBase {
     );
     return $this->redirect('bb.moduleng',$routeparameters);
   }
+
+  public function sessionduplicate($co_degre, $co_modu, $sessid) {
+    // load session informations
+    $entry = array('sess_id' => $sessid);
+    $session = SessionCrudController::load($entry);
+    foreach ($session['0'] as $field=>$val) {
+      $tab[$field] = $val;
+    }
+    // kill unwanted informations
+    unset($tab['sess_id']);
+    unset($tab['denom_comp']);
+    unset($tab['sigle']);
+    unset($tab['nomu']);
+    unset($tab['prenom']);
+
+    // insert new row
+    $DBWriteStatus = SessionCrudController::insert($tab);
+
+    $routeparameters = array(
+      'co_degre' => $co_degre,
+      'co_modu'  => $co_modu,
+    );
+    return $this->redirect('bb.moduleng',$routeparameters);
+  }
+
   public function sessions() {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';
