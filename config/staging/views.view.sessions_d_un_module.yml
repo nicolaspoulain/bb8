@@ -21,7 +21,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -48,11 +48,7 @@ display:
       style:
         type: table
         options:
-          grouping:
-            -
-              field: co_modu
-              rendered: true
-              rendered_strip: false
+          grouping: {  }
           row_class: ''
           default_row_class: true
           override: true
@@ -61,18 +57,34 @@ display:
           summary: ''
           description: ''
           columns:
+            co_degre: co_degre
             co_modu: co_modu
-            co_resp: co_resp
             sess_id: sess_id
+            nothing_1: nothing_1
+            date: date
+            convoc_sent: convoc_sent
+            en_attente: en_attente
+            session_alert: session_alert
+            nothing: nothing
+            horaires: horaires
+            groupe: groupe
+            sigle: sigle
+            co_lieu: co_lieu
+            denom_comp: denom_comp
+            prenom: prenom
+            nomu: nomu
+            duree_a_payer: duree_a_payer
+            duree_prevue: duree_prevue
+            type_paiement: type_paiement
           info:
-            co_modu:
+            co_degre:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            co_resp:
+            co_modu:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -86,7 +98,119 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: '-1'
+            nothing_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            convoc_sent:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            en_attente:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            session_alert:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            horaires:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            groupe:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            sigle:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_lieu:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            denom_comp:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            prenom:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nomu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            duree_a_payer:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            duree_prevue:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type_paiement:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: date
           empty_table: false
       row:
         type: fields
@@ -368,28 +492,29 @@ display:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_1:
     display_plugin: block
     id: block_1
-    display_title: 'Sessions Stagiaire'
+    display_title: 'Sessions Formateur'
     position: 1
     display_options:
       display_extenders: {  }
       block_description: Sessions_de_module
       fields:
-        co_modu:
-          id: co_modu
+        co_degre:
+          id: co_degre
           table: gbb_gmodu
-          field: co_modu
+          field: co_degre
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: co_degre
           exclude: true
           alter:
-            alter_text: true
-            text: "\n"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -418,7 +543,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -434,8 +559,63 @@ display:
           format_plural_string: "1\x03@count"
           prefix: ''
           suffix: ''
-          entity_type: null
-          entity_field: null
+          plugin_id: numeric
+        co_modu:
+          id: co_modu
+          table: gbb_session
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_modu
+          exclude: true
+          alter:
+            alter_text: true
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
           plugin_id: numeric
         sess_id:
           id: sess_id
@@ -505,7 +685,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"../../modal_form/{{ sess_id }}\" class=\"use-ajax no-link\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;80%&quot;}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-gear\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pencil blue\"> Modifier</li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessionduplicate/2/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-copy\"> Dupliquer</a></li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessiondelete/2/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-trash red delAlertJs\"> Supprimer</a></li>\n             </ul>\n            </li></ul>\n            </a>"
+            text: "<a href=\"../../modal_form/{{ sess_id }}\" class=\"use-ajax no-link\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;80%&quot;}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-gear\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pencil blue\"> Modifier</li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-copy\"> Dupliquer</a></li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-trash red delAlertJs\"> Supprimer</a></li>\n             </ul>\n            </li></ul>\n            </a>"
             make_link: false
             path: ''
             absolute: false
@@ -1330,6 +1510,9 @@ display:
         fields: false
         filters: false
         filter_groups: false
+        title: false
+        query: false
+        use_ajax: false
       filters:
         co_modu:
           id: co_modu
@@ -1374,11 +1557,22 @@ display:
         operator: AND
         groups:
           1: AND
-      display_description: 'Les sessiosns nécessitant une convocation stagiaire pour un module donné en param3 de l''URL'
+      display_description: 'Les sessiosns nécessitant une convocation formateur pour un module donné en param3 de l''URL'
+      title: 'sessions formateurs module'
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: null
+      use_ajax: true
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }
   block_2:
     display_plugin: block
@@ -1850,4 +2044,5 @@ display:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url.query_args
       tags: {  }

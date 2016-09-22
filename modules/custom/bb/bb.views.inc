@@ -394,6 +394,14 @@ function bb_views_data() {
     ),
   );
   //}}
+  $data['gbb_session']['co_modu'] = array( 'help' => t('coode module de la session'),
+    //{{
+    'title' => t('co_modu'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_session']['sess_id'] = array( 'help' => t('Identifiant de la session'),
     //{{
     'title' => t('sess_id'),
