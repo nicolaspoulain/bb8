@@ -7,7 +7,7 @@ dependencies:
 id: bbtheme_local_actions
 theme: bbtheme
 region: content
-weight: -20
+weight: -7
 provider: null
 plugin: local_actions_block
 settings:

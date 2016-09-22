@@ -1,6 +1,6 @@
 uuid: 96292f61-808d-4bdc-9419-25709fa8071a
 langcode: fr
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -8,8 +8,8 @@ dependencies:
     - bbtheme
 id: bbtheme_powered
 theme: bbtheme
-region: sidebar_first
-weight: 10
+region: '-1'
+weight: -5
 provider: null
 plugin: system_powered_by_block
 settings:

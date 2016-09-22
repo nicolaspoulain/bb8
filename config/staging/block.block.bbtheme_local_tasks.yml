@@ -7,7 +7,7 @@ dependencies:
 id: bbtheme_local_tasks
 theme: bbtheme
 region: content
-weight: -40
+weight: -7
 provider: null
 plugin: local_tasks_block
 settings:

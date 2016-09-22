@@ -9,7 +9,7 @@ dependencies:
 id: connexionutilisateur
 theme: bbtheme
 region: sidebar_first
-weight: null
+weight: -7
 provider: null
 plugin: user_login_block
 settings:
