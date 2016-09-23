@@ -5,8 +5,8 @@ dependencies: {  }
 id: sessions_d_un_module
 label: 'sessions d''un module'
 module: views
-description: ''
-tag: ''
+description: 'Toutes les sessions pour un module donné'
+tag: bb
 base_table: gbb_gmodu
 base_field: co_modu
 core: 8.x
@@ -210,7 +210,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: date
+          default: '-1'
           empty_table: false
       row:
         type: fields
@@ -477,13 +477,73 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-      sorts: {  }
+      sorts:
+        groupe:
+          id: groupe
+          table: gbb_session
+          field: groupe
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        date:
+          id: date
+          table: gbb_session
+          field: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'sessions stagiaires module'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
-      arguments: {  }
+      arguments:
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: raw
+          default_argument_options:
+            index: 2
+            use_alias: false
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          plugin_id: numeric
       display_extenders: {  }
       filter_groups:
         operator: AND
@@ -492,6 +552,7 @@ display:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }
   block_1:
@@ -674,104 +735,6 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<a href=\"../../modal_form/{{ sess_id }}\" class=\"use-ajax no-link\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;80%&quot;}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-gear\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pencil blue\"> Modifier</li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-copy\"> Dupliquer</a></li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-trash red delAlertJs\"> Supprimer</a></li>\n             </ul>\n            </li></ul>\n            </a>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        date:
-          id: date
-          table: gbb_session
-          field: date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Date
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ date|date("D d M Y") }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         convoc_sent:
           id: convoc_sent
           table: gbb_session
@@ -943,6 +906,104 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<a href=\"../../modal_form/{{ sess_id }}\" class=\"use-ajax no-link\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;80%&quot;}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-gear\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pencil blue\"> Modifier</li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-copy\"> Dupliquer</a></li>\n               <li class=\"pure-menu-item\"><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"pure-menu-link fa fa-trash red delAlertJs\"> Supprimer</a></li>\n             </ul>\n            </li></ul>\n            </a>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+        date:
+          id: date
+          table: gbb_session
+          field: date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Date
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ date|date("D d M Y") }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nothing:
           id: nothing
           table: views
@@ -954,7 +1015,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if convoc_sent == \"1\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% endif %}\n{% if en_attente == \"1\" %}\n<i class=\"fa fa-pause\"></i>\n{% endif %}\n{% if session_alert == \"1\" %}\n<i class=\"fa fa-flag red\"></i>\n{% endif %}\n{% if en_attente == \"0\" and session_alert == \"0\" and convoc_sent == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% endif %}\n"
+            text: "{% if convoc_sent == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-envelope green\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-flag red\"> Alerte</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n{% if en_attente == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-pause\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-play-circle blue\"> Activer</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n{% if session_alert == \"1\" %}\n<i class=\"fa fa-flag red\"></i>\n{% endif %}\n{% if en_attente == \"0\" and session_alert == \"0\" and convoc_sent == \"0\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pause\"> Pause</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n\n\n"
             make_link: false
             path: ''
             absolute: false
@@ -1513,46 +1574,8 @@ display:
         title: false
         query: false
         use_ajax: false
-      filters:
-        co_modu:
-          id: co_modu
-          table: gbb_gmodu
-          field: co_modu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: '38967'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
+        arguments: false
+      filters: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1568,10 +1591,48 @@ display:
           query_comment: ''
           query_tags: null
       use_ajax: true
+      arguments:
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: raw
+          default_argument_options:
+            index: 2
+            use_alias: false
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          plugin_id: numeric
     cache_metadata:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }
   block_2:
@@ -1957,45 +2018,6 @@ display:
         filters: false
         filter_groups: false
       filters:
-        co_modu:
-          id: co_modu
-          table: gbb_gmodu
-          field: co_modu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: '38967'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
         en_attente:
           id: en_attente
           table: gbb_session
@@ -2044,5 +2066,6 @@ display:
       max-age: 0
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }

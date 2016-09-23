@@ -95,6 +95,56 @@ class ModalForm extends FormBase {
       '#attributes' => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
+
+  // $default_value = ($r->convoc_sent)? 1 : $r->session_alert;
+  // mal compris par les conseillers
+  // $form['session_alert'] = array(
+    // '#type' => 'checkbox',
+    // '#title' => variable_get('ico_alert') .
+                // t(' Alerte'),
+    // '#default_value' => $entries[0]->session_alert,
+    // '#prefix' => '<div class="inline">',
+    // '#suffix' => '</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
+    // '#states' => array(
+      // 'visible' => array( // action to take.
+        // ':input[name="en_attente"]' => array('checked' => FALSE),
+      // ),
+    //),
+  // );
+    $form['session_alert'] = array(
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Alerte'),
+      '#default_value' => $entries[0]->session_alert,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+      '#states' => array(
+        'visible' => array( // action to take.
+          ':input[name="en_attente"]' => array('checked' => FALSE),
+        ),
+      ),
+    );
+    $form['en_attente'] = array(
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Pause'),
+      '#default_value' => $entries[0]->en_attente,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+      '#states' => array(    // This #states rule limits visibility
+        'visible' => array(  // action to take.
+          ':input[name="session_alert"]' => array('checked' => FALSE),
+          ':input[name="convoc_sent"]' => array('checked' => FALSE),
+        ),
+      ),
+    );
+    $form['convoc_sent'] = array(
+      '#type'          => 'checkbox',
+      '#title'         => $this->t('Envoyé'),
+      '#default_value' => $entries[0]->convoc_sent,
+      '#attributes' => array('class' => array('pure-u-23-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+    );
+
+
     $form['groupe'] = array(
       '#type'          => 'number',
       '#title'         => $this->t('Groupe'),
