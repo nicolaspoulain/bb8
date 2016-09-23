@@ -45,3 +45,20 @@ ul.no-dot {
 .pure-menu-children {
   margin: -8px;
 }
+
+
+.view-display-id-block_2 {
+  background-color: #f3faef;
+}
+
+
+.left {
+  float: left;
+  width: 60%;
+  overflow: hidden;
+}
+
+.right {
+  overflow: hidden;
+}
+
