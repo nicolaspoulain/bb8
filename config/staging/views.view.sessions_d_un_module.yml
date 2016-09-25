@@ -735,177 +735,6 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        convoc_sent:
-          id: convoc_sent
-          table: gbb_session
-          field: convoc_sent
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: convoc_sent
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        en_attente:
-          id: en_attente
-          table: gbb_session
-          field: en_attente
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: en_attente
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        session_alert:
-          id: session_alert
-          table: gbb_session
-          field: session_alert
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: session_alert
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
         nothing_1:
           id: nothing_1
           table: views
@@ -1004,6 +833,63 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        status:
+          id: status
+          table: gbb_session
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: status
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing:
           id: nothing
           table: views
@@ -1015,7 +901,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if convoc_sent == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-envelope green\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-flag red\"> Alerte</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n{% if en_attente == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-pause\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-play-circle blue\"> Activer</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n{% if session_alert == \"1\" %}\n<i class=\"fa fa-flag red\"></i>\n{% endif %}\n{% if en_attente == \"0\" and session_alert == \"0\" and convoc_sent == \"0\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pause\"> Pause</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n\n\n"
+            text: "{% if status == \"0\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-pause\"> Pause</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-pause\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-play-circle blue\"> Activer</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-envelope green\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-flag red\"> Alerte</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n\n\n\n\n"
             make_link: false
             path: ''
             absolute: false
@@ -2249,177 +2135,6 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        convoc_sent:
-          id: convoc_sent
-          table: gbb_session
-          field: convoc_sent
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: convoc_sent
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        en_attente:
-          id: en_attente
-          table: gbb_session
-          field: en_attente
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: en_attente
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        session_alert:
-          id: session_alert
-          table: gbb_session
-          field: session_alert
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: session_alert
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
         date:
           id: date
           table: gbb_session
@@ -2469,6 +2184,63 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        status:
+          id: status
+          table: gbb_session
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: status
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing:
           id: nothing
           table: views
@@ -2480,7 +2252,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if convoc_sent == \"1\" %}\n             <i class=\"fa fa-envelope green\"></i>\n{% endif %}\n{% if session_alert == \"1\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-flag red\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n{% if en_attente == \"0\" and session_alert == \"0\" and convoc_sent == \"0\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% endif %}\n\n\n"
+            text: "{% if status == \"0\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionflag/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-flag red\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"3\" %}\n             <i class=\"fa fa-envelope green\"></i>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -2673,63 +2445,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_lieu:
-          id: co_lieu
-          table: gbb_session
-          field: co_lieu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: RNE
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: "1\x03@count"
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
         denom_comp:
           id: denom_comp
           table: gbb_netab_dafor_session

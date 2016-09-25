@@ -492,7 +492,15 @@ function bb_views_data() {
   //}}
   $data['gbb_session']['en_attente'] = array( 'help' => t('La session est en attente BOOL'),
     //{{
-    'title' => t('en_attente'),
+    'title' => t('convoc_sent'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_session']['status'] = array( 'help' => t('0=>Play, 1=>EnAttente, 2=>Alerte, 3=>Envoyé'),
+    //{{
+    'title' => t('status'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
