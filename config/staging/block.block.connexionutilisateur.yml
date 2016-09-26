@@ -3,13 +3,14 @@ langcode: fr
 status: true
 dependencies:
   module:
+    - system
     - user
   theme:
     - bbtheme
 id: connexionutilisateur
 theme: bbtheme
 region: sidebar_first
-weight: -7
+weight: -5
 provider: null
 plugin: user_login_block
 settings:
@@ -17,4 +18,9 @@ settings:
   label: 'Connexion utilisateur'
   provider: user
   label_display: visible
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/moduleng/*'
+    negate: true
+    context_mapping: {  }
