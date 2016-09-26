@@ -50,7 +50,7 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters);
   }
 
-  public function sessions() {
+  public function journal() {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';
     $content['#attached']['library'][] = 'core/drupal.dialog';
@@ -62,8 +62,29 @@ class ModuleNG extends ControllerBase {
     // moduleng-layout/html.twig
 
     // Get form
-    $content['sessions'] =
-      \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
+
+    // Disable page caching on the current request.
+    \Drupal::service('page_cache_kill_switch')->trigger();
+
+    // dpm($content);
+    return $content;
+  }
+  public function forms() {
+    // These libraries are required to facilitate the ajax modal form demo.
+    $content['#attached']['library'][] = 'core/drupal.ajax';
+    $content['#attached']['library'][] = 'core/drupal.dialog';
+    $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
+
+    $content['intro'] = [ '#markup' => 'src/Controller/ModuleNG.php' ];
+    // See bb.module function bbtheme
+    $content['#theme'] = 'moduleng';
+    // moduleng-layout/html.twig
+
+    // devenu inutile avec les sessions affichées en views
+    // $content['sessions'] =
+      // \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
+    $content['journal'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm');
 
     // Disable page caching on the current request.
     \Drupal::service('page_cache_kill_switch')->trigger();

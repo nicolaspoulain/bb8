@@ -6,8 +6,17 @@
   color: #004a78;
   font-weight: bold;
 }
+.bggreen {
+ background:#1CB841;
+}
+.white {
+  color: white;
+}
 .green {
   color: green;
+}
+.bgblue {
+ background:#1F8DD6;
 }
 .blue {
   color: blue;
@@ -46,12 +55,37 @@ ul.no-dot {
   margin: -8px;
 }
 
+.xxl {
+font:250%;
+font-weight:bold;
+}
+.xl {
+font:200%;
+}
+
+.round {
+border-radius:4px;
+}
+.spacedxl {
+padding:10px;
+margin:10px;
+}
 
 .view-display-id-block_2 {
   background-color: #f3faef;
 }
-
-
+.site-branding__text {
+display:inline;
+}
+.breadcrumb {
+display:none;
+}
+.layout-main {
+margin-top:10px;
+}
+.region-header {
+  padding:0 15px 0;
+  }
 .left {
   float: left;
   width: 60%;

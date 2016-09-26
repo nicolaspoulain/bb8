@@ -7,10 +7,19 @@ bb.sessionstableform:
   requirements:
     _permission: 'access content'
 
+bb.journalform:
+  path: '/journal/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\JournalForm'
+    _title: 'Mon Formulaire pour le journal'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
-    _controller:  '\Drupal\bb\Controller\ModuleNG::sessions'
+    _controller:  '\Drupal\bb\Controller\ModuleNG::forms'
     _title: 'Form API Examples'
     co_degre: '2'
     co_modu: '1'

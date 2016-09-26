@@ -4,10 +4,14 @@
 
 {{ drupal_view('infos_module', 'block_1') }}
 
-{# {{ _context[''].sessions }} #}
+
 
 {{ drupal_view('sessions_d_un_module', 'block_1') }}
 
+<details class="form-wrapper" id="sessions-administratifs">
+<summary>Sessions Administratifs</summary>
+<div class="details-wrapper">
+<div class="details-description">
 <div class="wrapper">
 <div class="left">
 {{ drupal_view('sessions_d_un_module', 'block_3') }}
@@ -16,3 +20,15 @@
 {{ drupal_view('sessions_d_un_module', 'block_2') }}
 </div>
 </div>
+</div>
+</div>
+</details>
+
+<details open="open" class="form-wrapper" id="journal">
+<summary>Journal</summary>
+<div class="details-wrapper">
+<div class="details-description">
+{{ _context[''].journal }}
+</div>
+</div>
+</details>
