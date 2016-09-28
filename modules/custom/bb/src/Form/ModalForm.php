@@ -12,7 +12,9 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\HtmlCommand;
+// SessionCrudController sera remplacé à terme par BbCrudController.
 use Drupal\bb\Controller\SessionCrudController;
+use Drupal\bb\Controller\BbCrudController;
 
 /**
  * Implements the ModalForm form controller.
@@ -39,7 +41,14 @@ class ModalForm extends FormBase {
   public function buildForm(array $form, FormStateInterface
     $form_state,$sess_id = 1) {
 
-    $entries = SessionCrudController::load( [ 'sess_id' => $sess_id ] );
+    // get informations on session
+    $entries = BbCrudController::load('gbb_session', [ 'sess_id' => $sess_id ] );
+    $lieu = BbCrudController::load('gbb_netab_dafor', [ 'co_lieu' => $entries[0]->co_lieu ] );
+    $entries[0]->denom_comp = $lieu[0]->denom_comp;
+    $entries[0]->sigle = $lieu[0]->sigle;
+    $resp = BbCrudController::load('gbb_gresp_dafor', [ 'co_resp' => $entries[0]->co_resp ] );
+    $entries[0]->nomu = $resp[0]->nomu;
+    $entries[0]->prenom = $resp[0]->prenom;
 
     // On applique le theme session
     // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
@@ -94,54 +103,6 @@ class ModalForm extends FormBase {
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
       '#attributes' => array('class' => array('pure-u-23-24')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
-    );
-
-  // $default_value = ($r->convoc_sent)? 1 : $r->session_alert;
-  // mal compris par les conseillers
-  // $form['session_alert'] = array(
-    // '#type' => 'checkbox',
-    // '#title' => variable_get('ico_alert') .
-                // t(' Alerte'),
-    // '#default_value' => $entries[0]->session_alert,
-    // '#prefix' => '<div class="inline">',
-    // '#suffix' => '</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',
-    // '#states' => array(
-      // 'visible' => array( // action to take.
-        // ':input[name="en_attente"]' => array('checked' => FALSE),
-      // ),
-    //),
-  // );
-    $form['session_alert'] = array(
-      '#type'          => 'checkbox',
-      '#title'         => $this->t('Alerte'),
-      '#default_value' => $entries[0]->session_alert,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-      '#states' => array(
-        'visible' => array( // action to take.
-          ':input[name="en_attente"]' => array('checked' => FALSE),
-        ),
-      ),
-    );
-    $form['en_attente'] = array(
-      '#type'          => 'checkbox',
-      '#title'         => $this->t('Pause'),
-      '#default_value' => $entries[0]->en_attente,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-      '#states' => array(    // This #states rule limits visibility
-        'visible' => array(  // action to take.
-          ':input[name="session_alert"]' => array('checked' => FALSE),
-          ':input[name="convoc_sent"]' => array('checked' => FALSE),
-        ),
-      ),
-    );
-    $form['convoc_sent'] = array(
-      '#type'          => 'checkbox',
-      '#title'         => $this->t('Envoyé'),
-      '#default_value' => $entries[0]->convoc_sent,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
 
 
@@ -238,7 +199,8 @@ class ModalForm extends FormBase {
     } else {
       // Update
       $entry['sess_id']  = $form_state->getValue('sess_id');
-      $DBWriteStatus = SessionCrudController::update($entry);
+      // $DBWriteStatus = SessionCrudController::update($entry);
+      $DBWriteStatus = BbCrudController::update('gbb_session', $entry, array('sess_id' => $form_state->getValue('sess_id')));
     };
 
     $form_state->setRedirect('bb.moduleng',
