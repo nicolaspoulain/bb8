@@ -12,8 +12,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
 use Drupal\Core\Ajax\HtmlCommand;
-// SessionCrudController sera remplacé à terme par BbCrudController.
-use Drupal\bb\Controller\SessionCrudController;
 use Drupal\bb\Controller\BbCrudController;
 
 /**
@@ -195,11 +193,10 @@ class ModalForm extends FormBase {
 
     if ( $form_state->getValue('sess_id') ==-1) {
       // Insert
-      $DBWriteStatus = SessionCrudController::insert($entry);
+      $DBWriteStatus = BbCrudController::insert('gbb_session', $entry);
     } else {
       // Update
       $entry['sess_id']  = $form_state->getValue('sess_id');
-      // $DBWriteStatus = SessionCrudController::update($entry);
       $DBWriteStatus = BbCrudController::update('gbb_session', $entry, array('sess_id' => $form_state->getValue('sess_id')));
     };
 
