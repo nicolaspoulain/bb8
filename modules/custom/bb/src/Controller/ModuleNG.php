@@ -18,7 +18,8 @@ class ModuleNG extends ControllerBase {
   public function sessiondelete($co_degre, $co_modu, $sessid) {
     // delete session
     $entry = array('sess_id' => $sessid);
-    $DBWriteStatus = SessionCrudController::delete($entry);
+    // $DBWriteStatus = SessionCrudController::delete($entry);
+    $DBWriteStatus = BbCrudController::delete('gbb_session', $entry);
 
     drupal_set_message('Session supprimée');
     $routeparameters = array(
@@ -41,7 +42,8 @@ class ModuleNG extends ControllerBase {
     unset($tab['nomu'], $tab['prenom']);
 
     // insert new row
-    $DBWriteStatus = SessionCrudController::insert($tab);
+    // $DBWriteStatus = SessionCrudController::insert($tab);
+    $DBWriteStatus = BbCrudController::create('gbb_session', $tab);
 
     $routeparameters = array(
       'co_degre' => $co_degre,
