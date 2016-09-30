@@ -1213,14 +1213,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: starts
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: id_disp_op
-            label: id_disp
-            description: null
+            label: Année
+            description: ''
             use_operator: false
             operator: id_disp_op
             identifier: id_disp
@@ -1229,6 +1229,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
           is_grouped: true
           group_info:
             label: Année
@@ -1238,21 +1240,21 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '1'
+            default_group: '2'
             default_group_multiple: {  }
             group_items:
               1:
-                title: 2015-2016
+                title: 2016-17
+                operator: starts
+                value: '16'
+              2:
+                title: 2015-16
                 operator: starts
                 value: '15'
-              2:
-                title: 2014-2015
+              3:
+                title: 2014-15
                 operator: starts
                 value: '14'
-              3:
-                title: 2013-2014
-                operator: starts
-                value: '13'
           plugin_id: string
         co_anmo:
           id: co_anmo
@@ -1293,69 +1295,31 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Ouverts
+                title: Ouvert
                 operator: '<='
                 value:
                   value: '0'
                   min: ''
                   max: ''
           plugin_id: numeric
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga
-          field: nomu
+        resp_filter:
+          id: resp_filter
+          table: gbb_gresp_orga_peda
+          field: resp_filter
           relationship: none
           group_type: group
           admin_label: ''
           operator: '='
           value: ''
-          group: 2
+          group: 1
           exposed: true
           expose:
-            operator_id: nomu_op
-            label: 'Responsable Organisationnel'
+            operator_id: resp_filter_op
+            label: Responsable
             description: ''
             use_operator: false
-            operator: nomu_op
-            identifier: nomu
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        nomu_1:
-          id: nomu_1
-          table: gbb_gresp_peda
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 2
-          exposed: true
-          expose:
-            operator_id: nomu_1_op
-            label: 'Responsable Pédagogique'
-            description: ''
-            use_operator: false
-            operator: nomu_1_op
-            identifier: nomu_1
+            operator: resp_filter_op
+            identifier: resp_filter
             required: false
             remember: false
             multiple: false
@@ -1405,7 +1369,6 @@ display:
         operator: AND
         groups:
           1: AND
-          2: OR
       use_ajax: false
       group_by: true
     cache_metadata:

@@ -10,6 +10,7 @@
  * https://api.drupal.org/api/drupal/core%21modules%21views%21views.api.php/function/hook_views_data/8
  */
 
+
 function bb_views_data() {
 
   $data = array();
@@ -19,6 +20,53 @@ function bb_views_data() {
   // * gbb_gmodu et toutes ses colonnes + gdisp + sessions spéciales
   // ********************************************************
   // ********************************************************
+
+  // ........................................................
+  // Responsable organisationnel OU péda pour un module (co_tres=2 OU 3)
+  // Pour le filtre de la grand liste views admin/structure/views/view/liste_modules
+  // ........................................................
+    //{{
+  $data['gbb_gdire_orga_peda']['table'] = array( 'group' => t('gbb_gdire_orga_peda'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gdire',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gdire_orga_peda.co_degre = gbb_gmodu.co_degre AND (gbb_gdire_orga_peda.co_tres=2 OR gbb_gdire_orga_peda.co_tres=3)',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gresp',
+        'left_table' => 'gbb_gdire_orga_peda',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+        'extra' => 'gbb_gresp_orga_peda.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['resp_filter'] = array(
+    //{{
+    'title' => t('CUSTOM responsable orga/peda'),
+    'filter' => array(
+      'title' => t('CUSTOM responsable orga OU péda'),
+      'help' => t('Fltre les stages où toto est resp péda OU orga'),
+      'field' => 'nomu',
+      'id' => 'string'
+    ),
+  );
+  //}}
+
+
+
+
+
+
   $data['gbb_gmodu']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'base' => array(
@@ -28,6 +76,7 @@ function bb_views_data() {
     ),
   );
   //}}
+
   $data['gbb_gmodu']['co_modu'] = array( 'help' => t('Code du module'),
   //{{
     'title'  => t('co_modu'),
@@ -382,6 +431,7 @@ function bb_views_data() {
   // * gbb_session : et toutes ses colonnes
   // ********************************************************
   // ********************************************************
+
   $data['gbb_session']['table'] = array( 'group' => t('gbb_session'),
     //{{
     'join' => array(
