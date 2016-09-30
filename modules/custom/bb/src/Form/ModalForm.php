@@ -182,6 +182,7 @@ class ModalForm extends FormBase {
     $entry = array(
       'uid'           => $account->id(),
       'date'          => $form_state->getValue('date'),
+      'date_ts'       => strtotime($form_state->getValue('date')),
       'horaires'      => $form_state->getValue('horaires'),
       'co_lieu'       => $form_state->getValue('lieu'),
       'co_resp'       => $form_state->getValue('formateur'),

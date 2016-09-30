@@ -21,7 +21,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -44,7 +44,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 300
+          items_per_page: 200
           offset: 0
           id: 0
           total_pages: null
@@ -74,6 +74,10 @@ display:
           summary: ''
           description: ''
           columns:
+            co_degre: co_degre
+            co_anmo: co_anmo
+            co_tcan: co_tcan
+            co_camp: co_camp
             lib_1: lib_1
             id_disp: id_disp
             sess_id: sess_id
@@ -82,11 +86,38 @@ display:
             nothing: nothing
             lib: lib
             co_modu: co_modu
+            nothing_1: nothing_1
             nomu: nomu
             nomu_1: nomu_1
-            co_tcan: co_tcan
-            co_camp: co_camp
           info:
+            co_degre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_anmo:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_tcan:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_camp:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             lib_1:
               sortable: false
               default_sort_order: asc
@@ -95,77 +126,70 @@ display:
               empty_column: false
               responsive: ''
             id_disp:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             sess_id:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             sess_id_1:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             sess_id_2:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             nothing:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: views-align-right
               separator: ''
               empty_column: false
               responsive: ''
             lib:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             co_modu:
-              sortable: true
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_1:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             nomu:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             nomu_1:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_tcan:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_camp:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -228,6 +252,120 @@ display:
           precision: 0
           decimal: .
           separator: ','
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_anmo
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        co_andi:
+          id: co_andi
+          table: gbb_gdisp
+          field: co_andi
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_andi
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
           format_plural: false
           format_plural_string: "1\x03@count"
           prefix: ''
@@ -388,9 +526,9 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
+            alter_text: false
             text: "<div class={{ co_camp }}>\n{{ co_camp }} {{ id_disp }} {{ lib_1 }}\n</div>"
             make_link: false
             path: ''
@@ -429,6 +567,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nothing_2:
+          id: nothing_2
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Texte personnalisé'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if co_andi>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span></span>\n{% else %} \n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span>{% endif %} \n\n\n\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         sess_id:
           id: sess_id
           table: gbb_session_sent
@@ -611,7 +798,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope green\"></i><span class=\"fa green\">{{ sess_id }}</span>\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause\"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\n{% endif %}\n"
+            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id }}</span>\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\n{% endif %}\n"
             make_link: false
             path: ''
             absolute: false
@@ -706,11 +893,11 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: '{{ co_modu }} {{ lib | replace({''&#039;'': '' ''}) }}'
-            make_link: true
+            alter_text: false
+            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n{% endif %} {{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}"
+            make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
             external: false
@@ -757,6 +944,169 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: numeric
+        date_ts_1:
+          id: date_ts_1
+          table: gbb_session
+          field: date_ts
+          relationship: none
+          group_type: max
+          admin_label: ''
+          label: date_ts
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        date_ts:
+          id: date_ts
+          table: gbb_session
+          field: date_ts
+          relationship: none
+          group_type: min
+          admin_label: ''
+          label: date_ts
+          exclude: true
+          alter:
+            alter_text: false
+            text: '{{ date_ts | date("m/d/Y") }} -- {{ "now"|date("m/d/Y") }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: "1\x03@count"
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n  {% if date_ts == 0 %}\n     &nbsp;&nbsp;&nbsp;&nbsp;\n  {% elseif date() <  date(date_ts-777600) %}\n     <i class=\"fa fa-hourglass-start green fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts) %}\n    <i class=\"fa fa-hourglass-start orange fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts_1) %}\n    <i class=\"fa fa-hourglass-half red fa-lg\" aria-hidden=\"true\"></i>\n  {% else %}\n    <i class=\"fa fa-flag-checkered gray\" aria-hidden=\"true\"></i>\n  {% endif %}\n <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} "
+            make_link: false
+            path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         nomu:
           id: nomu
           table: gbb_gresp_orga
@@ -904,6 +1254,52 @@ display:
                 operator: starts
                 value: '13'
           plugin_id: string
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_anmo_op
+            label: co_anmo
+            description: null
+            use_operator: false
+            operator: co_anmo_op
+            identifier: co_anmo
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Voir
+            description: ''
+            identifier: co_anmo
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Ouverts
+                operator: '<='
+                value:
+                  value: '0'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
         nomu:
           id: nomu
           table: gbb_gresp_orga
@@ -1009,7 +1405,7 @@ display:
         operator: AND
         groups:
           1: AND
-          2: AND
+          2: OR
       use_ajax: false
       group_by: true
     cache_metadata:

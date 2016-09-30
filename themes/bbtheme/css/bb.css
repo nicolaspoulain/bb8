@@ -18,6 +18,9 @@
 .bgblue {
  background:#1F8DD6;
 }
+.gray {
+  color: gray;
+}
 .blue {
   color: blue;
 }
@@ -63,6 +66,9 @@ font-weight:bold;
 font:200%;
 }
 
+.strike{
+    text-decoration: line-through;
+    }
 .round {
 border-radius:4px;
 }
@@ -95,4 +101,3 @@ margin-top:10px;
 .right {
   overflow: hidden;
 }
-
