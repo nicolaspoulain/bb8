@@ -1,12 +1,3 @@
-bb.sessionstableform:
-  path: '/session/{co_modu}'
-  defaults:
-    _form: '\Drupal\bb\Form\SessionsTableForm'
-    _title: 'Mon Formulaire pour les sessions'
-    co_modu: '1'
-  requirements:
-    _permission: 'access content'
-
 bb.journalform:
   path: '/journal/{co_modu}'
   defaults:
