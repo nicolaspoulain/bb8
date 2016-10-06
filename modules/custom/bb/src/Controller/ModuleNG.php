@@ -15,6 +15,36 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class ModuleNG extends ControllerBase {
 
+  public function sessionplay($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters);
+  }
+  public function sessionsent($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters);
+  }
+  public function sessionalert($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters);
+  }
+
+  public function sessionpause($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 1, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 1);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters);
+  }
+
   public function sessiondelete($co_degre, $co_modu, $sessid) {
     // delete session
     $entry = array('sess_id' => $sessid);
