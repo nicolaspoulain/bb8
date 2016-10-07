@@ -26,7 +26,7 @@ class BbCrudController {
     if ($severity == 'info') {
     \Drupal::logger('BB')->info('%type --- %entry', array(
         '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
+        '%entry' => urldecode(http_build_query($entry,'',', ')),
       )
     );
     drupal_set_message( t('%type --- %entry', array(

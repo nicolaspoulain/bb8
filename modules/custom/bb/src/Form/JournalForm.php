@@ -15,6 +15,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CssCommand;
 use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\bb\Controller\BbCrudController;
 
 
 /**
@@ -39,62 +40,67 @@ class JournalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface
-    $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // $module = ModuleCrudController::load( [ 'co_modu' => $co_modu ] );
-
-   $form['journal'] = array(
-      '#type' => 'textarea',
-      '#title' => 'Journal',
-      '#description' => '',
-  '#ajax' => [
-    'callback' => '::validateEmailAjax',
-    'event' => 'change',
-    'progress' => array(
-      'type' => 'throbber',
-      'message' => t('Verifying email...'),
-    ),
-  ],
-  '#suffix' => '<span class="journal-valid-message"></span>'
+		$current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+		$entry = array(
+			'co_degre' => $path_args[0],
+			'co_modu'  => explode('?',$path_args[1])[0],
     );
+    $module = BbCrudController::load( 'gbb_gmodu_plus', $entry);
 
-
+    $form['organisation'] = array(
+      '#type' => 'textarea',
+      '#title' => 'Journal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-floppy-o" aria-hidden="true"></i>',
+      '#default_value' => $module[0]->organisation,
+      '#description' => '',
+      '#ajax' => [
+        'callback' => '::saveJournalAjax',
+        'event' => 'change',
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => t('Enregistrement...'),
+        ),
+      ],
+    );
     return $form;
   }
-	  public function submitForm(array &$form, FormStateInterface $form_state) {
-			    drupal_set_message('Nothing Submitted. Just an Example.');
-					  }
-/**
- * {@inheritdoc}
- */
-protected function validateEmail(array &$form, FormStateInterface $form_state) {
-  if (substr($form_state->getValue('email'), -4) !== '.com') {
-  return TRUE;
-    return FALSE;
+
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    drupal_set_message('Nothing Submitted. Just an Example.');
   }
-  return TRUE;
+
+  /**
+   * Validate journal field.
+   */
+  protected function validateJournal(array &$form, FormStateInterface $form_state) {
+    return TRUE;
+  }
+
+  /**
+   * Ajax callback to save journal field.
+   */
+  public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
+    $valid = $this->validateJournal($form, $form_state);
+
+		$current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+
+		$condition = array(
+			'co_degre' => $path_args[0],
+			'co_modu'  => explode('?',$path_args[1])[0],
+		);
+
+    $entry = array(
+      'organisation'  => $form_state->getValue('organisation'),
+		);
+    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+
+    $response = new AjaxResponse();
+    return $response;
+  }
+
+
+
 }
-
-/**
- * Ajax callback to validate the email field.
- */
-public function validateEmailAjax(array &$form, FormStateInterface $form_state) {
-  $valid = $this->validateEmail($form, $form_state);
-  $response = new AjaxResponse();
-  if ($valid) {
-    $css = ['border' => '1px solid green'];
-    $message = $this->t('Email ok.');
-  }
-  else {
-    $css = ['border' => '1px solid red'];
-    $message = $this->t('Email not valid.');
-  }
-  $response->addCommand(new CssCommand('#journal-email', $css));
-  $response->addCommand(new HtmlCommand('.journal-valid-message', $message));
-  return $response;
-}
-
-
-
-  }
