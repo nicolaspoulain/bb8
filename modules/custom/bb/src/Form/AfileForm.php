@@ -17,7 +17,7 @@ use Drupal\Core\Ajax\CssCommand;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\File\Entity\File;
 use Drupal\bb\Controller\BbCrudController;
-
+use Drupal\Core\Config\ConfigFactory;
 
 /**
  * Implements the AfileForm form controller.
@@ -43,8 +43,6 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-  // $config = \Drupal::getContainer()->get('config.factory')->getEditable('advtour_ui.settings');
-  // $config->set('intermedia','thumbnail')->save();
   $form['afile'] = array(
   '#title' => t('Fichiers pour les administratifs'),
   '#type' => 'managed_file',
