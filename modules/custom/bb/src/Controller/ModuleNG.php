@@ -113,8 +113,11 @@ class ModuleNG extends ControllerBase {
     // devenu inutile avec les sessions affichées en views
     // $content['sessions'] =
       // \Drupal::formBuilder()->getForm('Drupal\bb\Form\SessionsTableForm');
+
     $content['journal'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm');
+    $content['afile'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\AfileForm');
 
     // Disable page caching on the current request.
     \Drupal::service('page_cache_kill_switch')->trigger();

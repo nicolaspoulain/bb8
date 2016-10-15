@@ -7,6 +7,15 @@ bb.journalform:
   requirements:
     _permission: 'access content'
 
+bb.afileform:
+  path: '/afile/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\AfileForm'
+    _title: 'Mon Formulaire pour les fichiers adminstratifs'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
