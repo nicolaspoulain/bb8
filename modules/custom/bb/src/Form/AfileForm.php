@@ -43,24 +43,25 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-  $form['afile'] = array(
-  '#title' => t('Fichiers pour les administratifs'),
-  '#type' => 'managed_file',
-  '#upload_validators'  => array(
-    'file_validate_extensions' => array('gif png jpg jpeg'),
-    'file_validate_size' => array(25600000),
-  ),
-  // '#upload_location' => 'public://images/',
-  '#upload_location' => 'private://images/',
-  '#required' => FALSE,
-  // '#element_validate' => array( array($this, 'saveAfile'), ), // callback
+    $form['afile'] = array(
+      '#title' => t('Fichiers pour les administratifs'),
+      '#type' => 'managed_file',
+      '#upload_validators'  => array(
+        'file_validate_extensions' => array('gif png jpg jpeg'),
+        'file_validate_size' => array(25600000),
+      ),
+      // '#upload_location' => 'public://images/',
+      '#upload_location' => 'private://images/',
+      '#required' => FALSE,
+      // '#element_validate' => array( array($this, 'saveAfile'), ), // callback
+    );
 
-  );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Submit'),
-  );
-  return $form;
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+
+    return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
