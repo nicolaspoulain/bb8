@@ -42,16 +42,17 @@ class JournalForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-		$current_uri = \Drupal::request()->getRequestUri();
+    $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
-		$entry = array(
-			'co_degre' => $path_args[0],
-			'co_modu'  => explode('?',$path_args[1])[0],
+    $entry = array(
+      'co_degre' => $path_args[0],
+      'co_modu'  => explode('?',$path_args[1])[0],
     );
     $module = BbCrudController::load( 'gbb_gmodu_plus', $entry);
 
     $form['organisation'] = array(
-      '#type' => 'textarea',
+      // '#type' => 'textarea', // WYSIWYG textarea est mieux :
+      '#type'=>'text_format',
       '#title' => 'Journal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-floppy-o" aria-hidden="true"></i>',
       '#default_value' => $module[0]->organisation,
       '#description' => '',
@@ -84,17 +85,17 @@ class JournalForm extends FormBase {
   public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
     $valid = $this->validateJournal($form, $form_state);
 
-		$current_uri = \Drupal::request()->getRequestUri();
+    $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
 
-		$condition = array(
-			'co_degre' => $path_args[0],
-			'co_modu'  => explode('?',$path_args[1])[0],
-		);
+    $condition = array(
+      'co_degre' => $path_args[0],
+      'co_modu'  => explode('?',$path_args[1])[0],
+    );
 
     $entry = array(
       'organisation'  => $form_state->getValue('organisation'),
-		);
+    );
     $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
 
     $response = new AjaxResponse();

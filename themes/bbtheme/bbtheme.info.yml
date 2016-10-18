@@ -7,3 +7,5 @@ base theme: bartik
 libraries:
   - bbtheme/fontawesome
   - bbtheme/datatables
+ckeditor_stylesheets:
+  - css/bb.css
