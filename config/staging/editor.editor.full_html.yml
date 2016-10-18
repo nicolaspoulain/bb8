@@ -13,8 +13,14 @@ settings:
     rows:
       -
         -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
           name: Formatting
           items:
+            - Styles
+            - Underline
             - Bold
             - Italic
             - Strike
@@ -23,39 +29,38 @@ settings:
             - '-'
             - RemoveFormat
         -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
           name: Lists
           items:
             - BulletedList
             - NumberedList
         -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
           name: Media
           items:
+            - SpecialChar
             - Blockquote
-            - DrupalImage
             - Table
             - HorizontalRule
-        -
-          name: 'Block Formatting'
-          items:
-            - Format
         -
           name: Tools
           items:
             - ShowBlocks
+            - Maximize
             - Source
   plugins:
+    language:
+      language_list: un
     stylescombo:
-      styles: ''
+      styles: "span.red|Rouge\r\nspan.green|Vert"
 image_upload:
   status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null

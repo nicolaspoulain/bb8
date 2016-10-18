@@ -1,6 +1,6 @@
 uuid: 7e755996-03bb-4f16-ad04-4bda3cd52843
 langcode: fr
-status: true
+status: false
 dependencies:
   config:
     - filter.format.basic_html
@@ -17,6 +17,10 @@ settings:
           items:
             - Bold
             - Italic
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
         -
           name: Linking
           items:
@@ -31,7 +35,6 @@ settings:
           name: Media
           items:
             - Blockquote
-            - DrupalImage
         -
           name: 'Block Formatting'
           items:
@@ -39,8 +42,13 @@ settings:
         -
           name: Tools
           items:
+            - SpecialChar
+            - HorizontalRule
+            - Table
             - Source
   plugins:
+    language:
+      language_list: un
     stylescombo:
       styles: ''
 image_upload:
@@ -49,5 +57,5 @@ image_upload:
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null
