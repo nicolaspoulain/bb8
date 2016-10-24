@@ -101,3 +101,6 @@ margin-top:10px;
 .right {
   overflow: hidden;
 }
+#edit-organisation-format {
+  display:none;
+}

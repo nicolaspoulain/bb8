@@ -53,23 +53,44 @@ class JournalForm extends FormBase {
     $form['organisation'] = array(
       // '#type' => 'textarea', // WYSIWYG textarea est mieux :
       '#type'=>'text_format',
-      '#title' => 'Journal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-floppy-o" aria-hidden="true"></i>',
+      '#title' => 'Journal',
       '#default_value' => $module[0]->organisation,
       '#description' => '',
-      '#ajax' => [
-        'callback' => '::saveJournalAjax',
-        'event' => 'change',
-        'progress' => array(
-          'type' => 'throbber',
-          'message' => t('Enregistrement...'),
-        ),
-      ],
+      // '#ajax' => [
+        // 'callback' => '::saveJournalAjax',
+        // 'event' => 'change',
+        // 'progress' => array(
+          // 'type' => 'throbber',
+          // 'message' => t('Enregistrement...'),
+        // ),
+      // ],
+    );
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
     );
     return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    drupal_set_message('Nothing Submitted. Just an Example.');
+    $valid = $this->validateJournal($form, $form_state);
+
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+
+    $condition = array(
+      'co_degre' => $path_args[0],
+      'co_modu'  => $path_args[1],
+    );
+
+    $entry = array(
+      'organisation'  => $form_state->getValue('organisation')['value'],
+    );
+    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+    drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
+    dpm($condition);
+    dpm($entry);
+    return TRUE;
   }
 
   /**

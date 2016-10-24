@@ -8,4 +8,5 @@ libraries:
   - bbtheme/fontawesome
   - bbtheme/datatables
 ckeditor_stylesheets:
+  - css/font-awesome.min.css
   - css/bb.css

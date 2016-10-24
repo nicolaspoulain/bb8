@@ -55,7 +55,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: "span.red|Rouge\r\nspan.green|Vert"
+      styles: "span.red|■ rouge\r\nspan.green|■ vert\r\nspan.fa.fa-exclamation-triangle.fa-lg|&nbsp;\r\nspan.fa.fa-question-circle.fa-lg|&nbsp;&nbsp;"
 image_upload:
   status: true
   scheme: public
