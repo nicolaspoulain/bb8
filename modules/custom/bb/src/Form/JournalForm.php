@@ -87,9 +87,9 @@ class JournalForm extends FormBase {
       'organisation'  => $form_state->getValue('organisation')['value'],
     );
     $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-    drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
-    dpm($condition);
-    dpm($entry);
+    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
+    // dpm($condition);
+    // dpm($entry);
     return TRUE;
   }
 

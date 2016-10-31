@@ -35,7 +35,7 @@ class AfileForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'fapi_example_modal_form';
+    return 'AfileForm';
   }
 
   /**
@@ -43,6 +43,14 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    // Supprimer un fichier
+    $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2']);
+    foreach ($files as $f) {
+      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
+      // dpm($file_loaded);
+      $flist[$f->fid] = $file_loaded[0]->filename;
+    }
+    // Ajouter un fichier
     $form['afile'] = array(
       '#title' => t('Fichiers pour les administratifs'),
       '#type' => 'managed_file',
@@ -56,10 +64,13 @@ class AfileForm extends FormBase {
       // '#element_validate' => array( array($this, 'saveAfile'), ), // callback
     );
 
-    $form['submit'] = array(
+    $form['submit_file'] = array(
       '#type' => 'submit',
       '#value' => t('Submit'),
     );
+    $form['files'] = array(
+      '#type'    => 'radios',
+      '#options' => $flist );
 
     return $form;
   }
@@ -79,7 +90,11 @@ class AfileForm extends FormBase {
     $entry = array(
       'co_degre' => $path_args[0],
       'co_modu'  => explode('?',$path_args[1])[0],
+      'fid' => $afile[0],
+      'zone' => 1,
     );
+    // dpm($entry);
+    $module = BbCrudController::create( 'gbb_file', $entry);
   }
 }
 
