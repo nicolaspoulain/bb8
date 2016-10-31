@@ -77,6 +77,42 @@ padding:10px;
 margin:10px;
 }
 
+.fa-flag-to-play:before{
+  content: "\f024";
+  color: red; }
+.fa-flag-to-play:hover:before{
+  content: "\f144";
+  color: blue;
+}
+.fa-flag-to-envelope:before{
+  content: "\f024";
+  color: red; }
+.fa-flag-to-envelope:hover:before{
+  content: "\f144";
+  color: green;
+}
+.fa-envelope-to-flag:before{
+  content: "\f0e0";
+  color: green; }
+.fa-envelope-to-flag:hover:before{
+  content: "\f024";
+  color: red;
+}
+.fa-pause-to-play:before{
+  color: gray;
+  content: "\f04c"; }
+.fa-pause-to-play:hover:before{
+  content: "\f144";
+  color: blue;
+}
+.fa-play-to-pause:before{
+  color: blue;
+  content: "\f144"; }
+.fa-play-to-pause:hover:before{
+  content: "\f04c";
+  color: gray;
+}
+
 .view-display-id-block_2 {
   background-color: #f3faef;
 }
