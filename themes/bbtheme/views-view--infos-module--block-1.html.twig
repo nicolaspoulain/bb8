@@ -3,7 +3,7 @@
 {% set bar = rows[0]['#rows'][0]['#view'] %}
 
 <div class="pure-g">
-    <div class="pure-u-10-24">
+    <div class="pure-u-14-24">
 <div class="round bgblue spacedxl">
 <p class="xl white">
       {{ foo.gbb_gdisp_id_disp}} {{ foo.gbb_gdisp_lib }}
@@ -13,7 +13,7 @@
 </p>
 </div>
 </div>
-    <div class="pure-u-6-24">
+    <div class="pure-u-10-24">
 <div class="round bggreen spacedxl">
 <p class="xl white">
      Resp. Orga :  {{ foo.gbb_gresp_orga_prenom}} {{ foo.gbb_gresp_orga_nomu}}
@@ -23,11 +23,8 @@
 </p>
 </div>
 </div>
-    <div class="pure-u-8-24">
-<p class="spacedxl">
-Type candidature
-</p>
-<div class="">
+</div>
+
 <details class="form-wrapper" id="details">
 <summary>Détails</summary>
 <div class="details-wrapper">
@@ -42,13 +39,11 @@ Type candidature
 <li> nbefgr: {{ foo.gbb_gmodu_nb_eff_groupe }} </li>
 <li> nbhint: {{ foo.gbb_gmodu_nb_h_interv }} </li>
 <li> nbplpr: {{ foo.gbb_gmodu_nb_place_prev }} </li>
+<li> Type candidature </li>
 </ul>
 </div>
 </div>
 </details>
-</div>
-</div>
-</div>
 
 
 

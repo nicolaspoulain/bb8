@@ -17,6 +17,20 @@
 }
 .bgblue {
  background:#1F8DD6;
+ height: auto;
+}
+.clear {
+  clear:both;
+  height:0; overflow:hidden;
+}
+.common-wrapper {
+  padding: 19px;
+}
+.journal {
+  background-color:#F0F8FF;
+}
+.journal-dark {
+  background-color:#E0E3EF;
 }
 .gray {
   color: gray;
@@ -83,6 +97,7 @@ margin:10px;
   content: "\f024";
   color: red; }
 .fa-flag-to-play:hover:before{
+  font-size: 1.33333em;
   content: "\f144";
   color: blue;
 }
@@ -104,13 +119,16 @@ margin:10px;
   color: gray;
   content: "\f04c"; }
 .fa-pause-to-play:hover:before{
+  font-size: 1.33333em;
   content: "\f144";
   color: blue;
 }
 .fa-play-to-pause:before{
+  font-size: 1.33333em;
   color: blue;
   content: "\f144"; }
 .fa-play-to-pause:hover:before{
+  font-size: 1em;
   content: "\f04c";
   color: gray;
 }
