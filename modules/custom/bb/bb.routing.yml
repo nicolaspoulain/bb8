@@ -7,6 +7,24 @@ bb.journalform:
   requirements:
     _permission: 'access content'
 
+bb.infospasconvocform:
+  path: '/infospasconvoc/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\InfosPasConvocForm'
+    _title: 'Infos à ne pas porter sur la convocation'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.infossurconvocform:
+  path: '/infossurconvoc/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\InfosSurConvocForm'
+    _title: 'Infos à pas porter sur la convocation'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.cfileform:
   path: '/cfile/{co_modu}'
   defaults:

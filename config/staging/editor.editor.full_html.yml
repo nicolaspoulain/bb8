@@ -13,17 +13,14 @@ settings:
     rows:
       -
         -
-          name: 'Block Formatting'
-          items:
-            - Format
-        -
           name: Formatting
           items:
             - Styles
-            - Underline
             - Bold
             - Italic
             - Strike
+            - '-'
+            - Table
             - '-'
             - RemoveFormat
         -
@@ -36,11 +33,6 @@ settings:
           items:
             - DrupalLink
             - DrupalUnlink
-        -
-          name: Media
-          items:
-            - Table
-            - HorizontalRule
         -
           name: Tools
           items:

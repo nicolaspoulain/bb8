@@ -120,6 +120,10 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm');
     $content['afile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\AfileForm');
+    $content['infospasconvoc'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosPasConvocForm');
+    $content['infossurconvoc'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosSurConvocForm');
 
     // Disable page caching on the current request.
     \Drupal::service('page_cache_kill_switch')->trigger();
