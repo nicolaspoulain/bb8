@@ -77,6 +77,8 @@ padding:10px;
 margin:10px;
 }
 
+
+/*  pour les codes : cf http://astronautweb.co/snippet/font-awesome/ */
 .fa-flag-to-play:before{
   content: "\f024";
   color: red; }

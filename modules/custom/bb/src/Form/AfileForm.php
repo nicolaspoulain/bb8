@@ -43,13 +43,6 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // Supprimer un fichier
-    $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2']);
-    foreach ($files as $f) {
-      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
-      // dpm($file_loaded);
-      $flist[$f->fid] = $file_loaded[0]->filename;
-    }
     // Ajouter un fichier
     $form['afile'] = array(
       '#title' => t('Fichiers pour les administratifs'),
@@ -63,23 +56,36 @@ class AfileForm extends FormBase {
       '#required' => FALSE,
       // '#element_validate' => array( array($this, 'saveAfile'), ), // callback
     );
-
     $form['submit_file'] = array(
       '#type' => 'submit',
       '#value' => t('Submit'),
     );
-    $form['files'] = array(
-      '#type'    => 'radios',
-      '#options' => $flist );
 
+    // Supprimer un fichier
+    $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2']);
+    foreach ($files as $f) {
+      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
+      // dpm($file_loaded);
+      $flist[$f->fid] = $file_loaded[0]->filename;
+    }
+    $form['fileToDelete'] = array(
+      '#type'    => 'radios',
+      '#options' => $flist,
+    );
+    $form['delete_file'] = array(
+      '#type' => 'submit',
+      '#value' => t('Delete'),
+      '#submit' => array('::deleteForm'),
+    );
+    // $form['delete_file']['#submit'][] = 'delete_form';
     return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // dpm($form_state->getvalue('afile'));
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
+    dpm($afile[0]);
     $file = File::load( $afile[0] );
     /* Set the status flag permanent of the file object */
     $file->setPermanent();
@@ -95,6 +101,27 @@ class AfileForm extends FormBase {
     );
     // dpm($entry);
     $module = BbCrudController::create( 'gbb_file', $entry);
+  }
+  public function deleteForm(array &$form, FormStateInterface $form_state) {
+    /* Fetch the array of the file stored temporarily in database */
+    $afile = $form_state->getValue('fileToDelete');
+
+    //  *************************
+    // POURQUOI CA MARCHE PAS ????
+    //  *************************
+    /* Load the object of the file by it's fid */
+    // $file = File::load( $afile );
+    /* Set the status flag temporary of the file object */
+    // $file->setTemporary();
+    /* Save the file in database */
+    // $file->save();
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+    $entry = array(
+      'fid' => $afile,
+    );
+    dpm($afile);
+    $module = BbCrudController::delete( 'gbb_file', $entry);
   }
 }
 
