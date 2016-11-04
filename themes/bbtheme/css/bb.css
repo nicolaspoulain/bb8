@@ -26,6 +26,12 @@
 .common-wrapper {
   padding: 19px;
 }
+.sessions {
+  background-color:#FFF8DC;
+}
+.sessions-dark {
+  background-color:#EEE8CD;
+}
 .journal {
   background-color:#F0F8FF;
 }
@@ -150,7 +156,7 @@ margin-top:10px;
   }
 .left {
   float: left;
-  width: 60%;
+  width: 70%;
   overflow: hidden;
 }
 

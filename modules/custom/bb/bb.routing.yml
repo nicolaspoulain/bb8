@@ -7,6 +7,16 @@ bb.journalform:
   requirements:
     _permission: 'access content'
 
+bb.cfileform:
+  path: '/cfile/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\CfileForm'
+    _title: 'Formulaire pour les fichiers conseillers'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.afileform:
   path: '/afile/{co_modu}'
   defaults:

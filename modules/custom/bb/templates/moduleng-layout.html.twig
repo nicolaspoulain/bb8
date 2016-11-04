@@ -5,34 +5,73 @@
 {{ drupal_view('infos_module', 'block_1') }}
 
 
-
-{{ drupal_view('sessions_d_un_module', 'block_1') }}
-
-<details class="form-wrapper" id="sessions-administratifs">
-<summary>Sessions Administratifs</summary>
-<div class="details-wrapper">
-<div class="details-description">
-<div class="wrapper">
-<div class="left">
-{{ drupal_view('sessions_d_un_module', 'block_3') }}
-</div>
-<div class="right">
-{{ drupal_view('sessions_d_un_module', 'block_2') }}
-</div>
-</div>
-</div>
-</div>
-</details>
-
 <details open class="details-wrapper" id="journal">
-<summary class="journal-dark">Zone Conseillers - Non visible par les administratifs</summary>
-<div class="common-wrapper journal">
-<div class="left">
-{{ _context[''].journal }}
-</div>
-<div class="right">
-{{ _context[''].afile }}
-</div>
-<div class="clear"></div>
-</div>
+  <summary class="journal-dark">Zone Conseillers - Non visible par les administratifs</summary>
+  <div class="common-wrapper journal">
+    <div class="pure-g">
+      <div class="pure-u-17-24">
+        {{ _context[''].journal }}
+      </div>
+      <div class="pure-u-1-24">
+        &nbsp;
+      </div>
+      <div class="pure-u-6-24">
+        {{ _context[''].cfile }}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
 </details>
+
+<details open class="details-wrapper" id="sessions">
+  <summary class="sessions-dark">Zone CONSEILLERS-administratifs</summary>
+  <div class="common-wrapper sessions">
+    {{ drupal_view('sessions_d_un_module', 'block_1') }}
+    <div class="pure-g">
+      <div class="pure-u-8-24">
+        {{ _context[''].journal }}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-8-24">
+        {{ _context[''].journal }}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-6-24">
+        {{ _context[''].afile }}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</details>
+
+<details class="details-wrapper" id="sessions">
+  <summary class="sessions-dark">Zone Conseillers-ADMINISTRATIFS</summary>
+  <div class="common-wrapper sessions">
+    <div class="pure-g">
+      <div class="pure-u-13-24">
+        <p><b> Sessions formateurs </b></p>
+        {{ drupal_view('sessions_d_un_module', 'block_3') }}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-10-24">
+        <p><b> Sessions stagiaires </b></p>
+        {{ drupal_view('sessions_d_un_module', 'block_2') }}
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-8-24">
+        {{ _context[''].journal }}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-8-24">
+        {{ _context[''].journal }}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-6-24">
+        {{ _context[''].afile }}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</details>
+
