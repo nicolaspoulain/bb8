@@ -1,0 +1,14 @@
+uuid: c1155356-97ec-4aed-9c33-a101f548a51a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_cons
+  module:
+    - user
+id: user_add_role_action.d_cons
+label: 'Ajouter le rôle D_cons aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_cons

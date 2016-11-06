@@ -1,0 +1,14 @@
+uuid: 17802e79-48a2-4bb1-883d-a4d6f6249c88
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_cons
+  module:
+    - user
+id: user_remove_role_action.d_cons
+label: 'Retirer le rôle D_cons aux utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_cons

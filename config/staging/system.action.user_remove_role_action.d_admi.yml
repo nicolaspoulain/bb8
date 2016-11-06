@@ -1,0 +1,14 @@
+uuid: 56e129de-bc82-48f9-9dc4-c3bf52a42269
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_admi
+  module:
+    - user
+id: user_remove_role_action.d_admi
+label: 'Retirer le rôle D_admi aux utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_admi
