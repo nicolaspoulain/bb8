@@ -56,7 +56,7 @@ class InfosSurConvocForm extends FormBase {
       '#title' => 'Infos à porter sur la convocation',
       '#default_value' => $module[0]->convoc_info_on,
       '#description' => '',
-      '#rows' => 13,
+      '#rows' => 12,
       // '#ajax' => [
         // 'callback' => '::saveJournalAjax',
         // 'event' => 'change',
