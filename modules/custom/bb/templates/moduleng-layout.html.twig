@@ -5,6 +5,7 @@
 {{ drupal_view('infos_module', 'block_1') }}
 
 
+{% if 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="journal">
   <summary class="journal-dark">Zone Conseillers - Non visible par les administratifs</summary>
   <div class="common-wrapper journal">
@@ -43,8 +44,10 @@
     <div class="clear"></div>
   </div>
 </details>
+{% endif %}
 
-<details class="details-wrapper" id="sessions">
+{% if 'd_admi' in user.roles %}
+<details open class="details-wrapper" id="sessions">
   <summary class="sessions-dark">Zone Conseillers-ADMINISTRATIFS</summary>
   <div class="common-wrapper sessions">
     <div class="pure-g">
@@ -74,4 +77,6 @@
     <div class="clear"></div>
   </div>
 </details>
+{% endif %}
+
 
