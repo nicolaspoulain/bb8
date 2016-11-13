@@ -62,6 +62,12 @@ class BbCrudController {
     // Build query
     $create = db_insert($table)
         ->fields($entry);
+    drupal_set_message(
+      t('%type --- %entry', array(
+        '%type'  => $table,
+        '%entry' => http_build_query($entry,'',', '),
+        )
+      ),'error');
 
     // Execute query if possible
     try {

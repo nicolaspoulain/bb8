@@ -20,21 +20,21 @@ class ModuleNG extends ControllerBase {
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
   public function sessionsent($co_degre, $co_modu, $sessid) {
     $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
   public function sessionalert($co_degre, $co_modu, $sessid) {
     $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function sessionpause($co_degre, $co_modu, $sessid) {
@@ -42,7 +42,7 @@ class ModuleNG extends ControllerBase {
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function sessiondelete($co_degre, $co_modu, $sessid) {
@@ -55,7 +55,7 @@ class ModuleNG extends ControllerBase {
       'co_degre' => $co_degre,
       'co_modu'  => $co_modu,
     );
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function sessionduplicate($co_degre, $co_modu, $sessid) {
@@ -77,7 +77,7 @@ class ModuleNG extends ControllerBase {
       'co_degre' => $co_degre,
       'co_modu'  => $co_modu,
     );
-    return $this->redirect('bb.moduleng',$routeparameters);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function journal() {

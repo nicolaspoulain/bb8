@@ -37,7 +37,7 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface
-    $form_state,$sess_id = 1) {
+    $form_state,$sess_id = 1,$co_modu=1,$co_degre=2) {
 
     // get informations on session
     $entries = BbCrudController::load('gbb_session', [ 'sess_id' => $sess_id ] );
@@ -56,16 +56,20 @@ class ModalForm extends FormBase {
 
     $form['sess_id'] = array(
       '#type' => 'hidden',
+      '#type' => 'textfield',
       '#value' => $sess_id,
     );
     $form['co_modu'] = array(
       '#type' => 'hidden',
+      '#type' => 'textfield',
       '#default_value' => $entries[0]->co_modu,
     );
+    if ($sess_id==1) $form['co_modu']['#default_value']=$co_modu;
     $form['co_degre'] = array(
-      '#type' => 'hidden',
+      '#type' => 'textfield',
       '#default_value' => $entries[0]->co_degre,
     );
+    if ($sess_id==1) $form['co_degre']['#default_value']=$co_degre;
     $form['date'] = array(
       '#type' => 'date',
       '#title' => t('Date'),
@@ -181,6 +185,8 @@ class ModalForm extends FormBase {
 
     $entry = array(
       'uid'           => $account->id(),
+      'co_modu'       => $form_state->getValue('co_modu'),
+      'co_degre'      => $form_state->getValue('co_degre'),
       'date'          => $form_state->getValue('date'),
       'date_ts'       => strtotime($form_state->getValue('date')),
       'horaires'      => $form_state->getValue('horaires'),
@@ -190,11 +196,12 @@ class ModalForm extends FormBase {
       'duree_prevue'  => $form_state->getValue('duree_prevue'),
       'type_paiement' => $form_state->getValue('type_paiement'),
       'groupe'        => $form_state->getValue('groupe'),
+      'date_modif'    => date("Y-m-d H:i:s"),
     );
 
-    if ( $form_state->getValue('sess_id') ==-1) {
+    if ( $form_state->getValue('sess_id') == 1) {
       // Insert
-      $DBWriteStatus = BbCrudController::insert('gbb_session', $entry);
+      $DBWriteStatus = BbCrudController::create('gbb_session', $entry);
     } else {
       // Update
       $entry['sess_id']  = $form_state->getValue('sess_id');
@@ -205,7 +212,8 @@ class ModalForm extends FormBase {
       array(
         'co_degre' => $form_state->getValue('co_degre'),
         'co_modu'  => $form_state->getValue('co_modu')
-      )
+      ),
+      array( 'fragment' => 'sessions')
     );
   }
 
