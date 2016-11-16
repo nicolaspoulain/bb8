@@ -35,6 +35,16 @@ bb.cfileform:
   requirements:
     _permission: 'access content'
 
+bb.propfileform:
+  path: '/propfile/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\PropFileForm'
+    _title: 'Formulaire pour les prop (conseillers)'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.afileform:
   path: '/afile/{co_modu}'
   defaults:

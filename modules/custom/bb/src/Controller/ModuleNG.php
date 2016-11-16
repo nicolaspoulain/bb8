@@ -116,6 +116,8 @@ class ModuleNG extends ControllerBase {
 
     $content['journal'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm');
+    $content['propfile'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\PropFileForm');
     $content['cfile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm');
     $content['afile'] =
