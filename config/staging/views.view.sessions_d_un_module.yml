@@ -3,7 +3,7 @@ langcode: fr
 status: true
 dependencies: {  }
 id: sessions_d_un_module
-label: 'sessions d''un module'
+label: 'Sessions d''un module'
 module: views
 description: 'Toutes les sessions pour un module donné'
 tag: bb
