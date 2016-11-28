@@ -7,6 +7,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Utility\Token;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Twig extension with some useful functions and filters.
@@ -80,7 +81,8 @@ class TwigExtension extends \Twig_Extension {
   public function getFilters() {
     $filters = [
       new \Twig_SimpleFilter('token_replace', [$this, 'tokenReplaceFilter']),
-      new \Twig_SimpleFilter('preg_replace', [$this, 'pregPeplaceFilter']),
+      new \Twig_SimpleFilter('preg_replace', [$this, 'pregReplaceFilter']),
+      new \Twig_SimpleFilter('image_style', [$this, 'imageStyle']),
     ];
     // PHP filter should be enabled in settings.php file.
     if (Settings::get('twig_tweak_enable_php_filter')) {
@@ -234,8 +236,24 @@ class TwigExtension extends \Twig_Extension {
    * @return string
    *   The new text if matches are found, otherwise unchanged text.
    */
-  public function pregPeplaceFilter($text, $pattern, $replacement) {
-    return preg_replace('/' . preg_quote($pattern, '/') . '/', $replacement, $text);
+  public function pregReplaceFilter($text, $pattern, $replacement) {
+    return preg_replace("/$pattern/", $replacement, $text);
+  }
+
+  /**
+   * Returns the URL of this image derivative for an original image path or URI.
+   *
+   * @param string $path
+   *   The path or URI to the original image.
+   * @param string $style
+   *   The image style.
+   *
+   * @return string
+   *   The absolute URL where a style image can be downloaded, suitable for use
+   *   in an <img> tag. Requesting the URL will cause the image to be created.
+   */
+  public function imageStyle($path, $style) {
+    return ImageStyle::load($style)->buildUrl($path);
   }
 
 }
