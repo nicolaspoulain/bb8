@@ -471,17 +471,17 @@ function bb_views_data() {
   $data['gbb_session']['date_ts'] = array( 'help' => t('Date TS'),
     //{{
     'title' => t('date_ts'),
-    'field'  => array('id' => 'numeric',),
+    'field'  => array('id' => 'date',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
+    'filter' => array('id' => 'date'),
   );
   //}}
   $data['gbb_session']['date'] = array( 'help' => t('Date'),
     //{{
     'title' => t('date'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'date',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'date'),
   );
   //}}
   $data['gbb_session']['horaires'] = array( 'help' => t('Horaires'),
@@ -542,7 +542,7 @@ function bb_views_data() {
   //}}
   $data['gbb_session']['en_attente'] = array( 'help' => t('La session est en attente BOOL'),
     //{{
-    'title' => t('convoc_sent'),
+    'title' => t('en_attente'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
