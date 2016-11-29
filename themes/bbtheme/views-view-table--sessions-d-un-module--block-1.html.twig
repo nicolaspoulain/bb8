@@ -96,7 +96,7 @@
   <tbody>
     {% for row in rows %}
       <tr{{ row.attributes }}>
-        {% if row.columns.date.content.0.field_output|e|length > 245 %}
+        {% if row.columns.date_ts.content.0.field_output|e|length > 245 %}
         {% for key, column in row.columns %}
           {% if column.default_classes %}
             {%
@@ -130,7 +130,7 @@
           <td{{ column.attributes.addClass(column_classes) }}>
             {% for content in column.content %}
               {% if loop.parent.loop.first %}
-                <a href="../../modal_form/1/2/38967" data-dialog-type="modal" data-dialog-options="{&quot;width&quot;: &quot;80%&quot;}" class="use-ajax no-link fa fa-plus-square fa-lg blue" aria-hidden="true"></i> <span class="blue">Ajouter session</span></a>
+                <a href="../../modal_form/1/2/38967" data-dialog-type="modal" data-dialog-options="{&quot;width&quot;: &quot;80%&quot;}"><i class="use-ajax no-link fa fa-plus-square fa-lg blue" aria-hidden="true"></i> <span class="blue">Ajouter session</span></a>
               {% endif %}
             {% endfor %}
           </td>
