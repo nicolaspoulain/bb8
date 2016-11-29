@@ -479,9 +479,9 @@ function bb_views_data() {
   $data['gbb_session']['date'] = array( 'help' => t('Date'),
     //{{
     'title' => t('date'),
-    'field'  => array('id' => 'date',),
+    'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'date'),
+    'filter' => array('id' => 'string'),
   );
   //}}
   $data['gbb_session']['horaires'] = array( 'help' => t('Horaires'),
