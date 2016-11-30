@@ -61,9 +61,44 @@ display:
           summary: ''
           description: ''
           columns:
-            co_modu: co_modu
             date_ts: date_ts
+            status: status
+            nothing: nothing
+            co_degre: co_degre
+            co_modu: co_modu
+            lib: lib
+            nomu: nomu
+            nomu_1: nomu_1
+            nothing_1: nothing_1
           info:
+            date_ts:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_degre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             co_modu:
               sortable: false
               default_sort_order: asc
@@ -71,10 +106,31 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            date_ts:
+            lib:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-left
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nomu:
               sortable: false
               default_sort_order: asc
               align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nomu_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_1:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-right
               separator: ''
               empty_column: false
               responsive: ''
@@ -298,7 +354,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-pause\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% endif %}\n\n\n\n\n"
+            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-pause\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% endif %}\n\n\n\n\n"
             make_link: false
             path: ''
             absolute: false
@@ -509,7 +565,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: 'R.O. : {{ nomu }}'
@@ -558,7 +614,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: 'R.P.: {{ nomu_1 }}'
@@ -599,6 +655,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ nomu }} {{ nomu_1 }} '
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
       defaults:
         fields: false
         pager: false
