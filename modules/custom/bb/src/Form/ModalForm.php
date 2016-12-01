@@ -56,17 +56,18 @@ class ModalForm extends FormBase {
 
     $form['sess_id'] = array(
       '#type' => 'hidden',
-      '#type' => 'textfield',
+      // '#type' => 'textfield',
       '#value' => $sess_id,
     );
     $form['co_modu'] = array(
       '#type' => 'hidden',
-      '#type' => 'textfield',
+      // '#type' => 'textfield',
       '#default_value' => $entries[0]->co_modu,
     );
     if ($sess_id==1) $form['co_modu']['#default_value']=$co_modu;
     $form['co_degre'] = array(
-      '#type' => 'textfield',
+      '#type' => 'hidden',
+      // '#type' => 'textfield',
       '#default_value' => $entries[0]->co_degre,
     );
     if ($sess_id==1) $form['co_degre']['#default_value']=$co_degre;
