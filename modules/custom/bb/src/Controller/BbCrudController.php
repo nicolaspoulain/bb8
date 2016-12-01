@@ -59,6 +59,8 @@ class BbCrudController {
    *   An array containing all the fields of the item to be updated.
    */
   public static function create($table = 'NaN', $entry) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $create = db_insert($table)
         ->fields($entry);
@@ -72,14 +74,16 @@ class BbCrudController {
     // Execute query if possible
     try {
       $create->execute();
-      self::logAndDsm('info', 'create', $entry); // Logger and message
-      return TRUE;
     }
     // Message if query fails
     catch (\Exception $e) {
       self::logAndDsm('error', $e->getMessage, array($e->query_string));
       return FALSE;
     }
+
+    \Drupal\Core\Database\Database::setActiveConnection();
+    self::logAndDsm('info', 'create', $entry); // Logger and message
+    return TRUE;
   }
 
   /**
@@ -94,6 +98,8 @@ class BbCrudController {
    * @see db_update()
    */
   public static function update($table = 'NaN', $entry, $condition) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $update = db_update($table)
       ->fields($entry);
@@ -103,13 +109,15 @@ class BbCrudController {
 
     try {
       $update->execute();
-      self::logAndDsm('info', 'update', $entry);
-      return TRUE;
     }
     catch (\Exception $e) {
       self::logAndDsm('error', $e->getMessage, array($e->query_string));
       return FALSE;
     }
+
+    self::logAndDsm('info', 'update', $entry);
+    \Drupal\Core\Database\Database::setActiveConnection();
+    return TRUE;
   }
 
   /**
@@ -126,6 +134,8 @@ class BbCrudController {
    *   An object containing the loaded entries if found.
    */
   public static function delete($table = 'NaN', $entry = array()) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $delete = db_delete($table);
     foreach ($entry as $field => $value) {
@@ -134,13 +144,15 @@ class BbCrudController {
 
     try {
       $delete->execute();
-      self::logAndDsm('info', 'delete', $entry);
-      return TRUE;
     }
     catch (\Exception $e) {
       self::logAndDsm('error', $e->getMessage, array($e->query_string));
       return FALSE;
     }
+
+    self::logAndDsm('info', 'delete', $entry);
+    \Drupal\Core\Database\Database::setActiveConnection();
+    return TRUE;
   }
 
 
@@ -158,6 +170,8 @@ class BbCrudController {
    *   An object containing the loaded entries if found.
    */
   public static function load($table, $entry = array()) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $select = db_select($table,'t');
     $select->fields('t');
@@ -166,7 +180,7 @@ class BbCrudController {
     }
 
     try {
-      return $select->execute()->fetchAll();
+      $result = $select->execute()->fetchAll();
     }
     catch (\Exception $e) {
       drupal_set_message(t('db_read failed. Message = %message, query= %query', array(
@@ -177,5 +191,7 @@ class BbCrudController {
       self::logAndDsm('error', $e->getMessage, array($e->query_string));
       return FALSE;
     }
+    \Drupal\Core\Database\Database::setActiveConnection();
+    return $result;
   }
 }

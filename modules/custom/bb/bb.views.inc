@@ -14,6 +14,7 @@
 function bb_views_data() {
 
   $data = array();
+  $gaia_db = 'external';
 
   // ********************************************************
   // ********************************************************
@@ -70,6 +71,7 @@ function bb_views_data() {
   $data['gbb_gmodu']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'base' => array(
+      'database' => $gaia_db,
       'field' => 'co_modu',
       'title' => t('GaiaBB'),
       'help'  => t('Tables du module GaiaBB.'),
@@ -1290,6 +1292,7 @@ function xxxbb_views_data() {
   $data['gbb_gresp_dafor']['table'] = array(
     'group' => t('gbb_gresp_dafor'),
     'base' => array(
+      'database' => $gaia_db,
       'table' => 'gbb_gresp_dafor',
       'field' => 'co_resp',
       'title' => t('GaiaBB_formateurs'),
@@ -2096,6 +2099,7 @@ function xxxbb_views_data() {
   $data['gbb_gdiof']['table'] = array(
     'group' => t('gbb_gdiof'),
     'base' => array(
+      'database' => $gaia_db,
       'field' => 'co_offre',
       'title' => t('GaiaBB_OFFRES'),
       'help' => t('Tables des offres GaiaBB.'),
