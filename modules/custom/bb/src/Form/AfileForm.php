@@ -74,8 +74,8 @@ class AfileForm extends FormBase {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);
       if ($file_loaded[0]->status) {
-       $flist[$f->fid] = $file_loaded[0]->filename;
-       }
+        $flist[$f->fid] = $file_loaded[0]->filename;
+      }
     }
     $form['fileToDelete'] = array(
       '#type'    => 'radios',
