@@ -61,8 +61,13 @@ class CfileForm extends FormBase {
       '#value' => t('Submit'),
     );
 
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+    $co_degre = $path_args[0];
+    $co_modu  = explode('?',$path_args[1])[0];
+
     // Supprimer un fichier
-    $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2', 'zone' => 2]);
+    $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_modu, 'co_degre' => $co_degre, 'zone' => 2]);
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);
