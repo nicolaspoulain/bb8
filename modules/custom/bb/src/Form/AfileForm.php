@@ -76,7 +76,7 @@ class AfileForm extends FormBase {
     );
     $form['delete_file'] = array(
       '#type' => 'submit',
-      '#value' => t('Delete'),
+      '#value' => t('Delete').$co_degre,
       '#submit' => array('::deleteForm'),
     );
     // $form['delete_file']['#submit'][] = 'delete_form';
