@@ -43,6 +43,8 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Ajouter un fichier
     $form['afile'] = array(
       '#title' => t('Fichiers pour les administratifs'),
@@ -78,10 +80,13 @@ class AfileForm extends FormBase {
       '#submit' => array('::deleteForm'),
     );
     // $form['delete_file']['#submit'][] = 'delete_form';
+    \Drupal\Core\Database\Database::setActiveConnection();
     return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
@@ -101,8 +106,11 @@ class AfileForm extends FormBase {
     );
     // dpm($entry);
     $module = BbCrudController::create( 'gbb_file', $entry);
+    \Drupal\Core\Database\Database::setActiveConnection();
   }
   public function deleteForm(array &$form, FormStateInterface $form_state) {
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('fileToDelete');
 
@@ -122,6 +130,7 @@ class AfileForm extends FormBase {
     );
     dpm($afile);
     $module = BbCrudController::delete( 'gbb_file', $entry);
+    \Drupal\Core\Database\Database::setActiveConnection();
   }
 }
 
