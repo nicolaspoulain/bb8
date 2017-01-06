@@ -63,6 +63,8 @@ class AfileForm extends FormBase {
       '#value' => t('Submit'),
     );
 
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
     $co_degre = $path_args[0];
     $co_modu  = explode('?',$path_args[1])[0];
 
