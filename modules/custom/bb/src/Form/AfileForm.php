@@ -43,9 +43,7 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
-    // Ajouter un fichier
+    // Add file form
     $form['afile'] = array(
       '#title' => t('Fichiers pour les administratifs'),
       '#type' => 'managed_file',
@@ -56,19 +54,20 @@ class AfileForm extends FormBase {
       // '#upload_location' => 'public://images/',
       '#upload_location' => 'private://images/',
       '#required' => FALSE,
-      // '#element_validate' => array( array($this, 'saveAfile'), ), // callback
     );
+    // Add file submit button
     $form['submit_file'] = array(
       '#type' => 'submit',
       '#value' => t('Submit'),
     );
 
+    // Get URL components
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
     $co_degre = $path_args[0];
     $co_modu  = explode('?',$path_args[1])[0];
 
-    // Supprimer un fichier
+    // Delete file list form
     $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_modu, 'co_degre' => $co_degre, 'zone' => 1]);
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
@@ -87,13 +86,10 @@ class AfileForm extends FormBase {
       '#submit' => array('::deleteForm'),
     );
     // $form['delete_file']['#submit'][] = 'delete_form';
-    \Drupal\Core\Database\Database::setActiveConnection();
     return $form;
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
@@ -113,11 +109,8 @@ class AfileForm extends FormBase {
     );
     // dpm($entry);
     $module = BbCrudController::create( 'gbb_file', $entry);
-    \Drupal\Core\Database\Database::setActiveConnection();
   }
   public function deleteForm(array &$form, FormStateInterface $form_state) {
-    // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('fileToDelete');
 
@@ -137,7 +130,6 @@ class AfileForm extends FormBase {
     );
     dpm($afile);
     $module = BbCrudController::delete( 'gbb_file', $entry);
-    \Drupal\Core\Database\Database::setActiveConnection();
   }
 }
 

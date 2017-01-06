@@ -43,7 +43,7 @@ class CfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // Ajouter un fichier
+    // Add file form
     $form['afile'] = array(
       '#title' => t('Fichiers entre conseillers'),
       '#type' => 'managed_file',
@@ -54,19 +54,20 @@ class CfileForm extends FormBase {
       // '#upload_location' => 'public://images/',
       '#upload_location' => 'private://images/',
       '#required' => FALSE,
-      // '#element_validate' => array( array($this, 'saveCfile'), ), // callback
     );
+    // Add file submit button
     $form['submit_file'] = array(
       '#type' => 'submit',
       '#value' => t('Submit'),
     );
 
+    // Get URL components
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
     $co_degre = $path_args[0];
     $co_modu  = explode('?',$path_args[1])[0];
 
-    // Supprimer un fichier
+    // Delete file list form
     $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_modu, 'co_degre' => $co_degre, 'zone' => 2]);
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
