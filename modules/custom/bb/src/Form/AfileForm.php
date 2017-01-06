@@ -64,7 +64,7 @@ class AfileForm extends FormBase {
     );
 
     // Supprimer un fichier
-    $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2', 'zone' => 1]);
+    $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_degre, 'co_degre' => '2', 'zone' => 1]);
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);
