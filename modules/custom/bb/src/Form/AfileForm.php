@@ -43,6 +43,8 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Add file form
     $form['afile'] = array(
       '#title' => t('Fichiers pour les administratifs'),
@@ -60,6 +62,7 @@ class AfileForm extends FormBase {
       '#type' => 'submit',
       '#value' => t('Submit'),
     );
+    \Drupal\Core\Database\Database::setActiveConnection();
 
     // Get URL components
     $current_uri = \Drupal::request()->getRequestUri();
