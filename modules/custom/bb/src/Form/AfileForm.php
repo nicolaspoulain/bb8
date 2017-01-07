@@ -48,7 +48,7 @@ class AfileForm extends FormBase {
       '#title' => t('Fichiers pour les administratifs'),
       '#type' => 'managed_file',
       '#upload_validators'  => array(
-        'file_validate_extensions' => array('gif png jpg jpeg'),
+        'file_validate_extensions' => array('jpg jpeg gif png txt rtf doc docx odt xls xlsx ods pdf zip'),
         'file_validate_size' => array(25600000),
       ),
       // '#upload_location' => 'public://images/',
