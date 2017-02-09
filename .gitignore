@@ -45,5 +45,4 @@ sites/simpletest
 
 config/staging/bartik.*
 config/staging/color.theme.bartik.yml
-modules/devel
 modules/custom/bb/tags
