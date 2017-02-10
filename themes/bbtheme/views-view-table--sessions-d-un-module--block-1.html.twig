@@ -95,7 +95,6 @@
   <tbody>
     {% for row in rows %}
       <tr{{ row.attributes }}>
-        /* {% if row.columns.date_ts.content.0.field_output|e|length > 245 %} */
         {% for key, column in row.columns %}
           {% if column.default_classes %}
             {%
@@ -121,7 +120,6 @@
             {%- endif %}
           </td>
         {% endfor %}
-        /* {% endif %} */
       </tr>
       {% if loop.last %}
       <tr{{ row.attributes }}>
