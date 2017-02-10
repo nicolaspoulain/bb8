@@ -490,6 +490,18 @@ display:
           expose:
             label: ''
           plugin_id: standard
+        date_ts:
+          id: date_ts
+          table: gbb_session
+          field: date_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'sessions stagiaires module'
       header: {  }
       footer: {  }
