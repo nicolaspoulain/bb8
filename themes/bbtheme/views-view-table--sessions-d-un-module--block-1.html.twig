@@ -39,7 +39,6 @@
     sticky ? 'sticky-enabled',
   ]
 %}
-
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
     <caption>
@@ -96,7 +95,7 @@
   <tbody>
     {% for row in rows %}
       <tr{{ row.attributes }}>
-        {% if row.columns.date_ts.content.0.field_output|e|length > 245 %}
+        /* {% if row.columns.date_ts.content.0.field_output|e|length > 245 %} */
         {% for key, column in row.columns %}
           {% if column.default_classes %}
             {%
@@ -122,7 +121,7 @@
             {%- endif %}
           </td>
         {% endfor %}
-        {% endif %}
+        /* {% endif %} */
       </tr>
       {% if loop.last %}
       <tr{{ row.attributes }}>
