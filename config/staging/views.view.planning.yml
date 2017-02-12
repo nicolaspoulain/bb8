@@ -756,7 +756,7 @@ display:
           exposed: true
           expose:
             operator_id: nomu_op
-            label: 'gresp.nomu orga'
+            label: 'Resp. Orga'
             description: ''
             use_operator: false
             operator: nomu_op
@@ -796,7 +796,7 @@ display:
           exposed: true
           expose:
             operator_id: nomu_1_op
-            label: 'gresp.nomu peda'
+            label: 'Resp. péda'
             description: ''
             use_operator: false
             operator: nomu_1_op

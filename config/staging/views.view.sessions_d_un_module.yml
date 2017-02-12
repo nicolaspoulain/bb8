@@ -746,7 +746,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;80%&quot;}\" class=\"use-ajax no-link fa fa-pencil-square-o fa-lg blue\"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-copy\"> </a>\n"
+            text: "<a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;50%&quot;}\" class=\"use-ajax no-link fa fa-pencil-square-o fa-lg blue\"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-copy\"> </a>\n"
             make_link: false
             path: ''
             absolute: false
