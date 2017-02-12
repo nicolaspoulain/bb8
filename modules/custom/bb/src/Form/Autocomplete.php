@@ -11,13 +11,14 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
-// Lire 
+// Lire
 // http://capgemini.github.io/drupal/writing-custom-fields-in-drupal-8/
 // https://www.safaribooksonline.com/library/view/programmers-guide-to/9781491911457/ch04.html
 
 class Autocomplete {
 
   public function autocompFormateur(Request $request) {
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     $string = $request->query->get('q');
     $matches = array();
     if ($string) {
@@ -31,10 +32,12 @@ class Autocomplete {
           'label' => "$res->nomu $res->prenom ($res->co_resp)",) ;
       }
     }
+    \Drupal\Core\Database\Database::setActiveConnection();
     return new JsonResponse($matches);
   }
 
   public function autocompLieu(Request $request) {
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     $string = $request->query->get('q');
     $matches = array();
     if ($string) {
@@ -48,7 +51,7 @@ class Autocomplete {
           'label' => "$res->sigle $res->denom_comp ($res->co_lieu)",) ;
       }
     }
-
+    \Drupal\Core\Database\Database::setActiveConnection();
     return new JsonResponse($matches);
   }
 }
