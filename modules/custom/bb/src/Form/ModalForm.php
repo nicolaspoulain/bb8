@@ -76,15 +76,7 @@ class ModalForm extends FormBase {
       '#title' => t('Date'),
       // '#required' => TRUE,
       '#default_value' => $entries[0]->date,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
-    );
-    $form['horaires'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Horaires'),
-      '#default_value' => $entries[0]->horaires,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
     $form['lieu'] = array(
       '#type' => 'search',
@@ -93,8 +85,14 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->sigle . " " . $entries[0]->denom_comp .
       " (" . $entries[0]->co_lieu . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    );
+    $form['horaires'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Horaires'),
+      '#size'          => 20,
+      '#default_value' => $entries[0]->horaires,
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
     $form['formateur'] = array(
       '#type'          => 'textfield',
@@ -104,8 +102,7 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->nomu . " "  . $entries[0]->prenom
                                             . " (" . $entries[0]->co_resp . ")",
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
 
 
@@ -118,31 +115,27 @@ class ModalForm extends FormBase {
         'max'  => 99,
         'step' => 1,
       ),
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-    );
-    $form['duree_a_payer'] = array(
-      '#type'          => 'textfield',
-      '#title'         => $this->t('DàP'),
-      '#size'          => 10,
-      '#default_value' => $entries[0]->duree_a_payer,
-      '#attributes'    => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
-    );
-    $form['duree_prevue'] = array(
-      '#type'          => 'textfield',
-      '#title'         => $this->t('DP'),
-      '#size'          => 10,
-      '#default_value' => $entries[0]->duree_prevue,
-      '#attributes'    => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
     $form['type_paiement'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Type pmt'),
       '#default_value' => $entries[0]->type_paiement,
-      '#attributes' => array('class' => array('pure-u-23-24')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    );
+    $form['duree_a_payer'] = array(
+      '#type'          => 'textfield',
+      '#title'         => $this->t('DàP'),
+      '#size'          => 20,
+      '#default_value' => $entries[0]->duree_a_payer,
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+    $form['duree_prevue'] = array(
+      '#type'          => 'textfield',
+      '#title'         => $this->t('DP'),
+      '#size'          => 20,
+      '#default_value' => $entries[0]->duree_prevue,
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
 
     // Group submit handlers in an actions element with a key of "actions" so
