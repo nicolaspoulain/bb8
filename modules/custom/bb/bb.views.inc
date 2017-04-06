@@ -23,47 +23,6 @@ function bb_views_data() {
   // ********************************************************
   //{{
 
-  // ........................................................
-  // Responsable organisationnel OU péda pour un module (co_tres=2 OU 3)
-  // Pour le filtre de la grand liste views admin/structure/views/view/liste_modules
-  // ........................................................
-    //{{
-  $data['gbb_gdire_orga_peda']['table'] = array( 'group' => t('gbb_gdire_orga_peda'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gdire',
-        'left_field' => 'co_modu',
-        'field' => 'co_modu',
-        'extra' => 'gbb_gdire_orga_peda.co_degre = gbb_gmodu.co_degre AND (gbb_gdire_orga_peda.co_tres=2 OR gbb_gdire_orga_peda.co_tres=3)',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_gresp_orga_peda']['table'] = array( 'group' => t('gbb_gmodu'),
-    //{{
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gresp',
-        'left_table' => 'gbb_gdire_orga_peda',
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-        'extra' => 'gbb_gresp_orga_peda.co_degre = gbb_gmodu.co_degre',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_gresp_orga_peda']['resp_filter'] = array(
-    //{{
-    'title' => t('CUSTOM responsable orga/peda'),
-    'filter' => array(
-      'title' => t('CUSTOM responsable orga OU péda'),
-      'help' => t('Fltre les stages où toto est resp péda OU orga'),
-      'field' => 'nomu',
-      'id' => 'string'
-    ),
-  );
-  //}}
-
 
   //  les colonnes de gmodu
   //
@@ -221,6 +180,35 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  // ........................................................
+  // gbb_nprna * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_nprna']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_prna',
+        'field' => 'co_prna',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nprna']['lib_court'] = array( 'help' => t('Priorite nationale : libellé court'),
+  //{{
+    'title' => t('nprna.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_nprna']['lib_long'] = array( 'help' => t('Priorite nationale : libellé long'),
+  //{{
+    'title' => t('nprna.lib_long'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
   $data['gbb_gmodu']['co_prac'] = array( 'help'   => t('Priorite academique : code'),
   //{{
@@ -229,6 +217,35 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  // ........................................................
+  // gbb_nprac * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_nprac']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_prac',
+        'field' => 'co_prac',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nprac']['lib_court'] = array( 'help' => t('Priorite nationale : libellé court'),
+  //{{
+    'title' => t('nprac.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_nprac']['lib_long'] = array( 'help' => t('Priorite nationale : libellé long'),
+  //{{
+    'title' => t('nprac.lib_long'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
   $data['gbb_gmodu']['lcibl'] = array( 'help'   => t('Cible litterale'),
   //{{
@@ -264,85 +281,7 @@ function bb_views_data() {
   //}}
 
   // ........................................................
-  // gbb_nprna * intégré directement dans les champs de gbb_gmodu
-  // ........................................................
-  $data['gbb_nprna']['table'] = array( 'group' => t('gbb_gmodu'),
-  //{{
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_field' => 'co_prna',
-        'field' => 'co_prna',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_nprna']['lib_court'] = array( 'title' => t('nprna.lib_court'),
-  //{{
-    'help' => t('Priorite nationale : libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  //}}
-  $data['gbb_nprna']['lib_long'] = array( 'title' => t('nprna.lib_long'),
-  //{{
-    'help' => t('Priorite nationale : libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  //}}
-
-  // ........................................................
-  // gbb_nprac * intégré directement dans les champs de gbb_gmodu
-  // ........................................................
-  $data['gbb_nprac']['table'] = array( 'group' => t('gbb_gmodu'),
-  //{{
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_field' => 'co_prac',
-        'field' => 'co_prac',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_nprac']['lib_court'] = array( 'title' => t('nprac.lib_court'),
-  //{{
-    'help' => t('Priorite nationale : libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  //}}
-  $data['gbb_nprac']['lib_long'] = array( 'title' => t('nprac.lib_long'),
-  //{{
-    'help' => t('Priorite nationale : libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  //}}
-
-
-
-  // ........................................................
-  // Responsable organisationnel pour un module (co_tres=2)
+  // Responsable ORGA    pour un module (co_tres=2)
   // nomu+prenom Intégré directement dans les champs de gbb_gmodu
   // ........................................................
     //{{
@@ -388,7 +327,7 @@ function bb_views_data() {
   //}}
 
   // ........................................................
-  // Responsable pedagogique pour un module (co_tres=3)
+  // Responsable PEDA    pour un module (co_tres=3)
   // nomu+prenom Intégré directement dans les champs de gbb_gmodu
   // ........................................................
     //{{
@@ -434,6 +373,51 @@ function bb_views_data() {
   //}}
 
   // ........................................................
+  // Responsable ORGA ou PEDA      pour un module (co_tres=2 OU 3)
+  // Pour le FILTRE de la grand liste views admin/structure/views/view/liste_modules
+  // ........................................................
+    //{{
+  $data['gbb_gdire_orga_peda']['table'] = array( 'group' => t('gbb_gdire_orga_peda'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gdire',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gdire_orga_peda.co_degre = gbb_gmodu.co_degre AND (gbb_gdire_orga_peda.co_tres=2 OR gbb_gdire_orga_peda.co_tres=3)',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gresp',
+        'left_table' => 'gbb_gdire_orga_peda',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+        'extra' => 'gbb_gresp_orga_peda.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['resp_filter'] = array(
+    //{{
+    'title' => t('CUSTOM responsable orga/peda'),
+    'filter' => array(
+      'title' => t('CUSTOM responsable orga OU péda'),
+      'help' => t('Fltre les stages où toto est resp péda OU orga'),
+      'field' => 'nomu',
+      'id' => 'string'
+    ),
+  );
+  //}}
+
+  // ........................................................
+  // Spécial pour l'affichage des compteurs de sessions
+  // ........................................................
+  //{{
+  // ........................................................
   // session : sess_id d'une session envoyée
   // ........................................................
   $data['gbb_session_sent']['table'] = array( 'group' => t('gbb_gmodu'),
@@ -456,7 +440,6 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-
   // ........................................................
   // session : sess_id d'une session en attente
   // ........................................................
@@ -480,7 +463,6 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-
   // ........................................................
   // session : sess_id d'une session en cours
   // ........................................................
@@ -503,6 +485,7 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
+  //}}
   //}}
   //}}
 
@@ -568,6 +551,36 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  // ........................................................
+  // gbb_ntcan * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_ntcan']['table'] = array( 'group' => t('gbb_gdisp'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gdisp',
+        'left_field' => 'co_tcan',
+        'field' => 'co_tcan',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_ntcan']['lib_court'] = array( 'help' => t('Type candidature : libellé court'),
+  //{{
+    'title' => t('ntcan.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_ntcan']['lib_long'] = array( 'help' => t('Type candidature : libellé long'),
+  //{{
+    'title' => t('ntcan.lib_long'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
   $data['gbb_gdisp']['co_tpla'] = array( 'title' => t('co_tpla'),
   //{{
@@ -984,78 +997,6 @@ function bb_views_data() {
 
 function xxxbb_views_data() {
 
-  // --------------------------------------------------------
-  // GBB_NPRAC
-  // --------------------------------------------------------
-
-  $data['gbb_nprac']['table'] = array(
-    'group' => t('gbb_gmodu'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_field' => 'co_prac',
-        'field' => 'co_prac',
-      ),
-    ),
-  );
-  $data['gbb_nprac']['lib_court'] = array(
-    'title' => t('nprac.lib_court'),
-    'help' => t('Priorite academique : libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_nprac']['lib_long'] = array(
-    'title' => t('nprac.lib_long'),
-    'help' => t('Priorite academique : libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-
-  // --------------------------------------------------------
-  // GBB_NPRNA
-  // --------------------------------------------------------
-
-  $data['gbb_nprna']['table'] = array(
-    'group' => t('gbb_gmodu'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_field' => 'co_prna',
-        'field' => 'co_prna',
-      ),
-    ),
-  );
-  $data['gbb_nprna']['lib_court'] = array(
-    'title' => t('nprna.lib_court'),
-    'help' => t('Priorite nationale : libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_nprna']['lib_long'] = array(
-    'title' => t('nprna.lib_long'),
-    'help' => t('Priorite nationale : libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
 
   // --------------------------------------------------------
   // GBB_GMODU_TAXONOMY
