@@ -18,9 +18,10 @@ function bb_views_data() {
 
   // ********************************************************
   // ********************************************************
-  // * gbb_gmodu et toutes ses colonnes + gdisp + sessions spéciales
+  // * gbb_gmodu ** et toutes ses colonnes + sessions spéciales
   // ********************************************************
   // ********************************************************
+  //{{
 
   // ........................................................
   // Responsable organisationnel OU péda pour un module (co_tres=2 OU 3)
@@ -64,10 +65,8 @@ function bb_views_data() {
   //}}
 
 
-
-
-
-
+  //  les colonnes de gmodu
+  //
   $data['gbb_gmodu']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'base' => array(
@@ -265,6 +264,84 @@ function bb_views_data() {
   //}}
 
   // ........................................................
+  // gbb_nprna * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_nprna']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_prna',
+        'field' => 'co_prna',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nprna']['lib_court'] = array( 'title' => t('nprna.lib_court'),
+  //{{
+    'help' => t('Priorite nationale : libellé court'),
+    'field' => array(
+      'handler' => 'views_handler_field',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array('handler' => 'views_handler_sort'),
+    'filter' => array('handler' => 'views_handler_filter_string'),
+    'argument' => array('handler' => 'views_handler_argument_string'),
+  );
+  //}}
+  $data['gbb_nprna']['lib_long'] = array( 'title' => t('nprna.lib_long'),
+  //{{
+    'help' => t('Priorite nationale : libellé long'),
+    'field' => array(
+      'handler' => 'views_handler_field',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array('handler' => 'views_handler_sort'),
+    'filter' => array('handler' => 'views_handler_filter_string'),
+    'argument' => array('handler' => 'views_handler_argument_string'),
+  );
+  //}}
+
+  // ........................................................
+  // gbb_nprac * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_nprac']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_prac',
+        'field' => 'co_prac',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nprac']['lib_court'] = array( 'title' => t('nprac.lib_court'),
+  //{{
+    'help' => t('Priorite nationale : libellé court'),
+    'field' => array(
+      'handler' => 'views_handler_field',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array('handler' => 'views_handler_sort'),
+    'filter' => array('handler' => 'views_handler_filter_string'),
+    'argument' => array('handler' => 'views_handler_argument_string'),
+  );
+  //}}
+  $data['gbb_nprac']['lib_long'] = array( 'title' => t('nprac.lib_long'),
+  //{{
+    'help' => t('Priorite nationale : libellé long'),
+    'field' => array(
+      'handler' => 'views_handler_field',
+      'click sortable' => TRUE,
+    ),
+    'sort' => array('handler' => 'views_handler_sort'),
+    'filter' => array('handler' => 'views_handler_filter_string'),
+    'argument' => array('handler' => 'views_handler_argument_string'),
+  );
+  //}}
+
+
+
+  // ........................................................
   // Responsable organisationnel pour un module (co_tres=2)
   // nomu+prenom Intégré directement dans les champs de gbb_gmodu
   // ........................................................
@@ -427,12 +504,111 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
+  //}}
 
   // ********************************************************
   // ********************************************************
-  // * gbb_session : et toutes ses colonnes
+  // * gbb_gdisp ** et toutes ses colonnes
   // ********************************************************
   // ********************************************************
+  //{{
+  $data['gbb_gdire']['table'] = array( 'group' => t('gbb_gdire'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gdire',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gdire.co_degre = gbb_gmodu.co_degre AND gbb_gdire.co_tres=3',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gdisp']['table'] = array( 'group' => t('gbb_gdisp'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gdire',
+        'left_field' => 'co_disp',
+        'field' => 'co_disp',
+        'extra' => 'gbb_gdisp.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gdisp']['id_disp'] = array( 'title' => t('id_disp'),
+  //{{
+    'help' => t('Identifiant du dispositif'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['lib'] = array( 'title' => t('lib'),
+  //{{
+    'help' => t('Libellé du dispositif'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['co_camp'] = array( 'title' => t('co_camp'),
+  //{{
+    'help' => t('Code campagne'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['co_tcan'] = array( 'title' => t('co_tcan'),
+  //{{
+    'help' => t('Code type candidature'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['co_tpla'] = array( 'title' => t('co_tpla'),
+  //{{
+    'help' => t('Code type plan'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['co_orie'] = array( 'title' => t('co_orie'),
+  //{{
+    'help' => t('Code orientation'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['lobjt'] = array( 'title' => t('lobjt'),
+  //{{
+    'help' => t('Objectif litteral'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdisp']['co_andi'] = array( 'title' => t('co_andi'),
+  //{{
+    'help' => t('Code annulation dispo'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  //}}
+
+  // ********************************************************
+  // ********************************************************
+  // * gbb_session **  et toutes ses colonnes
+  // ********************************************************
+  // ********************************************************
+  //{{
 
   $data['gbb_session']['table'] = array( 'group' => t('gbb_session'),
     //{{
@@ -800,90 +976,8 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-
-
-  // --------------------------------------------------------
-  // gbb_gdisp et toutes ses colonnes
-  // --------------------------------------------------------
-  $data['gbb_gdire']['table'] = array(
-    'group' => t('gbb_gdire'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gdire',
-        'left_field' => 'co_modu',
-        'field' => 'co_modu',
-        'extra' => 'gbb_gdire.co_degre = gbb_gmodu.co_degre AND gbb_gdire.co_tres=3',
-      ),
-    ),
-  );
-  $data['gbb_gdisp']['table'] = array(
-    'group' => t('gbb_gdisp'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_gdire',
-        'left_field' => 'co_disp',
-        'field' => 'co_disp',
-        'extra' => 'gbb_gdisp.co_degre = gbb_gmodu.co_degre',
-      ),
-    ),
-  );
-  $data['gbb_gdisp']['id_disp'] = array(
-    'title' => t('id_disp'),
-    'help' => t('Identifiant du dispositif'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['lib'] = array(
-    'title' => t('lib'),
-    'help' => t('Libellé du dispositif'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_camp'] = array(
-    'title' => t('co_camp'),
-    'help' => t('Code campagne'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_tcan'] = array(
-    'title' => t('co_tcan'),
-    'help' => t('Code type candidature'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_tpla'] = array(
-    'title' => t('co_tpla'),
-    'help' => t('Code type plan'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_orie'] = array(
-    'title' => t('co_orie'),
-    'help' => t('Code orientation'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['lobjt'] = array(
-    'title' => t('lobjt'),
-    'help' => t('Objectif litteral'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_andi'] = array(
-    'title' => t('co_andi'),
-    'help' => t('Code annulation dispo'),
-    'field'  => array('id' => 'numeric',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
-  );
   //}}
+
 
   return $data;
 }
