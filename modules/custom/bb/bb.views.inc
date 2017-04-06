@@ -23,9 +23,6 @@ function bb_views_data() {
   // ********************************************************
   //{{
 
-
-  //  les colonnes de gmodu
-  //
   $data['gbb_gmodu']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'base' => array(
@@ -80,7 +77,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['lpeda'] = array( 'help'   => t('Objectif pedagogique'),
+  $data['gbb_gmodu']['lpeda'] = array( 'help' => t('Objectif pedagogique'),
   //{{
     'title'  => t('lpeda'),
     'field'  => array('id' => 'standard',),
@@ -88,7 +85,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['lmoda'] = array( 'help'   => t('Modalité'),
+  $data['gbb_gmodu']['lmoda'] = array( 'help' => t('Modalité'),
   //{{
     'title'  => t('lmoda'),
     'field'  => array('id' => 'standard',),
@@ -96,7 +93,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['lform'] = array( 'help'   => t('Forme'),
+  $data['gbb_gmodu']['lform'] = array( 'help' => t('Forme'),
   //{{
     'title'  => t('lform'),
     'field'  => array('id' => 'standard',),
@@ -104,7 +101,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['cout_p_fonc'] = array( 'help'   => t('Coût prévisionnel de fonctionnement par groupe'),
+  $data['gbb_gmodu']['cout_p_fonc'] = array( 'help' => t('Coût prévisionnel de fonctionnement par groupe'),
   //{{
     'title'  => t('cout_p_fonc'),
     'field'  => array('id' => 'numeric',),
@@ -112,7 +109,7 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['cout_p_prest'] = array( 'help'   => t('Coût prévisionnel de prestation par groupe'),
+  $data['gbb_gmodu']['cout_p_prest'] = array( 'help' => t('Coût prévisionnel de prestation par groupe'),
   //{{
     'title'  => t('cout_p_prest'),
     'field'  => array('id' => 'numeric',),
@@ -120,7 +117,7 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['cout_p_excep'] = array( 'help'   => t('Coût prévisionnel des frais exceptionnels'),
+  $data['gbb_gmodu']['cout_p_excep'] = array( 'help' => t('Coût prévisionnel des frais exceptionnels'),
   //{{
     'title'  => t('cout_p_excep'),
     'field'  => array('id' => 'numeric',),
@@ -128,7 +125,7 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['nb_groupe'] = array( 'help'   => t('Nombre de groupes possible'),
+  $data['gbb_gmodu']['nb_groupe'] = array( 'help' => t('Nombre de groupes possible'),
   //{{
     'title'  => t('nb_groupe'),
     'field'  => array('id' => 'numeric',),
@@ -137,7 +134,7 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['nb_eff_groupe'] = array( 'help'   => t('Effectif par groupe'),
+  $data['gbb_gmodu']['nb_eff_groupe'] = array( 'help' => t('Effectif par groupe'),
   //{{
     'title'  => t('nb_eff_groupe'),
     'field'  => array('id' => 'numeric',),
@@ -146,7 +143,7 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['duree_prev'] = array( 'help'   => t('Duree prevue'),
+  $data['gbb_gmodu']['duree_prev'] = array( 'help' => t('Duree prevue'),
   //{{
     'title'  => t('duree_prev'),
     'field'  => array('id' => 'numeric',),
@@ -155,7 +152,7 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['nb_place_prev'] = array( 'help'   => t('Nombre de places prevues'),
+  $data['gbb_gmodu']['nb_place_prev'] = array( 'help' => t('Nombre de places prevues'),
   //{{
     'title'  => t('nb_place_prev'),
     'field'  => array('id' => 'numeric',),
@@ -164,7 +161,7 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['nb_h_interv'] = array( 'help'   => t('Nombre heures intervention'),
+  $data['gbb_gmodu']['nb_h_interv'] = array( 'help' => t('Nombre heures intervention'),
   //{{
     'title'  => t('nb_h_interv'),
     'field'  => array('id' => 'numeric',),
@@ -173,16 +170,13 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gmodu']['co_prna'] = array( 'help'   => t('Priorite nationale : code'),
-  //{{
+  $data['gbb_gmodu']['co_prna'] = array( 'help' => t('Priorite nationale : code'),
+  //{{ *** GBB_NPRNA intégré
     'title'  => t('co_prna'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
-  // ........................................................
-  // gbb_nprna * intégré directement dans les champs de gbb_gmodu
-  // ........................................................
   $data['gbb_nprna']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
@@ -210,8 +204,8 @@ function bb_views_data() {
   );
   //}}
   //}}
-  $data['gbb_gmodu']['co_prac'] = array( 'help'   => t('Priorite academique : code'),
-  //{{
+  $data['gbb_gmodu']['co_prac'] = array( 'help' => t('Priorite academique : code'),
+  //{{ *** GBB_NPRAC intégré
     'title'  => t('co_prac'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
@@ -247,7 +241,7 @@ function bb_views_data() {
   );
   //}}
   //}}
-  $data['gbb_gmodu']['lcibl'] = array( 'help'   => t('Cible litterale'),
+  $data['gbb_gmodu']['lcibl'] = array( 'help' => t('Cible litterale'),
   //{{
     'title'  => t('lcibl'),
     'field'  => array('id' => 'standard',),
@@ -255,7 +249,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['co_cibl'] = array( 'help'   => t('Code du public cible'),
+  $data['gbb_gmodu']['co_cibl'] = array( 'help' => t('Code du public cible'),
   //{{
     'title'  => t('co_cibl'),
     'field'  => array('id' => 'standard',),
@@ -263,7 +257,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['co_etab_dem'] = array( 'help'   => t('RNE de l etablissement demandeur'),
+  $data['gbb_gmodu']['co_etab_dem'] = array( 'help' => t('RNE de l etablissement demandeur'),
   //{{
     'title'  => t('co_etab_dem'),
     'field'  => array('id' => 'standard',),
@@ -271,7 +265,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['gbb_gmodu']['dt_crea'] = array( 'help'   => t('Date création'),
+  $data['gbb_gmodu']['dt_crea'] = array( 'help' => t('Date création'),
   //{{
     'title'  => t('dt_crea'),
     'field'  => array('id' => 'standard',),
@@ -279,12 +273,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-
-  // ........................................................
-  // Responsable ORGA    pour un module (co_tres=2)
-  // nomu+prenom Intégré directement dans les champs de gbb_gmodu
-  // ........................................................
-    //{{
+  //{{ Responsable ORGA    pour un module (co_tres=2)
   $data['gbb_gdire_orga']['table'] = array( 'group' => t('gbb_gdire_orga'),
     'join' => array(
       'gbb_gmodu' => array(
@@ -295,9 +284,7 @@ function bb_views_data() {
       ),
     ),
   );
-  //}}
   $data['gbb_gresp_orga']['table'] = array( 'group' => t('gbb_gmodu'),
-    //{{
     'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_gresp',
@@ -325,12 +312,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-
-  // ........................................................
-  // Responsable PEDA    pour un module (co_tres=3)
-  // nomu+prenom Intégré directement dans les champs de gbb_gmodu
-  // ........................................................
-    //{{
+  //{{ Responsable PEDA    pour un module (co_tres=3)
   $data['gbb_gdire_peda']['table'] = array( 'group' => t('gdire_peda'),
     'join' => array(
       'gbb_gmodu' => array(
@@ -341,9 +323,7 @@ function bb_views_data() {
       ),
     ),
   );
-  //}}
   $data['gbb_gresp_peda']['table'] = array( 'group' => t('gbb_gmodu'),
-    //{{
     'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_gresp',
@@ -372,51 +352,7 @@ function bb_views_data() {
   );
   //}}
 
-  // ........................................................
-  // Responsable ORGA ou PEDA      pour un module (co_tres=2 OU 3)
-  // Pour le FILTRE de la grand liste views admin/structure/views/view/liste_modules
-  // ........................................................
-    //{{
-  $data['gbb_gdire_orga_peda']['table'] = array( 'group' => t('gbb_gdire_orga_peda'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gdire',
-        'left_field' => 'co_modu',
-        'field' => 'co_modu',
-        'extra' => 'gbb_gdire_orga_peda.co_degre = gbb_gmodu.co_degre AND (gbb_gdire_orga_peda.co_tres=2 OR gbb_gdire_orga_peda.co_tres=3)',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_gresp_orga_peda']['table'] = array( 'group' => t('gbb_gmodu'),
-    //{{
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gresp',
-        'left_table' => 'gbb_gdire_orga_peda',
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-        'extra' => 'gbb_gresp_orga_peda.co_degre = gbb_gmodu.co_degre',
-      ),
-    ),
-  );
-  //}}
-  $data['gbb_gresp_orga_peda']['resp_filter'] = array(
-    //{{
-    'title' => t('CUSTOM responsable orga/peda'),
-    'filter' => array(
-      'title' => t('CUSTOM responsable orga OU péda'),
-      'help' => t('Fltre les stages où toto est resp péda OU orga'),
-      'field' => 'nomu',
-      'id' => 'string'
-    ),
-  );
-  //}}
-
-  // ........................................................
-  // Spécial pour l'affichage des compteurs de sessions
-  // ........................................................
-  //{{
+  //{{ Spécial pour l'affichage des compteurs de sessions
   // ........................................................
   // session : sess_id d'une session envoyée
   // ........................................................
@@ -487,6 +423,45 @@ function bb_views_data() {
   );
   //}}
   //}}
+  //{{ Resp ORGA ou PEDA   filtre pour module (co_tres=2 OU 3)
+  // Pour le FILTRE de la grand liste views admin/structure/views/view/liste_modules
+    //{{
+  $data['gbb_gdire_orga_peda']['table'] = array( 'group' => t('gbb_gdire_orga_peda'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gdire',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gdire_orga_peda.co_degre = gbb_gmodu.co_degre AND (gbb_gdire_orga_peda.co_tres=2 OR gbb_gdire_orga_peda.co_tres=3)',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gresp',
+        'left_table' => 'gbb_gdire_orga_peda',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+        'extra' => 'gbb_gresp_orga_peda.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_orga_peda']['resp_filter'] = array(
+    //{{
+    'title' => t('CUSTOM responsable orga/peda'),
+    'filter' => array(
+      'title' => t('CUSTOM responsable orga OU péda'),
+      'help' => t('Fltre les stages où toto est resp péda OU orga'),
+      'field' => 'nomu',
+      'id' => 'string'
+    ),
+  );
+  //}}
+  //}}
   //}}
 
   // ********************************************************
@@ -551,11 +526,9 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
-  // ........................................................
-  // gbb_ntcan * intégré directement dans les champs de gbb_gmodu
-  // ........................................................
+  //}}
+  //{{ *** GBB_NTCAN intégré
   $data['gbb_ntcan']['table'] = array( 'group' => t('gbb_gdisp'),
-  //{{
     'join' => array(
       'gbb_gmodu' => array(
         'left_table' => 'gbb_gdisp',
@@ -580,7 +553,6 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
-  //}}
   //}}
   $data['gbb_gdisp']['co_tpla'] = array( 'title' => t('co_tpla'),
   //{{
@@ -646,14 +618,6 @@ function bb_views_data() {
   $data['gbb_session']['sess_id'] = array( 'help' => t('Identifiant de la session'),
     //{{
     'title' => t('sess_id'),
-    'field'  => array('id' => 'numeric',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
-  );
-  //}}
-  $data['gbb_session']['co_resp'] = array( 'help' => t('Id formateur'),
-    //{{
-    'title' => t('co_resp'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
@@ -756,18 +720,13 @@ function bb_views_data() {
   );
   //}}
   $data['gbb_session']['co_lieu'] = array( 'help' => t('Code lieu (RNE)'),
-    //{{
+  //{{ *** GBB_NETAB_DAFOR intégré
     'title' => t('co_lieu'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
-  //}}
-  // ........................................................
-  // gbb_netab_dafor pour la session
-  // ........................................................
   $data['gbb_netab_dafor_session']['table'] = array( 'group' => t('gbb_session'),
-  //{{
     'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_netab_dafor',
@@ -794,10 +753,22 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-
-  // ........................................................
-  // gbb_gresp_dafor pour la session
-  // ........................................................
+  $data['gbb_session']['co_resp'] = array( 'help' => t('Id formateur'),
+  //{{
+    'title' => t('co_resp'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  //{{ *** GBB_GRESP_DAFOR intégré
+  $data['gbb_gresp_dafor_peda']['nomu'] = array( 'help' => t('Nom du formateur'),
+    'title' => t('nomu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gresp_dafor_peda']['table'] = array( 'group' => t('gbb_session'),
   //{{
     'join' => array(
@@ -809,96 +780,6 @@ function bb_views_data() {
         'extra' => 'gbb_gresp_dafor_peda.co_degre = gbb_gmodu.co_degre',
       ),
     ),
-  );
-  //}}
-  $data['gbb_gresp_dafor_peda']['nomu'] = array( 'help' => t('Nom du formateur'),
-  //{{
-    'title' => t('nomu'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-
-  // --------------------------------------------------------
-  // gbb_gdisp et toutes ses colonnes
-  // --------------------------------------------------------
-  $data['gbb_gdire']['table'] = array(
-    'group' => t('gbb_gdire'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_gdire',
-        'left_field' => 'co_modu',
-        'field' => 'co_modu',
-        'extra' => 'gbb_gdire.co_degre = gbb_gmodu.co_degre AND gbb_gdire.co_tres=3',
-      ),
-    ),
-  );
-  $data['gbb_gdisp']['table'] = array(
-    'group' => t('gbb_gdisp'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_gdire',
-        'left_field' => 'co_disp',
-        'field' => 'co_disp',
-        'extra' => 'gbb_gdisp.co_degre = gbb_gmodu.co_degre',
-      ),
-    ),
-  );
-  $data['gbb_gdisp']['id_disp'] = array(
-    'title' => t('id_disp'),
-    'help' => t('Identifiant du dispositif'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['lib'] = array(
-    'title' => t('lib'),
-    'help' => t('Libellé du dispositif'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_camp'] = array(
-    'title' => t('co_camp'),
-    'help' => t('Code campagne'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_tcan'] = array(
-    'title' => t('co_tcan'),
-    'help' => t('Code type candidature'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_tpla'] = array(
-    'title' => t('co_tpla'),
-    'help' => t('Code type plan'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_orie'] = array(
-    'title' => t('co_orie'),
-    'help' => t('Code orientation'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['lobjt'] = array(
-    'title' => t('lobjt'),
-    'help' => t('Objectif litteral'),
-    'field'  => array('id' => 'standard',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
-  );
-  $data['gbb_gdisp']['co_andi'] = array(
-    'title' => t('co_andi'),
-    'help' => t('Code annulation dispo'),
-    'field'  => array('id' => 'numeric',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gresp_dafor_peda']['prenom'] = array( 'help'   => t('Prenom du formateur'),
@@ -925,11 +806,8 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  // ........................................................
-  // Jointure pour les infos gbb_gresp_plus
-  // ........................................................
+  //{{ *** GBB_GRESP_PLUS intégré
   $data['gbb_gresp_plus']['table'] = array( 'group' => t('gbb_session'),
-  //{{
     'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_gresp_plus',
@@ -1072,580 +950,6 @@ function xxxbb_views_data() {
     'filter' => array('handler' => 'views_handler_filter_numeric'),
     'argument' => array('handler' => 'views_handler_argument_numeric'),
   );
-
-  // --------------------------------------------------------
-  // gbb_gmodu_plus
-  // --------------------------------------------------------
-
-  $data['gbb_gmodu_plus']['table'] = array(
-    'group' => t('gbb_gmodu_plus'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_field' => 'co_modu',
-        'field' => 'co_modu',
-        'extra' => 'gbb_gmodu_plus.co_degre = gbb_gmodu.co_degre',
-      ),
-    ),
-  );
-  $data['gbb_gmodu_plus']['module_alert'] = array(
-    'title' => t('module_alert'),
-    'help' => t('Changement important sur le module'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gmodu_plus']['module_printed'] = array(
-    'title' => t('module_printed'),
-    'help' => t('Imprimé'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gmodu_plus']['organisation'] = array(
-    'title' => t('organisation'),
-    'help' => t('Organisation du module'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  // --------------------------------------------------------
-  // gbb_gresp_plus
-  // --------------------------------------------------------
-
-
-  $data['gbb_gresp_plus']['table'] = array(
-    'group' => t('gbb_gresp_plus'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_session',
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-      ),
-    ),
-  );
-  $data['gbb_gresp_plus']['resp_dafor'] = array(
-    'title' => t('resp_dafor'),
-    'help' => t('Responsable DAFOR'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_plus']['decharge'] = array(
-    'title' => t('decharge'),
-    'help' => t('Decharge'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gresp_plus']['statut'] = array(
-    'title' => t('Statut(IUFM)'),
-    'help' => t('1=IUFM'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  // --------------------------------------------------------
-  // gbb_gresp_dafor
-  // --------------------------------------------------------
-
-   $data['gbb_gresp_dafor2']['table'] = array(
-     'group' => t('gbb_gresp_dafor2'),
-     'join' => array(
-       'gbb_gmodu' => array(
-         'table' => 'gbb_gresp_dafor',
-         'left_table' => 'gbb_session',
-         'left_field' => 'co_resp',
-         'field' => 'co_resp',
-         'extra' => 'gbb_gresp_dafor2.co_degre = gbb_gmodu.co_degre',
-       ),
-     ),
-   );
-  #--------------------new-----------------
-  $data['gbb_gresp_dafor']['table'] = array(
-    'group' => t('gbb_gresp_dafor'),
-    'base' => array(
-      'database' => $gaia_db,
-      'table' => 'gbb_gresp_dafor',
-      'field' => 'co_resp',
-      'title' => t('GaiaBB_formateurs'),
-      'help' => t('Tables des formateurs du module GaiaBB.'),
-    ),
-  );
-  $data['gbb_gresp_plus']['table'] = array(
-    'group' => t('gbb_gresp_plus'),
-    'join' => array(
-      'gbb_gresp_dafor' => array(
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-      ),
-    ),
-  );
-  $data['gbb_sessionTOUT']['table'] = array(
-    'group' => t('gbb_sessiontout'),
-    'join' => array(
-      'gbb_gresp_dafor' => array(
-        'table' => 'gbb_session',
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-      ),
-    ),
-  );
-  $data['gbb_session2014']['table'] = array(
-    'group' => t('gbb_session2014'),
-    'join' => array(
-      'gbb_gresp_dafor' => array(
-        'table' => 'gbb_session',
-        'left_field' => 'co_resp',
-        'field' => 'co_resp',
-        'extra' => 'gbb_session2014.date BETWEEN \'2014-08-01\' AND \'2015-07-31\'',
-      ),
-    ),
-  );
-  #--------------------end new-----------------
-  $data['gbb_sessionTOUT']['sess_id'] = array(
-    'title' => t('sess_id'),
-    'help' => t('Id de session'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_session2014']['sess_id'] = array(
-    'title' => t('sess_id'),
-    'help' => t('Id de session'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_session2014']['duree_prevue'] = array(
-    'title' => t('duree_prevue'),
-    'help' => t('Durée prévue'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-      'float' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gresp_dafor']['co_resp'] = array(
-    'title' => t('co_resp'),
-    'help' => t('Code du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gresp_dafor2']['co_resp'] = array(
-    'title' => t('co_resp'),
-    'help' => t('Code du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gresp_dafor']['nomu'] = array(
-    'title' => t('nomu'),
-    'help' => t('Nom du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_dafor2']['nomu'] = array(
-    'title' => t('nomu'),
-    'help' => t('Nom du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_dafor']['prenom'] = array(
-    'title' => t('prenom'),
-    'help' => t('Prénom du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_dafor2']['prenom'] = array(
-    'title' => t('prenom'),
-    'help' => t('Prénom du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_dafor']['tel'] = array(
-    'title' => t('tel'),
-    'help' => t('Télephone du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gresp_dafor']['mel'] = array(
-    'title' => t('mel'),
-    'help' => t('Mail du formateur'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  // --------------------------------------------------------
-  // GBB_NTCAN
-  // --------------------------------------------------------
-
-  $data['gbb_ntcan']['table'] = array(
-    'group' => t('gbb_ntcan'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_gdisp',
-        'left_field' => 'co_tcan',
-        'field' => 'co_tcan',
-      ),
-    ),
-  );
-  $data['gbb_ntcan']['lib_court'] = array(
-    'title' => t('lib_court'),
-    'help' => t('Candidature libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_ntcan']['lib_long'] = array(
-    'title' => t('lib_long'),
-    'help' => t('Candidature libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  // --------------------------------------------------------
-  // GBB_NCAMP
-  // --------------------------------------------------------
-
-  $data['gbb_ncamp']['table'] = array(
-    'group' => t('gbb_ncamp'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_gdisp',
-        'left_field' => 'co_camp',
-        'field' => 'co_camp',
-      ),
-    ),
-  );
-  $data['gbb_ncamp']['lib_court'] = array(
-    'title' => t('lib_court'),
-    'help' => t('Campagne libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_ncamp']['lib_long'] = array(
-    'title' => t('lib_long'),
-    'help' => t('Campagne libellé long'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-
-  // --------------------------------------------------------
-  // GBB_NORIE
-  // --------------------------------------------------------
-
-  $data['gbb_norie']['table'] = array(
-    'group' => t('gbb_norie'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        #'table' => 'taxonomy_term_data',
-        'left_table' => 'gbb_gdisp',
-        'left_field' => 'co_orie',
-        'field' => 'co_orie',
-      ),
-    ),
-  );
-  $data['gbb_norie']['lib_court'] = array(
-    'title' => t('lib_court'),
-    'help' => t('Orientation libellé court'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-
-  // --------------------------------------------------------
-  // gbb_netab_dafor
-  // --------------------------------------------------------
-
-  $data['gbb_netab_dafor']['table'] = array(
-    'group' => t('gbb_netab_dafor'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'left_table' => 'gbb_session',
-        'left_field' => 'co_lieu',
-        'field' => 'co_lieu',
-      ),
-    ),
-  );
-
-  $data['gbb_netab_dafor2']['table'] = array(
-    'group' => t('gbb_netab_dafor2'),
-    'join' => array(
-      'gbb_gdiof' => array(
-        'table' => 'gbb_netab_dafor',
-        'left_table' => 'gbb_gmoof',
-        'left_field' => 'co_etab_dem',
-        'field' => 'co_lieu',
-      ),
-    ),
-  );
-  $data['gbb_netab_dafor3']['table'] = array(
-    'group' => t('gbb_netab_dafor3'),
-    'join' => array(
-      'gbb_gmodu' => array(
-        'table' => 'gbb_netab_dafor',
-        'left_field' => 'co_etab_dem',
-        'field' => 'co_lieu',
-      ),
-    ),
-  );
-  $data['gbb_netab_dafor']['denom_comp'] = array(
-    'title' => t('denom_comp'),
-    'help' => t('Dénomination complémentaire'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor2']['denom_comp'] = array(
-    'title' => t('denom_comp'),
-    'help' => t('Dénomination complémentaire'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor3']['denom_comp'] = array(
-    'title' => t('denom_comp'),
-    'help' => t('Dénomination complémentaire'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['sigle'] = array(
-    'title' => t('sigle'),
-    'help' => t('Sigle (CLG, LP, LGT,...)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor2']['sigle'] = array(
-    'title' => t('sigle'),
-    'help' => t('Sigle (CLG, LP, LGT,...)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor3']['sigle'] = array(
-    'title' => t('sigle'),
-    'help' => t('Sigle (CLG, LP, LGT,...)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['adr'] = array(
-    'title' => t('adr'),
-    'help' => t('Adresse'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['co_lieu'] = array(
-    'title' => t('co_lieu'),
-    'help' => t('code_lieu (RNE)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['cp'] = array(
-    'title' => t('cp'),
-    'help' => t('Code postal'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_netab_dafor2']['cp'] = array(
-    'title' => t('cp'),
-    'help' => t('Code postal'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_netab_dafor3']['cp'] = array(
-    'title' => t('cp'),
-    'help' => t('Code postal'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_netab_dafor']['tel'] = array(
-    'title' => t('tel'),
-    'help' => t('Telephone'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['fax'] = array(
-    'title' => t('fax'),
-    'help' => t('Fax'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_netab_dafor']['mel'] = array(
-    'title' => t('mel'),
-    'help' => t('Adresse eMail'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
   // --------------------------------------------------------
   // gbb_evaluation
   // --------------------------------------------------------
