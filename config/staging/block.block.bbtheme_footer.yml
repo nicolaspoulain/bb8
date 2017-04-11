@@ -24,6 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '/moduleng/*'
+    pages: "/moduleng/*\r\n/liste-modules*"
     negate: true
     context_mapping: {  }

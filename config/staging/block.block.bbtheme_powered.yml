@@ -8,7 +8,7 @@ dependencies:
     - bbtheme
 id: bbtheme_powered
 theme: bbtheme
-region: '-1'
+region: sidebar_first
 weight: -5
 provider: null
 plugin: system_powered_by_block

@@ -10,7 +10,7 @@ dependencies:
     - bbtheme
 id: bbtheme_tools
 theme: bbtheme
-region: '-1'
+region: sidebar_first
 weight: -6
 provider: null
 plugin: 'system_menu_block:tools'
