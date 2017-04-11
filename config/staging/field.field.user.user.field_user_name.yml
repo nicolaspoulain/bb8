@@ -1,0 +1,20 @@
+uuid: 9df09470-2988-4e6f-bf8e-e1eb64bb8296
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_user_name
+  module:
+    - user
+id: user.user.field_user_name
+field_name: field_user_name
+entity_type: user
+bundle: user
+label: user_name
+description: 'Votre nom de famille tel qu''il est renseigné dans GAIA'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
