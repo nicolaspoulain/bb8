@@ -10,8 +10,8 @@ id: user.user.field_user_name
 field_name: field_user_name
 entity_type: user
 bundle: user
-label: user_name
-description: 'Votre nom de famille tel qu''il est renseigné dans GAIA'
+label: 'Nom de famille'
+description: 'Tel qu''il est renseigné dans GAIA'
 required: false
 translatable: false
 default_value: {  }
