@@ -9,9 +9,9 @@ dependencies:
   module:
     - user
 id: a_traiter
-label: 'A traiter'
+label: 'BB: A traiter'
 module: views
-description: 'Toutes les sessions pour un module donné'
+description: 'Les sessions à traiter par le service administratif'
 tag: bb
 base_table: gbb_gmodu
 base_field: co_modu

@@ -3,7 +3,7 @@ langcode: fr
 status: true
 dependencies: {  }
 id: infos_module
-label: 'Infos module'
+label: 'BB: Infos module'
 module: views
 description: ''
 tag: bb

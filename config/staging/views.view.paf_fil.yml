@@ -9,7 +9,7 @@ dependencies:
   module:
     - user
 id: paf_fil
-label: 'PAF + FIL'
+label: 'BB: PAF + FIL'
 module: views
 description: ''
 tag: bb

@@ -9,9 +9,9 @@ dependencies:
   module:
     - user
 id: planning
-label: Planning
+label: 'BB: Planning'
 module: views
-description: 'Toutes les sessions pour un module donné'
+description: 'Sessions classées par date'
 tag: bb
 base_table: gbb_gmodu
 base_field: co_modu

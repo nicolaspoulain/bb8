@@ -13,7 +13,7 @@ dependencies:
     - user
     - views_data_export
 id: liste_modules
-label: 'Liste modules du plan'
+label: 'BB: Liste modules plan'
 module: views
 description: ''
 tag: bb
