@@ -869,6 +869,82 @@ function bb_views_data() {
   //}}
   //}}
 
+  // ********************************************************
+  // ********************************************************
+  // * gbb_netab_dafor ** et toutes ses colonnes
+  // ********************************************************
+  // ********************************************************
+  //{{
+  $data['gbb_netab_dafor']['table'] = array( 'group' => t('gbb_netab_dafor'),
+  //{{
+    'base' => array(
+      'database' => $gaia_db,
+      'field' => 'co_lieu',
+      'title' => t('GaiaBB Etab'),
+      'help'  => t('Tables du module GaiaBB.'),
+      // 'extra' => 'gbb_netab_dafor.co_lieu NOT LIKE "0"',
+    ),
+  );
+  //}}
+
+  $data['gbb_netab_dafor']['co_lieu'] = array( 'help' => t('Code etablissement'),
+  //{{
+    'title'  => t('co_lieu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['denom_comp'] = array( 'help'   => t('Nom établissement'),
+    //{{
+    'title'  => t('Nom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['sigle'] = array( 'help'   => t('Sigle'),
+    //{{
+    'title'  => t('Sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['cp'] = array( 'help'   => t('Code postal'),
+    //{{
+    'title'  => t('Code postal'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['adr'] = array( 'help'   => t('Adresse'),
+    //{{
+    'title'  => t('Adresse'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['mel'] = array( 'help'   => t('Mel'),
+    //{{
+    'title'  => t('Mel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_dafor']['tel'] = array( 'help'   => t('Tel'),
+    //{{
+    'title'  => t('Tel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
 
   return $data;
 }
