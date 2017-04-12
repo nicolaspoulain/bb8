@@ -70,6 +70,7 @@ class AfileForm extends FormBase {
 
     // Delete file list form
     $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_modu, 'co_degre' => $co_degre, 'zone' => 1]);
+    $flist = [];
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);

@@ -63,6 +63,7 @@ class PropFileForm extends FormBase {
 
     // Supprimer un fichier
     $files = BbCrudController::load( 'gbb_file', ['co_modu' => '38967', 'co_degre' => '2', 'zone' => 3]);
+    $flist = [];
     foreach ($files as $f) {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);
