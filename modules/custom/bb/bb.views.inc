@@ -829,15 +829,15 @@ function bb_views_data() {
   //}}
   $data['gbb_gresp_plus']['decharge'] = array( 'help'   => t('Décharge du formateur'),
     //{{
-    'title'  => t('decharge'),
+    'title'  => t('Décharge'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_gresp_plus']['discipline'] = array( 'help'   => t('discipline du formateur'),
+  $data['gbb_gresp_plus']['discipline'] = array( 'help'   => t('Discipline du formateur'),
     //{{
-    'title'  => t('discipline'),
+    'title'  => t('Discipline'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -936,6 +936,81 @@ function bb_views_data() {
   );
   //}}
   $data['gbb_netab_dafor']['tel'] = array( 'help'   => t('Tel'),
+    //{{
+    'title'  => t('Tel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
+  // ********************************************************
+  // ********************************************************
+  // * gbb_gresp_dafor ** et toutes ses colonnes
+  // ********************************************************
+  // ********************************************************
+  //{{
+  $data['gbb_gresp_dafor']['table'] = array( 'group' => t('gbb_gresp_dafor'),
+  //{{ *** GBB_GRESP_PLUS intégré
+    'base' => array(
+      'database' => $gaia_db,
+      'field' => 'co_resp',
+      'title' => t('GaiaBB Formateurs'),
+      'help'  => t('Tables du module GaiaBB.'),
+    ),
+  );
+  $data['gbb_gresp_plus']['table'] = array( 'group' => t('gbb_gresp_dafor'),
+    'join' => array(
+      'gbb_gresp_dafor' => array(
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gresp_dafor']['co_resp'] = array( 'help' => t('Identifiant du formteur'),
+  //{{
+    'title'  => t('ID formateur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_dafor']['nomu'] = array( 'help'   => t('Nom'),
+    //{{
+    'title'  => t('Nom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_dafor']['prenom'] = array( 'help'   => t('Prenom'),
+    //{{
+    'title'  => t('Prenom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_dafor']['qualite'] = array( 'help'   => t('Qualité'),
+    //{{
+    'title'  => t('Qualité'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_dafor']['mel'] = array( 'help'   => t('Mel'),
+    //{{
+    'title'  => t('Mel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_dafor']['tel'] = array( 'help'   => t('Tel'),
     //{{
     'title'  => t('Tel'),
     'field'  => array('id' => 'standard',),
