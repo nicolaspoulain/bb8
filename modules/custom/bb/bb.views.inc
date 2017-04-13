@@ -970,7 +970,7 @@ function bb_views_data() {
   );
   //}}
 
-  $data['gbb_gresp_dafor']['co_resp'] = array( 'help' => t('Identifiant du formteur'),
+  $data['gbb_gresp_dafor']['co_resp'] = array( 'help' => t('Identifiant du formateur'),
   //{{
     'title'  => t('ID formateur'),
     'field'  => array('id' => 'standard',),
@@ -1013,6 +1013,380 @@ function bb_views_data() {
   $data['gbb_gresp_dafor']['tel'] = array( 'help'   => t('Tel'),
     //{{
     'title'  => t('Tel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
+  // ********************************************************
+  // ********************************************************
+  // * gbb_gmoof ** et toutes ses colonnes
+  // ********************************************************
+  // ********************************************************
+  //{{
+  $data['gbb_gmoof']['table'] = array( 'group' => t('gbb_gmoof'),
+  //{{ *** GBB_DIOF intégré
+    'base' => array(
+      'database' => $gaia_db,
+      'field' => 'co_offre',
+      'title' => t('GaiaBB Offres'),
+      'help'  => t('Tables du module GaiaBB.'),
+    ),
+  );
+  $data['gbb_gdiof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'left_field' => 'co_offre',
+        'field' => 'co_offre',
+      ),
+    ),
+  );
+  $data['gbb_gdiof_dafor']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'left_field' => 'co_offre',
+        'field' => 'co_offre',
+      ),
+    ),
+  );
+  $data['gbb_gresp_peda_moof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_gresp',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+      ),
+    ),
+  );
+  $data['gbb_gresp_orga_diof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_gresp',
+        'left_table' => 'gbb_gdiof',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_peda_moof']['nomu'] = array( 'help' => t('Nom respPéda module offre'),
+    //{{
+    'title' => t('nomuPeda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_orga_diof']['nomu'] = array( 'help' => t('Nom respOrga dispo offre'),
+    //{{
+    'title' => t('nomuOrga'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['co_omodu'] = array( 'help' => t('Code module'),
+    //{{
+    'title' => t('co_omodu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['libl'] = array( 'help' => t('Libellé long'),
+    //{{
+    'title' => t('libl'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lcibl'] = array( 'help' => t('Cible'),
+    //{{
+    'title' => t('cibl'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lform'] = array( 'help' => t('Forme'),
+    //{{
+    'title' => t('lform'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['duree_prev'] = array( 'help' => t('Durée prévue'),
+    //{{
+    'title' => t('duree_prev'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['nb_eff_groupe'] = array( 'help' => t('Effectif groupe'),
+    //{{
+    'title' => t('nb_eff_groupe'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['nb_place_prev'] = array( 'help' => t('Nb places prévues'),
+    //{{
+    'title' => t('nb_place_prev'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['nb_groupe'] = array( 'help' => t('Nbre de groupes'),
+    //{{
+    'title' => t('nb_groupe'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['cout_p_prest'] = array( 'help' => t('Cout prev de prest'),
+    //{{
+    'title' => t('cout_p_prest'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['cout_p_fonc'] = array( 'help' => t('Cout prev de fonc'),
+    //{{
+    'title' => t('cout_p_fonc'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['cout_p_excep'] = array( 'help' => t('Cout prev excep'),
+    //{{
+    'title' => t('cout_p_excep'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lcont'] = array( 'help' => t('Lcont'),
+    //{{
+    'title' => t('lcont'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lpeda'] = array( 'help' => t('Libellé pédagogique'),
+    //{{
+    'title' => t('lpeda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lmoda'] = array( 'help' => t('Modalité'),
+    //{{
+    'title' => t('lmoda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['co_moda'] = array( 'help' => t('Code Modalité'),
+    //{{
+    'title' => t('co_moda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['lcomm'] = array( 'help' => t('Commentaires (GAIA)'),
+    //{{
+    'title' => t('lcomm'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['dt_crea'] = array( 'help' => t('Date création'),
+    //{{
+    'title' => t('dt_crea'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmoof']['co_etab_dem'] = array( 'help' => t('RNE etab demandeur'),
+    //{{
+    'title' => t('co_etab_dem'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['co_camp'] = array( 'help' => t('Code campagne'),
+    //{{
+    'title' => t('co_camp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['co_tpla'] = array( 'help' => t('Code type plan'),
+    //{{
+    'title' => t('co_tpla'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['co_orie'] = array( 'help' => t('Code orientation'),
+    //{{
+    'title' => t('co_orie'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['libl'] = array( 'help' => t('Libellé du didpositif offre'),
+    //{{
+    'title' => t('libl'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['no_offre'] = array( 'help' => t('Numéro de l offre'),
+    //{{
+    'title' => t('no_offre'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['nb_hp'] = array( 'help' => t('Heures Poste, sur décharge'),
+    //{{
+    'title' => t('nb_hp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['nb_vac'] = array( 'help' => t('Nbre vacations (dont ex-HSE)'),
+    //{{
+    'title' => t('nb_vac'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['nb_gr'] = array( 'help' => t('nombre de groupes prévus'),
+    //{{
+    'title' => t('nb_gr'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['hors_cdc'] = array( 'help' => t('Hors CDC'),
+    //{{
+    'title' => t('hors_cdc'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['prio_nat'] = array( 'help' => t('Priorité nationale'),
+    //{{
+    'title' => t('prio_nat'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['prio_aca'] = array( 'help' => t('Priorité académique'),
+    //{{
+    'title' => t('prio_aca'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['offre_new'] = array( 'help' => t('Offre Nouvelle (p/r an dernier)'),
+    //{{
+    'title' => t('offre_new'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['comment'] = array( 'help' => t('Observations'),
+    //{{
+    'title' => t('Comment'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['iufm'] = array( 'help' => t('Offreur specifique)'),
+    //{{
+    'title' => t('iufm'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['nouv_offreur'] = array( 'help' => t('Nouv. ofreur (O/N)'),
+    //{{
+    'title' => t('nouv_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['pub_des'] = array( 'help' => t('Public désigné'),
+    //{{
+    'title' => t('pub_des'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['position'] = array( 'help' => t('Position'),
+    //{{
+    'title' => t('position'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['taux'] = array( 'help' => t('taux'),
+    //{{
+    'title' => t('taux'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['ht2'] = array( 'help' => t('ht2'),
+    //{{
+    'title' => t('ht2'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['anim_peda'] = array( 'help' => t('anim_peda'),
+    //{{
+    'title' => t('anim_peda'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -1528,179 +1902,6 @@ function xxxbb_views_data() {
         'field' => 'co_omodu',
       ),
     ),
-  );
-  $data['gbb_gdiof_dafor']['nb_hp'] = array(
-    'title' => t('nb_hp'),
-    'help' => t('Heures Poste, sur décharge'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gdiof_dafor']['nb_vac'] = array(
-    'title' => t('nb_vac'),
-    'help' => t('Nbre vacations (dont ex-HSE)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gdiof_dafor']['nb_gr'] = array(
-    'title' => t('nb_gr'),
-    'help' => t('nombre de groupes prévus'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gdiof_dafor']['hors_cdc'] = array(
-    'title' => t('hors_cdc'),
-    'help' => t('Hors CDC'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-  $data['gbb_gdiof_dafor']['prio_nat'] = array(
-    'title' => t('prio_nat'),
-    'help' => t('Priorité nationale'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gdiof_dafor']['prio_aca'] = array(
-    'title' => t('prio_aca'),
-    'help' => t('Priorité académique'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-  $data['gbb_gdiof_dafor']['offre_new'] = array(
-    'title' => t('offre_new'),
-    'help' => t('Offre Nouvelle (p/r an dernier)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  $data['gbb_gdiof_dafor']['comment'] = array(
-    'title' => t('Comment'),
-    'help' => t('Observations'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  $data['gbb_gdiof_dafor']['iufm'] = array(
-    'title' => t('iufm'),
-    'help' => t('Offreur specifique)'),
-    'field' => array(
-      'handler' => 'views_handler_field',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_string'),
-    'argument' => array('handler' => 'views_handler_argument_string'),
-  );
-
-  $data['gbb_gdiof_dafor']['nouv_offreur'] = array(
-    'title' => t('nouv_offreur'),
-    'help' => t('Nouv. ofreur (O/N)'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gdiof_dafor']['pub_des'] = array(
-    'title' => t('pub_des'),
-    'help' => t('Public désigné'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gdiof_dafor']['position'] = array(
-    'title' => t('position'),
-    'help' => t('Position'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gdiof_dafor']['taux'] = array(
-    'title' => t('taux'),
-    'help' => t('taux'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gdiof_dafor']['ht2'] = array(
-    'title' => t('ht2'),
-    'help' => t('ht2'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
-  );
-
-  $data['gbb_gdiof_dafor']['anim_peda'] = array(
-    'title' => t('anim_peda'),
-    'help' => t('anim_peda'),
-    'field' => array(
-      'handler' => 'views_handler_field_numeric',
-      'click sortable' => TRUE,
-    ),
-    'sort' => array('handler' => 'views_handler_sort'),
-    'filter' => array('handler' => 'views_handler_filter_numeric'),
-    'argument' => array('handler' => 'views_handler_argument_numeric'),
   );
 
   // --------------------------------------------------------
