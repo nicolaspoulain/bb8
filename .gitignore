@@ -61,6 +61,7 @@ bb8.sql
 composer.json
 composer.lock
 config/staging/system.file.yml
+config/staging/system.site.yml
 example.gitignore
 index.php
 installviews_data_export
