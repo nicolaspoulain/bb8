@@ -31,10 +31,10 @@
  * @ingroup themeable
  */
 #}
+{% for field in fields -%}
+  {{ field.separator }}
 
 {#
-{% for key, field in fields -%}
-  {{ field.separator }}
 {%- if field.wrapper_element -%}
     <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
   {%- endif %}
@@ -45,57 +45,20 @@
       {{ field.label }}{{ field.label_suffix }}
     {%- endif %}
   {%- endif %}
+#}
 
   {%- if field.element_type -%}
-    <{{ field.element_type }}{{ field.element_attributes }}>--{{ key }}--{{ field.content }}</{{ field.element_type }}>
+    <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
   {%- else -%}
     {{ field.content }}
   {%- endif %}
+
+
+{#
 {%- if field.wrapper_element -%}
     </{{ field.wrapper_element }}>
   {%- endif %}
-{%- endfor %}
 #}
 
 
-<div id="entete">
-{{ fields['lib'].content }}
-{{ fields['nothing'].content }}
-</div>
-
-<div id="main">
- <div id="menu">
-<div>
-Public : {{ fields['lcibl'].content }}
-</div>
-<div>
-Objectifs : {{ fields['lpeda'].content }}
-</div>
- </div>
-
- <div id="contenu1">
-<div>
-Resp. Péda : {{ fields['nomu'].content }}
-</div>
-<div>
-iContenus : {{ fields['lcont'].content }}
-</div>
-<div>
-Forme : {{ fields['lform'].content }}
-</div>
- </div>
-
- <div id="contenu2">
-<div>
-Durée : {{ fields['duree_prev'].content }}
-</div>
-<div>
-Modalités : {{ fields['lmoda'].content }}
-</div>
- </div>
-
-
-
-</div>
-
-
+{%- endfor %}
