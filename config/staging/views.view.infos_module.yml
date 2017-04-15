@@ -95,7 +95,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -358,7 +358,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -603,7 +603,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -652,7 +652,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -701,7 +701,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -750,7 +750,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -799,7 +799,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -848,7 +848,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -905,7 +905,7 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
+          element_label_class: label
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -962,8 +962,8 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
+          element_label_class: label
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1019,8 +1019,8 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
+          element_label_class: label
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
