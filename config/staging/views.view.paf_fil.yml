@@ -638,7 +638,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Plan Orie'
+          label: Plan/Orie
           exclude: false
           alter:
             alter_text: true
@@ -687,7 +687,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: disp
+          label: Dispositif
           exclude: false
           alter:
             alter_text: false
@@ -997,7 +997,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: modu
+          label: Module
           exclude: false
           alter:
             alter_text: false
@@ -1054,13 +1054,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: lib
+          label: 'Libellé du module'
           exclude: false
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -2193,7 +2193,50 @@ display:
           id: lib_court
           table: gbb_ntcan
           field: lib_court
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Type Cand.'
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
       filters:
         id_disp:
           id: id_disp
@@ -2368,8 +2411,8 @@ display:
           exposed: true
           expose:
             operator_id: nomu_op
-            label: 'Resp. Orga'
-            description: ''
+            label: 'Responsable Organisationnel'
+            description: 'p.ex. : Cordier'
             use_operator: false
             operator: nomu_op
             identifier: nomu
@@ -2408,8 +2451,8 @@ display:
           exposed: true
           expose:
             operator_id: nomu_1_op
-            label: 'Resp. Péda'
-            description: ''
+            label: 'Responsable Pédagogique'
+            description: 'p.ex. : Badda'
             use_operator: false
             operator: nomu_1_op
             identifier: nomu_1
@@ -2449,7 +2492,7 @@ display:
           expose:
             operator_id: lib_op
             label: 'Mot dans le libellé du module'
-            description: ''
+            description: 'p.ex : math ou RAEP'
             use_operator: false
             operator: lib_op
             identifier: lib
@@ -2488,8 +2531,8 @@ display:
           exposed: true
           expose:
             operator_id: id_disp_1_op
-            label: id_disp
-            description: ''
+            label: 'Identifiant du dispositif'
+            description: 'p.ex. : 17A0010626'
             use_operator: false
             operator: id_disp_1_op
             identifier: id_disp_1
@@ -2531,8 +2574,8 @@ display:
           exposed: true
           expose:
             operator_id: co_modu_op
-            label: co_modu
-            description: ''
+            label: 'Code du module'
+            description: 'p.ex. : 45785'
             use_operator: false
             operator: co_modu_op
             identifier: co_modu
@@ -2571,8 +2614,8 @@ display:
           exposed: true
           expose:
             operator_id: co_orie_op
-            label: co_orie
-            description: ''
+            label: 'Code Orientation'
+            description: 'p.ex. : 2S30'
             use_operator: false
             operator: co_orie_op
             identifier: co_orie
