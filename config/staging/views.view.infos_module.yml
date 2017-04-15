@@ -52,7 +52,11 @@ display:
         type: fields
         options:
           default_field_elements: true
-          inline: {  }
+          inline:
+            nb_eff_groupe: nb_eff_groupe
+            nb_groupe: nb_groupe
+            nb_h_interv: nb_h_interv
+            nb_place_prev: nb_place_prev
           separator: ''
           hide_empty: false
       fields:

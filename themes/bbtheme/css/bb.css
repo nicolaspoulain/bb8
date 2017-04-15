@@ -191,6 +191,15 @@ margin-top:10px;
   margin :0px 10px 10px 0px;
   padding:5px;
 }
+#menu2  {
+  background-color:#EEE;
+  text-align:justify;
+  float:left;
+  width:380px;
+  border:1px solid #bbb;
+  margin :0px 10px 10px 0px;
+  padding:5px;
+}
 #contenu1 {
   margin-left:265px;
   text-align:justify;
@@ -199,6 +208,18 @@ margin-top:10px;
   margin-left:260px;
   text-align:justify;
   border:1px solid #9FC6FF;
+  padding:5px;
+  /*arrondir les coins en haut à gauche et en bas à droite*/
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+}
+#contenu3 {
+  margin-left:400px;
+  text-align:justify;
+  border:1px solid #bbb;
+  margin-top: 20px;
+  margin-bottom: 20px;
   padding:5px;
   /*arrondir les coins en haut à gauche et en bas à droite*/
   -moz-border-radius:10px;
