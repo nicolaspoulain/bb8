@@ -402,7 +402,13 @@ display:
           default_row_class: true
       row:
         type: fields
-        options: {  }
+        options:
+          default_field_elements: true
+          inline:
+            duree_prev: duree_prev
+            lmoda: lmoda
+          separator: ''
+          hide_empty: false
       fields:
         co_degre:
           id: co_degre
@@ -576,7 +582,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Identifiants
+          label: ''
           exclude: false
           alter:
             alter_text: true
@@ -625,7 +631,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Titre
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -654,11 +660,11 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h2
+          element_type: ''
           element_class: name
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: false
@@ -1016,7 +1022,7 @@ display:
           format_plural: false
           format_plural_string: "1\x03@count"
           prefix: ''
-          suffix: h
+          suffix: 'h — '
           plugin_id: numeric
         lmoda:
           id: lmoda
