@@ -762,7 +762,7 @@ display:
             operator: nomu_op
             identifier: nomu
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -802,7 +802,7 @@ display:
             operator: nomu_1_op
             identifier: nomu_1
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated
