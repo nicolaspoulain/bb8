@@ -1254,18 +1254,22 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '2'
+            default_group: '3'
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              2:
                 title: 2016-17
                 operator: starts
                 value: '16'
-              2:
+              3:
                 title: 2015-16
                 operator: starts
                 value: '15'
-              3:
+              4:
                 title: 2014-15
                 operator: starts
                 value: '14'

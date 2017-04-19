@@ -1,0 +1,41 @@
+uuid: 5d10bf2c-002f-45b8-8098-5984c9e57a2e
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:531ed426-d7ef-4c41-836a-67e50c77a442'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - bbtheme
+id: navigationbb
+theme: bbtheme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:531ed426-d7ef-4c41-836a-67e50c77a442'
+settings:
+  id: 'block_content:531ed426-d7ef-4c41-836a-67e50c77a442'
+  label: 'Navigation BB'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      administrator: administrator
+      d_cons: d_cons
+      d_admi: d_admi
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
