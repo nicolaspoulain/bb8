@@ -74,7 +74,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: co_lieu
+          label: 'RNE (ou UAI)'
           exclude: false
           alter:
             alter_text: false
@@ -385,8 +385,8 @@ display:
           exposed: true
           expose:
             operator_id: co_lieu_op
-            label: co_lieu
-            description: ''
+            label: 'RNE (ou UAI)'
+            description: 'p.ex.: 0753345D'
             use_operator: false
             operator: co_lieu_op
             identifier: co_lieu
@@ -425,8 +425,8 @@ display:
           exposed: true
           expose:
             operator_id: denom_comp_op
-            label: Nom
-            description: ''
+            label: 'Nom (tout ou partie)'
+            description: 'p.ex.: Hugo ou Césaire'
             use_operator: false
             operator: denom_comp_op
             identifier: denom_comp
