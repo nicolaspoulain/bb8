@@ -834,7 +834,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '2012-05-10 12:00:00'
+            value: '2012-05-10'
             type: date
           group: 1
           exposed: true
@@ -846,7 +846,7 @@ display:
             operator: date_ts_op
             identifier: date_ts
             required: false
-            remember: false
+            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated
