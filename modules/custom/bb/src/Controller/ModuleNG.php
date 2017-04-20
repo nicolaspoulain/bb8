@@ -45,6 +45,38 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
+  public function session_le_on($co_degre, $co_modu, $sessid) {
+    $entry = array('LE_etat' => 1);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
+  public function session_le_off($co_degre, $co_modu, $sessid) {
+    $entry = array('LE_etat' => 0);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
+  public function session_paiement_on($co_degre, $co_modu, $sessid) {
+    $entry = array('paiement_etat' => 1);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
+  public function session_paiement_off($co_degre, $co_modu, $sessid) {
+    $entry = array('paiement_etat' => 0);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
   public function sessiondelete($co_degre, $co_modu, $sessid) {
     // delete session
     $entry = array('sess_id' => $sessid);

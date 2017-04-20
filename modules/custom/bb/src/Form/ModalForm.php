@@ -123,16 +123,9 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->type_paiement,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
-    $form['duree_a_payer'] = array(
-      '#type'          => 'textfield',
-      '#title'         => $this->t('DàP'),
-      '#size'          => 20,
-      '#default_value' => $entries[0]->duree_a_payer,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
     $form['duree_prevue'] = array(
       '#type'          => 'textfield',
-      '#title'         => $this->t('DP'),
+      '#title'         => $this->t('DàP'),
       '#size'          => 20,
       '#default_value' => $entries[0]->duree_prevue,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
@@ -186,7 +179,6 @@ class ModalForm extends FormBase {
       'horaires'      => $form_state->getValue('horaires'),
       'co_lieu'       => $form_state->getValue('lieu'),
       'co_resp'       => $form_state->getValue('formateur'),
-      'duree_a_payer' => $form_state->getValue('duree_a_payer'),
       'duree_prevue'  => $form_state->getValue('duree_prevue'),
       'type_paiement' => $form_state->getValue('type_paiement'),
       'groupe'        => $form_state->getValue('groupe'),

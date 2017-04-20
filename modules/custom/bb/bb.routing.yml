@@ -104,6 +104,46 @@ bb.sessionalert:
   requirements:
     _permission: 'access content'
 
+bb.session_LE_on:
+  path: '/session_LE_on/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_LE_on'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.session_LE_off:
+  path: '/session_LE_off/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_LE_off'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.session_paiement_on:
+  path: '/session_paiement_on/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_paiement_on'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.session_paiement_off:
+  path: '/session_paiement_off/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_paiement_off'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.sessiondelete:
   path: '/sessiondelete/{co_degre}/{co_modu}/{sessid}'
   defaults:

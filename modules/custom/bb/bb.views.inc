@@ -655,6 +655,22 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_session']['LE_etat'] = array( 'help' => t('Liste émargement rendue (0/1)'),
+    //{{
+    'title' => t('LE_etat'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_session']['paiement_etat'] = array( 'help' => t('Paiement demandé (0/1)'),
+    //{{
+    'title' => t('paiement_etat'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_session']['groupe'] = array( 'help' => t('Groupe'),
     //{{
     'title' => t('groupe'),
