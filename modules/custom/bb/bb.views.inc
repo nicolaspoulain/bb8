@@ -571,6 +571,33 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  //{{ *** GBB_NOIRE intégré
+  $data['gbb_norie']['table'] = array( 'group' => t('gbb_gdisp'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gdisp',
+        'left_field' => 'co_orie',
+        'field' => 'co_orie',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_norie']['lib_court'] = array( 'help' => t('Orientation : libellé court'),
+  //{{
+    'title' => t('norie.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_norie']['lib_long'] = array( 'help' => t('Orientation : libellé long'),
+  //{{
+    'title' => t('norie.lib_long'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdisp']['lobjt'] = array( 'title' => t('lobjt'),
   //{{
     'help' => t('Objectif litteral'),
