@@ -1,7 +1,13 @@
 uuid: 20242a1c-cdf4-457f-a0fd-ec33ad0f92b9
 langcode: fr
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - user.role.administrator
+    - user.role.d_admi
+    - user.role.d_cons
+  module:
+    - user
 id: infos_module
 label: 'BB: Infos module'
 module: views
@@ -18,8 +24,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            d_cons: d_cons
+            d_admi: d_admi
       cache:
         type: tag
         options: {  }
@@ -1189,6 +1199,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   block_1:
     display_plugin: block
@@ -1202,4 +1213,5 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }

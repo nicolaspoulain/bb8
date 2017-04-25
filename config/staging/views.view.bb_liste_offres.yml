@@ -1,7 +1,12 @@
 uuid: 06d88244-7d37-4947-9b5c-b2168e3852db
 langcode: fr
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - user.role.administrator
+    - user.role.d_cons
+  module:
+    - user
 id: bb_liste_offres
 label: 'BB: Liste Offres'
 module: views
@@ -18,8 +23,11 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            d_cons: d_cons
       cache:
         type: tag
         options: {  }
@@ -493,6 +501,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -508,4 +517,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
