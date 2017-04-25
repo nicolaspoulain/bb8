@@ -1502,7 +1502,17 @@ display:
           plugin_id: standard
       title: 'TeX-Plan chapitré par orientation'
       header: {  }
-      footer: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
       empty: {  }
       relationships: {  }
       arguments: {  }
