@@ -143,7 +143,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '\ORIE{ {{ co_orie }} : {{ lib_long }} }'
+            text: "\\ORIE{ {{ co_orie }} : {{ lib_long  | replace({\"%\" : \"\\%\", \"_\" : \"\\\\_\", \"\x1a\" : \"œ\", \"&amp;\" : \" \\\\& \", \"&#8217;\" : \"'\", \"&amp;#8217;\" : \"'\", \"&#039;\":\"'\", \"&quot;\" : '\"'}) }} }"
             make_link: false
             path: ''
             absolute: false
@@ -298,7 +298,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_prac ==\"UA\" %}\n\\UA\n{% elseif co_prac ==\"UB\" %}\n\\UB\n{% elseif co_prac ==\"UC\" %}\n\\UC\n{% elseif co_prac ==\"\" %}\n \n{% else %}\n\\ERR\n{% endif %}"
+            text: "{% spaceless %}\n{% if co_prac ==\"UA\" %}\n\\UA\n{% elseif co_prac ==\"UB\" %}\n\\UB\n{% elseif co_prac ==\"UC\" %}\n\\UC\n{% elseif co_prac ==\"\" %}\n \n{% else %}\n\\ERR\n{% endif %}\n{% endspaceless %}"
             make_link: false
             path: ''
             absolute: false
@@ -853,7 +853,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "\\module{ {{ lib_1 | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }\n{ {{ co_tcan }} {{ co_prac }} {{ id_disp }} / {{ co_modu }} }\n{ {{ lcibl | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }\n{ {{ lpeda | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }\n{ {{ prenom_1 }} {{ nomu_1 }} }\n{ {{ lcont | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }\n{ {{ lform | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }\n{ {{ duree_prev }} }\n{ {{ lmoda | replace({'&amp;' : \"\\&\", \"%\" : \"\\%\", \"_\" : \"\\_\", \"\x1a\" : \"œ\", \"&#8217;\" : \"'\"}) }} }"
+            text: "{% set module %}\n\\module{ {{ lib_1 }} }\n{ {{ co_tcan }} {{ co_prac }} {{ id_disp }} / {{ co_modu }} }\n{ {{ lcibl }} }\n{ {{ lpeda }} }\n{ {{ prenom_1 }} {{ nomu_1 }} }\n{ {{ lcont }} }\n{ {{ lform }} }\n{ {{ duree_prev }} }\n{ {{ lmoda }} }\n% - - - - - - - - - - - -\n{% endset %}\n{{ module | replace({\"%\" : \"\\%\", \"_\" : \"\\\\_\", \"\x1a\" : \"œ\", \"&amp;\" : \" \\\\& \", \"&#8217;\" : \"'\", \"&amp;#8217;\" : \"'\", \"&#039;\":\"'\", \"&quot;\" : '\"'}) }}\n"
             make_link: false
             path: ''
             absolute: false
@@ -874,7 +874,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
+            strip_tags: false
             trim: false
             preserve_tags: ''
             html: false
