@@ -522,9 +522,10 @@ function bb_views_data() {
   $data['gbb_gdisp']['co_tcan'] = array( 'title' => t('co_tcan'),
   //{{
     'help' => t('Code type candidature'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   //{{ *** GBB_NTCAN intégré
