@@ -47,7 +47,11 @@ config/staging/bartik.*
 config/staging/block.block.navigationbb
 config/staging/color.theme.bartik.yml
 config/staging/devel.settings.yml
+config/staging/core.extension.yml
+config/staging/devel.toolbar.settings.yml
+
 modules/custom/bb/tags
+
 
 .csslintrc
 .editorconfig
@@ -75,6 +79,9 @@ modules/masquerade/
 modules/token/
 modules/twig_tweak/
 modules/views_data_export/
+modules/charts/
+modules/libraries/
+
 profiles/
 robots.txt
 sites/
