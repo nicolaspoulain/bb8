@@ -7,7 +7,11 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - csv_serialization
+    - rest
+    - serialization
     - user
+    - views_data_export
 id: paf_fil
 label: 'BB: PAF + FIL'
 module: views
@@ -2678,6 +2682,54 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
+      tags: {  }
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Exportation de données'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: paf-fil-csv
+      filename: file.csv
+      displays:
+        page_1: page_1
+        default: '0'
+      pager:
+        type: none
+        options:
+          offset: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - request_format
+        - url
         - user.roles
       tags: {  }
   page_1:
