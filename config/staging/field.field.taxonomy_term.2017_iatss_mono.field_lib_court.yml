@@ -1,0 +1,19 @@
+uuid: e2852e3c-b316-4a4b-98ee-dea4fe6e0086
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_lib_court
+    - taxonomy.vocabulary.2017_iatss_mono
+id: taxonomy_term.2017_iatss_mono.field_lib_court
+field_name: field_lib_court
+entity_type: taxonomy_term
+bundle: 2017_iatss_mono
+label: lib_court
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

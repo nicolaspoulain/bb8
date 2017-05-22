@@ -1,0 +1,11 @@
+uuid: 19b00623-1df8-4a1e-a585-67c236345780
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.2017_1d_multi
+id: taxonomy_term.2017_1d_multi
+target_entity_type_id: taxonomy_term
+target_bundle: 2017_1d_multi
+default_langcode: site_default
+language_alterable: false

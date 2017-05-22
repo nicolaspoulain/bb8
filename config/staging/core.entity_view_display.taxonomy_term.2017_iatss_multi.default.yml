@@ -1,0 +1,40 @@
+uuid: 0e41d5ee-8805-461b-b1bf-c70d7e29a191
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.2017_iatss_multi.field_co_orie
+    - field.field.taxonomy_term.2017_iatss_multi.field_lib_court
+    - taxonomy.vocabulary.2017_iatss_multi
+  module:
+    - text
+id: taxonomy_term.2017_iatss_multi.default
+targetEntityType: taxonomy_term
+bundle: 2017_iatss_multi
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_co_orie:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_lib_court:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

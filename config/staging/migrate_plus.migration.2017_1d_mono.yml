@@ -1,0 +1,44 @@
+uuid: 2a454c84-bb53-424d-81a4-6d7dac3b603c
+langcode: en
+status: true
+dependencies: {  }
+id: 2017_1d_mono
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: migrated_terms
+label: 'Migrate terms from the source CSV to taxonomy terms'
+source:
+  plugin: csv
+  path: 'public://2017_1d_mono.csv'
+  header_row_count: 1
+  keys:
+    - name
+  column_names:
+    -
+      tid: tid
+    -
+      vocabulary_machine_name: vocabulary_machine_name
+    -
+      weight: Weight
+    -
+      name: Name
+    -
+      description: Description
+    -
+      field_co_orie: field_co_orie
+    -
+      field_lib_court: field_lib_court
+process:
+  tid: tid
+  vid: vocabulary_machine_name
+  weight: weight
+  name: name
+  description: description
+  field_co_orie: field_co_orie
+  field_lib_court: field_lib_court
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: 2017_1d_mono
+migration_dependencies: {  }

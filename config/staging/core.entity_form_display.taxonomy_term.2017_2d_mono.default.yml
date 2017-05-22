@@ -1,0 +1,54 @@
+uuid: 8644d8e1-d8bb-4cc4-b09f-494fb761dc57
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.2017_2d_mono.field_co_orie
+    - field.field.taxonomy_term.2017_2d_mono.field_lib_court
+    - taxonomy.vocabulary.2017_2d_mono
+  module:
+    - text
+id: taxonomy_term.2017_2d_mono.default
+targetEntityType: taxonomy_term
+bundle: 2017_2d_mono
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_co_orie:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_lib_court:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

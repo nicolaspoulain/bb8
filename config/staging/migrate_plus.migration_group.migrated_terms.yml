@@ -1,0 +1,10 @@
+uuid: 6b3f5e17-9573-4355-82e2-9c0078f7fcb5
+langcode: fr
+status: true
+dependencies: {  }
+id: migrated_terms
+label: migrated_terms
+description: ''
+source_type: null
+module: null
+shared_configuration: null
