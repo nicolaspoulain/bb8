@@ -56,7 +56,7 @@ backup_migrate.backup_migrate_schedule.daily_schedule
 backup_migrate.backup_migrate_destination.private_files
 config/staging/backup_migrate.backup_migrate_*
 system.file.yml
-
+config/staging/block.block.navigationbb.yml
 
 modules/custom/bb/tags
 
