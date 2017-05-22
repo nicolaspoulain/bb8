@@ -42,30 +42,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 25
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« Premier'
-            last: 'Dernier »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Tout -'
-            offset: false
-            offset_label: Décalage
-          quantity: 9
       style:
         type: html_list
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: tid
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           type: ul
@@ -357,7 +344,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-      sorts: {  }
+      sorts:
+        weight:
+          id: weight
+          table: gbb_gmodu_taxonomy
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: modules
       header: {  }
       footer: {  }
@@ -370,7 +369,6 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
       tags: {  }
   page_1:
     display_plugin: page
@@ -1152,7 +1150,6 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
       tags: {  }
   page_2:
     display_plugin: page
@@ -1172,7 +1169,7 @@ display:
           group_type: group
           admin_label: ''
           operator: starts
-          value: '15'
+          value: '17'
           group: 1
           exposed: false
           expose:
@@ -1200,10 +1197,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
+        tid:
+          id: tid
+          table: gbb_gmodu_taxonomy
+          field: tid
           relationship: none
           group_type: group
           admin_label: ''
@@ -1212,12 +1209,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: co_orie_op
-            label: Orientation
+            operator_id: tid_op
+            label: tid
             description: ''
             use_operator: false
-            operator: co_orie_op
-            identifier: co_orie
+            operator: tid_op
+            identifier: tid
             required: false
             remember: false
             multiple: false
@@ -1249,6 +1246,153 @@ display:
         groups:
           1: AND
       fields:
+        name:
+          id: name
+          table: taxonomy_term_field_data_2
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        tid:
+          id: tid
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "<h2>{{ name }} </h2>\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        description__value:
+          id: description__value
+          table: taxonomy_term_field_data_2
+          field: description__value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         co_degre:
           id: co_degre
           table: gbb_gmodu
@@ -1378,7 +1522,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'bb-pia-details-module/{{ co_modu }}?co_degre={{ co_degre }}'
+            path: 'bb-pia-details-module/{{ co_modu }}?co_degre={{ co_degre }}/{{ description__value }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -1419,5 +1563,4 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
       tags: {  }

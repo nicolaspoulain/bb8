@@ -17,9 +17,7 @@ function bb_views_data() {
   $gaia_db = 'external';
 
   // ********************************************************
-  // ********************************************************
   // * gbb_gmodu ** et toutes ses colonnes + sessions spéciales
-  // ********************************************************
   // ********************************************************
   //{{
 
@@ -168,6 +166,68 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
     'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gmodu_taxonomy']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gmodu_taxonomy']['tid'] = array( 'help' => t('taxonomy id'),
+  //{{
+    'title' => t('tid'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmodu_taxonomy']['weight'] = array( 'help' => t('weight'),
+  //{{
+    'title' => t('weight'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term_field_data_2']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term_field_data',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'tid',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term_field_data_2']['name'] = array( 'help' => t('Nom du terme de taxonomie'),
+  //{{
+    'title' => t('name'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term_field_data_2']['vid'] = array( 'help' => t('Vocabulaire de taxonomie'),
+  //{{
+    'title' => t('vid'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term_field_data_2']['description__value'] = array( 'help' => t('Nom abbrégé du terme de taxonomie'),
+  //{{
+    'title' => t('description__value'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
   );
   //}}
   $data['gbb_gmodu']['co_prna'] = array( 'help' => t('Priorite nationale : code'),
@@ -465,9 +525,7 @@ function bb_views_data() {
   //}}
 
   // ********************************************************
-  // ********************************************************
   // * gbb_gdisp ** et toutes ses colonnes
-  // ********************************************************
   // ********************************************************
   //{{
   $data['gbb_gdire']['table'] = array( 'group' => t('gbb_gdire'),
@@ -617,9 +675,7 @@ function bb_views_data() {
   //}}
 
   // ********************************************************
-  // ********************************************************
   // * gbb_session **  et toutes ses colonnes
-  // ********************************************************
   // ********************************************************
   //{{
 
@@ -914,9 +970,7 @@ function bb_views_data() {
   //}}
 
   // ********************************************************
-  // ********************************************************
   // * gbb_netab_dafor ** et toutes ses colonnes
-  // ********************************************************
   // ********************************************************
   //{{
   $data['gbb_netab_dafor']['table'] = array( 'group' => t('gbb_netab_dafor'),
@@ -990,9 +1044,7 @@ function bb_views_data() {
   //}}
 
   // ********************************************************
-  // ********************************************************
   // * gbb_gresp_dafor ** et toutes ses colonnes
-  // ********************************************************
   // ********************************************************
   //{{
   $data['gbb_gresp_dafor']['table'] = array( 'group' => t('gbb_gresp_dafor'),
@@ -1065,9 +1117,7 @@ function bb_views_data() {
   //}}
 
   // ********************************************************
-  // ********************************************************
   // * gbb_gmoof ** et toutes ses colonnes
-  // ********************************************************
   // ********************************************************
   //{{
   $data['gbb_gmoof']['table'] = array( 'group' => t('gbb_gmoof'),
