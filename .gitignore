@@ -81,6 +81,7 @@ modules/twig_tweak/
 modules/views_data_export/
 modules/charts/
 modules/libraries/
+modules/contrib/
 
 profiles/
 robots.txt

@@ -1,9 +1,9 @@
-uuid: 5d10bf2c-002f-45b8-8098-5984c9e57a2e
+uuid: 11f1ea7b-6961-4ab3-8e34-63ad76462631
 langcode: fr
 status: true
 dependencies:
   content:
-    - 'block_content:basic:531ed426-d7ef-4c41-836a-67e50c77a442'
+    - 'block_content:basic:794c8055-764f-49f6-bf8c-8c93b63aa56a'
   module:
     - block_content
     - system
@@ -15,9 +15,9 @@ theme: bbtheme
 region: sidebar_first
 weight: 0
 provider: null
-plugin: 'block_content:531ed426-d7ef-4c41-836a-67e50c77a442'
+plugin: 'block_content:794c8055-764f-49f6-bf8c-8c93b63aa56a'
 settings:
-  id: 'block_content:531ed426-d7ef-4c41-836a-67e50c77a442'
+  id: 'block_content:794c8055-764f-49f6-bf8c-8c93b63aa56a'
   label: 'Navigation BB'
   provider: block_content
   label_display: visible
