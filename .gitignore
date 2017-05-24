@@ -48,6 +48,7 @@ config/staging/color.theme.bartik.yml
 config/staging/devel.settings.yml
 #config/staging/core.extension.yml
 config/staging/devel.toolbar.settings.yml
+config/staging/bartik.settings.yml
 backup_migrate.backup_migrate_source.public_files
 backup_migrate.backup_migrate_source.private_files
 backup_migrate.backup_migrate_source.entire_site
