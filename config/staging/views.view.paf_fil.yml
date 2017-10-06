@@ -2415,7 +2415,7 @@ display:
           exposed: true
           expose:
             operator_id: nomu_op
-            label: 'Responsable Organisationnel'
+            label: 'Resp. Orga.'
             description: 'p.ex. : Cordier'
             use_operator: false
             operator: nomu_op
@@ -2455,7 +2455,7 @@ display:
           exposed: true
           expose:
             operator_id: nomu_1_op
-            label: 'Responsable Pédagogique'
+            label: 'Resp. Péda'
             description: 'p.ex. : Badda'
             use_operator: false
             operator: nomu_1_op
