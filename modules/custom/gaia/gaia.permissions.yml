@@ -1,0 +1,44 @@
+add gmodu entities:
+  title: 'Create new Gmodu entities'
+
+administer gmodu entities:
+  title: 'Administer Gmodu entities'
+  description: 'Allow to access the administration form to configure Gmodu entities.'
+  restrict access: true
+
+delete gmodu entities:
+  title: 'Delete Gmodu entities'
+
+edit gmodu entities:
+  title: 'Edit Gmodu entities'
+
+access gmodu overview:
+  title: 'Access the Gmodu overview page'
+
+view published gmodu entities:
+  title: 'View published Gmodu entities'
+
+view unpublished gmodu entities:
+  title: 'View unpublished Gmodu entities'
+add session entities:
+  title: 'Create new Session entities'
+
+administer session entities:
+  title: 'Administer Session entities'
+  description: 'Allow to access the administration form to configure Session entities.'
+  restrict access: true
+
+delete session entities:
+  title: 'Delete Session entities'
+
+edit session entities:
+  title: 'Edit Session entities'
+
+access session overview:
+  title: 'Access the Session overview page'
+
+view published session entities:
+  title: 'View published Session entities'
+
+view unpublished session entities:
+  title: 'View unpublished Session entities'

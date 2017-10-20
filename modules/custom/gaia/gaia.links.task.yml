@@ -1,0 +1,44 @@
+# Gmodu routing definition
+gmodu.settings_tab:
+  route_name: gmodu.settings
+  title: 'Settings'
+  base_route: gmodu.settings
+
+entity.gmodu.canonical:
+  route_name: entity.gmodu.canonical
+  base_route: entity.gmodu.canonical
+  title: 'View'
+
+entity.gmodu.edit_form:
+  route_name: entity.gmodu.edit_form
+  base_route: entity.gmodu.canonical
+  title: 'Edit'
+
+entity.gmodu.delete_form:
+  route_name:  entity.gmodu.delete_form
+  base_route:  entity.gmodu.canonical
+  title: Delete
+  weight: 10
+
+# Session routing definition
+session.settings_tab:
+  route_name: session.settings
+  title: 'Settings'
+  base_route: session.settings
+
+entity.session.canonical:
+  route_name: entity.session.canonical
+  base_route: entity.session.canonical
+  title: 'View'
+
+entity.session.edit_form:
+  route_name: entity.session.edit_form
+  base_route: entity.session.canonical
+  title: 'Edit'
+
+entity.session.delete_form:
+  route_name:  entity.session.delete_form
+  base_route:  entity.session.canonical
+  title: Delete
+  weight: 10
+

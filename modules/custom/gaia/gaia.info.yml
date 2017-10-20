@@ -1,0 +1,6 @@
+name: Gaia
+type: module
+description: 'Un module pour GAIA...'
+package: Custom
+core: 8.x
+

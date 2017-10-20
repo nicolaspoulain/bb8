@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_views_api().
+ */
+function gaia_views_api()
+{
+  return array(
+    'api' => 3,
+    //'path' => drupal_get_path('module', 'expose') . '/includes/views',
+    'path' => '.',
+                            );
+}
+function gaia_theme($existing, $type, $theme, $path) {
+
+  return array(
+  );
+
+}
+

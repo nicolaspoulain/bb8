@@ -1,0 +1,30 @@
+
+# Gmodu menu items definition
+entity.gmodu.collection:
+  title: 'Gmodu list'
+  route_name: entity.gmodu.collection
+  description: 'List Gmodu entities'
+  parent: system.admin_structure
+  weight: 100
+
+gmodu.admin.structure.settings:
+  title: Gmodu settings
+  description: 'Configure Gmodu entities'
+  route_name: gmodu.settings
+  parent: system.admin_structure
+  weight: 100
+
+# Session menu items definition
+entity.session.collection:
+  title: 'Session list'
+  route_name: entity.session.collection
+  description: 'List Session entities'
+  parent: system.admin_structure
+  weight: 100
+
+session.admin.structure.settings:
+  title: Session settings
+  description: 'Configure Session entities'
+  route_name: session.settings
+  parent: system.admin_structure
+  weight: 100

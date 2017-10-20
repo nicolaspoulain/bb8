@@ -1,0 +1,10 @@
+entity.gmodu.add_form:
+  route_name: entity.gmodu.add_form
+  title: 'Add Gmodu'
+  appears_on:
+    - entity.gmodu.collection
+entity.session.add_form:
+  route_name: entity.session.add_form
+  title: 'Add Session'
+  appears_on:
+    - entity.session.collection
