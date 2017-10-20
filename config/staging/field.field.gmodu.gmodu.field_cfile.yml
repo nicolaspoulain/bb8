@@ -1,0 +1,27 @@
+uuid: 4bb5bee5-66e2-40c8-8162-3e4c106c99d6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.gmodu.field_cfile
+  module:
+    - file
+    - gaia
+id: gmodu.gmodu.field_cfile
+field_name: field_cfile
+entity_type: gmodu
+bundle: gmodu
+label: cfile
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx xls xlsx pdf'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

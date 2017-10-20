@@ -1,0 +1,40 @@
+uuid: 547a0fc7-ada5-49d5-a603-e10cf9fd2c56
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.gmodu.gmodu.field_cfile
+    - field.field.gmodu.gmodu.field_color
+    - field.field.gmodu.gmodu.field_organisation
+  module:
+    - file
+    - gaia
+id: gmodu.gmodu.default
+targetEntityType: gmodu
+bundle: gmodu
+mode: default
+content:
+  field_cfile:
+    weight: 2
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_color:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_organisation:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden: {  }
