@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.gmodu.gmodu.field_cfile
     - field.field.gmodu.gmodu.field_color
+    - field.field.gmodu.gmodu.field_convoc_info_off
+    - field.field.gmodu.gmodu.field_convoc_info_on
     - field.field.gmodu.gmodu.field_organisation
   module:
     - file
@@ -28,6 +30,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_convoc_info_off:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_convoc_info_on:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_organisation:
     weight: 1

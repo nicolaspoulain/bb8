@@ -44,27 +44,18 @@ class InfosSurConvocForm extends FormBase {
 
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
-    $entry = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => explode('?',$path_args[1])[0],
-    );
-    $module = BbCrudController::load( 'gbb_gmodu_plus', $entry);
+    $co_degre = $path_args[0];
+    $co_modu  = $path_args[1];
+    $mid = 10*$co_modu + $co_degre;
 
-    $form['infossurconvoc'] = array(
-      '#type' => 'textarea',
-      // '#type'=>'text_format', // WYSIWYG textarea est mieux :
-      '#title' => 'Infos à porter sur la convocation',
-      '#default_value' => $module[0]->convoc_info_on,
+    $module = \Drupal\gaia\Entity\Gmodu::load($mid);
+
+    $form['convoc_info_on'] = array(
+      // '#type' => 'textarea', // WYSIWYG != textarea
+      '#type'=>'text_format',
+      '#title' => 'Infos porter sur la convocation',
+      '#default_value' => $module->field_convoc_info_on->value,
       '#description' => '',
-      '#rows' => 12,
-      // '#ajax' => [
-        // 'callback' => '::saveJournalAjax',
-        // 'event' => 'change',
-        // 'progress' => array(
-          // 'type' => 'throbber',
-          // 'message' => t('Enregistrement...'),
-        // ),
-      // ],
     );
     $form['submit'] = array(
       '#type' => 'submit',
@@ -74,56 +65,21 @@ class InfosSurConvocForm extends FormBase {
   }
 
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $valid = $this->validateJournal($form, $form_state);
-
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
+    $co_degre = $path_args[0];
+    $co_modu  = $path_args[1];
+    $mid = 10*$co_modu + $co_degre;
 
-    $condition = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => $path_args[1],
-    );
+    $module = \Drupal\gaia\Entity\Gmodu::load($mid);
 
-    $entry = array(
-      'convoc_info_on'  => $form_state->getValue('infossurconvoc'),
-    );
-    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
-    // dpm($condition);
-    // dpm($entry);
+    $module->field_convoc_info_on = $form_state->getValue('convoc_info_on')['value'];
+    $module->save();
+
+    $url = \Drupal\Core\Url::fromRoute('bb.moduleng')
+          ->setRouteParameters(array('co_degre' => $co_degre,'co_modu' => $co_modu));
+    $form_state->setRedirectUrl($url);
     return TRUE;
   }
-
-  /**
-   * Validate journal field.
-   */
-  protected function validateJournal(array &$form, FormStateInterface $form_state) {
-    return TRUE;
-  }
-
-  /**
-   * Ajax callback to save journal field.
-   */
-  // public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
-    // $valid = $this->validateJournal($form, $form_state);
-
-    // $current_uri = \Drupal::request()->getRequestUri();
-    // $path_args = array_slice(explode('/',$current_uri),-2,2);
-
-    // $condition = array(
-      // 'co_degre' => $path_args[0],
-      // 'co_modu'  => explode('?',$path_args[1])[0],
-    // );
-
-    // $entry = array(
-      // 'organisation'  => $form_state->getValue('organisation'),
-    // );
-    // $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-
-    // $response = new AjaxResponse();
-    // return $response;
-  // }
-
-
 
 }

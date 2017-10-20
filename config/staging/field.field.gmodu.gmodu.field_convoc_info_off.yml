@@ -1,0 +1,20 @@
+uuid: 48534d48-23d1-4a82-a220-6316ea58f362
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.gmodu.field_convoc_info_off
+  module:
+    - gaia
+id: gmodu.gmodu.field_convoc_info_off
+field_name: field_convoc_info_off
+entity_type: gmodu
+bundle: gmodu
+label: convoc_info_off
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
