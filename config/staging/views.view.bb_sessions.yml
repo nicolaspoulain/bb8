@@ -662,129 +662,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        LE_etat:
-          id: LE_etat
-          table: gbb_session
-          field: LE_etat
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: LE_etat
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: boolean
-            format_custom_true: '1'
-            format_custom_false: '0'
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ''
-          field_api_classes: false
-          set_precision: false
-          precision: 0
-          decimal: .
-          format_plural: 0
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          entity_type: session
-          entity_field: LE_etat
-          plugin_id: field
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: LE
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{% if LE_etat == \"0\"%}\n<a href=\"../../session_LE_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-file-text-o fa-lg lightgray\"></a>\n{% else %}\n<a href=\"../../session_LE_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-file-text fa-lg green fa-lg\"></a>\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
         groupe:
           id: groupe
           table: gbb_session
@@ -1063,6 +940,129 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        LE_etat:
+          id: LE_etat
+          table: gbb_session
+          field: LE_etat
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: LE_etat
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: boolean
+            format_custom_true: '1'
+            format_custom_false: '0'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ''
+          field_api_classes: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          entity_type: session
+          entity_field: LE_etat
+          plugin_id: field
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: LE
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if LE_etat == \"0\"%}\n<a href=\"../../session_LE_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-file-text-o fa-lg lightgray\"></a>\n{% else %}\n<a href=\"../../session_LE_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-file-text fa-lg green fa-lg\"></a>\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         duree_a_payer:
           id: duree_a_payer
           table: gbb_session
@@ -1296,7 +1296,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" class=\"no-link\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
+            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" class=\"no-link use-ajax\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
             make_link: false
             path: ''
             absolute: false

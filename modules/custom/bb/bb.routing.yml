@@ -1,8 +1,9 @@
-bb.journalform:
-  path: '/journal/{co_modu}'
+bb.moduleng:
+  path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
-    _form: '\Drupal\bb\Form\JournalForm'
-    _title: 'Mon Formulaire pour le journal'
+    _controller:  '\Drupal\bb\Controller\ModuleNG::forms'
+    _title: 'Form API Examples'
+    co_degre: '2'
     co_modu: '1'
   requirements:
     _permission: 'access content'
@@ -50,16 +51,6 @@ bb.afileform:
   defaults:
     _form: '\Drupal\bb\Form\AfileForm'
     _title: 'Mon Formulaire pour les fichiers adminstratifs'
-    co_modu: '1'
-  requirements:
-    _permission: 'access content'
-
-bb.moduleng:
-  path: '/moduleng/{co_degre}/{co_modu}'
-  defaults:
-    _controller:  '\Drupal\bb\Controller\ModuleNG::forms'
-    _title: 'Form API Examples'
-    co_degre: '2'
     co_modu: '1'
   requirements:
     _permission: 'access content'
@@ -184,17 +175,6 @@ bb.sessionduplicate:
   requirements:
     _permission: 'access content'
 
-bb.modal_form:
-  path: '/modal_form/{sess_id}/{co_degre}/{co_modu}'
-  defaults:
-    _form:  '\Drupal\bb\Form\ModalForm'
-    _title_callback:  '\Drupal\bb\Form\ModalForm::getTitle'
-    sess_id: 1
-    co_degre: 2
-    co_modu: 1
-  requirements:
-    _permission: 'access content'
-
 bb.autocomplete.formateur:
   path: '/autocompFormateur'
   defaults:
@@ -208,3 +188,27 @@ bb.autocomplete.lieu:
     _controller: '\Drupal\bb\Form\Autocomplete::autocompLieu'
   requirements:
     _permission: 'access content'
+
+
+# Le vieux
+bb.modal_form:
+  path: '/modal_form/{sess_id}/{co_degre}/{co_modu}'
+  defaults:
+    _form:  '\Drupal\bb\Form\ModalForm'
+    _title_callback:  '\Drupal\bb\Form\ModalForm::getTitle'
+    sess_id: 1
+    co_degre: 2
+    co_modu: 1
+  requirements:
+    _permission: 'access content'
+
+# Le nouveau
+bb.open_modal_form:
+  path: '/modal_form/{sess_id}/{co_degre}/{co_modu}'
+  defaults:
+    _title: 'Modal Form'
+    _controller: '\Drupal\bb\Controller\ModalFormController::openModalForm'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

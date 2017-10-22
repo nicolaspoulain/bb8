@@ -22,11 +22,6 @@ function bb_theme($existing, $type, $theme, $path) {
       // see templates/moduleng-layout.html.twig
       'template' => 'moduleng-layout',
     ),
-    'session' => array(
-      // see templates/session-form.html.twig
-      'template' => 'session-form',
-      'render element' => 'form',
-    ),
   );
 
 }

@@ -36,9 +36,11 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface
-    $form_state,$sess_id = 1,$co_modu=1,$co_degre=2) {
+  public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
 
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-3,1);
+    $sess_id = $path_args[0];
     // get informations on session
     $entries = BbCrudController::load('gbb_session', [ 'sess_id' => $sess_id ] );
     $lieu = BbCrudController::load('gbb_netab_dafor', [ 'co_lieu' => $entries[0]->co_lieu ] );
@@ -48,10 +50,7 @@ class ModalForm extends FormBase {
     $entries[0]->nomu = $resp[0]->nomu;
     $entries[0]->prenom = $resp[0]->prenom;
 
-    // On applique le theme session
-    // voir HOOK_theme bb_theme dans module/custom/bb/bb.module
     $form['#theme'] = 'modal';
-
     $form['#attributes'] = array('class' => array('pure-form','pure-form-stacked'));
 
     $form['sess_id'] = array(
