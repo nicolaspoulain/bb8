@@ -7,6 +7,7 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - gaia
     - user
 id: infos_module
 label: 'BB: Infos module'
@@ -125,7 +126,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -280,7 +281,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           entity_type: null
@@ -878,7 +879,7 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -935,7 +936,7 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -992,7 +993,7 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: h
           plugin_id: numeric
@@ -1049,7 +1050,7 @@ display:
           decimal: .
           separator: ','
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1106,7 +1107,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: 'h — '
           plugin_id: numeric
@@ -1197,6 +1198,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.roles
@@ -1211,6 +1213,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - user.roles

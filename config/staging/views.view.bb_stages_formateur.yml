@@ -4,13 +4,14 @@ status: true
 dependencies:
   module:
     - charts
+    - gaia
 id: bb_stages_formateur
 label: 'BB: stages formateur'
 module: views
 description: ''
 tag: ''
 base_table: gbb_gmodu
-base_field: co_modu
+base_field: mid
 core: 8.x
 display:
   default:
@@ -202,7 +203,7 @@ display:
           decimal: .
           separator: ''
           format_plural: 0
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: standard
@@ -259,7 +260,7 @@ display:
           decimal: .
           separator: ''
           format_plural: 0
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: standard

@@ -1,4 +1,5 @@
 <?php
+# vim: foldmarker={{,}} foldlevel=0 foldmethod=marker :
 
 namespace Drupal\gaia\Entity;
 
@@ -53,11 +54,25 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
 
     // Standard field, used as unique if primary index.
     $fields['sess_id'] = BaseFieldDefinition::create('integer')
+  //{{
       ->setLabel(t('session ID'))
       ->setDescription(t('The ID of the session entity.'))
       ->setReadOnly(TRUE);
-
+  //}}
+    $fields['co_degre'] = BaseFieldDefinition::create('integer')
+  //{{
+      ->setLabel(t('co_degre'))
+      ->setDescription(t('The degre of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
+    $fields['co_modu'] = BaseFieldDefinition::create('integer')
+  //{{
+      ->setLabel(t('co_modu'))
+      ->setDescription(t('The module of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
     $fields['status'] = BaseFieldDefinition::create('list_integer')
+  //{{
       ->setLabel(t('Status'))
       ->setDescription(t('Statut de la session'))
       ->setSettings(array(
@@ -79,10 +94,11 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
-
+  //}}
     $fields['date_ts'] = BaseFieldDefinition::create('timestamp')
+  //{{
       ->setLabel(t('Date TS'))
-      ->setDescription(t('Date de session'))
+      ->setDescription(t('Date de session (timestamp)'))
       ->setSettings(array(
         // 'datetime_type' => 'date',
       ))
@@ -97,8 +113,9 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
-
+  //}}
     $fields['horaires'] = BaseFieldDefinition::create('string')
+  //{{
       ->setLabel(t('Horaires'))
       ->setDescription(t('Horaires de session'))
       ->setSettings(array(
@@ -118,8 +135,9 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
-
+  //}}
     $fields['LE_etat'] = BaseFieldDefinition::create('boolean')
+  //{{
       ->setLabel(t('LE_etat'))
       ->setDescription(t('Liste émargement rendue'))
       ->setDisplayOptions('view', array(
@@ -135,6 +153,25 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ))
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+  //}}
+    $fields['paiement_etat'] = BaseFieldDefinition::create('boolean')
+  //{{
+      ->setLabel(t('paiement_etat'))
+      ->setDescription(t('Paiement lancé'))
+      ->setDisplayOptions('view', array(
+        'type' => 'unicode-yes-no',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'boolean_checkbox',
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  //}}
 
     return $fields;
   }

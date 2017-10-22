@@ -8,6 +8,7 @@ dependencies:
     - user.role.d_cons
   module:
     - csv_serialization
+    - gaia
     - rest
     - serialization
     - user
@@ -435,7 +436,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -884,7 +885,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -941,7 +942,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1047,7 +1048,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1692,7 +1693,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1749,7 +1750,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: h
           plugin_id: numeric
@@ -1806,7 +1807,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1863,7 +1864,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1920,7 +1921,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2075,7 +2076,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2132,7 +2133,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2189,7 +2190,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2679,6 +2680,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -2727,6 +2729,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
         - url
@@ -2746,6 +2749,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

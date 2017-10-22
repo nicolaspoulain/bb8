@@ -16,72 +16,90 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class ModuleNG extends ControllerBase {
 
   public function sessionplay($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0);
+    // ----- Comaptibilté descendante
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0,);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    // -----
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->status = 0;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
   public function sessionsent($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3);
+    // ----- Comaptibilté descendante
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1,);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    // -----
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->status = 3;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
   public function sessionalert($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
+    // ----- Comaptibilté descendante
+    $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0,);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    // -----
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->status = 2;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function sessionpause($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 1, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 1);
+    // ----- Comaptibilté descendante
+    $entry = array('en_attente' => 1, 'session_alert' => 1, 'convoc_sent' => 0,);
     $condition = array('sess_id' => $sessid);
+    // -----
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->status = 1;
+    $sess->save();
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function session_le_on($co_degre, $co_modu, $sessid) {
-    $entry = array('LE_etat' => 1);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->LE_etat = 1;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function session_le_off($co_degre, $co_modu, $sessid) {
-    $entry = array('LE_etat' => 0);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->LE_etat = 0;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function session_paiement_on($co_degre, $co_modu, $sessid) {
-    $entry = array('paiement_etat' => 1);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->paiement_etat = 1;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function session_paiement_off($co_degre, $co_modu, $sessid) {
-    $entry = array('paiement_etat' => 0);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->paiement_etat = 0;
+    $sess->save();
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
   public function sessiondelete($co_degre, $co_modu, $sessid) {
-    // delete session
-    $entry = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::delete('gbb_session', $entry);
-
+    $session = \Drupal\gaia\Entity\Session::load($sessid);
+    $session->delete();
     drupal_set_message('Session supprimée');
     $routeparameters = array(
       'co_degre' => $co_degre,

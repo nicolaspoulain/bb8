@@ -7,6 +7,8 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - gaia
+    - options
     - user
 id: a_traiter
 label: 'BB: A traiter'
@@ -198,7 +200,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           entity_type: null
@@ -229,6 +231,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - user.roles
       tags: {  }
@@ -346,7 +349,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -501,7 +504,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -558,7 +561,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           entity_type: null
@@ -927,6 +930,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

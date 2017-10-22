@@ -7,6 +7,8 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - gaia
+    - options
     - user
 id: sessions_d_un_module
 label: 'BB: Sessions module'
@@ -14,7 +16,7 @@ module: views
 description: 'Toutes les sessions pour un module donné'
 tag: bb
 base_table: gbb_gmodu
-base_field: co_modu
+base_field: mid
 core: 8.x
 display:
   default:
@@ -278,7 +280,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           entity_type: null
@@ -337,7 +339,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -394,7 +396,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -561,6 +563,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -628,7 +631,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -685,7 +688,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -742,7 +745,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -848,7 +851,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -901,14 +904,14 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        date_ts:
-          id: date_ts
+        date:
+          id: date
           table: gbb_session
-          field: date_ts
+          field: date
           relationship: none
           group_type: group
           admin_label: ''
-          label: Date
+          label: date
           exclude: false
           alter:
             alter_text: false
@@ -949,10 +952,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: date_courte
-          custom_date_format: ''
-          timezone: ''
-          plugin_id: date
+          entity_type: session
+          plugin_id: standard
         horaires:
           id: horaires
           table: gbb_session
@@ -1055,7 +1056,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1161,7 +1162,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1267,7 +1268,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1569,7 +1570,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -1735,6 +1736,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -1802,7 +1804,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           entity_type: null
@@ -1962,7 +1964,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2117,7 +2119,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2199,6 +2201,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
@@ -2266,7 +2269,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2323,7 +2326,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2380,7 +2383,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2437,7 +2440,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2644,7 +2647,7 @@ display:
           decimal: .
           separator: ''
           format_plural: false
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
           plugin_id: numeric
@@ -2947,6 +2950,7 @@ display:
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

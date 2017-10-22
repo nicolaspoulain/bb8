@@ -1,20 +1,17 @@
-uuid: 8915680e-c6a4-459a-b473-b4bb6c198a10
-langcode: fr
+uuid: d5f7a7a6-c92e-481c-b791-6c60f8469490
+langcode: en
 status: true
 dependencies:
-  config:
-    - user.role.administrator
-    - user.role.d_admi
-    - user.role.d_cons
   module:
+    - dblog
     - user
-id: bb_formateurs
-label: 'BB: Formateurs'
+id: watchdog
+label: Watchdog
 module: views
-description: ''
+description: 'Recent log messages'
 tag: ''
-base_table: gbb_gresp_dafor
-base_field: co_resp
+base_table: watchdog
+base_field: wid
 core: 8.x
 display:
   default:
@@ -24,14 +21,11 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            administrator: administrator
-            d_cons: d_cons
-            d_admi: d_admi
+          perm: 'access site reports'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -44,39 +38,36 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Appliquer
-          reset_button: false
-          reset_button_label: Réinitialiser
-          exposed_sorts_label: 'Trier par'
-          expose_sort_order: true
+          submit_button: Filter
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
-          items_per_page: 25
+          items_per_page: 50
           offset: 0
           id: 0
           total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
           tags:
             previous: ‹‹
             next: ››
-            first: '« Premier'
-            last: 'Dernier »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Tout -'
-            offset: false
-            offset_label: Décalage
-          quantity: 9
       style:
         type: table
         options:
           grouping: {  }
-          row_class: ''
+          row_class: '{{ type }} {{ severity }}'
           default_row_class: true
           override: true
           sticky: false
@@ -84,76 +75,131 @@ display:
           summary: ''
           description: ''
           columns:
-            co_resp: co_resp
-            nomu: nomu
-            prenom: prenom
-            decharge: decharge
-            tel: tel
-            mel: mel
-            resp_dafor: resp_dafor
+            nothing: nothing
+            wid: wid
+            severity: severity
+            type: type
+            timestamp: timestamp
+            message: message
+            name: name
+            link: link
           info:
-            co_resp:
+            nothing:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            nomu:
+              responsive: priority-medium
+            wid:
+              sortable: false
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            severity:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            type:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            prenom:
+              responsive: priority-medium
+            timestamp:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            message:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            decharge:
+            name:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            tel:
-              sortable: false
-              default_sort_order: asc
+              responsive: priority-medium
+            link:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-            mel:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            resp_dafor:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
+              responsive: priority-low
+          default: wid
           empty_table: false
       row:
         type: fields
       fields:
-        co_resp:
-          id: co_resp
-          table: gbb_gresp_dafor
-          field: co_resp
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: Icon
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: icon
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+        wid:
+          id: wid
+          table: watchdog
+          field: wid
           relationship: none
           group_type: group
           admin_label: ''
-          label: co_resp
+          label: WID
           exclude: true
           alter:
             alter_text: false
@@ -194,17 +240,65 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          entity_type: null
-          entity_field: null
           plugin_id: standard
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
+        severity:
+          id: severity
+          table: watchdog
+          field: severity
           relationship: none
           group_type: group
           admin_label: ''
-          label: Nom
+          label: Severity
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          machine_name: false
+          plugin_id: machine_name
+        type:
+          id: type
+          table: watchdog
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Type
           exclude: false
           alter:
             alter_text: false
@@ -246,14 +340,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        prenom:
-          id: prenom
-          table: gbb_gresp_dafor
-          field: prenom
+        timestamp:
+          id: timestamp
+          table: watchdog
+          field: timestamp
           relationship: none
           group_type: group
           admin_label: ''
-          label: Prenom
+          label: Date
           exclude: false
           alter:
             alter_text: false
@@ -294,15 +388,68 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
-        decharge:
-          id: decharge
-          table: gbb_gresp_plus
-          field: decharge
+          date_format: short
+          custom_date_format: ''
+          timezone: ''
+          plugin_id: date
+        message:
+          id: message
+          table: watchdog
+          field: message
           relationship: none
           group_type: group
           admin_label: ''
-          label: Décharge
+          label: Message
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: true
+            path: 'admin/reports/dblog/event/{{ wid }}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: '{{ message }}'
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 56
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: true
+            preserve_tags: ''
+            html: true
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          replace_variables: true
+          plugin_id: dblog_message
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: User
           exclude: false
           alter:
             alter_text: false
@@ -343,23 +490,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: h
-          plugin_id: numeric
-        tel:
-          id: tel
-          table: gbb_gresp_dafor
-          field: tel
+          click_sort_column: value
+          type: user_name
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: name
+          plugin_id: field
+        link:
+          id: link
+          table: watchdog
+          field: link
           relationship: none
           group_type: group
           admin_label: ''
-          label: Tel
+          label: Operations
           exclude: false
           alter:
             alter_text: false
@@ -400,133 +555,34 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
-        mel:
-          id: mel
-          table: gbb_gresp_dafor
-          field: mel
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Mel
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        resp_dafor:
-          id: resp_dafor
-          table: gbb_gresp_plus
-          field: resp_dafor
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Resp. DAFOR'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
+          plugin_id: dblog_operations
       filters:
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
+        type:
+          id: type
+          table: watchdog
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: nomu_op
-            label: Nom
-            description: 'p.ex.: Badda'
+            operator_id: type_op
+            label: Type
+            description: ''
             use_operator: false
-            operator: nomu_op
-            identifier: nomu
+            operator: type_op
+            identifier: type
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -539,34 +595,33 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: string
-        resp_dafor:
-          id: resp_dafor
-          table: gbb_gresp_plus
-          field: resp_dafor
+          plugin_id: dblog_types
+        severity:
+          id: severity
+          table: watchdog
+          field: severity
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
-            operator_id: resp_dafor_op
-            label: 'Conseiller DAFOR responsable'
-            description: 'p.ex.: IC ou JPC'
+            operator_id: severity_op
+            label: Severity
+            description: ''
             use_operator: false
-            operator: resp_dafor_op
-            identifier: resp_dafor
+            operator: severity_op
+            identifier: severity
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -579,48 +634,77 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: string
+          plugin_id: in_operator
       sorts:
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
+        wid:
+          id: wid
+          table: watchdog
+          field: wid
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
           plugin_id: standard
-      title: Formateurs
+      title: 'Recent log messages'
       header: {  }
       footer: {  }
-      empty: {  }
-      relationships: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No log messages available.'
+            format: basic_html
+          plugin_id: text
+      relationships:
+        uid:
+          id: uid
+          table: watchdog
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: User
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      css_class: admin-dblog
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
+        - user.permissions
       tags: {  }
-  page_1:
+  page:
     display_plugin: page
-    id: page_1
+    id: page
     display_title: Page
     position: 1
     display_options:
       display_extenders: {  }
-      path: formateurs
+      path: admin/reports/dblog
     cache_metadata:
       max-age: 0
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
+        - user.permissions
       tags: {  }
