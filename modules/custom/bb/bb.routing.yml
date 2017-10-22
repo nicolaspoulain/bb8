@@ -124,6 +124,26 @@ bb.session_LE_off:
   requirements:
     _permission: 'access content'
 
+bb.session_ficand_on:
+  path: '/session_ficand_on/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_ficand_on'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.session_ficand_off:
+  path: '/session_ficand_off/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_ficand_off'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.session_paiement_on:
   path: '/session_paiement_on/{co_degre}/{co_modu}/{sessid}'
   defaults:

@@ -172,6 +172,24 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
   //}}
+    $fields['ficand'] = BaseFieldDefinition::create('boolean')
+  //{{
+      ->setLabel(t('ficand'))
+      ->setDescription(t('ficand'))
+      ->setDisplayOptions('view', array(
+        'type' => 'unicode-yes-no',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'boolean_checkbox',
+        'settings' => [
+          'display_label' => TRUE,
+        ],
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  //}}
 
     return $fields;
   }

@@ -86,14 +86,6 @@ class SessionViewsData extends EntityViewsData {
     'filter' => array('id' => 'numeric'),
   );
   //}}
-  $data['gbb_session']['ficand'] = array( 'help' => t('La session est Ficand BOOL'),
-    //{{
-    'title' => t('ficand'),
-    'field'  => array('id' => 'numeric',),
-    'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
-  );
-  //}}
   $data['gbb_session']['co_lieu'] = array( 'help' => t('Code lieu (RNE)'),
   //{{
     'title' => t('co_lieu'),

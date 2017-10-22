@@ -81,6 +81,22 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
+  public function session_ficand_on($co_degre, $co_modu, $sessid) {
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->ficand = 1;
+    $sess->save();
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
+  public function session_ficand_off($co_degre, $co_modu, $sessid) {
+    $sess = \Drupal\gaia\Entity\Session::load($sessid);
+    $sess->ficand = 0;
+    $sess->save();
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
   public function session_paiement_on($co_degre, $co_modu, $sessid) {
     $sess = \Drupal\gaia\Entity\Session::load($sessid);
     $sess->paiement_etat = 1;
