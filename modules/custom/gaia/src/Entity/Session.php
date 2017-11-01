@@ -95,6 +95,52 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
   //}}
+    $fields['groupe'] = BaseFieldDefinition::create('integer')
+  //{{
+      ->setLabel(t('groupe'))
+      ->setDescription(t('The groupe of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
+    $fields['co_lieu'] = BaseFieldDefinition::create('string')
+  //{{
+      ->setLabel(t('co_lieu'))
+      ->setDescription(t('The co_lieu of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
+    $fields['co_resp'] = BaseFieldDefinition::create('integer')
+  //{{
+      ->setLabel(t('co_resp'))
+      ->setDescription(t('The co_resp of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
+    $fields['duree_a_payer'] = BaseFieldDefinition::create('decimal')
+  //{{
+      ->setLabel(t('duree_a_payer'))
+      ->setDescription(t('The duree a payer of the session entity.'))
+      ->setReadOnly(TRUE);
+  //}}
+    $fields['date'] = BaseFieldDefinition::create('string')
+  //{{
+      ->setLabel(t('date'))
+      ->setDescription(t('date'))
+      ->setSettings(array(
+        'max_length' => 20,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'settings' => array(
+          'size' => 15,
+        ),
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  //}}
     $fields['date_ts'] = BaseFieldDefinition::create('timestamp')
   //{{
       ->setLabel(t('Date TS'))
@@ -149,6 +195,28 @@ class Session extends ContentEntityBase implements ContentEntityInterface {
         'settings' => [
           'display_label' => TRUE,
         ],
+        'weight' => -4,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  //}}
+    $fields['type_paiement'] = BaseFieldDefinition::create('string')
+  //{{
+      ->setLabel(t('type_paiement'))
+      ->setDescription(t('type_paiement'))
+      ->setSettings(array(
+        'max_length' => 20,
+      ))
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'string',
+        'weight' => -4,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'string_textfield',
+        'settings' => array(
+          'size' => 15,
+        ),
         'weight' => -4,
       ))
       ->setDisplayConfigurable('form', TRUE)

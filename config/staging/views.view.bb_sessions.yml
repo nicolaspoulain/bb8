@@ -313,6 +313,55 @@ display:
           entity_type: session
           entity_field: sess_id
           plugin_id: field
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" class=\"no-link use-ajax\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         date_ts:
           id: date_ts
           table: gbb_session
@@ -1193,11 +1242,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: DàP
+          label: Pmt
           exclude: false
           alter:
             alter_text: true
-            text: "{{ duree_a_payer }} \n{% if paiement_etat == \"0\"%}\n<a href=\"../../session_paiement_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-square-o fa-lg lightgray\"></a>\n{% else %}\n<a href=\"../../session_paiement_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-check-square-o fa-lg green\"></a>\n{% endif %}"
+            text: "{% if paiement_etat == \"0\"%}\n<a href=\"../../session_paiement_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-square-o fa-lg lightgray\"></a>\n{% else %}\n<a href=\"../../session_paiement_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-check-square-o fa-lg green\"></a>\n{% endif %}&nbsp;\n{{ duree_a_payer }}h"
             make_link: false
             path: ''
             absolute: false
@@ -1285,55 +1334,6 @@ display:
           hide_alter_empty: true
           entity_type: session
           plugin_id: standard
-        nothing_3:
-          id: nothing_3
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" class=\"no-link use-ajax\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../sessionduplicate/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
       filters:
         co_degre:
           id: co_degre
