@@ -2,8 +2,13 @@ uuid: fd098c33-9de6-4ca4-ab4e-296a007643da
 langcode: fr
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.d_admi
+    - user.role.d_cons
   module:
     - gaia
+    - user
 id: liste_modules_plan
 label: 'Liste modules plan'
 module: views
@@ -20,8 +25,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            d_cons: d_cons
+            d_admi: d_admi
       cache:
         type: tag
         options: {  }
@@ -474,6 +483,283 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        sess_id:
+          id: sess_id
+          table: gbb_session_play
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sess_id_1:
+          id: sess_id_1
+          table: gbb_session_pause
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sess_id_2:
+          id: sess_id_2
+          table: gbb_session_flag
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sess_id_3:
+          id: sess_id_3
+          table: gbb_session_sent
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Texte personnalisé'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if sess_id >0 %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id }}</span>\n{% endif %}\n{% if sess_id_1 >0 %}\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 >0 %}\n<i class=\"fa fa-envelope fa-lg red\"></i><span class=\"fa green\">{{ sess_id_2 }}</span>\n{% endif %}\n{% if sess_id_3 >0 %}\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id_3 }}</span>\n{% endif %}\n\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         lib_1:
           id: lib_1
           table: gbb_gmodu
@@ -616,7 +902,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_anmo>0 %}\n    <i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <span class=\"strike\">\n{% else %}\n    <span>\n{% endif %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</a>"
+            text: "{% if co_anmo>0 %}\n    <i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <span class=\"strike\">\n{% else %}\n    <span>\n{% endif %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\">{{ co_modu }} {{ lib_1 | replace({'&#039;': ' '}) }}</a>"
             make_link: false
             path: ''
             absolute: false
@@ -654,6 +940,104 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: R.Orga
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        nomu_1:
+          id: nomu_1
+          table: gbb_gresp_peda
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: R.Péda
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
       filters:
         id_disp:
           id: id_disp
@@ -743,6 +1127,54 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_anmo_op
+            label: co_anmo
+            description: null
+            use_operator: false
+            operator: co_anmo_op
+            identifier: co_anmo
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Voir
+            description: ''
+            identifier: co_anmo
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Ouvert
+                operator: '<='
+                value:
+                  value: '0'
+                  min: ''
+                  max: ''
+          entity_type: gmodu
+          entity_field: co_anmo
+          plugin_id: numeric
       sorts: {  }
       title: 'Liste modules plan'
       header: {  }
@@ -755,6 +1187,7 @@ display:
         operator: AND
         groups:
           1: AND
+      group_by: true
     cache_metadata:
       max-age: 0
       contexts:
@@ -762,6 +1195,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -778,4 +1212,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
