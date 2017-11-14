@@ -51,8 +51,8 @@ class InfosSurConvocForm extends FormBase {
     $module = \Drupal\gaia\Entity\Gmodu::load($mid);
 
     $form['convoc_info_on'] = array(
-      // '#type' => 'textarea', // WYSIWYG != textarea
-      '#type'=>'text_format',
+      '#type' => 'textarea', // WYSIWYG != textarea
+      // '#type'=>'text_format',
       '#title' => 'Infos porter sur la convocation',
       '#default_value' => $module->field_convoc_info_on->value,
       '#description' => '',

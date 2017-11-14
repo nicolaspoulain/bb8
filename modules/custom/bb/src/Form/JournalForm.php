@@ -51,7 +51,8 @@ class JournalForm extends FormBase {
     $module = \Drupal\gaia\Entity\Gmodu::load($mid);
 
     $form['organisation'] = array(
-      '#type'=>'text_format',
+      '#type' => 'textarea', // WYSIWYG != textarea
+      // '#type'=>'text_format',
       '#title' => 'Journal',
       '#default_value' => $module->field_organisation->value,
       '#description' => '',

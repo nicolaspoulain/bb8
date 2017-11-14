@@ -51,8 +51,8 @@ class InfosPasConvocForm extends FormBase {
     $module = \Drupal\gaia\Entity\Gmodu::load($mid);
 
     $form['convoc_info_off'] = array(
-      // '#type' => 'textarea', // WYSIWYG != textarea
-      '#type'=>'text_format',
+      '#type' => 'textarea', // WYSIWYG != textarea
+      // '#type'=>'text_format',
       '#title' => 'Infos à ne PAS porter sur la convocation',
       '#default_value' => $module->field_convoc_info_off->value,
       '#description' => '',
