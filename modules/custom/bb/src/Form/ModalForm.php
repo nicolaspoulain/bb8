@@ -176,22 +176,44 @@ class ModalForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // $valid = $this->validateForm($form, $form_state);
     $account = \Drupal::currentUser();
+    dpm($account->id());
     $sess_id = $form_state->getValue('sess_id');
-    $sess = \Drupal\gaia\Entity\Session::load($sess_id);
-
     preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
     preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
 
-    $sess->date_ts       = strtotime($form_state->getValue('date'));
-    $sess->date          = $form_state->getValue('date');
-    $sess->horaires      = $form_state->getValue('horaires');
-    $sess->co_lieu       = $co_lieu[1];
-    $sess->co_resp       = $co_resp[1];
-    $sess->duree_a_payer = $form_state->getValue('duree_a_payer');
-    $sess->type_paiement = $form_state->getValue('type_paiement');
-    $sess->groupe        = $form_state->getValue('groupe');
-    $sess->date_modif    = date("Y-m-d H:i:s");
-    $sess->uid           = $account->id();
+    if ($sess_id == 1) {
+      $sess = \Drupal\gaia\Entity\Session::create([
+        'co_degre'      => $form_state->getValue('co_degre'),
+        'co_modu'       => $form_state->getValue('co_modu'),
+        'status'        => '1',
+        'date'          => $form_state->getValue('date'),
+        'date_ts'       => strtotime($form_state->getValue('date')),
+        'date'          => $form_state->getValue('date'),
+        'horaires'      => $form_state->getValue('horaires'),
+        'co_lieu'       => $co_lieu[1],
+        'co_resp'       => $co_resp[1],
+        'duree_a_payer' => $form_state->getValue('duree_a_payer'),
+        'type_paiement' => $form_state->getValue('type_paiement'),
+        'groupe'        => $form_state->getValue('groupe'),
+        'date_modif'    => date("Y-m-d H:i:s"),
+        'uid'           => $account->id(),
+        'ficand'        => '0',
+        'paiement_etat' => '0',
+        'LE_etat'       => '0',
+      ]);
+    } else {
+      $sess = \Drupal\gaia\Entity\Session::load($sess_id);
+      $sess->date_ts       = strtotime($form_state->getValue('date'));
+      $sess->date          = $form_state->getValue('date');
+      $sess->horaires      = $form_state->getValue('horaires');
+      $sess->co_lieu       = $co_lieu[1];
+      $sess->co_resp       = $co_resp[1];
+      $sess->duree_a_payer = $form_state->getValue('duree_a_payer');
+      $sess->type_paiement = $form_state->getValue('type_paiement');
+      $sess->groupe        = $form_state->getValue('groupe');
+      $sess->date_modif    = date("Y-m-d H:i:s");
+      $sess->uid           = $account->id();
+    }
     $sess->save();
 
     $form_state->setRedirect('bb.moduleng',
