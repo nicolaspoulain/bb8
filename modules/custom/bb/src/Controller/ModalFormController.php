@@ -47,9 +47,8 @@ class ModalFormController extends ControllerBase {
   /**
    * Callback for opening the modal form.
    */
-  public function openModalForm($sess_id, $co_modu, $co_degre) {
+  public function openModalForm($co_degre, $co_modu, $sess_id, $dup){
     $response = new AjaxResponse();
-
     // Get the modal form using the form builder.
     $modal_form = $this->formBuilder->getForm('Drupal\bb\Form\ModalForm');
 

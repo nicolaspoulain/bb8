@@ -204,7 +204,7 @@ bb.modal_form:
 
 # Le nouveau
 bb.open_modal_form:
-  path: '/modal_form/{sess_id}/{co_degre}/{co_modu}'
+  path: '/modal_form/{co_degre}/{co_modu}/{sess_id}/{dup}'
   defaults:
     _title: 'Modal Form'
     _controller: '\Drupal\bb\Controller\ModalFormController::openModalForm'

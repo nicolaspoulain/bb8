@@ -39,10 +39,11 @@ class ModalForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $options = NULL) {
 
     $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-3,3);
-    $sess_id  = $path_args[0];
-    $co_degre = $path_args[1];
-    $co_modu  = $path_args[2];
+    $path_args = array_slice(explode('/',$current_uri),-4,4);
+    $co_degre = $path_args[0];
+    $co_modu  = $path_args[1];
+    $sess_id  = $path_args[2];
+
     $sess = \Drupal\gaia\Entity\Session::load($sess_id);
     // get extra informations
     $lieu = BbCrudController::load('gbb_netab_dafor', [ 'co_lieu' => $sess->co_lieu->value ] );
@@ -143,6 +144,10 @@ class ModalForm extends FormBase {
       $form['formateur']['#default_value']='';
     };
 
+    // co_degre/_co_modu/session/dup : duplicate
+    if (preg_match("/dup/", $path_args[3])) {
+      $form['sess_id']['#value']=1;
+    }
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
     // to the form.

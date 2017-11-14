@@ -324,7 +324,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}\" class=\"no-link use-ajax\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../modal_form/{{ sess_id }}/{{co_degre}}/{{co_modu}}/dup\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
+            text: "<ul class=\"no-dot\">\n  <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n    <a href=\"../../modal_form/{{co_degre}}/{{co_modu}}/{{ sess_id }}/modify\" class=\"no-link use-ajax\"><i class=\"fa fa-cog fa-lg blue\"></i></a>\n    <ul class=\"pure-menu-children no-dot\">\n      <li><a href=\"../../modal_form/{{co_degre}}/{{co_modu}}/{{ sess_id }}/dup\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-copy fa-lg use-ajax\"></a></li>\n      <li><a href=\"../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link pure-menu-item pure-menu-link no-link fa fa-lg fa-trash-o red delAlertJs\"></a></li>\n    </ul>\n  </li>\n</ul>"
             make_link: false
             path: ''
             absolute: false
