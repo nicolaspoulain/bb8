@@ -23,7 +23,7 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function getTitle($sess_id) {
-    return 'Modification de la session n°'.$sess_id;
+    return 'Modification de session';
   }
 
   /**
@@ -40,14 +40,22 @@ class ModalForm extends FormBase {
 
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-4,4);
-    $co_degre = $path_args[0];
-    $co_modu  = $path_args[1];
-    $sess_id  = $path_args[2];
+    if ($path_args[0] == "modal_form") {
+      // create a session
+      $co_degre = $path_args[1];
+      $co_modu  = $path_args[2];
+      $sess_id  = 1;
+    } else {
+      // modify or duplicate a session
+      $sess_id  = $path_args[2];
+      $sess = \Drupal\gaia\Entity\Session::load($sess_id);
+      $co_degre = $sess->co_degre->value;
+      $co_modu  = $sess->co_modu->value;
+      // get extra informations
+      $lieu = BbCrudController::load('gbb_netab_dafor', [ 'co_lieu' => $sess->co_lieu->value ] );
+      $resp = BbCrudController::load('gbb_gresp_dafor', [ 'co_resp' => $sess->co_resp->value ] );
 
-    $sess = \Drupal\gaia\Entity\Session::load($sess_id);
-    // get extra informations
-    $lieu = BbCrudController::load('gbb_netab_dafor', [ 'co_lieu' => $sess->co_lieu->value ] );
-    $resp = BbCrudController::load('gbb_gresp_dafor', [ 'co_resp' => $sess->co_resp->value ] );
+    }
 
     $form['#theme'] = 'modal';
     $form['#attributes'] = array('class' => array('pure-form','pure-form-stacked'));
@@ -55,17 +63,17 @@ class ModalForm extends FormBase {
     $form['sess_id'] = array(
       '#type' => 'hidden',
       // '#type' => 'textfield',
-      '#value' => $sess->sess_id->value,
+      '#value' => $sess_id,
     );
     $form['co_modu'] = array(
       '#type' => 'hidden',
       // '#type' => 'textfield',
-      '#default_value' => $sess->co_modu->value,
+      '#default_value' => $co_modu
     );
     $form['co_degre'] = array(
       '#type' => 'hidden',
       // '#type' => 'textfield',
-      '#default_value' => $sess->co_degre->value,
+      '#default_value' => $co_degre
     );
     $form['date'] = array(
       '#type' => 'date',
@@ -185,6 +193,7 @@ class ModalForm extends FormBase {
     $sess_id = $form_state->getValue('sess_id');
     preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
     preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
+    dpm("sess".$sess_id);
 
     if ($sess_id == 1) {
       $sess = \Drupal\gaia\Entity\Session::create([
