@@ -1,0 +1,113 @@
+<div>
+<span class="ultra-small">Template : /bb/templates/session-form.html.twig</span>
+</div>
+
+{#
+{{ views_embed_view('infos_module', 'block_1') }}
+#}
+{{ drupal_view('infos_module', 'block_1') }}
+
+{# voir http://jquerytools.github.io/demos/combine/html5-form/index.html
+pour un ovelay #}
+
+{{ form.form_token }} {# required #}
+{{ form.form_build_id }} {# required #}
+{{ form.form_id }} {# required #}
+
+
+{% for k,i in form.new%}
+{% if k matches '/^\\d+$/' %}
+<div class="pure-form pure-g">
+<div class="pure-u-4-24">{{ i.date }}</div>
+<div class="pure-u-2-24">{{ i.horaires }}</div>
+<div class="pure-u-6-24">{{ i.lieu }}</div>
+<div class="pure-u-1-24">{{ i.groupe }}</div>
+<div class="pure-u-5-24">{{ i.formateur }}</div>
+</div>
+{% endif %}
+{% endfor %}
+
+
+
+{{ form.list.table }}
+{{ form.list.edit }}
+{{ form.list.add}}
+
+
+{{ form.modif.sessid }}
+
+{{ form.modif.date }}
+{{ form.modif.horaires }}
+{{ form.modif.lieu }}
+{{ form.modif.groupe }}
+{{ form.modif.formateur }}
+{{ form.modif.duree_a_payer }}
+{{ form.modif.duree_prevue }}
+{{ form.modif.type_paiement }}
+{{ form.modif.save }}
+
+{{ form.test.beubeu }}
+{{ form.test.save }}
+
+{#  Pour le debug
+ # --------------
+<pre> {{ dump(form.form_id) }} </pre>
+
+{% for i in form.list.table|keys %}
+<li>{{ i }}</li>
+{% endfor %}
+#}
+
+
+{#
+<table data-drupal-selector="edit-table" id="edit-table" class="responsive-enabled" data-striping="1">
+<thead>
+<tr>
+<td>ck</td>
+{% for v in form.list.table['#header'] %}
+<td>{{ v }}</td>
+{% endfor %}
+</tr>
+</thead>
+{% for k,v in form.list.table['#options'] %}
+<tr>
+<td>
+{% for key,sid in form.list.table if key == k%}
+{{sid}}
+{% endfor %}
+</td>
+{% for kk,vv in v %}
+<td> {{vv}} </td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+
+<p>-----------</p>
+{{form.list.table.41}}
+<p>-----------</p>
+<ul>
+{% for k,v in form.list.table %}
+  <li> k:{{k}} v:{{v}}
+  <ul>
+  {% for kk,vv in v %}
+    <li> kk:{{kk}} vv:{{vv}}
+    <ul>
+    {%for kkk,vvv in vv %}
+      <li> kkk:{{kkk}} vvv:{{vvv}}
+      <ul>
+      {%for kkkk,vvvv in vvv %}
+        <li> kkkk:{{kkkk}} vvvv:{{vvvv}}
+      {% endfor %}
+      </ul>
+      </li>
+    {% endfor %}
+    </ul>
+    </li>
+  {% endfor %}
+  </ul>
+  </li>
+{% endfor %}
+</ul>
+#}
+

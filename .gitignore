@@ -14,36 +14,30 @@
 tmux*
 
 # Ignore core and vendor when managing dependencies with Composer.
-core
+web/core
 vendor
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/settings*.php
-sites/*/services*.yml
-
 # Ignore paths that contain user-generated content.
-sites/*/files
-sites/*/private
-
-# Ignore SimpleTest multi-site environment.
-sites/simpletest
-
-
+web/sites/
+web/private:/
 
 # If you prefer to store your .gitignore file in the sites/ folder, comment
 # or delete the previous settings and uncomment the following ones, instead.
 
-# Ignore configuration files that may contain sensitive information.
-# */settings*.php
-
-# Ignore paths that contain user-generated content.
-# */files
-# */private
-
-# Ignore SimpleTest multi-site environment.
-# simpletest
-
 *.sql
+web/modules/contrib
+web/.ht.router.php
+web/modules/.gitkeep
+.env.example
+.travis.yml
+LICENSE
+README.md
+drush
+scripts
+load.environment.php
+phpunit.xml.dist
+
 
 config/staging/bartik.*
 config/staging/color.theme.bartik.yml
