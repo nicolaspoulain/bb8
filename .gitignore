@@ -1,0 +1,103 @@
+# This file contains default .gitignore rules. To use it, copy it to .gitignore,
+# and it will cause files like your settings.php and user-uploaded files to be
+# excluded from Git version control. This is a common strategy to avoid
+# accidentally including private information in public repositories and patch
+# files.
+#
+# Because .gitignore can be specific to your site, this file has a different
+# name; updating Drupal core will not override your custom .gitignore file.
+
+# Ignore temp files
+*~
+
+# Ignore Tmux files
+tmux*
+
+# Ignore core and vendor when managing dependencies with Composer.
+core
+vendor
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Ignore SimpleTest multi-site environment.
+sites/simpletest
+
+
+
+# If you prefer to store your .gitignore file in the sites/ folder, comment
+# or delete the previous settings and uncomment the following ones, instead.
+
+# Ignore configuration files that may contain sensitive information.
+# */settings*.php
+
+# Ignore paths that contain user-generated content.
+# */files
+# */private
+
+# Ignore SimpleTest multi-site environment.
+# simpletest
+
+*.sql
+
+config/staging/bartik.*
+config/staging/color.theme.bartik.yml
+config/staging/devel.settings.yml
+#config/staging/core.extension.yml
+config/staging/devel.toolbar.settings.yml
+config/staging/bartik.settings.yml
+backup_migrate.backup_migrate_source.public_files
+backup_migrate.backup_migrate_source.private_files
+backup_migrate.backup_migrate_source.entire_site
+backup_migrate.backup_migrate_source.default_db
+backup_migrate.backup_migrate_schedule.daily_schedule
+backup_migrate.backup_migrate_destination.private_files
+config/staging/backup_migrate.backup_migrate_*
+system.file.yml
+config/staging/block.block.navigationbb.yml
+
+modules/custom/bb/tags
+
+
+.csslintrc
+.editorconfig
+.eslintignore
+.eslintrc
+.eslintrc.json
+.gitattributes
+.htaccess
+LICENSE.txt
+README.txt
+autoload.php
+bb8.sql
+composer.json
+composer.lock
+config/staging/system.file.yml
+config/staging/system.site.yml
+example.gitignore
+index.php
+installviews_data_export
+modules/README.txt
+modules/admin_toolbar/
+modules/csv_serialization/
+modules/devel/
+modules/masquerade/
+modules/token/
+modules/twig_tweak/
+modules/views_data_export/
+modules/charts/
+modules/libraries/
+modules/contrib/
+
+profiles/
+robots.txt
+sites/
+themes/README.txt
+update.php
+web.config
+
