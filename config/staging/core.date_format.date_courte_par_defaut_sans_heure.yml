@@ -1,8 +1,0 @@
-uuid: 70406384-3a20-49e0-9105-74b27bca54dc
-langcode: fr
-status: true
-dependencies: {  }
-id: date_courte_par_defaut_sans_heure
-label: 'Date courte par défaut sans heure'
-locked: false
-pattern: 'd/m/Y (D)'

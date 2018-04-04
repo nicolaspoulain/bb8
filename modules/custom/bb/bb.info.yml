@@ -1,6 +1,0 @@
-name: BB
-type: module
-description: 'Un module Boule&Bill...'
-package: Custom
-core: 8.x
-

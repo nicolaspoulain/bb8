@@ -1,8 +1,0 @@
-uuid: 27bb9209-3c13-402f-a300-b08ad34d9cc7
-langcode: fr
-status: true
-dependencies: {  }
-id: fallback
-label: 'Format de date de repli'
-locked: true
-pattern: 'D, m/d/Y - H:i'

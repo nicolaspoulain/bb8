@@ -1,9 +1,0 @@
-uuid: 16d7fe98-f7b2-4772-bb51-ea9439bd4377
-langcode: fr
-status: true
-dependencies: {  }
-id: d_cons
-label: D_cons
-weight: 3
-is_admin: null
-permissions: {  }

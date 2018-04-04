@@ -1,9 +1,0 @@
-uuid: eab20ce0-80fc-4c81-a32c-44ceedf732d4
-langcode: fr
-status: true
-dependencies: {  }
-id: und
-label: 'Non spécifié'
-direction: ltr
-weight: 2
-locked: true

@@ -1,8 +1,0 @@
-uuid: d65e1123-7491-4acc-9a00-e3098ee66162
-langcode: fr
-status: true
-dependencies: {  }
-id: main
-label: Main
-description: 'Liens de section du site'
-locked: true

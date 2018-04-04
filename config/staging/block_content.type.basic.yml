@@ -1,8 +1,0 @@
-uuid: e7a7fbdb-1b25-45f8-a300-a915ca6784c7
-langcode: fr
-status: true
-dependencies: {  }
-id: basic
-label: 'Bloc simple'
-revision: 0
-description: 'Un bloc simple contient un titre et un corps.'

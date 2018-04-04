@@ -1,9 +1,0 @@
-uuid: f2376bb8-675b-4df1-a652-eef13bd66fde
-langcode: fr
-status: true
-dependencies: {  }
-id: d_admi
-label: D_admi
-weight: 4
-is_admin: null
-permissions: {  }
