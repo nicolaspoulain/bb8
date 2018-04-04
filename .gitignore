@@ -42,16 +42,9 @@ phpunit.xml.dist
 config/staging/bartik.*
 config/staging/color.theme.bartik.yml
 config/staging/devel.settings.yml
-#config/staging/core.extension.yml
 config/staging/devel.toolbar.settings.yml
 config/staging/bartik.settings.yml
-backup_migrate.backup_migrate_source.public_files
-backup_migrate.backup_migrate_source.private_files
-backup_migrate.backup_migrate_source.entire_site
-backup_migrate.backup_migrate_source.default_db
-backup_migrate.backup_migrate_schedule.daily_schedule
-backup_migrate.backup_migrate_destination.private_files
-config/staging/backup_migrate.backup_migrate_*
+config/staging/backup_migrate.*
 system.file.yml
 config/staging/block.block.navigationbb.yml
 
