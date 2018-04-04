@@ -1,0 +1,22 @@
+uuid: ba2208b3-a308-4883-b66a-7fa93a76dfd2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: bbtheme_content
+theme: bbtheme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Contenu de la page principale'
+  provider: system
+  label_display: '0'
+visibility: {  }

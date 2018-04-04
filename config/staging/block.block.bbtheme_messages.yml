@@ -1,0 +1,22 @@
+uuid: 472290a6-023c-4b3e-a02f-b40906eca4f8
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: bbtheme_messages
+theme: bbtheme
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Messages de statut'
+  provider: system
+  label_display: '0'
+visibility: {  }

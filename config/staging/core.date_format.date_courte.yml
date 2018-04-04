@@ -1,0 +1,8 @@
+uuid: a4dba269-2de0-4721-98ba-1a947a6fe4bd
+langcode: fr
+status: true
+dependencies: {  }
+id: date_courte
+label: 'Date moyenne par défaut sans heure'
+locked: false
+pattern: 'D d M Y'

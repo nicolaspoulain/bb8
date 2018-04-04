@@ -1,0 +1,20 @@
+uuid: 3ca99575-c2de-4e2a-88b9-77b7b207b3a9
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: bbtheme_local_actions
+theme: bbtheme
+region: content
+weight: -8
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Actions d''administration principales'
+  provider: core
+  label_display: '0'
+visibility: {  }

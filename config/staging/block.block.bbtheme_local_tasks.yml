@@ -1,0 +1,22 @@
+uuid: ca7e5438-06e3-4435-93e5-89f4435a3f0c
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: bbtheme_local_tasks
+theme: bbtheme
+region: content
+weight: -8
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

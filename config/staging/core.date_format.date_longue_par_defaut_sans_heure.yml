@@ -1,0 +1,8 @@
+uuid: 7906edab-c62d-4d15-8da3-b957fe6fd47c
+langcode: fr
+status: true
+dependencies: {  }
+id: date_longue_par_defaut_sans_heure
+label: 'Date longue par défaut sans heure'
+locked: false
+pattern: 'l j F Y'

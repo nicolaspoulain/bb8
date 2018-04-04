@@ -1,0 +1,25 @@
+uuid: d1f1f0a4-8a58-4fdb-b3cf-7a882a3a2b3e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: bbtheme_branding
+theme: bbtheme
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Marque du site'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

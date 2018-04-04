@@ -1,0 +1,22 @@
+uuid: 39a47a64-c025-44c6-80bc-1fefe462278b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: bbtheme_help
+theme: bbtheme
+region: content
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Aide
+  provider: help
+  label_display: '0'
+visibility: {  }

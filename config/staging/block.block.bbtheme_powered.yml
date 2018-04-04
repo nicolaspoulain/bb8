@@ -1,0 +1,22 @@
+uuid: f2427be8-494b-46ed-ab21-70b1dc9c3f85
+langcode: fr
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: bbtheme_powered
+theme: bbtheme
+region: sidebar_first
+weight: -3
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Propulsé par Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

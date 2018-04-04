@@ -1,0 +1,20 @@
+uuid: da1795c0-c8ef-4ce8-b93a-7a3f5cc60cdc
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - bbtheme
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: bbtheme_page_title
+theme: bbtheme
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Titre de page'
+  provider: core
+  label_display: '0'
+visibility: {  }
