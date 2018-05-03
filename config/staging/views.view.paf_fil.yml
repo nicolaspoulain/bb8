@@ -7,6 +7,7 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - csv_serialization
     - rest
     - serialization
@@ -2267,6 +2268,7 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            placeholder: ''
           is_grouped: true
           group_info:
             label: Année
@@ -2276,22 +2278,30 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '3'
+            default_group: '2'
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2019-20
+                operator: starts
+                value: '19'
+              2:
+                title: 2018-19
+                operator: starts
+                value: '18'
+              3:
                 title: 2017-18
                 operator: starts
                 value: '17'
-              2:
+              4:
                 title: 2016-17
                 operator: starts
                 value: '16'
-              3:
+              5:
                 title: 2015-16
                 operator: starts
                 value: '15'
-              4:
+              6:
                 title: 2014-15
                 operator: starts
                 value: '14'
@@ -2677,7 +2687,7 @@ display:
       use_ajax: false
       group_by: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -2743,8 +2753,11 @@ display:
       menu:
         enabled: true
         expanded: false
+      title: 'PAF + FIL'
+      defaults:
+        title: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

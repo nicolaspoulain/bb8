@@ -588,7 +588,7 @@ display:
             group_items: {  }
           plugin_id: string
       sorts: {  }
-      title: OffresFlash
+      title: Offres
       header: {  }
       footer: {  }
       empty: {  }

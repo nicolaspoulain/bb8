@@ -3,10 +3,12 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - system.menu.main
     - user.role.administrator
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - user
 id: a_traiter
 label: 'BB: A traiter'
@@ -227,7 +229,7 @@ display:
         operator: AND
         groups: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - user.roles
@@ -924,8 +926,17 @@ display:
             label: ''
           plugin_id: standard
       display_description: ''
+      menu:
+        type: normal
+        title: 'À traiter'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
