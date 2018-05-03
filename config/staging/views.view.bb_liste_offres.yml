@@ -6,6 +6,7 @@ dependencies:
     - user.role.administrator
     - user.role.d_cons
   module:
+    - bb
     - user
 id: bb_liste_offres
 label: 'BB: Liste Offres'
@@ -453,6 +454,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: true
           group_info:
             label: no_offre
@@ -462,24 +466,38 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '3'
+            default_group: '2'
             default_group_multiple: {  }
             group_items:
               1:
+                title: 19-20
+                operator: between
+                value:
+                  value: ''
+                  min: '20190000'
+                  max: '20199999'
+              2:
+                title: 18-19
+                operator: between
+                value:
+                  value: ''
+                  min: '20180000'
+                  max: '20189999'
+              3:
                 title: 17-18
                 operator: between
                 value:
                   value: ''
                   min: '20170000'
                   max: '20179999'
-              2:
+              4:
                 title: 16-17
                 operator: between
                 value:
                   value: ''
                   min: '20160000'
                   max: '20169999'
-              3:
+              5:
                 title: 15-16
                 operator: between
                 value:
@@ -487,6 +505,88 @@ display:
                   min: '20150000'
                   max: '20159999'
           plugin_id: numeric
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga_diof
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_op
+            label: nomuOrga
+            description: ''
+            use_operator: false
+            operator: nomu_op
+            identifier: nomu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        nomu_1:
+          id: nomu_1
+          table: gbb_gresp_peda_moof
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_1_op
+            label: nomuPeda
+            description: ''
+            use_operator: false
+            operator: nomu_1_op
+            identifier: nomu_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts: {  }
       title: OffresFlash
       header: {  }
@@ -496,7 +596,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -512,7 +612,7 @@ display:
       display_extenders: {  }
       path: offresFlash
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
