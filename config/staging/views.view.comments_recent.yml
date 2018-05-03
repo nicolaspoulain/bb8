@@ -1,6 +1,6 @@
 uuid: 2424aece-34fd-4e5b-9ada-ed241e9bcbec
 langcode: fr
-status: true
+status: false
 dependencies:
   module:
     - comment

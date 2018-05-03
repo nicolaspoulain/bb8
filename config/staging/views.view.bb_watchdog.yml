@@ -1,16 +1,14 @@
-uuid: ce1c9db4-644b-404f-b49d-8b3c2421cb89
+uuid: c3fa04b8-c550-4bc7-89de-725f0c0be8d8
 langcode: fr
 status: true
 dependencies:
   module:
     - dblog
     - user
-_core:
-  default_config_hash: 3QZ9apklK6mQ7BzodmxzOxqO---2BCPtOLE3k9eQ0Is
-id: watchdog
-label: Surveillance
+id: bb_watchdog
+label: 'BB: watchdog'
 module: views
-description: 'Entrées récentes du journal'
+description: ''
 tag: ''
 base_table: watchdog
 base_field: wid
@@ -19,7 +17,7 @@ display:
   default:
     display_plugin: default
     id: default
-    display_title: Maître
+    display_title: Master
     position: 0
     display_options:
       access:
@@ -27,7 +25,7 @@ display:
         options:
           perm: 'access site reports'
       cache:
-        type: none
+        type: tag
         options: {  }
       query:
         type: views_query
@@ -40,36 +38,39 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Filtrer
-          reset_button: true
+          submit_button: Appliquer
+          reset_button: false
           reset_button_label: Réinitialiser
           exposed_sorts_label: 'Trier par'
-          expose_sort_order: false
+          expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
-          items_per_page: 50
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Tout -'
-            offset: false
-            offset_label: Décalage
           tags:
             previous: ‹‹
             next: ››
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options: '25, 100'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- Tout -'
+            offset: false
+            offset_label: Décalage
+          quantity: 9
       style:
         type: table
         options:
           grouping: {  }
-          row_class: '{{ type }} {{ severity }}'
+          row_class: ''
           default_row_class: true
           override: true
           sticky: false
@@ -77,50 +78,16 @@ display:
           summary: ''
           description: ''
           columns:
-            nothing: nothing
             wid: wid
-            severity: severity
-            type: type
-            timestamp: timestamp
             message: message
-            name: name
-            link: link
           info:
-            nothing:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
             wid:
               sortable: false
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            severity:
-              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
-            type:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            timestamp:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
+              responsive: ''
             message:
               sortable: false
               default_sort_order: asc
@@ -128,72 +95,11 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            name:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            link:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-          default: wid
+          default: '-1'
           empty_table: false
       row:
         type: fields
       fields:
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: Icône
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: icon
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
         wid:
           id: wid
           table: watchdog
@@ -201,7 +107,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: WID
+          label: ''
           exclude: true
           alter:
             alter_text: false
@@ -234,7 +140,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -242,105 +148,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
-        severity:
-          id: severity
-          table: watchdog
-          field: severity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Importance
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          machine_name: false
-          plugin_id: machine_name
-        type:
-          id: type
-          table: watchdog
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Type
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          entity_type: null
+          entity_field: null
           plugin_id: standard
         timestamp:
           id: timestamp
@@ -349,7 +158,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Date
+          label: Horodatage
           exclude: false
           alter:
             alter_text: false
@@ -401,40 +210,40 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Message
+          label: ''
           exclude: false
           alter:
-            alter_text: false
+            alter_text: true
             text: ''
             make_link: true
-            path: 'admin/reports/dblog/event/{{ wid }}'
+            path: 'admin/reports/dblog/event/{{ wid }} '
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: '{{ message }}'
+            alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
             nl2br: false
-            max_length: 56
+            max_length: 0
             word_boundary: true
             ellipsis: true
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: true
-            trim: true
+            strip_tags: false
+            trim: false
             preserve_tags: ''
-            html: true
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -451,7 +260,7 @@ display:
           relationship: uid
           group_type: group
           admin_label: ''
-          label: Utilisateur
+          label: Nom
           exclude: false
           alter:
             alter_text: false
@@ -509,14 +318,14 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-        link:
-          id: link
+        hostname:
+          id: hostname
           table: watchdog
-          field: link
+          field: hostname
           relationship: none
           group_type: group
           admin_label: ''
-          label: Actions
+          label: 'Nom d''hôte'
           exclude: false
           alter:
             alter_text: false
@@ -557,7 +366,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: dblog_operations
+          plugin_id: standard
       filters:
         type:
           id: type
@@ -567,23 +376,22 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            BB: BB
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: type_op
-            label: Type
+            operator_id: ''
+            label: ''
             description: ''
             use_operator: false
-            operator: type_op
-            identifier: type
+            operator: ''
+            identifier: ''
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -598,49 +406,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: dblog_types
-        severity:
-          id: severity
+        referer:
+          id: referer
           table: watchdog
-          field: severity
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: severity_op
-            label: Importance
-            description: ''
-            use_operator: false
-            operator: severity_op
-            identifier: severity
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: in_operator
-        message:
-          id: message
-          table: watchdog
-          field: message
+          field: referer
           relationship: none
           group_type: group
           admin_label: ''
@@ -649,12 +418,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: message_op
-            label: Message
+            operator_id: referer_op
+            label: Module
             description: ''
             use_operator: false
-            operator: message_op
-            identifier: message
+            operator: referer_op
+            identifier: referer
             required: false
             remember: false
             multiple: false
@@ -678,36 +447,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-      sorts:
-        wid:
-          id: wid
-          table: watchdog
-          field: wid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      title: 'Entrées récentes du journal'
+      sorts: {  }
+      title: 'BB: watchdog'
       header: {  }
       footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'Aucune entrée du journal n''est disponible.'
-            format: basic_html
-          plugin_id: text
+      empty: {  }
       relationships:
         uid:
           id: uid
@@ -715,16 +459,11 @@ display:
           field: uid
           relationship: none
           group_type: group
-          admin_label: User
+          admin_label: uid
           required: false
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      css_class: admin-dblog
     cache_metadata:
       max-age: -1
       contexts:
@@ -734,14 +473,14 @@ display:
         - url.query_args
         - user.permissions
       tags: {  }
-  page:
+  page_1:
     display_plugin: page
-    id: page
+    id: page_1
     display_title: Page
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/reports/dblog
+      path: bb-watchdog
     cache_metadata:
       max-age: -1
       contexts:
