@@ -1,5 +1,23 @@
 <?php
 
+use Drupal\file\FileInterface;
+
+
+/**
+ * Implements hook_file_download().
+ *
+ * Control the access to file download
+ */
+function bb_file_download($uri) {
+  if (\Drupal::currentUser()->isAnonymous()) {
+    return -1;
+  } else {
+  return 1;
+  }
+}
+
+
+
 /**
  * Implements hook_views_api().
  */
