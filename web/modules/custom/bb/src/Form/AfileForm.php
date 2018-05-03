@@ -9,6 +9,7 @@ namespace Drupal\bb\Form;
 use Drupal\Core\Ajax\ChangedCommand;
 use Drupal\Core\Ajax\InvokeCommand;
 
+use Drupal\Core\Url;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -28,7 +29,7 @@ class AfileForm extends FormBase {
    * {@inheritdoc}
    */
   public function getTitle() {
-    return 'Fichiers pour les administratifs';
+    return '<strong>Fichiers pour les administratifs</strong>';
   }
 
   /**
@@ -43,30 +44,15 @@ class AfileForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
-    // Add file form
-    $form['afile'] = array(
-      '#title' => t('Fichiers pour les administratifs'),
-      '#type' => 'managed_file',
-      '#upload_validators'  => array(
-        'file_validate_extensions' => array('jpg jpeg gif png txt rtf doc docx odt xls xlsx ods pdf zip'),
-        'file_validate_size' => array(25600000),
-      ),
-      '#required' => FALSE,
-    );
-    // Add file submit button
-    $form['submit_file'] = array(
-      '#type' => 'submit',
-      '#value' => t('Submit'),
-    );
-    \Drupal\Core\Database\Database::setActiveConnection();
-
     // Get URL components
     $current_uri = \Drupal::request()->getRequestUri();
     $path_args = array_slice(explode('/',$current_uri),-2,2);
     $co_degre = $path_args[0];
     $co_modu  = explode('?',$path_args[1])[0];
+
+    $form['titre'] = array(
+      '#markup' => CfileForm::getTitle(),
+    );
 
     // Delete file list form
     $files = BbCrudController::load( 'gbb_file', ['co_modu' => $co_modu, 'co_degre' => $co_degre, 'zone' => 1]);
@@ -75,19 +61,42 @@ class AfileForm extends FormBase {
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $f->fid]);
       // dpm($file_loaded);
       if ($file_loaded[0]->status) {
-        $flist[$f->fid] = $file_loaded[0]->filename;
+        // $flist[$f->fid] = $file_loaded[0]->uri.$file_loaded[0]->filename;
+        $uri = $file_loaded[0]->uri;
+        $url = Url::fromUri(file_create_url($uri));
+        $flist[$f->fid] = \Drupal::l($file_loaded[0]->filename,$url);
       }
     }
     $form['fileToDelete'] = array(
       '#type'    => 'radios',
       '#options' => $flist,
     );
-    $form['delete_file'] = array(
-      '#type' => 'submit',
-      '#value' => t('Delete'),
-      '#submit' => array('::deleteForm'),
-    );
+    if (count($files)>0) {
+      $form['delete_file'] = array(
+        '#type' => 'submit',
+        '#value' => t('Delete'),
+        '#submit' => array('::deleteForm'),
+      );
+    }
     // $form['delete_file']['#submit'][] = 'delete_form';
+
+    // Add file form
+    $form['afile'] = array(
+      '#title' => t('Ajouter un fichier'),
+      '#type' => 'managed_file',
+      '#upload_validators'  => array(
+        'file_validate_extensions' => array('jpg jpeg gif png txt rtf doc docx odt xls xlsx ods pdf zip'),
+        'file_validate_size' => array(25600000),
+      ),
+      '#upload_location' => 'private://pieces-jointes/',
+      '#required' => FALSE,
+    );
+    // Add file submit button
+    $form['submit_file'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+
     return $form;
   }
 
