@@ -104,7 +104,7 @@ class CfileForm extends FormBase {
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
-    dpm($afile[0]);
+    // dpm($afile[0]);
     $file = File::load( $afile[0] );
     /* Set the status flag permanent of the file object */
     $file->setPermanent();
@@ -139,7 +139,7 @@ class CfileForm extends FormBase {
     $entry = array(
       'fid' => $afile,
     );
-    dpm($afile);
+    // dpm($afile);
     $module = BbCrudController::delete( 'gbb_file', $entry);
   }
 }
