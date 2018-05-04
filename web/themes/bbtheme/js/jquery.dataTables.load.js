@@ -8,7 +8,7 @@ function fnFormatDetails ( nTr )
                     sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
                         sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
                             sOut += '</table>';
-                                 
+
                                      return sOut;
 }
 
@@ -30,6 +30,7 @@ jQuery(document).ready(function() {
             null,
             null,
             null,
+            null,
         ],
     "sDom": 'lfr<"giveHeight"t>ip',
     "fnDrawCallback": function ( oSettings ) {
@@ -37,7 +38,7 @@ jQuery(document).ready(function() {
             {
                 return;
             }
-             
+
             var nTrs = jQuery('tbody tr', oSettings.nTable);
             var iColspan = nTrs[0].getElementsByTagName('td').length;
             var sLastGroup = "";

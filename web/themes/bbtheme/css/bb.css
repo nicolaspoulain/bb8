@@ -12,9 +12,6 @@
 .white {
   color: white;
 }
-.green {
-  color: green;
-}
 .bgblue {
  background:#1F8DD6;
  height: auto;
@@ -52,6 +49,18 @@
 }
 .orange {
   color: orange;
+}
+.black {
+  color: black;
+}
+.pink {
+  color: pink;
+}
+.purple {
+  color: purple;
+}
+.green {
+  color: green;
 }
 .form-item {
   margin-top: 0em;

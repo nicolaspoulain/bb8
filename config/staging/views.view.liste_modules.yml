@@ -851,18 +851,18 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        lib:
-          id: lib
-          table: gbb_gmodu
-          field: lib
+        color:
+          id: color
+          table: gbb_gmodu_plus
+          field: color
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if color!='' %}\n<i class=\"fa fa-lg fa-stop {{ color }}\"></i>\n{% else %}\n<i class=\"fa fa-lg fa-stop white\"></i>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -898,7 +898,7 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
+          hide_alter_empty: false
           plugin_id: standard
         co_modu:
           id: co_modu
@@ -959,6 +959,104 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: numeric
+        nothing_3:
+          id: nothing_3
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"#\">{{color}}</a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/gray\"><li class=\"pure-menu-item pure-menu-link fa fa-stop gray\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/blue\"><li class=\"pure-menu-item pure-menu-link fa fa-stop blue\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/red\"><li class=\"pure-menu-item pure-menu-link fa fa-stop red\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/orange\"><li class=\"pure-menu-item pure-menu-link fa fa-stop orange\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/black\"><li class=\"pure-menu-item pure-menu-link fa fa-stop black\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/pink\"><li class=\"pure-menu-item pure-menu-link fa fa-stop pink\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/purple\"><li class=\"pure-menu-item pure-menu-link fa fa-stop purple\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/green\"><li class=\"pure-menu-item pure-menu-link fa fa-stop green\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/white\"><li class=\"pure-menu-item pure-menu-link fa fa-stop white\"></li></a>\n             </ul>\n            </li>\n</ul>\n\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         date_ts_1:
           id: date_ts_1
           table: gbb_session
@@ -1084,7 +1182,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n  {% if date_ts == 0 %}\n     &nbsp;&nbsp;&nbsp;&nbsp;\n  {% elseif date() <  date(date_ts-777600) %}\n     <i class=\"fa fa-hourglass-start green fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts) %}\n    <i class=\"fa fa-hourglass-start orange fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts_1) %}\n    <i class=\"fa fa-hourglass-half red fa-lg\" aria-hidden=\"true\"></i>\n  {% else %}\n    <i class=\"fa fa-flag-checkered gray\" aria-hidden=\"true\"></i>\n  {% endif %}\n <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} "
+            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n  {% if date_ts == 0 %}\n     &nbsp;&nbsp;&nbsp;&nbsp;\n  {% elseif date() <  date(date_ts-777600) %}\n     <i class=\"fa fa-hourglass-start green fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts) %}\n    <i class=\"fa fa-hourglass-start orange fa-lg\" aria-hidden=\"true\"></i>\n  {% elseif date() <  date(date_ts_1) %}\n    <i class=\"fa fa-hourglass-half red fa-lg\" aria-hidden=\"true\"></i>\n  {% else %}\n    <i class=\"fa fa-flag-checkered gray\" aria-hidden=\"true\"></i>\n  {% endif %}\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} "
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
@@ -2036,6 +2134,8 @@ display:
       menu:
         enabled: true
         expanded: false
+      defaults:
+        fields: true
     cache_metadata:
       max-age: -1
       contexts:
