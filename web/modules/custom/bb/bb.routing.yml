@@ -64,6 +64,16 @@ bb.moduleng:
   requirements:
     _permission: 'access content'
 
+bb.changecolor:
+  path: '/changecolor/{co_degre}/{co_modu}/{color}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::changecolor'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.sessionpause:
   path: '/sessionpause/{co_degre}/{co_modu}/{sessid}'
   defaults:

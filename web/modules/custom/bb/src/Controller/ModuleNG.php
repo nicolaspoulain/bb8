@@ -15,6 +15,19 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class ModuleNG extends ControllerBase {
 
+  public function changecolor($co_degre, $co_modu, $color) {
+    $entry = array('color' => $color);
+    $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gmodu_plus', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
+    }
+    $routeparameters = array();
+    return $this->redirect('view.liste_modules.page_1',$routeparameters);
+  }
+
   public function sessionplay($co_degre, $co_modu, $sessid) {
     $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0);
     $condition = array('sess_id' => $sessid);

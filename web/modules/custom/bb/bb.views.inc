@@ -168,6 +168,25 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
+  $data['gbb_gmodu_plus']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gmodu_plus.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gmodu_plus']['color'] = array( 'help' => t('color'),
+  //{{
+    'title' => t('color'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu_taxonomy']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
