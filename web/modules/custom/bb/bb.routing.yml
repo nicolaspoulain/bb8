@@ -54,6 +54,16 @@ bb.afileform:
   requirements:
     _permission: 'access content'
 
+bb.liste:
+  path: '/liste/{id_disp}/{co_anmo}/{resp_filter}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\Liste::page'
+    _title: 'Liste'
+    id_disp: '1'
+    co_anmo: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
