@@ -1,0 +1,4 @@
+name: Pia
+description: 'Affiche la vue PIA après changement de thème.'
+type: module
+core: 8.x
