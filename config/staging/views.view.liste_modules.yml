@@ -862,7 +862,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if color!='' %}\n<i class=\"fa fa-lg fa-stop {{ color }}\"></i>\n{% else %}\n<i class=\"fa fa-lg fa-stop white\"></i>\n{% endif %}"
+            text: "{% if color!='' %}\n<i class=\"fa fa-lg fa-stop color-{{ color|trim('#')|lower }}\"></i>\n{% else %}\n<i class=\"fa fa-lg fa-stop white\"></i>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
