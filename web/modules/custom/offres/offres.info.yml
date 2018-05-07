@@ -1,0 +1,6 @@
+name: Offres
+type: module
+description: 'Gestion des offres avec le tableau jaune'
+package: Custom
+core: 8.x
+

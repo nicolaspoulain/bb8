@@ -1,0 +1,14 @@
+offres_list:
+  path: '/offres/list'
+  defaults:
+    _title: 'Liste des offres'
+    _controller: '\Drupal\offres\Controller\OffresController::list'
+  requirements:
+    _permission: 'access content'
+
+admin_notes.form:
+  path: '/offres/position_form/{position}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\PositionForm'
+  requirements:
+    _permission: 'access content'
