@@ -187,6 +187,7 @@ class ModalForm extends FormBase {
 
     if ( $form_state->getValue('sess_id') == 1) {
       // Insert
+      $entry['status'] = 1; // en pause par defaut
       $DBWriteStatus = BbCrudController::create('gbb_session', $entry);
     } else {
       // Update
