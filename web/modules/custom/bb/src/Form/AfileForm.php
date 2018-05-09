@@ -81,6 +81,14 @@ class AfileForm extends FormBase {
     // $form['delete_file']['#submit'][] = 'delete_form';
 
     // Add file form
+
+    // ---------- a supprimer après la transition BB -> BB8 ------------------
+    // verifie si l'id_disp est bien >18
+    $res = BbCrudController::load( 'gbb_gmodu', ['co_modu' => $co_modu, 'co_degre' => $co_degre]);
+    $res = BbCrudController::load( 'gbb_gdisp', ['co_disp' => $res['0']->co_disp, 'co_degre' => $co_degre]);
+    if ( substr($res['0']->id_disp,0,2) >= 18 ) {
+    // -----------------------------------------------------------------------
+
     $form['afile'] = array(
       '#title' => t('Ajouter un fichier'),
       '#type' => 'managed_file',
@@ -94,8 +102,13 @@ class AfileForm extends FormBase {
     // Add file submit button
     $form['submit_file'] = array(
       '#type' => 'submit',
-      '#value' => t('Submit'),
+      '#value' => t('Joindre'),
     );
+    } else {
+      $form['disclaimer'] = array(
+        '#markup' => "pas de dépôt de fichier avant 18-19",
+      );
+    }
 
     return $form;
   }
