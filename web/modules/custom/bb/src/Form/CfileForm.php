@@ -29,7 +29,7 @@ class CfileForm extends FormBase {
    * {@inheritdoc}
    */
   public function getTitle() {
-    return '<strong>Fichiers entre conseillers</strong>';
+    return '<i class="fa fa-lg fa-lock red "></i>&nbsp;<strong>Fichiers entre conseillers</strong><hr/>';
   }
 
   /**

@@ -29,7 +29,7 @@ class AfileForm extends FormBase {
    * {@inheritdoc}
    */
   public function getTitle() {
-    return '<strong>Fichiers pour les gestionnaires</strong>';
+    return '<i class="fa fa-lg fa-unlock green"></i>&nbsp;<strong>Fichiers partagés</strong><hr/>';
   }
 
   /**
