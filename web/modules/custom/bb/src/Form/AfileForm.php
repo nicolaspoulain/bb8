@@ -51,7 +51,7 @@ class AfileForm extends FormBase {
     $co_modu  = explode('?',$path_args[1])[0];
 
     $form['titre'] = array(
-      '#markup' => CfileForm::getTitle(),
+      '#markup' => AfileForm::getTitle(),
     );
 
     // Delete file list form
