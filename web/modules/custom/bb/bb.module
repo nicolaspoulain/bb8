@@ -51,7 +51,7 @@ function bb_theme($existing, $type, $theme, $path) {
 
 
 \Drupal::state()->set('ico_attente',    '<i class="fa fa-pause" title="En attente : ne pas préparer les convocations pour le moment"></i>');
-\Drupal::state()->set('ico_alert',      '<i class="fa fa-flag fa-lg red" title="Alerte à l\'attention du service administratif">&nbsp;</i>');
+\Drupal::state()->set('ico_alert',      '<i class="fa fa-flag fa-lg red" title="Alerte à l\'attention du service gestionnaires">&nbsp;</i>');
 \Drupal::state()->set('ico_sent',       '<i class="fa fa-envelope green" title="La convocation pour cette session a été envoyée"></i>' );
 \Drupal::state()->set('ico_notAttente', '<i class="fa fa-play-circle fa-lg blue" title="Demande de préparation des convocations"></i>');
 
