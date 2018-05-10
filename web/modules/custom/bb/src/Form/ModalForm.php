@@ -74,33 +74,43 @@ class ModalForm extends FormBase {
     $form['date'] = array(
       '#type' => 'date',
       '#title' => t('Date'),
-      // '#required' => TRUE,
+      '#required' => TRUE,
       '#default_value' => $entries[0]->date,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
+    if (strlen($entries[0]->denom_comp)>0) {
+      $dv = $entries[0]->sigle . " " . $entries[0]->denom_comp ." (" . $entries[0]->co_lieu . ")";
+    } else {
+      $dv = "";
+    }
     $form['lieu'] = array(
       '#type' => 'search',
       '#title' => $this->t('Lieu'),
       // '#required' => TRUE,
-      '#default_value' => $entries[0]->sigle . " " . $entries[0]->denom_comp .
-      " (" . $entries[0]->co_lieu . ")",
+      '#default_value' => $dv,
+      '#attributes' => array('placeholder' => t('Saisissez quelques lettres')),
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
     $form['horaires'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Horaires'),
-      '#size'          => 20,
+      '#size'          => 15,
       '#default_value' => $entries[0]->horaires,
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
+    if (strlen($entries[0]->nomu)>0) {
+      $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (" . $entries[0]->co_resp . ")";
+    } else {
+      $dv = "";
+    }
     $form['formateur'] = array(
       '#type'          => 'textfield',
       '#title'         => $this->t('Formateur'),
       // '#required'   => TRUE,
-      '#default_value' => $entries[0]->nomu,
-      '#default_value' => $entries[0]->nomu . " "  . $entries[0]->prenom
-                                            . " (" . $entries[0]->co_resp . ")",
+      '#default_value' => $dv,
+      '#attributes' => array('placeholder' => t('Saisissez quelques lettres')),
       '#autocomplete_route_name' => 'bb.autocomplete.formateur',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
@@ -109,6 +119,7 @@ class ModalForm extends FormBase {
     $form['groupe'] = array(
       '#type'          => 'number',
       '#title'         => $this->t('Groupe'),
+      '#size'          => 15,
       '#default_value' => $entries[0]->groupe,
       '#attributes'    => array(
         'min'  => 1,
@@ -119,14 +130,24 @@ class ModalForm extends FormBase {
     );
     $form['type_paiement'] = array(
       '#type' => 'textfield',
+      '#type' => 'select',
       '#title' => $this->t('Type pmt'),
+       '#options' => array(
+        'VAC' => t('VAC'),
+        'CONV' => t('CONV'),
+        'BDC' => t('BDC'),
+        'DECH' => t('DECH'),
+        'HSE' => t('HSE'),
+        'PFA' => t('PFA'),
+        'SF' => t('SF'),
+      ),
       '#default_value' => $entries[0]->type_paiement,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
     $form['duree_prevue'] = array(
       '#type'          => 'textfield',
       '#title'         => $this->t('DàP'),
-      '#size'          => 20,
+      '#size'          => 15,
       '#default_value' => $entries[0]->duree_prevue,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
