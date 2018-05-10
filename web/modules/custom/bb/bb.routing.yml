@@ -68,7 +68,7 @@ bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
     _controller:  '\Drupal\bb\Controller\ModuleNG::forms'
-    _title: 'Form API Examples'
+    _title: ''
     co_degre: '2'
     co_modu: '1'
   requirements:
