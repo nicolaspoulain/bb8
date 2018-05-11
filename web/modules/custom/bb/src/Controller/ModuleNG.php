@@ -42,6 +42,20 @@ class ModuleNG extends ControllerBase {
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
+  public function sessionsentformateur($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 2, 'status' => 4);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+  public function sessionsentstagiaires($co_degre, $co_modu, $sessid) {
+    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 3, 'status' => 5);
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
   public function sessionalert($co_degre, $co_modu, $sessid) {
     $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
     $condition = array('sess_id' => $sessid);

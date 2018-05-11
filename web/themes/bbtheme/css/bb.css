@@ -47,6 +47,9 @@
 .red {
   color: red;
 }
+.yellow {
+  color: #FFCC00;
+}
 .orange {
   color: orange;
 }
@@ -54,7 +57,7 @@
   color: black;
 }
 .pink {
-  color: pink;
+  color: #FF33CC;
 }
 .purple {
   color: purple;
@@ -125,6 +128,20 @@ margin:10px;
 .fa-flag-to-envelope:hover:before{
   content: "\f144";
   color: green;
+}
+.fa-envelopeformateur-to-flag:before{
+  content: "\f007";
+  color: #FFCC00; }
+.fa-envelopeformateur-to-flag:hover:before{
+  content: "\f024";
+  color: red;
+}
+.fa-envelopestagiaires-to-flag:before{
+  content: "\f0c0";
+  color: #FF33CC; }
+.fa-envelopestagiaires-to-flag:hover:before{
+  content: "\f024";
+  color: red;
 }
 .fa-envelope-to-flag:before{
   content: "\f0e0";

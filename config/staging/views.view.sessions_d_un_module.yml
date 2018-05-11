@@ -7,6 +7,7 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - user
 id: sessions_d_un_module
 label: 'BB: Sessions module'
@@ -559,7 +560,7 @@ display:
         operator: AND
         groups: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -863,7 +864,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-play-to-pause blue\"></i></a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-flag red\"></li></a>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-pause-to-play\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-flag-to-play red\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelope-to-flag green\"></i></a>\n{% endif %}\n\n\n\n\n"
+            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-play-to-pause blue\"></i></a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-flag red\"></li></a>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-pause-to-play\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-flag-to-play red\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelope-to-flag green\"></i></a>\n{% elseif status == \"4\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopeformateur-to-flag\"></i></a>\n{% elseif status == \"5\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopestagiaires-to-flag\"></i></a>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1733,7 +1734,7 @@ display:
           not: false
           plugin_id: numeric
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -2197,7 +2198,7 @@ display:
             label: ''
           plugin_id: standard
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -2504,7 +2505,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"fa fa-flag red\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Envoyé</li>\n             </ul>\n            </li></ul>\n            </a>\n{% elseif status == \"3\" %}\n             <i class=\"fa fa-envelope green\"></i>\n{% endif %}"
+            text: "{% if status == \"3\" %}\n  <i class=\"fa fa-envelope green\"></i>\n{% else %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n{% if status == 0 %}\n             <i class=\"fa fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Convocations Envoyés</li></a>\n               <a href=\"../../sessionsentstagiaires/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-users pink\"> Convocs stagiaires envoyées</li></a>\n               <a href=\"../../sessionsentformateur/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-user yellow\"> Convoc formateur envoyée</li></a>\n             </ul>\n{% elseif status == 2 %}\n             <i class=\"fa fa-flag red\"></i>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Convocations Envoyés</li></a>\n               <a href=\"../../sessionsentstagiaires/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-users pink\"> Convocs stagiaires envoyées</li></a>\n               <a href=\"../../sessionsentformateur/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-user yellow\"> Convoc formateur envoyée</li></a>\n             </ul>\n{% elseif status == 4 %}\n             <i class=\"fa fa-user yellow\"></i>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Convocations Envoyés</li></a>\n             </ul>\n{% elseif status == 5 %}\n             <i class=\"fa fa-users pink\"></i>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionsent/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-envelope green\"> Convocations Envoyés</li></a>\n             </ul>\n{% endif %}\n            </li>\n</ul>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -2945,7 +2946,7 @@ display:
           not: false
           plugin_id: numeric
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

@@ -104,6 +104,26 @@ bb.sessionplay:
   requirements:
     _permission: 'access content'
 
+bb.sessionsentformateur:
+  path: '/sessionsentformateur/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::sessionsentformateur'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
+bb.sessionsentstagiaires:
+  path: '/sessionsentstagiaires/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::sessionsentstagiaires'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.sessionsent:
   path: '/sessionsent/{co_degre}/{co_modu}/{sessid}'
   defaults:
