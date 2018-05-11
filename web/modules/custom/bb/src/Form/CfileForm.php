@@ -50,6 +50,13 @@ class CfileForm extends FormBase {
     $co_degre = $path_args[0];
     $co_modu  = explode('?',$path_args[1])[0];
 
+    // ---------- a supprimer après la transition BB -> BB8 ------------------
+    // verifie si l'id_disp est bien >18
+    $res = BbCrudController::load( 'gbb_gmodu', ['co_modu' => $co_modu, 'co_degre' => $co_degre]);
+    $res = BbCrudController::load( 'gbb_gdisp', ['co_disp' => $res['0']->co_disp, 'co_degre' => $co_degre]);
+    if ( substr($res['0']->id_disp,0,2) >= 18 ) {
+    // -----------------------------------------------------------------------
+
     $form['titre'] = array(
       '#markup' => CfileForm::getTitle(),
     );
@@ -78,17 +85,8 @@ class CfileForm extends FormBase {
         '#submit' => array('::deleteForm'),
       );
     }
-    // $form['delete_file']['#submit'][] = 'delete_form';
 
     // Add file form
-
-    // ---------- a supprimer après la transition BB -> BB8 ------------------
-    // verifie si l'id_disp est bien >18
-    $res = BbCrudController::load( 'gbb_gmodu', ['co_modu' => $co_modu, 'co_degre' => $co_degre]);
-    $res = BbCrudController::load( 'gbb_gdisp', ['co_disp' => $res['0']->co_disp, 'co_degre' => $co_degre]);
-    if ( substr($res['0']->id_disp,0,2) >= 18 ) {
-    // -----------------------------------------------------------------------
-
     $form['afile'] = array(
       '#title' => t('Ajouter un fichier'),
       '#type' => 'managed_file',
@@ -107,7 +105,7 @@ class CfileForm extends FormBase {
     );
     } else {
       $form['disclaimer'] = array(
-        '#markup' => "pas de dépôt de fichier avant 18-19",
+        '#markup' => "Pas de fichier avant 18-19",
       );
     }
 
