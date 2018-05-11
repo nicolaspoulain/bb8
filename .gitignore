@@ -67,6 +67,7 @@ config/staging/backup_migrate.*
 config/staging/system.file.yml
 config/staging/system.site.yml
 config/staging/block.block.navigationbb.yml
+config/staging/block.block.changerdutilisateur.yml
 
 modules/custom/bb/tags
 
