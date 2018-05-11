@@ -45,6 +45,7 @@
 </details>
 {% endif %}
 
+{% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="sessions">
   <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires</summary>
   <div class="common-wrapper sessions">
@@ -67,5 +68,6 @@
     <div class="clear"></div>
   </div>
 </details>
+{% endif %}
 
 
