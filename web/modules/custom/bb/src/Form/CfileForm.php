@@ -92,6 +92,7 @@ class CfileForm extends FormBase {
     $form['afile'] = array(
       '#title' => t('Ajouter un fichier'),
       '#type' => 'managed_file',
+      '#multiple' => 'true',
       '#upload_validators'  => array(
         'file_validate_extensions' => array('jpg jpeg gif png txt rtf doc docx odt xls xlsx ods pdf zip'),
         'file_validate_size' => array(25600000),
@@ -117,22 +118,24 @@ class CfileForm extends FormBase {
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
-    // dpm($afile[0]);
-    $file = File::load( $afile[0] );
-    /* Set the status flag permanent of the file object */
-    $file->setPermanent();
-    /* Save the file in database */
-    $file->save();
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-    $entry = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => explode('?',$path_args[1])[0],
-      'fid' => $afile[0],
-      'zone' => 2,
-    );
-    // dpm($entry);
-    $module = BbCrudController::create( 'gbb_file', $entry);
+    dpm($afile);
+    foreach ($afile as $thefile) {
+      $file = File::load( $thefile );
+      /* Set the status flag permanent of the file object */
+      $file->setPermanent();
+      /* Save the file in database */
+      $file->save();
+      $current_uri = \Drupal::request()->getRequestUri();
+      $path_args = array_slice(explode('/',$current_uri),-2,2);
+      $entry = array(
+        'co_degre' => $path_args[0],
+        'co_modu'  => explode('?',$path_args[1])[0],
+        'fid' => $thefile,
+        'zone' => 2,
+      );
+      // dpm($entry);
+      $module = BbCrudController::create( 'gbb_file', $entry);
+    }
   }
   public function deleteForm(array &$form, FormStateInterface $form_state) {
     /* Fetch the array of the file stored temporarily in database */
