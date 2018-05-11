@@ -1,7 +1,8 @@
 fontawesome:
   css:
     theme:
-      css/font-awesome.min.css: {}
+      https://use.fontawesome.com/releases/v5.0.13/css/all.css : { type: external, minified: true }
+      # css/font-awesome.min.css: {}
       css/pure-min.css: {}
       css/grids-responsive-min.css: {}
       css/bb.css: {}
