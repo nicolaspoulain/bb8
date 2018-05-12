@@ -88,10 +88,10 @@ class ModalForm extends FormBase {
       '#default_value' => $entries[0]->date,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
-    if (strlen($entries[0]->denom_comp)>0) {
-      $dv = $entries[0]->sigle . " " . $entries[0]->denom_comp ." (" . $entries[0]->co_lieu . ")";
-    } else {
+    if ($entries[0]->co_lieu == 0) {
       $dv = "";
+    } else {
+      $dv = $entries[0]->sigle . " " . $entries[0]->denom_comp ." (" . $entries[0]->co_lieu . ")";
     }
     $form['lieu'] = array(
       '#type' => 'search',
@@ -102,6 +102,7 @@ class ModalForm extends FormBase {
       '#autocomplete_route_name' => 'bb.autocomplete.lieu',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
+    // if ($sess_id==1) $form['lieu']['#default_value']='';
     $form['horaires'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Horaires'),
@@ -110,10 +111,10 @@ class ModalForm extends FormBase {
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
-    if (strlen($entries[0]->nomu)>0) {
-      $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (" . $entries[0]->co_resp . ")";
-    } else {
+    if ($entries[0]->co_resp == 1) {
       $dv = "";
+    } else {
+      $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (" . $entries[0]->co_resp . ")";
     }
     $form['formateur'] = array(
       '#type'          => 'textfield',
@@ -183,15 +184,23 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
-    $form_state->setValue('formateur', $co_resp[1]);
-    if ( !is_numeric($co_resp[1]) )
-      $form_state->setErrorByName('formateur', $this->t('Problème !'));
+    if ($form_state->getValue('formateur') == '') {
+      $form_state->setValue('formateur', 1);
+    } else {
+      preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
+      $form_state->setValue('formateur', $co_resp[1]);
+      if ( !is_numeric($co_resp[1]) )
+        $form_state->setErrorByName('formateur', $this->t('Problème !'));
+    }
 
-    preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
-    $form_state->setValue('lieu', $co_lieu[1]);
-    if ( FALSE )
-      $form_state->setErrorByName('lieu', $this->t('Problème !'));
+    if ($form_state->getValue('lieu') == '') {
+      $form_state->setValue('lieu', 0);
+    } else {
+      preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
+      $form_state->setValue('lieu', $co_lieu[1]);
+      if ( FALSE )
+        $form_state->setErrorByName('lieu', $this->t('Problème !'));
+    }
   }
 
   /**
