@@ -133,28 +133,6 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
-  public function sessionduplicate($co_degre, $co_modu, $sessid) {
-    // load session informations
-    $entry = array('sess_id' => $sessid);
-    $session = BbCrudController::load('gbb_session', $entry);
-    foreach ($session['0'] as $field=>$val) {
-      $tab[$field] = $val;
-    }
-    // kill unwanted informations
-    unset($tab['sess_id']);
-    unset($tab['denom_comp'], $tab['sigle']);
-    unset($tab['nomu'], $tab['prenom']);
-
-    // insert new row
-    $DBWriteStatus = BbCrudController::create('gbb_session', $tab);
-
-    $routeparameters = array(
-      'co_degre' => $co_degre,
-      'co_modu'  => $co_modu,
-    );
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-
   public function journal() {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';
