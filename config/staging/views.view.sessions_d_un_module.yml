@@ -864,7 +864,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-play-to-pause blue\"></i></a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><li class=\"pure-menu-item pure-menu-link fa fa-flag red\"></li></a>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-pause-to-play\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-flag-to-play red\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelope-to-flag green\"></i></a>\n{% elseif status == \"4\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopeformateur-to-flag\"></i></a>\n{% elseif status == \"5\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopestagiaires-to-flag\"></i></a>\n{% endif %}"
+            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"no-link fas fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-flag red\"></a></li>\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-pause gray\"></a></li>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-pause-to-play no-link\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-flag-to-play red no-link\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelope-to-flag green no-link\"></i></a>\n{% elseif status == \"4\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopeformateur-to-flag no-link\"></i></a>\n{% elseif status == \"5\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopestagiaires-to-flag no-link\"></i></a>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1003,6 +1003,112 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        LE_etat:
+          id: LE_etat
+          table: gbb_session
+          field: LE_etat
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: LE_etat
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: LE
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if LE_etat == 0%}\n<a href=\"../../session_LE_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link far fa-file-alt lightgray\"></a>\n{% else %}\n<a href=\"../../session_LE_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link far fa-file-alt green fa-lg\"></a>\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         ficand:
           id: ficand
           table: gbb_session
@@ -1426,8 +1532,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Type
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1459,7 +1565,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1476,10 +1582,10 @@ display:
           group_type: group
           admin_label: ''
           label: DàP
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
-            text: "{{ duree_prevue | replace({\".00\" : \"\"})  | replace({\".10\" : \".1\"})  | replace({\".20\" : \".2\"})  | replace({\".30\" : \".3\"})  | replace({\".40\" : \".4\"})  | replace({\".50\" : \".5\"})  | replace({\".60\" : \".6\"})  | replace({\".70\" : \".7\"})  | replace({\".80\" : \".8\"})  | replace({\".90\" : \".9\"}) }}\n"
+            text: "{{ duree_prevue | replace({\".00\" : \"\"})  | replace({\".10\" : \".1\"})  | replace({\".20\" : \".2\"})  | replace({\".30\" : \".3\"})  | replace({\".40\" : \".4\"})  | replace({\".50\" : \".5\"})  | replace({\".60\" : \".6\"})  | replace({\".70\" : \".7\"})  | replace({\".80\" : \".8\"})  | replace({\".90\" : \".9\"}) }}h\n"
             make_link: false
             path: ''
             absolute: false
@@ -1508,7 +1614,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1581,11 +1687,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: '→ €'
+          label: Paiement
           exclude: false
           alter:
             alter_text: true
-            text: "{% if paiement_etat == 0%}\n<a href=\"../../session_paiement_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-euro-sign lightgray\"></a>\n{% else %}\n<a href=\"../../session_paiement_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-euro-sign green fa-lg\"></a>\n{% endif %}"
+            text: "{{ duree_prevue }} [{{ type_paiement }}] {% if paiement_etat == 0%}\n<a href=\"../../session_paiement_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link far fa-check-circle lightgray\"></a>\n{% else %}\n<a href=\"../../session_paiement_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-check-circle green fa-lg\"></a>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1614,113 +1720,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        LE_etat:
-          id: LE_etat
-          table: gbb_session
-          field: LE_etat
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: LE_etat
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        nothing_1:
-          id: nothing_1
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: LE
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{% if LE_etat == 0%}\n<a href=\"../../session_LE_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link far fa-file-alt lightgray\"></a>\n{% else %}\n<a href=\"../../session_LE_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link far fa-file-alt green fa-lg\"></a>\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1740,7 +1740,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}" class="no-link fa fa-lg fa-times-circle red delAlertJs"></a>'
+            text: '<a href="../../sessiondelete/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}" class="no-link far fa-trash-alt orange delAlertJs"></a>'
             make_link: false
             path: ''
             absolute: false
@@ -2228,6 +2228,112 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        ficand:
+          id: ficand
+          table: gbb_session
+          field: ficand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Fi
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if ficand == 0%}\n<i class=\"no-link fab fa-fonticons-fi lightgray\"></i>\n{% else %}\n<i class=\"no-link fab fa-fonticons-fi green fa-lg\"></i>\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
       defaults:
         fields: false
         filters: false
