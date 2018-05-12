@@ -146,7 +146,7 @@ class ModalForm extends FormBase {
     );
     $form['duree_prevue'] = array(
       '#type'          => 'textfield',
-      '#title'         => $this->t('DàP'),
+      '#title'         => $this->t('Durée à payer'),
       '#size'          => 15,
       '#default_value' => $entries[0]->duree_prevue,
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
