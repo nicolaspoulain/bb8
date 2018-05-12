@@ -225,13 +225,14 @@ bb.sessionduplicate:
     _permission: 'access content'
 
 bb.modal_form:
-  path: '/modal_form/{sess_id}/{co_degre}/{co_modu}'
+  path: '/modal_form/{co_degre}/{co_modu}/{sess_id}/{type}'
   defaults:
     _form:  '\Drupal\bb\Form\ModalForm'
     _title_callback:  '\Drupal\bb\Form\ModalForm::getTitle'
     sess_id: 1
     co_degre: 2
     co_modu: 1
+    type: 'edit'
   requirements:
     _permission: 'access content'
 

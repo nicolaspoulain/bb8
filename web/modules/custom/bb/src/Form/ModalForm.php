@@ -22,8 +22,14 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function getTitle($sess_id) {
-    return 'Modification de la session n°'.$sess_id;
+  public function getTitle($sess_id, $type) {
+    if ($type == 'edit') {
+      return 'Modification de la session n°'.$sess_id;
+    } elseif ($type == 'copy') {
+      return 'Duplication de la session n°'.$sess_id;
+    } else {
+      return '!!! ERREUR !!!';
+    }
   }
 
   /**
@@ -36,8 +42,7 @@ class ModalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface
-    $form_state,$sess_id = 1,$co_modu=1,$co_degre=2) {
+  public function buildForm(array $form, FormStateInterface $form_state,$co_modu=1,$co_degre=2, $sess_id = 1, $type='edit') {
 
     // get informations on session
     $entries = BbCrudController::load('gbb_session', [ 'sess_id' => $sess_id ] );
@@ -53,6 +58,11 @@ class ModalForm extends FormBase {
     $form['#theme'] = 'modal';
 
     $form['#attributes'] = array('class' => array('pure-form','pure-form-stacked'));
+
+    // sess_id=1 signifie duplication
+    if ($type == 'copy') {
+      $sess_id = 1;
+    }
 
     $form['sess_id'] = array(
       '#type' => 'hidden',
