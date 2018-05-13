@@ -9,6 +9,7 @@ dependencies:
   module:
     - bb
     - user
+    - views_current_path
 id: liste_modules
 label: 'BB: Liste modules plan'
 module: views
@@ -87,16 +88,22 @@ display:
           columns:
             co_degre: co_degre
             co_anmo: co_anmo
+            co_andi: co_andi
             co_tcan: co_tcan
             co_camp: co_camp
             lib_1: lib_1
             id_disp: id_disp
+            nothing_2: nothing_2
             sess_id: sess_id
             sess_id_1: sess_id_1
             sess_id_2: sess_id_2
             nothing: nothing
-            lib: lib
+            color: color
             co_modu: co_modu
+            nothing_3: nothing_3
+            lib: lib
+            date_ts_1: date_ts_1
+            date_ts: date_ts
             nothing_1: nothing_1
             nomu: nomu
             nomu_1: nomu_1
@@ -109,6 +116,13 @@ display:
               empty_column: false
               responsive: ''
             co_anmo:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_andi:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -143,6 +157,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            nothing_2:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             sess_id:
               sortable: false
               default_sort_order: asc
@@ -171,7 +192,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            lib:
+            color:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -179,6 +200,34 @@ display:
               empty_column: false
               responsive: ''
             co_modu:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_3:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            date_ts_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            date_ts:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -193,14 +242,14 @@ display:
               empty_column: false
               responsive: ''
             nomu:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             nomu_1:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -211,6 +260,58 @@ display:
       row:
         type: fields
       fields:
+        current_path:
+          id: current_path
+          table: views
+          field: current_path
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Chemin actuel'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          path_format: query-only
+          qs_support_fieldset:
+            query_string_support: null
+          plugin_id: current_path
         co_degre:
           id: co_degre
           table: gbb_gmodu
@@ -966,7 +1067,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"#\"><i class=\"fa fa-lg fa-stop {{ color }}\"></i></a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/gray\"><li class=\"pure-menu-item pure-menu-link fa fa-stop gray\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/blue\"><li class=\"pure-menu-item pure-menu-link fa fa-stop blue\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/red\"><li class=\"pure-menu-item pure-menu-link fa fa-stop red\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/orange\"><li class=\"pure-menu-item pure-menu-link fa fa-stop orange\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/black\"><li class=\"pure-menu-item pure-menu-link fa fa-stop black\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/pink\"><li class=\"pure-menu-item pure-menu-link fa fa-stop pink\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/purple\"><li class=\"pure-menu-item pure-menu-link fa fa-stop purple\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/green\"><li class=\"pure-menu-item pure-menu-link fa fa-stop green\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/white\"><li class=\"pure-menu-item pure-menu-link fa fa-stop white\"></li></a>\n             </ul>\n            </li>\n</ul>\n"
+            text: "{% set pa = current_path|split('=') %}\n{% set iddisp= pa[1]|split('&') %}    {% set id_disp = iddisp[0] %} \n{% set coanmo = pa[2]|split('&') %} {% set co_anmo = coanmo[0] %} \n{% set respfilter = pa[3]|split('&') %} {% set resp_filter = respfilter[0] %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <a href=\"#\"><i class=\"fa fa-lg fa-stop {{ color }}\"></i></a>\n             <ul class=\"pure-menu-children\">\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/gray/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square gray\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/blue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square blue\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/red/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square red\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/orange/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square orange\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/black/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square black\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/pink/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square pink\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/purple/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square purple\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/green/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square green\"></li></a>\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/white/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}#{{co_modu}}\"><li class=\"pure-menu-item pure-menu-link far fa-square gray\"></li></a>\n             </ul>\n            </li>\n</ul><span class=\"shifted-anchor\" id={{co_modu}}/>"
             make_link: false
             path: ''
             absolute: false
@@ -1178,7 +1279,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} "
+            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} "
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false

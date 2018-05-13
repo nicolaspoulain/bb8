@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class ModuleNG extends ControllerBase {
 
-  public function changecolor($co_degre, $co_modu, $color) {
+  public function changecolor($co_degre, $co_modu, $color, $id_disp, $co_anmo, $resp_filter) {
     $entry = array('color' => $color);
     $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
     $row = BbCrudController::load('gbb_gmodu_plus', $condition);
@@ -24,7 +24,7 @@ class ModuleNG extends ControllerBase {
     } else {
       $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
     }
-    $routeparameters = array();
+    $routeparameters = array( 'id_disp' => $id_disp, 'co_anmo' => $co_anmo, 'resp_filter' => $resp_filter);
     return $this->redirect('view.liste_modules.page_1',$routeparameters);
   }
 

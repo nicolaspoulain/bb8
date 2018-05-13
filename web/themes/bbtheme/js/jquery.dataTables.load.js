@@ -22,7 +22,7 @@ jQuery(document).ready(function() {
     },
     "bStateSave": true,
     "bPaginate": false,
-    "aaSortingFixed": [[ 0, 'asc' ],[ 2, 'asc' ]],
+    "aaSortingFixed": [[ 0, 'asc' ],[ 3, 'asc' ]],
     "bAutoWidth": false,
     "aoColumns": [
             { "bVisible": false },
