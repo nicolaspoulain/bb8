@@ -8,6 +8,7 @@ fontawesome:
       css/bb.css: {}
 datatables:
   js:
+    # https://use.fontawesome.com/releases/v5.0.13/js/all.js : { type: external, minified: true }
     js/jquery.dataTables.js: {}
     js/jquery.dataTables.load.js: {}
     js/alert.js: {}
