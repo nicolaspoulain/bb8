@@ -353,19 +353,19 @@ box-shadow:inset 1em 0 black;
 .color-green { color: green; }
 .color-white { color: white; }
 
-.bg-color-gray   { background-color: gray; }
-.bg-color-blue   { background-color: blue; }
-.bg-color-red    { background-color: red; }
-.bg-color-orange { background-color: orange; }
-.bg-color-black  { background-color: black; }
-.bg-color-pink   { background-color: #FF33CC; }
-.bg-color-purple { background-color: purple; }
-.bg-color-green  { background-color: green; }
+.bg-color-gray   { background-color: gray; color: white; }
+.bg-color-blue   { background-color: blue; color: white; }
+.bg-color-red    { background-color: red; color: white; }
+.bg-color-orange { background-color: orange; color: white; }
+.bg-color-black  { background-color: black; color: white; }
+.bg-color-pink   { background-color: #FF33CC; color: white; }
+.bg-color-purple { background-color: purple; color: white; }
+.bg-color-green  { background-color: green; color: white;}
 .bg-color-white  {}
 
 .shifted-anchor {
   display: block;
   position: relative;
-  top: -300px;
+  top: -200px;
 }
 
