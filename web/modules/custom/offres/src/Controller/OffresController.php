@@ -21,18 +21,18 @@ class OffresController extends ControllerBase {
     ];
 
     $headers = array(
-      'nomu' => t('Interlocuteur dispo'),
-      'co_tpla' => t('Type de Plan'),
-      'co_orie' => t('Code Orientation'),
+      'nomu' => t('Interloc dispo'),
+      'co_tpla' => t('Typ de pln'),
+      'co_orie' => t('Code orie'),
       'co_offreur' => t('Code offr'),
-      array('data' => t('Position'), 'class' => 'jaune'),
+      array('data' => t('Posit°'), 'class' => 'jaune'),
       'no_offre' => t('No Offre/ Code Module'),
       'libl' => t('Titre'),
       'nomu2' => t('Resp. péda.'),
       'co_moda' => t('Hybride'),
-      array('data' => t('AP/Pub.Dés'), 'class' => 'jaune'),
+      array('data' => t('AP ou Pub Dés'), 'class' => 'jaune'),
       array('data' => t('Offreur'), 'class' => 'jaune'),
-      array('data' => t('Interdisciplinaire'), 'class' => 'jaune'),
+      array('data' => t('Interdisc'), 'class' => 'jaune'),
       array('data' => t('Nouv. offreur'), 'class' => 'jaune'),
       array('data' => t('Priorité Nat.'), 'class' => 'jaune'),
       array('data' => t('Priorité Aca.'), 'class' => 'jaune'),
@@ -113,9 +113,8 @@ class OffresController extends ControllerBase {
     // $comment = render(drupal_get_form('gbb_offres_comment_form',
                                 // $r->comment, $r->co_omodu)) ;
 
-    // $position = render(drupal_get_form('gbb_offres_position_form',
-                                // $r->position, $r->co_omodu)) ;
     $position = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PositionForm', $r->position, $r->co_omodu);
+    $offre_cat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\OffreCatForm', $r->offre_cat, $r->co_omodu);
     // $catOffre = render(drupal_get_form('gbb_offres_categories_form',
                                 // $r->offre_cat, $r->co_omodu)) ;
     // $interdisc = render(drupal_get_form('gbb_offres_interdisc_form',
@@ -138,9 +137,10 @@ class OffresController extends ControllerBase {
                 array('data' => $r->co_offreur),
                 array('data' => $position),
                 array('data' => $r->no_offre.' / '.$r->co_omodu),
+                array('data' => $r->libl),
                 array('data' => $r->nomu2),
                 array('data' => ($r->co_moda=="S")? "OUI" : '-'),
-                // array('data' => $catOffre),
+                array('data' => $offre_cat),
                 // array('data' => $iufm),
                 // array('data' => $interdisc),
                 // array('data' => $nouv_offreur),

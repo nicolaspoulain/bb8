@@ -33,7 +33,7 @@ class PositionForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'PositionForm';
+    return 'PositionForm_'. $this->formId;
   }
 
   /**
@@ -41,12 +41,13 @@ class PositionForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $position=NULL, $co_omodu=NULL) {
 
+  $this->formId = rand(11111, 99999);
+
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
   $form['position'] = array(
     '#type' => 'textfield', '#size' => 3,
     '#default_value' => (isset($position))? (int)$position : '0',
     '#ajax' => array(
-      // 'callback' => 'Drupal\offres\Form\PositionForm::saveAjax',
       'callback' => [$this,'saveAjax'],
       'progress' => array('type' => 'throbber', 'message' => '')),);
   return $form;
@@ -69,14 +70,18 @@ class PositionForm extends FormBase {
    */
   public function saveAjax(array &$form, FormStateInterface $form_state) {
 
+    $coo = $form_state->getUserInput('co_omodu');
     $condition = array(
-      'co_omodu'  => $form_state->getValue('co_omodu'),
+      'co_omodu'  => $coo['co_omodu'],
     );
     $entry = array(
       'position'  => $form_state->getValue('position'),
     );
-    $module = BbCrudController::update( 'gbb_gdiof_dafor', $entry, $condition);
-    dpm($condition);
-    dpm($entry);
+    $row = BbCrudController::load('gbb_gdiof_dafor', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gdiof_dafor', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gdiof_dafor', array_merge($condition,$entry));
+    }
   }
 }

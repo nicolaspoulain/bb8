@@ -6,7 +6,14 @@ offres_list:
   requirements:
     _permission: 'access content'
 
-admin_notes.form:
+offre_cat.form:
+  path: '/offres/offre_cat_form/{offre_cat}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\OffreCatForm'
+  requirements:
+    _permission: 'access content'
+
+position.form:
   path: '/offres/position_form/{position}/{co_omodu}'
   defaults:
     _form: '\Drupal\offres\Form\PositionForm'
