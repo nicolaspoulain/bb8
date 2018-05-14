@@ -6,6 +6,13 @@ offres_list:
   requirements:
     _permission: 'access content'
 
+position.form:
+  path: '/offres/position_form/{position}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\PositionForm'
+  requirements:
+    _permission: 'access content'
+
 offre_cat.form:
   path: '/offres/offre_cat_form/{offre_cat}/{co_omodu}'
   defaults:
@@ -13,9 +20,73 @@ offre_cat.form:
   requirements:
     _permission: 'access content'
 
-position.form:
-  path: '/offres/position_form/{position}/{co_omodu}'
+iufm.form:
+  path: '/offres/iufm_form/{iufm}/{co_omodu}'
   defaults:
-    _form: '\Drupal\offres\Form\PositionForm'
+    _form: '\Drupal\offres\Form\IufmForm'
   requirements:
     _permission: 'access content'
+
+interdisc.form:
+  path: '/offres/interdisc_form/{interdisc}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\InterdiscForm'
+  requirements:
+    _permission: 'access content'
+
+nouv_offreur.form:
+  path: '/offres/nouv_offreur_form/{nouv_offreur}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\NouvOffreurForm'
+  requirements:
+    _permission: 'access content'
+
+prio_nat.form:
+  path: '/offres/prio_nat_form/{prio_nat}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\PrioNatForm'
+  requirements:
+    _permission: 'access content'
+
+prio_aca.form:
+  path: '/offres/prio_aca_form/{prio_aca}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\PrioAcaForm'
+  requirements:
+    _permission: 'access content'
+
+nb_hp.form:
+  path: '/offres/nb_hp_form/{nb_hp}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\NbHpForm'
+  requirements:
+    _permission: 'access content'
+
+nb_vac.form:
+  path: '/offres/nb_vac_form/{nb_vac}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\NbVacForm'
+  requirements:
+    _permission: 'access content'
+
+taux.form:
+  path: '/offres/taux_form/{taux}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\TauxForm'
+  requirements:
+    _permission: 'access content'
+
+ht2.form:
+  path: '/offres/taux_ht2/{ht2}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\Ht2Form'
+  requirements:
+    _permission: 'access content'
+
+comment.form:
+  path: '/offres/taux_comment/{comment}/{co_omodu}'
+  defaults:
+    _form: '\Drupal\offres\Form\CommentForm'
+  requirements:
+    _permission: 'access content'
+
