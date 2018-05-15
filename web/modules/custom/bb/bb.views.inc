@@ -433,23 +433,24 @@ function bb_views_data() {
 
   //{{ Spécial pour l'affichage des compteurs de sessions
   // ........................................................
-  // session : sess_id d'une session envoyée
+  // session : sess_id d'une session en cours
   // ........................................................
-  $data['gbb_session_sent']['table'] = array( 'group' => t('gbb_gmodu'),
-    //{{
+  $data['gbb_session_encours']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
       'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_session',
         'left_field' => 'co_modu',
         'field' => 'co_modu',
-        'extra' => 'gbb_session_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_sent.convoc_sent=1',
+        // 'extra' => 'gbb_session_encours.co_degre = gbb_gmodu.co_degre AND gbb_session_encours.en_attente=0 AND gbb_session_encours.convoc_sent=0',
+        'extra' => 'gbb_session_encours.co_degre = gbb_gmodu.co_degre AND gbb_session_encours.status=0',
       ),
     ),
   );
   //}}
-  $data['gbb_session_sent']['sess_id'] = array( 'help' => t('Identifiant de la session sent'),
+  $data['gbb_session_encours']['sess_id'] = array( 'help' => t('Identifiant de la session enCours'),
     //{{
-    'title' => t('sess_id_sent'),
+    'title' => t('sess_id_enCours'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
@@ -465,7 +466,8 @@ function bb_views_data() {
         'table' => 'gbb_session',
         'left_field' => 'co_modu',
         'field' => 'co_modu',
-        'extra' => 'gbb_session_attente.co_degre = gbb_gmodu.co_degre AND gbb_session_attente.en_attente=1',
+        // 'extra' => 'gbb_session_attente.co_degre = gbb_gmodu.co_degre AND gbb_session_attente.en_attente=1',
+        'extra' => 'gbb_session_attente.co_degre = gbb_gmodu.co_degre AND gbb_session_attente.status=1',
       ),
     ),
   );
@@ -479,23 +481,93 @@ function bb_views_data() {
   );
   //}}
   // ........................................................
-  // session : sess_id d'une session en cours
+  // session : sess_id d'une session drapeau
   // ........................................................
-  $data['gbb_session_encours']['table'] = array( 'group' => t('gbb_gmodu'),
-  //{{
+  $data['gbb_session_flag']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
       'join' => array(
       'gbb_gmodu' => array(
         'table' => 'gbb_session',
         'left_field' => 'co_modu',
         'field' => 'co_modu',
-        'extra' => 'gbb_session_encours.co_degre = gbb_gmodu.co_degre AND gbb_session_encours.en_attente=0 AND gbb_session_encours.convoc_sent=0',
+        'extra' => 'gbb_session_flag.co_degre = gbb_gmodu.co_degre AND gbb_session_flag.status=2',
       ),
     ),
   );
   //}}
-  $data['gbb_session_encours']['sess_id'] = array( 'help' => t('Identifiant de la session enCours'),
+  $data['gbb_session_flag']['sess_id'] = array( 'help' => t('Identifiant de la session flag'),
     //{{
-    'title' => t('sess_id_enCours'),
+    'title' => t('sess_id_flag'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  // ........................................................
+  // session : sess_id d'une session envoyée
+  // ........................................................
+  $data['gbb_session_sent']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+      'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        // 'extra' => 'gbb_session_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_sent.convoc_sent=1',
+        'extra' => 'gbb_session_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_sent.status=3',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_session_sent']['sess_id'] = array( 'help' => t('Identifiant de la session sent'),
+    //{{
+    'title' => t('sess_id_sent'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  // ........................................................
+  // session : sess_id d'une session formateur envoyé
+  // ........................................................
+  $data['gbb_session_formateur_sent']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+      'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_formateur_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_formateur_sent.status=4',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_session_formateur_sent']['sess_id'] = array( 'help' => t('Identifiant de la session formateur sent'),
+    //{{
+    'title' => t('sess_id_formateur_sent'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  // ........................................................
+  // session : sess_id d'une session stagiaires envoyé
+  // ........................................................
+  $data['gbb_session_stagiaires_sent']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+      'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_stagiaires_sent.co_degre = gbb_gmodu.co_degre AND gbb_session_stagiaires_sent.status=5',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_session_stagiaires_sent']['sess_id'] = array( 'help' => t('Identifiant de la session stagiaires sent'),
+    //{{
+    'title' => t('sess_id_stagiaires_sent'),
     'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'numeric'),
