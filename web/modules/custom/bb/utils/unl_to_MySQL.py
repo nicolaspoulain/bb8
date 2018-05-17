@@ -4,6 +4,9 @@ import csv
 import os
 import time
 
+def log(msg):
+    with open("/home/nico/unl_to_csv/daily.log", "a") as f:
+        f.write(msg)
 
 
 def unl_to_csv(filename, nb_rows):
@@ -18,7 +21,14 @@ def unl_to_csv(filename, nb_rows):
   :nb_rows:  nombre de colonnes du fichier a traiter
   """
   fname = "/home/nico/unl_to_csv/"+filename+".unl"
-  file = open(fname, "rb")
+  try:
+    #  file = open(fname, "rb")
+    file = open(fname, "r")
+  except:
+    str = "%s ERROR ouverture fichier unl\n" %(filename)
+    print(str)
+    log(str)
+    return False
 
   try:
     reader = csv.reader(file, delimiter='|', quoting=csv.QUOTE_NONE)
@@ -48,11 +58,17 @@ def unl_to_csv(filename, nb_rows):
       else:
 	#  print i,len(row),row[0],row[1]
         row_prec = list(row)
+  except:
+    str = "%s ERROR sur le reader csv\n" %(filename)
+    print(str)
+    log(str)
+    return False
   finally:
     file.close()
 
   fname = "/home/nico/unl_to_csv/"+filename+".csv"
-  file = open(fname, "wb")
+  #  file = open(fname, "wb")
+  file = open(fname, "w")
   try:
     writer = csv.writer(file,delimiter=",",quoting=csv.QUOTE_NONNUMERIC,quotechar = '\"', escapechar = "\"",lineterminator="\r")
     for row in new_reader:
@@ -60,12 +76,16 @@ def unl_to_csv(filename, nb_rows):
       """ row=["A","B C","D",""] """
       writer.writerow(row[:-1])
   except AssertionError:
-    print("Erreur de longueur",i)
+    str = "%s ERROR longueur sur .csv\n" %(filename)
+    print(str)
+    log(str)
+    return False
   finally:
     file.close()
 
   fname = "/home/nico/unl_to_csv/"+filename+"Human.csv"
-  file = open(fname, "wb")
+  #  file = open(fname, "wb")
+  file = open(fname, "w")
   try:
     writer = csv.writer(file,delimiter=",",quoting=csv.QUOTE_NONNUMERIC,quotechar = '\"', escapechar = "\"",lineterminator="\n")
     for row in new_reader:
@@ -73,9 +93,14 @@ def unl_to_csv(filename, nb_rows):
       """ row=["A","B C","D",""] """
       writer.writerow(row[:-1])
   except AssertionError:
-    print("Erreur de longueur",i)
+    str = "%s ERROR de longueur sur Human.csv\n" %(filename)
+    print(str)
+    log(str)
+    return False
   finally:
     file.close()
+
+  return True
 
 def injection(filename):
   """
@@ -86,7 +111,7 @@ def injection(filename):
   """
   dbtable = "gbb_%s" % (filename)
   csvfile = "/home/nico/unl_to_csv/%s.csv" % (filename)
-  options = "FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r'"
+  options = "CHARACTER SET UTF8 FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\r'"
 
   import MySQLdb
   connection = MySQLdb.Connect(host='localhost', user='root', passwd='#cdoo1c9?', db='bb8pp')
@@ -94,38 +119,74 @@ def injection(filename):
   query = "TRUNCATE %s" % (dbtable)
   cursor.execute( query )
   query = "LOAD DATA LOCAL INFILE '%s' IGNORE INTO TABLE %s %s" % (csvfile,dbtable,options)
-  cursor.execute( query )
-  connection.commit()
-  connection.close()
+  try:
+      cursor.execute( query )
+      connection.commit()
+  except MySQLdb.Error as e:
+      connection.rollback()
+      str = "%s ERROR MySQL sur bb8pp : %s\n" %(filename,str(e))
+      print(str)
+      log(str)
+      return False
+  finally:
+      cursor.close()
+      connection.close()
 
   connection = MySQLdb.Connect(host='localhost', user='root', passwd='#cdoo1c9?', db='bb')
   cursor = connection.cursor()
   query = "TRUNCATE %s" % (dbtable)
   cursor.execute( query )
   query = "LOAD DATA LOCAL INFILE '%s' IGNORE INTO TABLE %s %s" % (csvfile,dbtable,options)
-  cursor.execute( query )
-  connection.commit()
-  connection.close()
+  try:
+      cursor.execute( query )
+      connection.commit()
+  except MySQLdb.Error as e:
+      connection.rollback()
+      str = "%s ERROR MySQL sur bb : %s\n" %(filename,str(e))
+      print(str)
+      log(str)
+      return False
+  finally:
+      cursor.close()
+      connection.close()
+  return True
 
 def check(filename,nb_rows):
 
-  nbs = os.path.getmtime("/home/gaia/martine/"+filename+".unl")
-  ftime = time.strftime("%d/%m/%Y-%H:%M:%S",time.gmtime(nbs))
-  fdate = time.strftime("%d/%m/%Y",time.gmtime(nbs))
-  if fdate != time.strftime("%d/%m/%Y") : return False
+  try:
+      nbs = os.path.getmtime("/home/gaia/martine/"+filename+".unl")
+      ftime = time.strftime("%d/%m/%Y-%H:%M:%S",time.gmtime(nbs))
+      fdate = time.strftime("%d/%m/%Y",time.gmtime(nbs))
+      if fdate != time.strftime("%d/%m/%Y") : return False
+      size = os.path.getsize("/home/gaia/martine/"+filename+".unl")
 
-  fname = "/home/nico/unl_to_csv/"+filename+"Human.csv"
-  file = open(fname, "rb")
-  reader = csv.reader(file)
-  for row in reader:
-      if (len(row)!=nb_rows): return False
-  file = open(fname, "rb")
-  reader = csv.reader(file)
-  row_count = sum(1 for row in reader)
+      fname = "/home/nico/unl_to_csv/"+filename+"Human.csv"
+      #  file = open(fname, "rb")
+      if os.path.getsize(fname) < 2:
+          str = "%s ERROR fichier vide\n" %(filename)
+          print(str)
+          log(str)
+          return False
+      file = open(fname, "r")
+      reader = csv.reader(file)
+      for row in reader:
+          if (len(row)!=nb_rows):
+            str = "%s ERROR verification des colonnes\n" %(filename)
+            print(str)
+            log(str)
+            return False
+      #  file = open(fname, "rb")
+      file = open(fname, "r")
+      reader = csv.reader(file)
+      row_count = sum(1 for row in reader)
 
-  print("%s \t%s  \t%5s lignes \t%2s cols" % (filename,ftime,row_count,nb_rows))
-  with open("/home/nico/unl_to_csv/daily.log", "a") as f:
-      f.write("%s \t%s \t%5s lignes \t%2s cols\n" % (filename,ftime,row_count,nb_rows))
+      str = "%s  %s %8s bytes  %5s lignes %2s cols\n" %(filename,ftime,size,row_count,nb_rows)
+      print(str)
+      log(str)
+  except:
+      return False
+
+  return True
 
 """
 La base de donnees et les tables devraient avoir characterset et collation UTF8
@@ -134,13 +195,13 @@ ALTER TABLE gbb_gmodu CONVERT TO CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 """
 
 # write daily.log header
-tim = time.strftime("%d/%m/%Y-%H:%M:%S")
 with open("/home/nico/unl_to_csv/daily.log", "w") as f:
-    f.write("*******************************************************\n")
-    f.write("******* "+tim+" ***************************\n")
-    f.write("*******************************************************\n")
+    f.write(time.strftime("%d/%m/%Y-%H:%M:%S")+"\n")
+    f.write("-------------------\n")
 
-files = dict(gmodu=39, gdisp=28, gdire=5,
+files = dict(
+        gmodu=39,
+        gdisp=28, gdire=5,
         gmoof=38, gdiof=25,
         gmofl=4,gresp=17,
         ntcan=5, norie=5,
@@ -149,13 +210,12 @@ files = dict(gmodu=39, gdisp=28, gdire=5,
         nprac=5, nprna=5)
 
 for file,col in files.items():
-  unl_to_csv(file,col)
-  check(file,col)
-  injection(file)
+  if unl_to_csv(file,col):
+      if check(file,col):
+          injection(file)
 
 # write daily.log footer
 tim = time.strftime("%d/%m/%Y-%H:%M:%S")
 with open("/home/nico/unl_to_csv/daily.log", "a") as f:
-    f.write("*******************************************************\n")
-    f.write("******* "+tim+" ***************************\n")
-    f.write("*******************************************************\n")
+    f.write("-> "+time.strftime("%d/%m/%Y-%H:%M:%S"))
+    f.write("\n\n")
