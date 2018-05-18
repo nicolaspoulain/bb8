@@ -30,6 +30,7 @@ web/private:/
 composer.json
 composer.lock
 web/modules/contrib
+web/libraries
 web/.ht.router.php
 web/modules/.gitkeep
 LICENSE
