@@ -1,4 +1,4 @@
-uuid: 59088a95-dc71-4eb5-8ae5-abb2d43a8384
+uuid: 73c9bac8-63a7-4be9-8600-09780fce2b14
 langcode: fr
 status: true
 dependencies:
@@ -7,17 +7,17 @@ dependencies:
     - system
   theme:
     - bbtheme
-id: chartsblock
+id: formulaireformateur
 theme: bbtheme
 region: content
-weight: -3
+weight: -4
 provider: null
-plugin: charts_block
+plugin: formateu_form_block
 settings:
-  id: charts_block
-  label: 'Charts block'
+  id: formateu_form_block
+  label: 'Formulaire formateur'
   provider: chart_block_example
-  label_display: '0'
+  label_display: visible
 visibility:
   request_path:
     id: request_path
