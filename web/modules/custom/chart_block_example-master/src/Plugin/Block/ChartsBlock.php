@@ -104,7 +104,7 @@ class ChartsBlock extends BlockBase {
     $options = [];
 
     $options['type'] = 'column';
-    $options['title'] = $this->t('Age distribution');
+    $options['title'] = $this->t('');
 
     $options['yaxis_title'] = $this->t('Heures');
     $options['xaxis_title'] = $this->t('Ages');
