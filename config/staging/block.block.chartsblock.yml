@@ -1,0 +1,26 @@
+uuid: 59088a95-dc71-4eb5-8ae5-abb2d43a8384
+langcode: fr
+status: true
+dependencies:
+  module:
+    - chart_block_example
+    - system
+  theme:
+    - bbtheme
+id: chartsblock
+theme: bbtheme
+region: content
+weight: 0
+provider: null
+plugin: charts_block
+settings:
+  id: charts_block
+  label: 'Charts block'
+  provider: chart_block_example
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /bb-stages-formateur
+    negate: false
+    context_mapping: {  }
