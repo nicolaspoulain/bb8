@@ -3,7 +3,9 @@ langcode: fr
 status: true
 dependencies:
   module:
+    - bb
     - charts
+    - charts_google
 id: bb_stages_formateur
 label: 'BB: stages formateur'
 module: views
@@ -46,7 +48,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
+          items_per_page: 0
           offset: 0
           id: 0
           total_pages: null
@@ -65,38 +67,104 @@ display:
             offset_label: Décalage
           quantity: 9
       style:
-        type: chart
+        type: table
         options:
-          library: google
-          type: bar
-          label_field: nomu
-          fields:
-            table: ''
-          data_fields:
-            nomu: 0
-            duree_a_payer: duree_a_payer
+          grouping:
+            -
+              field: nomu
+              rendered: true
+              rendered_strip: false
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            co_camp: co_camp
+            nomu: nomu
+            date_ts: date_ts
+            horaires: horaires
+            co_degre: co_degre
+            id_disp: id_disp
+            co_modu: co_modu
+            lib: lib
             duree_prevue: duree_prevue
-          field_colors:
-            nomu: '#2f7ed8'
-            duree_a_payer: '#0d233a'
-            duree_prevue: '#8bbc21'
-          title: ''
-          title_position: out
-          tooltips: ''
-          data_labels: ''
-          legend_position: right
-          background: ''
-          width: ''
-          height: ''
-          xaxis_title: ''
-          xaxis_labels_rotation: '0'
-          yaxis_title: ''
-          yaxis_min: ''
-          yaxis_max: ''
-          yaxis_prefix: ''
-          yaxis_suffix: ''
-          yaxis_decimal_count: ''
-          yaxis_labels_rotation: '0'
+            type_paiement: type_paiement
+          info:
+            co_camp:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nomu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            date_ts:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            horaires:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_degre:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id_disp:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_modu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            duree_prevue:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type_paiement:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
@@ -148,63 +216,6 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: standard
-        duree_a_payer:
-          id: duree_a_payer
-          table: gbb_session
-          field: duree_a_payer
-          relationship: none
-          group_type: sum
-          admin_label: ''
-          label: 'À payer'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: 0
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
           plugin_id: standard
         duree_prevue:
           id: duree_prevue
@@ -291,18 +302,51 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
-          is_grouped: false
+            placeholder: ''
+          is_grouped: true
           group_info:
-            label: ''
+            label: Période
             description: ''
-            identifier: ''
+            identifier: id_disp
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '4'
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: 20-21
+                operator: starts
+                value: '20'
+              2:
+                title: 19-20
+                operator: starts
+                value: '19'
+              3:
+                title: 18-19
+                operator: starts
+                value: '18'
+              4:
+                title: 17-18
+                operator: starts
+                value: '17'
+              5:
+                title: 16-17
+                operator: starts
+                value: '16'
+              6:
+                title: 15-16
+                operator: starts
+                value: '15'
+              7:
+                title: 14-15
+                operator: starts
+                value: '14'
+              8:
+                title: 13-14
+                operator: starts
+                value: '13'
           plugin_id: string
         nomu:
           id: nomu
@@ -331,6 +375,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -344,59 +389,99 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        nomu_1:
-          id: nomu_1
-          table: gbb_gresp_dafor_peda
-          field: nomu
+        co_resp:
+          id: co_resp
+          table: gbb_session
+          field: co_resp
           relationship: none
           group_type: group
           admin_label: ''
-          operator: not
-          value: '?'
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '114'
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: co_resp_op
+            label: co_resp
             description: ''
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: co_resp_op
+            identifier: co_resp
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
-            label: ''
+            label: Période
             description: ''
-            identifier: ''
+            identifier: co_resp
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-      sorts: {  }
-      title: 'BB: stages formateur'
-      header:
-        area:
-          id: area
-          table: views
-          field: area
+            group_items:
+              1:
+                title: 17-18
+                operator: '='
+                value:
+                  value: '17'
+                  min: ''
+                  max: ''
+              2:
+                title: 16-17
+                operator: '='
+                value:
+                  value: '16'
+                  min: ''
+                  max: ''
+              3:
+                title: 15-16
+                operator: '='
+                value:
+                  value: '15'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+      sorts:
+        date_ts:
+          id: date_ts
+          table: gbb_session
+          field: date_ts
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<h1> INSTALLATION </h1>\ndrush dl charts<br/>\ndrush en charts_highcharts charts_c3  charts_google charts<br/>\ncd modules/charts/modules/charts_google/ && composer install<br/>\ncd ../charts_c3/ && composer install<br/>\ncd ../charts_highcharts/ && composer install\n"
-            format: full_html
-          plugin_id: text
-      footer: {  }
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      title: 'Fiche formateur'
+      header:
+        view:
+          id: view
+          table: views
+          field: view
+          plugin_id: view
+      footer:
+        view:
+          id: view
+          table: views
+          field: view
+          plugin_id: view
       empty: {  }
       relationships: {  }
       arguments: {  }
@@ -417,6 +502,545 @@ display:
     display_options:
       display_extenders: {  }
       path: bb-stages-formateur
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<a href="formateurs">Retour</a>'
+            format: restricted_html
+          plugin_id: text
+      defaults:
+        header: false
+        fields: false
+        group_by: false
+        footer: false
+      fields:
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if co_camp == 'BS' %}\n<h1>{{ nomu }} FIL</h1>\n{% else %}\n<h1>{{ nomu }} PAF</h1>\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        date_ts:
+          id: date_ts
+          table: gbb_session
+          field: date_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Date
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: date_courte
+          custom_date_format: ''
+          timezone: ''
+          plugin_id: date
+        horaires:
+          id: horaires
+          table: gbb_session
+          field: horaires
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: horaires
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_degre:
+          id: co_degre
+          table: gbb_gmodu
+          field: co_degre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_modu:
+          id: co_modu
+          table: gbb_session
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Dispo/Module
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ id_disp }}/{{ co_modu }}'
+            make_link: true
+            path: 'moduleng/{{ co_degre }}/{{co_modu}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Libellé
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        duree_prevue:
+          id: duree_prevue
+          table: gbb_session
+          field: duree_prevue
+          relationship: none
+          group_type: sum
+          admin_label: ''
+          label: Payée
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: standard
+        type_paiement:
+          id: type_paiement
+          table: gbb_session
+          field: type_paiement
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Type
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+      group_by: false
+      footer: {  }
     cache_metadata:
       max-age: -1
       contexts:

@@ -214,8 +214,8 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
+            make_link: true
+            path: 'bb-stages-formateur?id_disp=5&nomu={{ nomu }}&co_resp={{ co_resp }}'
             absolute: false
             external: false
             replace_spaces: false
@@ -512,7 +512,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
@@ -532,6 +532,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
