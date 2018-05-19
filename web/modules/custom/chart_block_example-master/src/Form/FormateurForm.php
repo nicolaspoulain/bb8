@@ -126,12 +126,20 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
+    $grades = array(
+        '', 'NOMENCLATURE', 'VACATAIRE', 'CONTRACTUEL', 'MA',
+        'PEGC', 'PLP', 'CERTIFIE', 'AGREGE', 'INST', 'PE', 'COP',
+        'CPE', 'INF', 'MED', 'ING', 'ASU', 'CASU', 'AS', 'PERDIR',
+        'IA-IPR', 'IEN-EG', 'IEN-ET', 'IEN-CC', 'CC', 'PREC',
+        'PRCE', 'PRAG', 'MC', 'PR', 'ASSOCIATION', 'ENTREPRISE',
+        'UNIVERSITE', 'INTERVENANT-XT',
+      );
+
     $form['grade'] = array(
-      '#type' => 'textfield',
+      '#type' => 'select',
       '#title' => $this->t('Grade'),
-      '#size'          => 15,
+      '#options' => array_combine($grades, $grades),
       '#default_value' => $infoscompl[0]->grade,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
@@ -154,20 +162,18 @@ class FormateurForm extends FormBase {
     );
 
     $form['divers'] = array(
-      '#type' => 'textfield',
+    '#type' => 'textarea',
       '#title' => $this->t('Divers'),
+      '#rows' =>4,
       '#size'          => 15,
       '#default_value' => $infoscompl[0]->divers,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
     $form['statut'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Statut'),
-      '#size'          => 15,
+      '#type' => 'checkbox',
+      '#title' => t('IUFM'),
       '#default_value' => $infoscompl[0]->statut,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
