@@ -37,13 +37,55 @@ class FormateurForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+    $co_resp = explode('=',explode('?',$path_args[1])[1])[3];
+    $annee = explode('&',(explode('=',explode('?',$path_args[1])[1])[1]))[0];
+    // Doit correspondre au filtre groupé id_disp
+    // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
+    switch ($annee) {
+      case '1':
+        $annee = '20';
+        break;
+      case '2':
+        $annee = '19';
+        break;
+      case '3':
+        $annee = '18';
+        break;
+      case '4':
+        $annee = '17';
+        break;
+      case '5':
+        $annee = '16';
+        break;
+      case '6':
+        $annee = '15';
+        break;
+      case '7':
+        $annee = '14';
+        break;
+      case '8':
+        $annee = '13';
+        break;
+      default:
+        $annee = '17';
+        break;
+    }
 
+    $entry = array(
+      'co_resp'  => $co_resp,
+    );
+    // dpm($entry);
+
+    $infoscompl = BbCrudController::load( 'gbb_gresp_plus', $entry);
+    $formateur = BbCrudController::load( 'gbb_gresp_dafor', $entry);
 
     $form['nomu'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Nom'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $formateur[0]->nomu,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -52,7 +94,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Prénom'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $formateur[0]->prenom,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -61,7 +103,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Email'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $formateur[0]->mel,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -70,7 +112,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Téléphone'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $formateur[0]->tel,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -79,7 +121,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('discipline'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->discipline,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -88,7 +130,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Grade'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->grade,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -97,7 +139,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Décharge'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->decharge,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -106,7 +148,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Responsable DAFOR'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->resp_dafor,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -115,7 +157,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Divers'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->divers,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -124,7 +166,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Statut'),
       '#size'          => 15,
-      '#default_value' => '7-11',
+      '#default_value' => $infoscompl[0]->statut,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
@@ -156,14 +198,23 @@ class FormateurForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // $valid = $this->validateJournal($form, $form_state);
 
-    $form_state->setRedirect('bb.moduleng',
-      array(
-        'co_degre' => $form_state->getValue('co_degre'),
-        'co_modu'  => $form_state->getValue('co_modu')
-      ),
-      array( 'fragment' => 'sessions')
+    $current_uri = \Drupal::request()->getRequestUri();
+    $path_args = array_slice(explode('/',$current_uri),-2,2);
+
+    $condition = array(
+      'co_degre' => $path_args[0],
+      'co_modu'  => $path_args[1],
     );
-  }
 
+    $entry = array(
+      'convoc_info_off'  => $form_state->getValue('infospasconvocform')['value'],
+    );
+    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
+    // dpm($condition);
+    // dpm($entry);
+    return TRUE;
+  }
 }
