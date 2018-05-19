@@ -19,9 +19,15 @@ class FormateurFormBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    return array(
-      '#markup' => $this->t('Hello, World!'),
-    );
+    // See .module hook_theme
+    $content['#theme'] = 'formateur_form';
+
+    $content['intro'] = [ '#markup' => $this->t('Salut iii coco block content'), ];
+    // $content['cfile'] = \Drupal::formBuilder()->getForm('Drupal\chart_block_example\Form\FormateurForm');
+    return $content;
+    // return array(
+      // '#markup' => $this->t('Hello, World!'),
+    // );
   }
 
 }

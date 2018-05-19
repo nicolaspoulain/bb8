@@ -39,6 +39,9 @@ function chart_block_example_theme() {
       'template' => 'chart-block-example',
       'variables' => $vars,
     ],
+    'formateur_form' => array(
+      'template' => 'formateur-form-layout',
+    ),
   ];
 }
 
