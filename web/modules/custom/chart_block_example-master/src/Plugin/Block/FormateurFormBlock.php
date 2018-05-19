@@ -5,12 +5,12 @@ namespace Drupal\chart_block_example\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a 'Hello' Block.
+ * Provides a formateur edition Block.
  *
  * @Block(
- *   id = "formateu_form_block",
+ *   id = "formateur_form_block",
  *   admin_label = @Translation("Formulaire formateur"),
- *   category = @Translation("Formulaire formateur"),
+ *   category = @Translation("BB"),
  * )
  */
 class FormateurFormBlock extends BlockBase {
