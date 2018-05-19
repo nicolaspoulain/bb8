@@ -4,7 +4,7 @@
  * Contains Drupal\chart_block_example\Form\ModalForm.
  */
 
-namespace Drupal\bb\Form;
+namespace Drupal\chart_block_example\Form;
 
 
 use Drupal\Core\Form\FormBase;
@@ -22,7 +22,7 @@ class FormateurForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function getTitle($sess_id, $type) {
+  public function getTitle() {
     return 'Modification de la fiche formateur';
   }
 
@@ -36,12 +36,66 @@ class FormateurForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state,$co_modu=1,$co_degre=2, $sess_id = 1, $type='edit') {
+  public function buildForm(array $form, FormStateInterface $form_state) {
 
 
-    $form['horaires'] = array(
+    $form['nomu'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Horaires'),
+      '#title' => $this->t('Nom'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['prenom'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Prénom'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['email'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Email'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['telephone'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Téléphone'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['discipline'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('discipline'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['grade'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Grade'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['decharge'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Décharge'),
       '#size'          => 15,
       '#default_value' => '7-11',
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
