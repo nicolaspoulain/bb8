@@ -11,6 +11,7 @@ use Drupal\bb\Controller\BbCrudController;
  * @Block(
  *  id = "charts_block",
  *  admin_label = @Translation("Charts block"),
+ *  category = @Translation("BB"),
  * )
  */
 class ChartsBlock extends BlockBase {
