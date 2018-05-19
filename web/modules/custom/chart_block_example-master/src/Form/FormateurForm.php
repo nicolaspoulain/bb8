@@ -102,6 +102,33 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
+    $form['resp_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Responsable DAFOR'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['divers'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Divers'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
+    $form['statut'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Statut'),
+      '#size'          => 15,
+      '#default_value' => '7-11',
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    );
+
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
     // to the form.
