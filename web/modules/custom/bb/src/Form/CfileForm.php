@@ -42,13 +42,7 @@ class CfileForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
-
-    // Get URL components
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-    $co_degre = $path_args[0];
-    $co_modu  = explode('?',$path_args[1])[0];
+  public function buildForm(array $form, FormStateInterface $form_state, $co_degre=NULL, $co_modu=NULL) {
 
     // ---------- a supprimer après la transition BB -> BB8 ------------------
     // verifie si l'id_disp est bien >18
@@ -59,6 +53,14 @@ class CfileForm extends FormBase {
 
     $form['titre'] = array(
       '#markup' => CfileForm::getTitle(),
+    );
+    $form['co_degre'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_degre,
+    );
+    $form['co_modu'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_modu,
     );
 
     // Delete file list form
@@ -116,18 +118,16 @@ class CfileForm extends FormBase {
     /* Fetch the array of the file stored temporarily in database */
     $afile = $form_state->getValue('afile');
     /* Load the object of the file by it's fid */
-    dpm($afile);
+    // dpm($afile);
     foreach ($afile as $thefile) {
       $file = File::load( $thefile );
       /* Set the status flag permanent of the file object */
       $file->setPermanent();
       /* Save the file in database */
       $file->save();
-      $current_uri = \Drupal::request()->getRequestUri();
-      $path_args = array_slice(explode('/',$current_uri),-2,2);
       $entry = array(
-        'co_degre' => $path_args[0],
-        'co_modu'  => explode('?',$path_args[1])[0],
+        'co_degre' => $form_state->getValue('co_degre'),
+        'co_modu' => $form_state->getValue('co_modu'),
         'fid' => $thefile,
         'zone' => 2,
       );
@@ -136,8 +136,6 @@ class CfileForm extends FormBase {
     }
   }
   public function deleteForm(array &$form, FormStateInterface $form_state) {
-    /* Fetch the array of the file stored temporarily in database */
-    $afile = $form_state->getValue('fileToDelete');
 
     //  *************************
     // POURQUOI CA MARCHE PAS ????
@@ -148,12 +146,10 @@ class CfileForm extends FormBase {
     // $file->setTemporary();
     /* Save the file in database */
     // $file->save();
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
+
     $entry = array(
-      'fid' => $afile,
+      'fid' => $form_state->getValue('fileToDelete'),
     );
-    // dpm($afile);
     $module = BbCrudController::delete( 'gbb_file', $entry);
   }
 }
