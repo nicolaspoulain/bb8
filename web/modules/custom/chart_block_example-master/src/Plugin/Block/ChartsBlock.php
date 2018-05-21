@@ -20,14 +20,12 @@ class ChartsBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $co_resp = '114';
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-    $co_resp = explode('=',explode('?',$path_args[1])[1])[3];
-    $annee = explode('&',(explode('=',explode('?',$path_args[1])[1])[1]))[0];
+    $query = \Drupal::request()->query->all();
+    $co_resp = $query['co_resp'];
+
     // Doit correspondre au filtre groupé id_disp
     // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
-    switch ($annee) {
+    switch ($query['id_disp']) {
       case '1':
         $annee = '20';
         break;
@@ -58,9 +56,8 @@ class ChartsBlock extends BlockBase {
     }
 
     $entry = array(
-      'co_resp'  => explode('=',explode('?',$path_args[1])[1])[3],
+      'co_resp'  => $co_resp,
     );
-    // dpm($entry);
 
     $formateur = BbCrudController::load( 'gbb_gresp_plus', $entry);
     $decharge = $formateur[0]->decharge;
