@@ -40,16 +40,22 @@ class JournalForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state, $co_degre=NULL, $co_modu=NULL) {
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
     $entry = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => explode('?',$path_args[1])[0],
+      'co_degre' => $co_degre,
+      'co_modu'  => $co_modu,
     );
     $module = BbCrudController::load( 'gbb_gmodu_plus', $entry);
 
+    $form['co_degre'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_degre,
+    );
+    $form['co_modu'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_modu,
+    );
     $form['organisation'] = array(
       // '#type' => 'textarea', // WYSIWYG textarea est mieux :
       '#type'=>'text_format',
@@ -75,21 +81,15 @@ class JournalForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $valid = $this->validateJournal($form, $form_state);
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-
     $condition = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => $path_args[1],
+      'co_degre' => $form_state->getValue('co_degre'),
+      'co_modu' => $form_state->getValue('co_modu'),
     );
 
     $entry = array(
       'organisation'  => $form_state->getValue('organisation')['value'],
     );
     $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
-    // dpm($condition);
-    // dpm($entry);
     return TRUE;
   }
 
@@ -103,25 +103,22 @@ class JournalForm extends FormBase {
   /**
    * Ajax callback to save journal field.
    */
-  public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
-    $valid = $this->validateJournal($form, $form_state);
+  // public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
+    // $valid = $this->validateJournal($form, $form_state);
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
+    // $condition = array(
+      // 'co_degre' => $form_state->getValue('co_degre'),
+      // 'co_modu' => $form_state->getValue('co_modu'),
+    // );
 
-    $condition = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => explode('?',$path_args[1])[0],
-    );
+    // $entry = array(
+      // 'organisation'  => $form_state->getValue('organisation'),
+    // );
+    // $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
 
-    $entry = array(
-      'organisation'  => $form_state->getValue('organisation'),
-    );
-    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-
-    $response = new AjaxResponse();
-    return $response;
-  }
+    // $response = new AjaxResponse();
+    // return $response;
+  // }
 
 
 

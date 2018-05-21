@@ -159,7 +159,7 @@ class ModuleNG extends ControllerBase {
     // moduleng-layout/html.twig
 
     $content['journal'] =
-      \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm');
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm', $co_degre, $co_modu);
     // $content['propfile'] =
       // \Drupal::formBuilder()->getForm('Drupal\bb\Form\PropFileForm');
     $content['cfile'] =
