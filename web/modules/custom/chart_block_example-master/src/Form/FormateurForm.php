@@ -99,7 +99,7 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
-    $form['email'] = array(
+    $form['mel'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Email'),
       '#size'          => 15,
@@ -108,7 +108,7 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
 
-    $form['telephone'] = array(
+    $form['tel'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Téléphone'),
       '#size'          => 15,
@@ -206,18 +206,30 @@ class FormateurForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // $valid = $this->validateJournal($form, $form_state);
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
+    $query = \Drupal::request()->query->all();
 
+    // get co_resp form query string
     $condition = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => $path_args[1],
+      'co_resp' => \Drupal::request()->query->get('co_resp'),
     );
 
     $entry = array(
-      'convoc_info_off'  => $form_state->getValue('infospasconvocform')['value'],
+      'nomu'  => $form_state->getValue('nomu'),
+      'prenom'  => $form_state->getValue('prenom'),
+      'mel'  => $form_state->getValue('mel'),
+      'tel'  => $form_state->getValue('tel'),
     );
-    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+    BbCrudController::update( 'gbb_gresp_dafor', $entry, $condition);
+
+    $entry = array(
+      'discipline'  => $form_state->getValue('discipline'),
+      'grade'  => $form_state->getValue('grade'),
+      'decharge'  => $form_state->getValue('decharge'),
+      'resp_dafor'  => $form_state->getValue('resp_dafor'),
+      'divers'  => $form_state->getValue('divers'),
+      'statut'  => $form_state->getValue('statut'),
+    );
+    BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
     // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
     // dpm($condition);
     // dpm($entry);
