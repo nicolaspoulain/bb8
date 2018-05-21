@@ -37,13 +37,12 @@ class FormateurForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-    $co_resp = explode('=',explode('?',$path_args[1])[1])[3];
-    $annee = explode('&',(explode('=',explode('?',$path_args[1])[1])[1]))[0];
+    $query = \Drupal::request()->query->all();
+    $co_resp = $query['co_resp'];
+
     // Doit correspondre au filtre groupé id_disp
     // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
-    switch ($annee) {
+    switch ($query['id_disp']) {
       case '1':
         $annee = '20';
         break;
