@@ -230,9 +230,6 @@ class FormateurForm extends FormBase {
       'statut'  => $form_state->getValue('statut'),
     );
     BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
-    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
-    // dpm($condition);
-    // dpm($entry);
     return TRUE;
   }
 }
