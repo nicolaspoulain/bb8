@@ -40,16 +40,22 @@ class InfosPasConvocForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state, $co_degre=NULL, $co_modu=NULL) {
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
     $entry = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => explode('?',$path_args[1])[0],
+      'co_degre' => $co_degre,
+      'co_modu'  => $co_modu,
     );
     $module = BbCrudController::load( 'gbb_gmodu_plus', $entry);
 
+    $form['co_degre'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_degre,
+    );
+    $form['co_modu'] = array(
+      '#type'    => 'hidden',
+      '#value' => $co_modu,
+    );
     $form['infospasconvocform'] = array(
       // '#type' => 'textarea', // WYSIWYG != textarea
       '#type'=>'text_format',
@@ -75,21 +81,15 @@ class InfosPasConvocForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // $valid = $this->validateJournal($form, $form_state);
 
-    $current_uri = \Drupal::request()->getRequestUri();
-    $path_args = array_slice(explode('/',$current_uri),-2,2);
-
     $condition = array(
-      'co_degre' => $path_args[0],
-      'co_modu'  => $path_args[1],
+      'co_degre' => $form_state->getValue('co_degre'),
+      'co_modu' => $form_state->getValue('co_modu'),
     );
 
     $entry = array(
       'convoc_info_off'  => $form_state->getValue('infospasconvocform')['value'],
     );
     $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-    // drupal_set_message('Submitted.'.$path_args[0].'-'.$path_args[1]);
-    // dpm($condition);
-    // dpm($entry);
     return TRUE;
   }
 
@@ -106,12 +106,9 @@ class InfosPasConvocForm extends FormBase {
   // public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
     // $valid = $this->validateJournal($form, $form_state);
 
-    // $current_uri = \Drupal::request()->getRequestUri();
-    // $path_args = array_slice(explode('/',$current_uri),-2,2);
-
     // $condition = array(
-      // 'co_degre' => $path_args[0],
-      // 'co_modu'  => explode('?',$path_args[1])[0],
+      // 'co_degre' => $form_state->getValue('co_degre'),
+      // 'co_modu' => $form_state->getValue('co_modu'),
     // );
 
     // $entry = array(
