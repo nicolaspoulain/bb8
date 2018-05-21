@@ -147,7 +147,7 @@ class ModuleNG extends ControllerBase {
     // dpm($content);
     return $content;
   }
-  public function forms() {
+  public function forms($co_degre, $co_modu) {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';
     $content['#attached']['library'][] = 'core/drupal.dialog';
@@ -165,7 +165,7 @@ class ModuleNG extends ControllerBase {
     $content['cfile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm');
     $content['afile'] =
-      \Drupal::formBuilder()->getForm('Drupal\bb\Form\AfileForm');
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\AfileForm',$co_degre, $co_modu);
     $content['infospasconvoc'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosPasConvocForm');
     $content['infossurconvoc'] =
