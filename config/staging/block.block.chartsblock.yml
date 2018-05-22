@@ -10,7 +10,7 @@ dependencies:
 id: chartsblock
 theme: bbtheme
 region: content
-weight: -3
+weight: -2
 provider: null
 plugin: charts_block
 settings:

@@ -369,3 +369,8 @@ box-shadow:inset 1em 0 black;
   top: -200px;
 }
 
+.annuel {
+  background-color : lightgray;
+  margin-top : 20px;
+}
+

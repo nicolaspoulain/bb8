@@ -83,46 +83,46 @@ class FormateurForm extends FormBase {
     $form['nomu'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Nom'),
-      '#size'          => 15,
+      '#size'          => 30,
       '#default_value' => $formateur[0]->nomu,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
     );
 
     $form['prenom'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Prénom'),
-      '#size'          => 15,
+      '#size'          => 30,
       '#default_value' => $formateur[0]->prenom,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
-
-    $form['mel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Email'),
-      '#size'          => 15,
-      '#default_value' => $formateur[0]->mel,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
-
-    $form['tel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Téléphone'),
-      '#size'          => 15,
-      '#default_value' => $formateur[0]->tel,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
     );
 
     $form['discipline'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('discipline'),
-      '#size'          => 15,
+      '#size'          => 30,
       '#default_value' => $infoscompl[0]->discipline,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+    );
+
+    $form['mel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Email'),
+      '#size'          => 30,
+      '#default_value' => $formateur[0]->mel,
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+    );
+
+    $form['tel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Téléphone'),
+      '#size'          => 30,
+      '#default_value' => $formateur[0]->tel,
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
     );
 
     $grades = array(
@@ -139,41 +139,83 @@ class FormateurForm extends FormBase {
       '#title' => $this->t('Grade'),
       '#options' => array_combine($grades, $grades),
       '#default_value' => $infoscompl[0]->grade,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
-
-    $form['decharge'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Décharge'),
-      '#size'          => 15,
-      '#default_value' => $infoscompl[0]->decharge,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
-
-    $form['resp_dafor'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Responsable DAFOR'),
-      '#size'          => 15,
-      '#default_value' => $infoscompl[0]->resp_dafor,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
-    );
-
-    $form['divers'] = array(
-    '#type' => 'textarea',
-      '#title' => $this->t('Divers'),
-      '#rows' =>4,
-      '#size'          => 15,
-      '#default_value' => $infoscompl[0]->divers,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
     );
 
     $form['statut'] = array(
       '#type' => 'checkbox',
       '#title' => t('IUFM'),
       '#default_value' => $infoscompl[0]->statut,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+    );
+
+    $form['fieldset'] = array(
+      '#type' => 'fieldset',
+      '#title' => t(''),
+      '#attributes' => array('class' => array('annuel')),
+    );
+
+    $an = (int)$annee;
+    $anp = $an+1;
+    $form['fieldset']['markup'] = array(
+      '#markup' => "20$an - 20$anp",
+      '#prefix' => '<div class="pure-u-1 pure-u-md-4-24">',
+      '#suffix' => '</div>',
+    );
+
+    $form['fieldset']['decharge_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Dech DAFOR'),
+      '#size'          => 6,
+      '#default_value' => $infoscompl[0]->decharge,
+      '#attributes' => array('placeholder' => t('2')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['decharge_pfa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch PFA'),
+      '#size'          => 6,
+      '#default_value' => $infoscompl[0]->decharge,
+      '#attributes' => array('placeholder' => t('2')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['decharge_dane'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch DANE'),
+      '#size'          => 6,
+      '#default_value' => $infoscompl[0]->decharge,
+      '#attributes' => array('placeholder' => t('2')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['decharge_caffa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch CAFFA'),
+      '#size'          => 6,
+      '#default_value' => $infoscompl[0]->decharge,
+      '#attributes' => array('placeholder' => t('2')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['resp_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Resp. DAFOR'),
+      '#size'          => 6,
+      '#default_value' => $infoscompl[0]->resp_dafor,
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+
+    $form['divers'] = array(
+    '#type' => 'textarea',
+      '#title' => $this->t('Divers'),
+      '#rows' =>3,
+      '#size'          => 25,
+      '#default_value' => $infoscompl[0]->divers,
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
     );
 
     // Group submit handlers in an actions element with a key of "actions" so

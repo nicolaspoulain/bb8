@@ -4,8 +4,6 @@ status: true
 dependencies:
   module:
     - bb
-    - charts
-    - charts_google
 id: bb_stages_formateur
 label: 'BB: stages formateur'
 module: views
@@ -31,7 +29,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }

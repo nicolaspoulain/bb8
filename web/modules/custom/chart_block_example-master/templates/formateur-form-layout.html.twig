@@ -1,4 +1,6 @@
 {% set library = 'charts_' ~ chart_type ~ '/' ~ chart_type %}
 {{ attach_library("#{ library }") }}
 {{ _context[''].intro }}
+<div class="pure-g">
 {{ _context[''].form }}
+</div>

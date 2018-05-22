@@ -17,7 +17,7 @@ settings:
   id: formateur_form_block
   label: 'Formulaire formateur'
   provider: chart_block_example
-  label_display: visible
+  label_display: '0'
 visibility:
   request_path:
     id: request_path
