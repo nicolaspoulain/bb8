@@ -89,7 +89,12 @@ class JournalForm extends FormBase {
     $entry = array(
       'organisation'  => $form_state->getValue('organisation')['value'],
     );
-    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gmodu_plus', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
+    }
     return TRUE;
   }
 
