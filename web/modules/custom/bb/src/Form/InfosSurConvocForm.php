@@ -86,11 +86,15 @@ class InfosSurConvocForm extends FormBase {
       'co_degre' => $form_state->getValue('co_degre'),
       'co_modu' => $form_state->getValue('co_modu'),
     );
-
     $entry = array(
       'convoc_info_on'  => $form_state->getValue('infossurconvoc'),
     );
-    $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gmodu_plus', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
+    }
     return TRUE;
   }
 
