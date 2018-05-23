@@ -290,10 +290,21 @@ class FormateurForm extends FormBase {
         'period'  => $form_state->getValue('period'),
         'type'  => $type,
       );
-      dpm($condition);
-      // BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
-    }
-
+      $entry = array(
+        'val' => $form_state->getValue($type),
+      );
+      // if ($form_state->getValue($type)>0) {
+        // dpm($condition);
+        // dpm($entry);
+        $row = BbCrudController::load('gbb_gresp_periodic', $condition);
+        if (!empty($row)) {
+          $DBWriteStatus = BbCrudController::update('gbb_gresp_periodic', $entry, $condition);
+        } else {
+          $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
+          // BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
+        }
+      // }
+    };
 
     return TRUE;
   }
