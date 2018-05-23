@@ -79,8 +79,9 @@ class ChartsBlock extends BlockBase {
       ->condition('s.type_paiement', 'VAC', 'LIKE')
       ->condition('id_disp', db_like($annee) . '%', 'LIKE')
       ->distinct();
-    $query ->addExpression('SUM(duree_a_payer)', 'sumvac');
+    $query ->addExpression('SUM(duree_prevue)', 'sumvac');
     $sumvac = $query->execute()->fetchObject()->sumvac;
+    // dpq($query);
 
     //**** la decharge **************
     $query = db_select('gbb_session', 's');
@@ -95,8 +96,9 @@ class ChartsBlock extends BlockBase {
       ->condition('s.type_paiement', 'DECH', 'LIKE')
       ->condition('id_disp', db_like($annee) . '%', 'LIKE')
       ->distinct();
-    $query ->addExpression('SUM(duree_a_payer)', 'sumdec');
+    $query ->addExpression('SUM(duree_prevue)', 'sumdec');
     $sumdec = $query->execute()->fetchObject()->sumdec;
+    // dpq($query);
 
 
     $options = [];
