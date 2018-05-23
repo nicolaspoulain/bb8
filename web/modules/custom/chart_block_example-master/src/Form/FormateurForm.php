@@ -164,19 +164,22 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
 
+    $an = (int)$annee;
+    $anp = $an+1;
     $form['fieldset'] = array(
       '#type' => 'fieldset',
-      '#title' => t(''),
+      '#title' => "20$an - 20$anp",
       '#attributes' => array('class' => array('annuel')),
     );
 
-    $an = (int)$annee;
-    $anp = $an+1;
-    $form['fieldset']['markup'] = array(
-      '#markup' => "20$an - 20$anp",
-      '#prefix' => '<div class="pure-u-1 pure-u-md-4-24">',
-      '#suffix' => '</div>',
+    $form['fieldset']['resp_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Resp. DAFOR'),
+      '#size'          => 29,
+      '#default_value' => $period['resp_dafor'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
+
 
     $form['fieldset']['dech_dafor'] = array(
       '#type' => 'textfield',
@@ -184,7 +187,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_dafor'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
 
     $form['fieldset']['dech_pfa'] = array(
@@ -193,7 +196,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_pfa'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
 
     $form['fieldset']['dech_dane'] = array(
@@ -202,7 +205,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_dane'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
 
     $form['fieldset']['dech_caffa'] = array(
@@ -211,15 +214,26 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_caffa'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
     );
 
-    $form['fieldset']['resp_dafor'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Resp. DAFOR'),
+    $form['fieldset']['champ_interv'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Champ d\'intervention'),
+      '#rows' =>3,
       '#size'          => 6,
-      '#default_value' => $period['resp_dafor'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+      '#default_value' => $period['champ_interv'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
+    );
+
+
+    $form['fieldset']['pj'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Champ d\'intervention'),
+      '#rows' =>3,
+      '#size'          => 6,
+      '#default_value' => $period['champ_interv'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
 
 
@@ -283,7 +297,7 @@ class FormateurForm extends FormBase {
     );
     BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
 
-    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa', 'resp_dafor'];
+    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa', 'resp_dafor','champ_interv'];
     foreach ($types as $type) {
       $condition = array(
         'co_resp' => \Drupal::request()->query->get('co_resp'),

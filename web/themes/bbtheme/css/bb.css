@@ -372,5 +372,6 @@ box-shadow:inset 1em 0 black;
 .annuel {
   background-color : lightgray;
   margin-top : 20px;
+  letter-spacing: 0em;
 }
 
