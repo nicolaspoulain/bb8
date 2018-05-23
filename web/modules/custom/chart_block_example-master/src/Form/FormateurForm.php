@@ -79,6 +79,21 @@ class FormateurForm extends FormBase {
 
     $infoscompl = BbCrudController::load( 'gbb_gresp_plus', $entry);
     $formateur = BbCrudController::load( 'gbb_gresp_dafor', $entry);
+    $entry['period'] = $annee;
+    $periodic = BbCrudController::load( 'gbb_gresp_periodic', $entry);
+    foreach ($periodic as $elt) {
+      $period[$elt->type] = $elt->val;
+    }
+    // dpm($period['dech_dafor']);
+    // dpm($period['dech_pfa']);
+    // dpm($period['dech_dane']);
+    // dpm($period['dech_caffa']);
+    // dpm($period['resp_dafor']);
+
+    $form['period'] = array(
+      '#type' => 'hidden',
+      '#value' => $annee,
+    );
 
     $form['nomu'] = array(
       '#type' => 'textfield',
@@ -163,39 +178,39 @@ class FormateurForm extends FormBase {
       '#suffix' => '</div>',
     );
 
-    $form['fieldset']['decharge_dafor'] = array(
+    $form['fieldset']['dech_dafor'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Dech DAFOR'),
       '#size'          => 6,
-      '#default_value' => $infoscompl[0]->decharge,
-      '#attributes' => array('placeholder' => t('2')),
+      '#default_value' => $period['dech_dafor'],
+      '#attributes' => array('placeholder' => t('0')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
-    $form['fieldset']['decharge_pfa'] = array(
+    $form['fieldset']['dech_pfa'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Déch PFA'),
       '#size'          => 6,
-      '#default_value' => $infoscompl[0]->decharge,
-      '#attributes' => array('placeholder' => t('2')),
+      '#default_value' => $period['dech_pfa'],
+      '#attributes' => array('placeholder' => t('0')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
-    $form['fieldset']['decharge_dane'] = array(
+    $form['fieldset']['dech_dane'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Déch DANE'),
       '#size'          => 6,
-      '#default_value' => $infoscompl[0]->decharge,
-      '#attributes' => array('placeholder' => t('2')),
+      '#default_value' => $period['dech_dane'],
+      '#attributes' => array('placeholder' => t('0')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
-    $form['fieldset']['decharge_caffa'] = array(
+    $form['fieldset']['dech_caffa'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Déch CAFFA'),
       '#size'          => 6,
-      '#default_value' => $infoscompl[0]->decharge,
-      '#attributes' => array('placeholder' => t('2')),
+      '#default_value' => $period['dech_caffa'],
+      '#attributes' => array('placeholder' => t('0')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
@@ -203,8 +218,7 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Resp. DAFOR'),
       '#size'          => 6,
-      '#default_value' => $infoscompl[0]->resp_dafor,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => $period['resp_dafor'],
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
@@ -247,30 +261,40 @@ class FormateurForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // $valid = $this->validateJournal($form, $form_state);
 
-    $query = \Drupal::request()->query->all();
-
     // get co_resp form query string
+    // $query = \Drupal::request()->query->all();
     $condition = array(
       'co_resp' => \Drupal::request()->query->get('co_resp'),
     );
 
     $entry = array(
-      'nomu'  => $form_state->getValue('nomu'),
-      'prenom'  => $form_state->getValue('prenom'),
-      'mel'  => $form_state->getValue('mel'),
-      'tel'  => $form_state->getValue('tel'),
+      'nomu'   => $form_state->getValue('nomu'),
+      'prenom' => $form_state->getValue('prenom'),
+      'mel'    => $form_state->getValue('mel'),
+      'tel'    => $form_state->getValue('tel'),
     );
     BbCrudController::update( 'gbb_gresp_dafor', $entry, $condition);
 
     $entry = array(
-      'discipline'  => $form_state->getValue('discipline'),
-      'grade'  => $form_state->getValue('grade'),
-      'decharge'  => $form_state->getValue('decharge'),
-      'resp_dafor'  => $form_state->getValue('resp_dafor'),
-      'divers'  => $form_state->getValue('divers'),
-      'statut'  => $form_state->getValue('statut'),
+      'discipline' => $form_state->getValue('discipline'),
+      'grade'      => $form_state->getValue('grade'),
+      'divers'     => $form_state->getValue('divers'),
+      'statut'     => $form_state->getValue('statut'),
     );
     BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
+
+    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa', 'resp_dafor'];
+    foreach ($types as $type) {
+      $condition = array(
+        'co_resp' => \Drupal::request()->query->get('co_resp'),
+        'period'  => $form_state->getValue('period'),
+        'type'  => $type,
+      );
+      dpm($condition);
+      // BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
+    }
+
+
     return TRUE;
   }
 }
