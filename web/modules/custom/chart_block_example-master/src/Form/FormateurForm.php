@@ -271,7 +271,7 @@ class FormateurForm extends FormBase {
     // Add a submit button that handles the submission of the form.
     $form['actions']['submit'] = [
       '#type'   => 'submit',
-      '#value'  => $this->t('Submit'),
+      '#value'  => $this->t('Enregister'),
       '#submit' => array('::submitForm'),
     ];
 
@@ -332,14 +332,14 @@ class FormateurForm extends FormBase {
 
     /* Fetch the array of the file stored temporarily in database */
     $thefile = $form_state->getValue('pj');
-    // dpm($thefile[0]);
-    /* Load the object of the file by its fid */
-    $file = File::load( $thefile[0] );
-    /* Set the status flag permanent of the file object */
-    $file->setPermanent();
-    /* Save the file in database */
-    $file->save();
-    $condition = array(
+    if ( $thefile[0] > 0 ) {
+      /* Load the object of the file by its fid */
+      $file = File::load( $thefile[0] );
+      /* Set the status flag permanent of the file object */
+      $file->setPermanent();
+      /* Save the file in database */
+      $file->save();
+      $condition = array(
         'co_resp' => \Drupal::request()->query->get('co_resp'),
         'period'  => $form_state->getValue('period'),
         'type'  => 'pj',
@@ -354,6 +354,7 @@ class FormateurForm extends FormBase {
       } else {
         $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
       }
+    }
     return TRUE;
   }
 }
