@@ -57,10 +57,12 @@ class ChartsBlock extends BlockBase {
 
     $entry = array(
       'co_resp'  => $co_resp,
+      'period'   => $annee,
+      'type'     => 'dech_dafor'
     );
 
-    $formateur = BbCrudController::load( 'gbb_gresp_plus', $entry);
-    $decharge = $formateur[0]->decharge;
+    $formateur = BbCrudController::load( 'gbb_gresp_periodic', $entry);
+    $decharge = $formateur[0]->val;
 
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
@@ -107,10 +109,10 @@ class ChartsBlock extends BlockBase {
     $options['title'] = $this->t('');
 
     $options['yaxis_title'] = $this->t('Heures');
-    $options['xaxis_title'] = $this->t('Ages');
+    $options['xaxis_title'] = $this->t('');
 
-    $options['yaxis_min'] = '100';
-    $options['yaxis_max'] = '';
+    $options['yaxis_min'] = '0';
+    $options['yaxis_max'] = '243';
 
     // TODO Google specific options...
     $options['legend'] = 'none';
