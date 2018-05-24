@@ -4,3 +4,31 @@
 <div class="pure-g">
 {{ _context[''].form }}
 </div>
+
+{% set var = _context[''].heures %}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_div"></div>
+
+<script type="text/javascript">
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawStacked);
+
+function drawStacked() {
+      var data = google.visualization.arrayToDataTable([
+        ['Type'       , 'Heures dues'           , 'En h. déch.'        , 'En h. vac.'         , 'En h. PFA'] ,
+        ['Dech DAFOR' , {{ var['dech_dafor'] }} , 0                    , 0                    , 0]           ,
+        ['Faites'     , 0                       , {{ var['sum_dec'] }} , {{ var['sum_vac'] }} , 0]           ,
+        [''           , 0                       , 0                    , 0                    , 0]           ,
+        ['Dech PFA'   , {{ var['dech_pfa'] }}   , 0                    , 0                    , 0]           ,
+        ['Faites'     , 0                       , 0                    , 0                    , {{ var['sum_pfa'] }}]           ,
+      ]);
+
+      var options = {
+        chartArea: {width: '50%'},
+        isStacked: true,
+      };
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+}
+</script>

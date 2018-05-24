@@ -3,6 +3,7 @@
 namespace Drupal\formateur\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\formateur\Controller\Formateur;
 
 /**
  * Provides a formateur edition Block.
@@ -24,6 +25,7 @@ class FormateurFormBlock extends BlockBase {
 
     $content['intro'] = [ '#markup' => $this->t(''), ];
     $content['form'] = \Drupal::formBuilder()->getForm('Drupal\formateur\Form\FormateurForm');
+    $content['heures'] = Formateur::heures();
     return $content;
   }
 
