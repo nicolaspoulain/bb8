@@ -7,11 +7,14 @@
 namespace Drupal\chart_block_example\Form;
 
 
+use Drupal\Core\Url;
+
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\CloseModalDialogCommand;
-use Drupal\Core\Ajax\HtmlCommand;
+// use Drupal\Core\Ajax\AjaxResponse;
+// use Drupal\Core\Ajax\CloseModalDialogCommand;
+// use Drupal\Core\Ajax\HtmlCommand;
+use Drupal\File\Entity\File;
 use Drupal\bb\Controller\BbCrudController;
 
 /**
@@ -164,6 +167,15 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
     );
 
+    $form['divers'] = array(
+    '#type' => 'textarea',
+      '#title' => $this->t('Divers'),
+      '#rows' =>3,
+      '#size'          => 25,
+      '#default_value' => $infoscompl[0]->divers,
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
+    );
+
     $an = (int)$annee;
     $anp = $an+1;
     $form['fieldset'] = array(
@@ -223,28 +235,31 @@ class FormateurForm extends FormBase {
       '#rows' =>3,
       '#size'          => 6,
       '#default_value' => $period['champ_interv'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
 
+    $fid = $period['pj'];
+    // dpm($fid);
+    $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
+    // dpm($file_loaded);
+      if ($file_loaded[0]->status) {
+        // $flist[$f->fid] = $file_loaded[0]->uri.$file_loaded[0]->filename;
+        $uri = $file_loaded[0]->uri;
+        $url = Url::fromUri(file_create_url($uri));
+        $file = \Drupal::l($file_loaded[0]->filename,$url);
+      }
 
     $form['fieldset']['pj'] = array(
-      '#type' => 'textarea',
-      '#title' => $this->t('Champ d\'intervention'),
-      '#rows' =>3,
-      '#size'          => 6,
-      '#default_value' => $period['champ_interv'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
+      '#title' => t('Lettre de mission : ').$file,
+      '#type' => 'managed_file',
+      '#upload_validators'  => array(
+        'file_validate_extensions' => array('jpg jpeg gif png txt csv rtf doc docx odt xls xlsx ods pdf zip'),
+        'file_validate_size' => array(25600000),
+      ),
+      '#upload_location' => 'private://pieces-jointes/',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
 
-
-    $form['divers'] = array(
-    '#type' => 'textarea',
-      '#title' => $this->t('Divers'),
-      '#rows' =>3,
-      '#size'          => 25,
-      '#default_value' => $infoscompl[0]->divers,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
-    );
 
     // Group submit handlers in an actions element with a key of "actions" so
     // that it gets styled correctly, and so that other modules may add actions
@@ -315,6 +330,30 @@ class FormateurForm extends FormBase {
       }
     };
 
+    /* Fetch the array of the file stored temporarily in database */
+    $thefile = $form_state->getValue('pj');
+    // dpm($thefile[0]);
+    /* Load the object of the file by its fid */
+    $file = File::load( $thefile[0] );
+    /* Set the status flag permanent of the file object */
+    $file->setPermanent();
+    /* Save the file in database */
+    $file->save();
+    $condition = array(
+        'co_resp' => \Drupal::request()->query->get('co_resp'),
+        'period'  => $form_state->getValue('period'),
+        'type'  => 'pj',
+      );
+      $entry = array(
+        'val' => $thefile[0],
+      );
+      // dpm($entry);
+      $row = BbCrudController::load('gbb_gresp_periodic', $condition);
+      if (!empty($row)) {
+        $DBWriteStatus = BbCrudController::update('gbb_gresp_periodic', $entry, $condition);
+      } else {
+        $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
+      }
     return TRUE;
   }
 }
