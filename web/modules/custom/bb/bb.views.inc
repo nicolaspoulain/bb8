@@ -193,6 +193,7 @@ function bb_views_data() {
       'gbb_gmodu' => array(
         'left_field' => 'co_modu',
         'field' => 'co_modu',
+        'extra' => 'gbb_gmodu_taxonomy.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
@@ -202,7 +203,7 @@ function bb_views_data() {
     'title' => t('tid'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gmodu_taxonomy']['weight'] = array( 'help' => t('weight'),
@@ -213,11 +214,11 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['taxonomy_term_field_data_2']['table'] = array( 'group' => t('gbb_gmodu'),
+  $data['taxonomy_term_field_data']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
       'gbb_gmodu' => array(
-        'table' => 'taxonomy_term_field_data',
+        // 'table' => 'taxonomy_term_data',
         'left_table' => 'gbb_gmodu_taxonomy',
         'left_field' => 'tid',
         'field' => 'tid',
@@ -225,7 +226,7 @@ function bb_views_data() {
     ),
   );
   //}}
-  $data['taxonomy_term_field_data_2']['name'] = array( 'help' => t('Nom du terme de taxonomie'),
+  $data['taxonomy_term_field_data']['name'] = array( 'help' => t('Nom du terme de taxonomie'),
   //{{
     'title' => t('name'),
     'field'  => array('id' => 'standard',),
@@ -233,7 +234,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['taxonomy_term_field_data_2']['vid'] = array( 'help' => t('Vocabulaire de taxonomie'),
+  $data['taxonomy_term_field_data']['vid'] = array( 'help' => t('Vocabulaire de taxonomie'),
   //{{
     'title' => t('vid'),
     'field'  => array('id' => 'standard',),
@@ -241,7 +242,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  $data['taxonomy_term_field_data_2']['description__value'] = array( 'help' => t('Nom abbrégé du terme de taxonomie'),
+  $data['taxonomy_term_field_data']['description__value'] = array( 'help' => t('Nom abbrégé du terme de taxonomie'),
   //{{
     'title' => t('description__value'),
     'field'  => array('id' => 'standard',),
