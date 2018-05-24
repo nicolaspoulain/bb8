@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains formateur.module
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function formateur_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the formateur module.
+    case 'help.page.formateur':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Gestion des formateurs') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function formateur_theme() {
+  $vars = [
+    'library' => '',
+    'categories' => '',
+    'seriesData' => '',
+    'options' => '',
+  ];
+  return [
+    'formateur_form' => array(
+      'template' => 'formateur-form-layout',
+    ),
+  ];
+}

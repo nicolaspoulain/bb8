@@ -1,0 +1,5 @@
+name: Formateur
+type: module
+description: "Un module pour gérer les formateurs."
+package: Custom
+core: 8.x
