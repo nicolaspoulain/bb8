@@ -215,7 +215,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'bb-stages-formateur?id_disp=5&nomu={{ nomu }}&co_resp={{ co_resp }}'
+            path: 'bb-stages-formateur?id_disp=3&nomu={{ nomu }}&co_resp={{ co_resp }}'
             absolute: false
             external: false
             replace_spaces: false
