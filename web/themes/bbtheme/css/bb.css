@@ -375,3 +375,22 @@ box-shadow:inset 1em 0 black;
   letter-spacing: 0em;
 }
 
+
+.container {
+    /* width: 80%; */
+    /* height: 200px; */
+    /* background: aqua; */
+    margin: auto;
+    /* padding: 10px; */
+}
+.one {
+    width: 55%;
+    /* height: 200px; */
+    /* background: red; */
+    float: left;
+}
+.two {
+    margin-left: 58%;
+    /* height: 200px; */
+    /* background: black; */
+}

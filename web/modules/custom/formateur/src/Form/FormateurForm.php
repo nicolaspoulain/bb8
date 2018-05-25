@@ -101,7 +101,7 @@ class FormateurForm extends FormBase {
       '#size'          => 30,
       '#default_value' => $formateur[0]->nomu,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
     $form['prenom'] = array(
@@ -110,16 +110,7 @@ class FormateurForm extends FormBase {
       '#size'          => 30,
       '#default_value' => $formateur[0]->prenom,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
-    );
-
-    $form['discipline'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('discipline'),
-      '#size'          => 30,
-      '#default_value' => $infoscompl[0]->discipline,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
     $form['mel'] = array(
@@ -128,7 +119,7 @@ class FormateurForm extends FormBase {
       '#size'          => 30,
       '#default_value' => $formateur[0]->mel,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
     $form['tel'] = array(
@@ -137,7 +128,16 @@ class FormateurForm extends FormBase {
       '#size'          => 30,
       '#default_value' => $formateur[0]->tel,
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-7-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+    );
+
+    $form['discipline'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('discipline'),
+      '#size'          => 30,
+      '#default_value' => $infoscompl[0]->discipline,
+      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
     $grades = array(
@@ -154,14 +154,20 @@ class FormateurForm extends FormBase {
       '#title' => $this->t('Grade'),
       '#options' => array_combine($grades, $grades),
       '#default_value' => $infoscompl[0]->grade,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
     );
 
+    $organismes = array(
+      ''  => '',
+      '1' => 'ESPE',
+      'EXT.' => 'Extérieur',
+      );
     $form['statut'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('IUFM'),
+      '#type' => 'select',
+      '#title' => t('Organisme'),
+      '#options' => $organismes,
       '#default_value' => $infoscompl[0]->statut,
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
     );
 
     $form['divers'] = array(
@@ -196,7 +202,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_dafor'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
     );
 
     $form['fieldset']['dech_pfa'] = array(
@@ -205,7 +211,16 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_pfa'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $form['fieldset']['champ_interv'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Champ d\'intervention'),
+      '#rows' =>2,
+      '#cols'          => 4,
+      '#default_value' => $period['champ_interv'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
 
     $form['fieldset']['dech_dane'] = array(
@@ -214,7 +229,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_dane'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
     );
 
     $form['fieldset']['dech_caffa'] = array(
@@ -223,16 +238,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_caffa'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-3-24')),
-    );
-
-    $form['fieldset']['champ_interv'] = array(
-      '#type' => 'textarea',
-      '#title' => $this->t('Champ d\'intervention'),
-      '#rows' =>3,
-      '#size'          => 6,
-      '#default_value' => $period['champ_interv'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
     );
 
     $fid = $period['pj'];
