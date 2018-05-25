@@ -1,15 +1,16 @@
 <?php
 
-namespace Drupal\chart_block_example\Plugin\Block;
+namespace Drupal\formateur\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\formateur\Controller\Formateur;
 
 /**
  * Provides a formateur edition Block.
  *
  * @Block(
- *   id = "formateur_form_block",
- *   admin_label = @Translation("Formulaire formateur"),
+ *   id = "formulaire_formateur_block",
+ *   admin_label = @Translation("Formulaire gest. formateur"),
  *   category = @Translation("BB"),
  * )
  */
@@ -23,7 +24,8 @@ class FormateurFormBlock extends BlockBase {
     $content['#theme'] = 'formateur_form';
 
     $content['intro'] = [ '#markup' => $this->t(''), ];
-    $content['form'] = \Drupal::formBuilder()->getForm('Drupal\chart_block_example\Form\FormateurForm');
+    $content['form'] = \Drupal::formBuilder()->getForm('Drupal\formateur\Form\FormateurForm');
+    $content['heures'] = Formateur::heures();
     return $content;
   }
 

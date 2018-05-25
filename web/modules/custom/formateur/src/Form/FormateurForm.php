@@ -1,19 +1,16 @@
 <?php
 /**
  * @file
- * Contains Drupal\chart_block_example\Form\ModalForm.
+ * Contains Drupal\formateur\Form\ModalForm.
  */
 
-namespace Drupal\chart_block_example\Form;
+namespace Drupal\formateur\Form;
 
 
 use Drupal\Core\Url;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-// use Drupal\Core\Ajax\AjaxResponse;
-// use Drupal\Core\Ajax\CloseModalDialogCommand;
-// use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\File\Entity\File;
 use Drupal\bb\Controller\BbCrudController;
 
