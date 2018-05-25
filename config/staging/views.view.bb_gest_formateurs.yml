@@ -1,20 +1,11 @@
-uuid: 8915680e-c6a4-459a-b473-b4bb6c198a10
+uuid: add8ce79-1bcf-405e-a8f7-95d6f29f16bf
 langcode: fr
 status: true
 dependencies:
-  config:
-    - user.role.administrator
-    - user.role.d_admi
-    - user.role.d_cons
   module:
     - bb
-    - csv_serialization
-    - rest
-    - serialization
-    - user
-    - views_data_export
-id: bb_formateurs
-label: 'BB: Formateurs OLD'
+id: bb_gest_formateurs
+label: 'BB: Formateurs'
 module: views
 description: ''
 tag: ''
@@ -29,12 +20,8 @@ display:
     position: 0
     display_options:
       access:
-        type: role
-        options:
-          role:
-            administrator: administrator
-            d_cons: d_cons
-            d_admi: d_admi
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -94,6 +81,9 @@ display:
             prenom: prenom
             tel: tel
             mel: mel
+            period: period
+            type: type
+            val: val
           info:
             co_resp:
               sortable: false
@@ -130,6 +120,27 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            period:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            val:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
           default: '-1'
           empty_table: false
       row:
@@ -142,7 +153,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: co_resp
+          label: 'ID formateur'
           exclude: true
           alter:
             alter_text: false
@@ -199,418 +210,7 @@ display:
             alter_text: false
             text: ''
             make_link: true
-            path: 'bb-stages-formateur?id_disp=5&nomu={{ nomu }}&co_resp={{ co_resp }}'
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        prenom:
-          id: prenom
-          table: gbb_gresp_dafor
-          field: prenom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Prenom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        tel:
-          id: tel
-          table: gbb_gresp_dafor
-          field: tel
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Tel
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        mel:
-          id: mel
-          table: gbb_gresp_dafor
-          field: mel
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Mel
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-      filters:
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: nomu_op
-            label: Nom
-            description: 'p.ex.: Badda'
-            use_operator: false
-            operator: nomu_op
-            identifier: nomu
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        resp_dafor:
-          id: resp_dafor
-          table: gbb_gresp_plus
-          field: resp_dafor
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: resp_dafor_op
-            label: 'Conseiller DAFOR responsable'
-            description: 'p.ex.: IC ou JPC'
-            use_operator: false
-            operator: resp_dafor_op
-            identifier: resp_dafor
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-      sorts:
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      title: Formateurs
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
-      group_by: true
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.roles
-      tags: {  }
-  data_export_1:
-    display_plugin: data_export
-    id: data_export_1
-    display_title: 'Exportation de données'
-    position: 3
-    display_options:
-      display_extenders: {  }
-      path: exportcsv_old
-      filename: ''
-      displays:
-        page_1: page_1
-        default: '0'
-      style:
-        type: data_export
-        options:
-          formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
-          xls_settings:
-            xls_format: Excel2007
-            metadata:
-              creator: ''
-              last_modified_by: ''
-              title: ''
-              description: ''
-              subject: ''
-              keywords: ''
-              category: ''
-              manager: ''
-              company: ''
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - request_format
-        - url
-        - user.roles
-      tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: formateurs_old
-      fields:
-        co_resp:
-          id: co_resp
-          table: gbb_gresp_dafor
-          field: co_resp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: co_resp
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: null
-          entity_field: null
-          plugin_id: standard
-        nomu:
-          id: nomu
-          table: gbb_gresp_dafor
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Nom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: 'bb-stages-formateur?id_disp=5&nomu={{ nomu }}&co_resp={{ co_resp }}'
+            path: 'bb-stages-formateur?id_disp=3&nomu={{ nomu }}&co_resp={{ co_resp }} '
             absolute: false
             external: false
             replace_spaces: false
@@ -842,29 +442,341 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      defaults:
-        fields: false
+        type:
+          id: type
+          table: gbb_gresp_periodic
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Information
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        val:
+          id: val
+          table: gbb_gresp_periodic
+          field: val
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Valeur
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+      filters:
+        nomu:
+          id: nomu
+          table: gbb_gresp_dafor
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_op
+            label: Nom
+            description: ''
+            use_operator: false
+            operator: nomu_op
+            identifier: nomu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: 'Grouper le filtre des champs'
+            description: null
+            use_operator: false
+            operator: combine_op
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Période
+            description: ''
+            identifier: combine
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 18-19
+                operator: '='
+                value: '18'
+              2:
+                title: 17-18
+                operator: '='
+                value: '17'
+              3:
+                title: 16-17
+                operator: '='
+                value: '16'
+          fields:
+            period: period
+          plugin_id: combine
+        combine_1:
+          id: combine_1
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: dech_dafor
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_1_op
+            label: 'Grouper le filtre des champs'
+            description: null
+            use_operator: false
+            operator: combine_1_op
+            identifier: combine_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Information
+            description: ''
+            identifier: combine_1
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Décharge DAFOR'
+                operator: '='
+                value: dech_dafor
+              2:
+                title: 'Resp. DAFOR'
+                operator: '='
+                value: resp_dafor
+              3:
+                title: 'Décharge DANE'
+                operator: '='
+                value: dech_dane
+              4:
+                title: 'Décharge CAFFA'
+                operator: '='
+                value: dech_caffa
+              5:
+                title: 'Décharge PFA'
+                operator: '='
+                value: dech_pfa
+              6:
+                title: 'Champ d''intervention'
+                operator: '='
+                value: champ_interv
+          fields:
+            type: type
+          plugin_id: combine
+        val:
+          id: val
+          table: gbb_gresp_periodic
+          field: val
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: val_op
+            label: 'Conseiller DAFOR'
+            description: ''
+            use_operator: false
+            operator: val_op
+            identifier: val
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      sorts:
+        nomu:
+          id: nomu
+          table: gbb_gresp_dafor
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      title: 'BB: Formateurs'
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+      group_by: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
       tags: {  }
-  rest_export_1:
-    display_plugin: rest_export
-    id: rest_export_1
-    display_title: 'Export REST'
-    position: 3
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
     display_options:
       display_extenders: {  }
-      path: exportrest
+      path: formateurs
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - request_format
         - url
-        - user.roles
+        - url.query_args
       tags: {  }
