@@ -1059,6 +1059,43 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  //{{ *** GBB_GRESP_PLUS intégré
+  $data['gbb_gresp_periodic']['table'] = array( 'group' => t('gbb_session'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gresp_periodic',
+        'left_table' => 'gbb_session',
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+        // 'extra' => 'gbb_gresp_plus.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gresp_periodic']['period'] = array( 'help' => t('Période scolaire'),
+  //{{
+    'title'  => t('Période'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_periodic']['type'] = array( 'help' => t('Type d\'info'),
+  //{{
+    'title'  => t('Type d\'info'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_periodic']['val'] = array( 'help' => t('Valeur'),
+  //{{
+    'title'  => t('Valeur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
 
   // ********************************************************
@@ -1149,6 +1186,15 @@ function bb_views_data() {
     ),
   );
   $data['gbb_gresp_plus']['table'] = array( 'group' => t('gbb_gresp_dafor'),
+    'join' => array(
+      'gbb_gresp_dafor' => array(
+        'left_field' => 'co_resp',
+        'field' => 'co_resp',
+      ),
+    ),
+  );
+  $data['gbb_gresp_periodic']['table'] = array( 'group' => t('gbb_gresp_dafor'),
+  //{{
     'join' => array(
       'gbb_gresp_dafor' => array(
         'left_field' => 'co_resp',
