@@ -482,17 +482,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          block_id: formateur_form_block
-          plugin_id: views_block_area
-        views_block_area_1:
-          id: views_block_area_1
-          table: views
-          field: views_block_area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          block_id: charts_block
+          block_id: formulaire_formateur_block
           plugin_id: views_block_area
       defaults:
         header: false
