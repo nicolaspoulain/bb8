@@ -1,8 +1,0 @@
-name: chart_block_example
-type: module
-description: Created a block using the Charts API.
-core: 8.x
-package: Custom
-dependencies:
-  - charts
-  - charts_google
