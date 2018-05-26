@@ -7,6 +7,9 @@
 
 namespace Drupal\bb\Controller;
 
+use Drupal\Core\Database\DatabaseExceptionWrapper;
+use Drupal\Core\Database\Database;
+
 class BbCrudController {
 
   /**
@@ -24,16 +27,18 @@ class BbCrudController {
   public static function logAndDsm($severity = 'info', $type = 'Oups', $table='none', $condition = array(), $entry = array()) {
 
     if ($severity == 'info') {
-    \Drupal::logger('BB')->info('%type --- %table ~~~ %condition // %entry', array(
+    \Drupal::logger('BB')->info('%type:%table ~ %condition // %entry', array(
         '%type'  => $type,
         '%table' => $table,
         '%condition' => urldecode(http_build_query($condition,'',', ')),
         '%entry' => urldecode(http_build_query($entry,'',', ')),
       )
     );
-    drupal_set_message( t('%type --- %entry', array(
+    drupal_set_message( t('%type:%table ~ %condition // %entry', array(
         '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
+        '%table' => $table,
+        '%condition' => urldecode(http_build_query($condition,'',', ')),
+        '%entry' => urldecode(http_build_query($entry,'',', ')),
       )
     ));
     } elseif ($severity = 'error') {
@@ -71,14 +76,18 @@ class BbCrudController {
     try {
       $create->execute();
     }
-    // Message if query fails
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e, NULL, NULL, NULL);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e, NULL, NULL, NULL);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, NULL, NULL, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
     \Drupal\Core\Database\Database::setActiveConnection();
-    self::logAndDsm('info', 'create', $table, $condition, $entry); // Logger and message
+    self::logAndDsm('info', 'cr', $table, $condition, $entry); // Logger and message
     return TRUE;
   }
 
@@ -105,12 +114,17 @@ class BbCrudController {
     try {
       $query->execute();
     }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e, NULL, NULL, NULL);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e, NULL, NULL, NULL);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, NULL, NULL, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
-    self::logAndDsm('info', 'update', $table, $condition, $entry); // Logger and message
+    self::logAndDsm('info', 'up', $table, $condition, $entry); // Logger and message
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -140,12 +154,17 @@ class BbCrudController {
     try {
       $delete->execute();
     }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e, NULL, NULL, NULL);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e, NULL, NULL, NULL);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, NULL, NULL, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
-    self::logAndDsm('info', 'delete', $table, $condition, NULL);
+    self::logAndDsm('info', 'del', $table, $condition, NULL);
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -177,9 +196,14 @@ class BbCrudController {
     try {
       $result = $select->execute()->fetchAll();
     }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e, NULL, NULL, NULL);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e, NULL, NULL, NULL);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, NULL, NULL, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
     \Drupal\Core\Database\Database::setActiveConnection();
     return $result;
