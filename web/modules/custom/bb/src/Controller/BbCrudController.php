@@ -24,34 +24,30 @@ class BbCrudController {
    * @param array $entry
    *   An array containing all the fields used
    */
-  public static function logAndDsm($severity = 'info', $type = 'Oups', $table='none', $condition = array(), $entry = array()) {
+  public static function logAndDsm($severity = 'info', $type = 'Oups', $table='none', $condition = array(), $entry = array(), $entry_old = array()) {
 
     if ($severity == 'info') {
-    \Drupal::logger('BB')->info('%type (%table) %condition </br> %entry', array(
-        '%type'  => $type,
-        '%table' => $table,
-        // '%condition' => urldecode(http_build_query($condition,'',', ')),
-        '%condition' => urldecode(http_build_query($condition,'',', ')),
-        '%entry' => urldecode(http_build_query($entry,'',', ')),
-      )
-    );
-    drupal_set_message( t('%type:%table ~ %condition // %entry', array(
-        '%type'  => $type,
-        '%table' => $table,
-        '%condition' => urldecode(http_build_query($condition,'',', ')),
-        '%entry' => urldecode(http_build_query($entry,'',', ')),
-      )
-    ));
+      \Drupal::logger('BB')->info('%type (%table) %condition </br> %entry </br> %entry_old',
+        array(
+          '%type'  => $type,
+          '%table' => $table,
+          // '%condition' => urldecode(http_build_query($condition,'',', ')),
+          '%condition' => urldecode(http_build_query($condition,'',', ')),
+          '%entry' => urldecode(http_build_query($entry,'',', ')),
+          '%entry_old' => urldecode(http_build_query($entry_old,'',', ')),
+        )
+      );
     } elseif ($severity = 'error') {
-    \Drupal::logger('BB')->error('%type ~~~ %entry', array(
-        '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
-      )
-    );
-    drupal_set_message(
-      t('%type ~~~ %entry', array(
-        '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
+      \Drupal::logger('BB')->error('%type ~~~ %entry',
+        array(
+          '%type'  => $type,
+          '%entry' => http_build_query($condition,'',', '),
+        )
+      );
+      drupal_set_message( t('%type ~~~ %entry',
+        array(
+          '%type'  => $type,
+          '%entry' => http_build_query($condition,'',', '),
         )
       ),'error');
     };
@@ -111,8 +107,10 @@ class BbCrudController {
     $old = BbCrudController::load($table, $condition);
     $old = (array) $old[0];
     foreach ($entry as $field=>$value) {
-      $entry_old[$field.'x'] = $old[$field];
+      $entry_old[$field] = $old[$field];
     }
+    $entry_old['Values']='OLD';
+
     // Build update query
     $query = \Drupal::database()->update($table)->fields($entry);
     foreach ($condition as $field => $value) {
@@ -131,7 +129,7 @@ class BbCrudController {
       self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
-    self::logAndDsm('info', 'update', $table, $condition, array_merge($entry,$entry_old)); // Logger and message
+    self::logAndDsm('info', 'update', $table, $condition, $entry, $entry_old); // Logger and message
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
