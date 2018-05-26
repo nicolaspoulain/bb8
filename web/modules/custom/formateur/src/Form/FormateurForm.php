@@ -241,16 +241,19 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
     );
 
-    $fid = $period['pj'];
-    // dpm($fid);
-    $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
-    // dpm($file_loaded);
+    $file ='';
+    if (array_key_exists("pj",$period)) {
+      $fid = $period['pj'];
+      // dpm($fid);
+      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
+      // dpm($file_loaded);
       if ($file_loaded[0]->status) {
         // $flist[$f->fid] = $file_loaded[0]->uri.$file_loaded[0]->filename;
         $uri = $file_loaded[0]->uri;
         $url = Url::fromUri(file_create_url($uri));
         $file = \Drupal::l($file_loaded[0]->filename,$url);
       }
+    }
 
     $form['fieldset']['pj'] = array(
       '#title' => t('Lettre de mission : ').$file,
@@ -334,28 +337,31 @@ class FormateurForm extends FormBase {
     };
 
     /* Fetch the array of the file stored temporarily in database */
-    $thefile = $form_state->getValue('pj');
-    if ( $thefile[0] > 0 ) {
-      /* Load the object of the file by its fid */
-      $file = File::load( $thefile[0] );
-      /* Set the status flag permanent of the file object */
-      $file->setPermanent();
-      /* Save the file in database */
-      $file->save();
-      $condition = array(
-        'co_resp' => \Drupal::request()->query->get('co_resp'),
-        'period'  => $form_state->getValue('period'),
-        'type'  => 'pj',
-      );
-      $entry = array(
-        'val' => $thefile[0],
-      );
-      // dpm($entry);
-      $row = BbCrudController::load('gbb_gresp_periodic', $condition);
-      if (!empty($row)) {
-        $DBWriteStatus = BbCrudController::update('gbb_gresp_periodic', $entry, $condition);
-      } else {
-        $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
+    // $thefile = $form_state->getValue('pj');
+    // if (!empty($thefile)) {
+    if (!empty($thefile = $form_state->getValue('pj'))) {
+      if ( $thefile[0] > 0 ) {
+        /* Load the object of the file by its fid */
+        $file = File::load( $thefile[0] );
+        /* Set the status flag permanent of the file object */
+        $file->setPermanent();
+        /* Save the file in database */
+        $file->save();
+        $condition = array(
+          'co_resp' => \Drupal::request()->query->get('co_resp'),
+          'period'  => $form_state->getValue('period'),
+          'type'  => 'pj',
+        );
+        $entry = array(
+          'val' => $thefile[0],
+        );
+        // dpm($entry);
+        $row = BbCrudController::load('gbb_gresp_periodic', $condition);
+        if (!empty($row)) {
+          $DBWriteStatus = BbCrudController::update('gbb_gresp_periodic', $entry, $condition);
+        } else {
+          $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
+        }
       }
     }
     return TRUE;

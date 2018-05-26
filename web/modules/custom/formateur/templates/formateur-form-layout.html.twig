@@ -1,16 +1,16 @@
-{% set library = 'charts_' ~ chart_type ~ '/' ~ chart_type %}
-{{ attach_library("#{ library }") }}
-{{ _context[''].intro }}
+{# {% set library = 'charts_' ~ chart_type ~ '/' ~ chart_type %} #}
+{# {{ attach_library("#{ library }") }} #}
+
 <section class="container">
   <div class="one">
     <div class="pure-g">
-      {{ _context[''].form }}
+      {{ form.form }}
     </div>
   </div>
   <div id="chart_div" class="two"></div>
 </section>
 
-{% set var = _context[''].heures %}
+{% set var = form.heures %}
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

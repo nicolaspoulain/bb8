@@ -21,11 +21,15 @@ class FormateurFormBlock extends BlockBase {
    */
   public function build() {
     // See .module hook_theme
+
+    $myvar = new Formateur();
+
     $content['#theme'] = 'formateur_form';
 
     $content['intro'] = [ '#markup' => $this->t(''), ];
     $content['form'] = \Drupal::formBuilder()->getForm('Drupal\formateur\Form\FormateurForm');
-    $content['heures'] = Formateur::heures();
+    // $content['heures'] = Formateur::heures();
+    $content['heures'] = $myvar->heures();
     return $content;
   }
 
