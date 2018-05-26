@@ -27,9 +27,10 @@ class BbCrudController {
   public static function logAndDsm($severity = 'info', $type = 'Oups', $table='none', $condition = array(), $entry = array()) {
 
     if ($severity == 'info') {
-    \Drupal::logger('BB')->info('%type:%table ~ %condition // %entry', array(
+    \Drupal::logger('BB')->info('%type (%table) %condition </br> %entry', array(
         '%type'  => $type,
         '%table' => $table,
+        // '%condition' => urldecode(http_build_query($condition,'',', ')),
         '%condition' => urldecode(http_build_query($condition,'',', ')),
         '%entry' => urldecode(http_build_query($entry,'',', ')),
       )
@@ -87,7 +88,7 @@ class BbCrudController {
     }
 
     \Drupal\Core\Database\Database::setActiveConnection();
-    self::logAndDsm('info', 'cr', $table, $condition, $entry); // Logger and message
+    self::logAndDsm('info', 'create', $table, $condition, $entry); // Logger and message
     return TRUE;
   }
 
@@ -105,9 +106,15 @@ class BbCrudController {
   public static function update($table = 'NaN', $entry, $condition) {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
-    // Nouvelle méthode SQL QUERY
-    $query = \Drupal::database()->update($table);
-    $query->fields($entry);
+
+    // Get prec values for comparison
+    $old = BbCrudController::load($table, $condition);
+    $old = (array) $old[0];
+    foreach ($entry as $field=>$value) {
+      $entry_old[$field.'x'] = $old[$field];
+    }
+    // Build update query
+    $query = \Drupal::database()->update($table)->fields($entry);
     foreach ($condition as $field => $value) {
       $query->condition($field, $value);
     }
@@ -124,7 +131,7 @@ class BbCrudController {
       self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
-    self::logAndDsm('info', 'up', $table, $condition, $entry); // Logger and message
+    self::logAndDsm('info', 'update', $table, $condition, array_merge($entry,$entry_old)); // Logger and message
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -164,7 +171,7 @@ class BbCrudController {
       self::logAndDsm('error', 'Catch Exception : '. (string) $e, NULL, NULL, NULL);
     }
 
-    self::logAndDsm('info', 'del', $table, $condition, NULL);
+    self::logAndDsm('info', 'delete', $table, $condition, NULL);
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -183,13 +190,13 @@ class BbCrudController {
    * @return object
    *   An object containing the loaded entries if found.
    */
-  public static function load($table, $entry = array()) {
+  public static function load($table, $condition = array()) {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $select = db_select($table,'t');
     $select->fields('t');
-    foreach ($entry as $field => $value) {
+    foreach ($condition as $field => $value) {
       $select->condition($field, $value);
     }
 
