@@ -60,7 +60,7 @@ class JournalForm extends FormBase {
       // '#type' => 'textarea', // WYSIWYG textarea est mieux :
       '#type'=>'text_format',
       '#title' => 'Journal',
-      '#default_value' => $module[0]->organisation,
+      '#default_value' => (!empty($module))? $module[0]->organisation : '',
       '#description' => '',
       // '#ajax' => [
         // 'callback' => '::saveJournalAjax',

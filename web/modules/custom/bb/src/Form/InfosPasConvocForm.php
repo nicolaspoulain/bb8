@@ -60,7 +60,7 @@ class InfosPasConvocForm extends FormBase {
       // '#type' => 'textarea', // WYSIWYG != textarea
       '#type'=>'text_format',
       '#title' => 'Infos à ne PAS porter sur la convocation',
-      '#default_value' => $module[0]->convoc_info_off,
+      '#default_value' => (!empty($module))? $module[0]->convoc_info_off : '',
       '#description' => '',
       // '#ajax' => [
         // 'callback' => '::saveJournalAjax',
