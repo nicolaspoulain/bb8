@@ -44,31 +44,19 @@ class FormateurForm extends FormBase {
     // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
     switch ($query['id_disp']) {
       case '1':
-        $annee = '20';
-        break;
-      case '2':
-        $annee = '19';
-        break;
-      case '3':
         $annee = '18';
         break;
-      case '4':
+      case '2':
         $annee = '17';
         break;
-      case '5':
+      case '3':
         $annee = '16';
         break;
-      case '6':
+      case '4':
         $annee = '15';
         break;
-      case '7':
+      case '5':
         $annee = '14';
-        break;
-      case '8':
-        $annee = '13';
-        break;
-      default:
-        $annee = '17';
         break;
     }
 

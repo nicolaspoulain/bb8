@@ -14,7 +14,7 @@ dependencies:
     - user
     - views_data_export
 id: paf_fil
-label: 'BB: PAF + FIL'
+label: 'BB: Module - paf+fil'
 module: views
 description: ''
 tag: bb

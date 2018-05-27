@@ -11,7 +11,7 @@ dependencies:
     - bb
     - user
 id: a_traiter
-label: 'BB: A traiter'
+label: 'BB: Session - à traiter'
 module: views
 description: 'Les sessions à traiter par le service administratif'
 tag: bb

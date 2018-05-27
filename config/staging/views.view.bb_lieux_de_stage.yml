@@ -7,9 +7,10 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - user
 id: bb_lieux_de_stage
-label: 'BB: Lieux de stage'
+label: 'BB: Étab - liste'
 module: views
 description: ''
 tag: ''
@@ -483,7 +484,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
@@ -499,7 +500,7 @@ display:
       display_extenders: {  }
       path: lieux-de-stage
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

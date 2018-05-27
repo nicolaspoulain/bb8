@@ -7,9 +7,10 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - user
 id: infos_module
-label: 'BB: Infos module'
+label: 'BB: Module - bloc info'
 module: views
 description: ''
 tag: bb
