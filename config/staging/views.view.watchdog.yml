@@ -637,10 +637,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: in_operator
-        message:
-          id: message
+        variables:
+          id: variables
           table: watchdog
-          field: message
+          field: variables
           relationship: none
           group_type: group
           admin_label: ''
@@ -649,12 +649,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: message_op
-            label: Message
+            operator_id: variables_op
+            label: Rechercher
             description: ''
             use_operator: false
-            operator: message_op
-            identifier: message
+            operator: variables_op
+            identifier: variables
             required: false
             remember: false
             multiple: false
