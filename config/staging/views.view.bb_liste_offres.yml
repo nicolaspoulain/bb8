@@ -9,10 +9,10 @@ dependencies:
     - bb
     - user
 id: bb_liste_offres
-label: 'BB: Liste Offres'
+label: 'BB: Offre - liste'
 module: views
 description: ''
-tag: ''
+tag: bb
 base_table: gbb_gmoof
 base_field: co_offre
 core: 8.x

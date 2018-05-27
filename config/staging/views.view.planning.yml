@@ -7,9 +7,10 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
   module:
+    - bb
     - user
 id: planning
-label: 'BB: Planning'
+label: 'BB: Module - planning'
 module: views
 description: 'Sessions classées par date'
 tag: bb
@@ -231,7 +232,7 @@ display:
         operator: AND
         groups: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - user.roles
@@ -886,7 +887,7 @@ display:
           plugin_id: standard
       display_description: ''
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_interface'
         - url

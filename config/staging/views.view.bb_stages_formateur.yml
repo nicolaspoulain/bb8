@@ -6,7 +6,7 @@ dependencies:
     - bb
     - views_block_area
 id: bb_stages_formateur
-label: 'BB: stages formateur'
+label: 'BB: Formateur - stages'
 module: views
 description: ''
 tag: ''

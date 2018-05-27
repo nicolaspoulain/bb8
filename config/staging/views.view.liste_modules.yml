@@ -11,7 +11,7 @@ dependencies:
     - user
     - views_current_path
 id: liste_modules
-label: 'BB: Liste modules plan'
+label: 'BB: Module - liste'
 module: views
 description: ''
 tag: bb

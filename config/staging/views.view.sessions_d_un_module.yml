@@ -10,7 +10,7 @@ dependencies:
     - bb
     - user
 id: sessions_d_un_module
-label: 'BB: Sessions module'
+label: 'BB: Session - édition'
 module: views
 description: 'Toutes les sessions pour un module donné'
 tag: bb

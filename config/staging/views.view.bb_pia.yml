@@ -1,9 +1,11 @@
 uuid: e51299a7-98d4-47c3-be8f-f02541670c4b
 langcode: fr
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - bb
 id: bb_pia
-label: 'BB: PIA'
+label: 'BB: Module - pia'
 module: views
 description: ''
 tag: ''

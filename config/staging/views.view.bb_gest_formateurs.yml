@@ -5,7 +5,7 @@ dependencies:
   module:
     - bb
 id: bb_gest_formateurs
-label: 'BB: Formateurs'
+label: 'BB: Formateur - liste'
 module: views
 description: ''
 tag: ''
