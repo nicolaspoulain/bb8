@@ -94,7 +94,7 @@ class CfileForm extends FormBase {
       '#type' => 'managed_file',
       '#multiple' => 'true',
       '#upload_validators'  => array(
-        'file_validate_extensions' => array('jpg jpeg gif png txt rtf doc docx odt xls xlsx ods pdf zip'),
+        'file_validate_extensions' => array('jpg jpeg gif png txt csv rtf doc docx odt xls xlsx ods pdf zip'),
         'file_validate_size' => array(25600000),
       ),
       '#upload_location' => 'private://pieces-jointes/',

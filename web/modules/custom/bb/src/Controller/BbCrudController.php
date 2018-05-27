@@ -7,6 +7,9 @@
 
 namespace Drupal\bb\Controller;
 
+use Drupal\Core\Database\DatabaseExceptionWrapper;
+use Drupal\Core\Database\Database;
+
 class BbCrudController {
 
   /**
@@ -21,29 +24,29 @@ class BbCrudController {
    * @param array $entry
    *   An array containing all the fields used
    */
-  public static function logAndDsm($severity = 'info', $type = 'Oups', $entry = array()) {
+  public static function logAndDsm($severity = 'info', $type = 'Oups', $table='none', $condition = array(), $entry = array(), $entry_old = array()) {
 
     if ($severity == 'info') {
-    \Drupal::logger('BB')->info('%type --- %entry', array(
-        '%type'  => $type,
-        '%entry' => urldecode(http_build_query($entry,'',', ')),
-      )
-    );
-    drupal_set_message( t('%type --- %entry', array(
-        '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
-      )
-    ));
+      \Drupal::logger('BB')->info('%type (%table) %condition </br> %entry </br> %entry_old',
+        array(
+          '%type'  => $type,
+          '%table' => $table,
+          '%condition' => urldecode(http_build_query($condition,'',', ')),
+          '%entry' => urldecode(http_build_query($entry,'',', ')),
+          '%entry_old' => urldecode(http_build_query($entry_old,'',', ')),
+        )
+      );
     } elseif ($severity = 'error') {
-    \Drupal::logger('BB')->error('%type --- %entry', array(
-        '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
-      )
-    );
-    drupal_set_message(
-      t('%type --- %entry', array(
-        '%type'  => $type,
-        '%entry' => http_build_query($entry,'',', '),
+      \Drupal::logger('BB')->error('%type ~~~ %entry',
+        array(
+          '%type'  => $type,
+          '%entry' => http_build_query($condition,'',', '),
+        )
+      );
+      drupal_set_message( t('%type ~~~ %entry',
+        array(
+          '%type'  => $type,
+          '%entry' => http_build_query($condition,'',', '),
         )
       ),'error');
     };
@@ -64,25 +67,23 @@ class BbCrudController {
     // Build query
     $create = db_insert($table)
         ->fields($entry);
-    drupal_set_message(
-      t('%type --- %entry', array(
-        '%type'  => $table,
-        '%entry' => http_build_query($entry,'',', '),
-        )
-      ),'error');
 
     // Execute query if possible
     try {
       $create->execute();
     }
-    // Message if query fails
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e);
     }
 
     \Drupal\Core\Database\Database::setActiveConnection();
-    self::logAndDsm('info', 'create', $entry); // Logger and message
+    self::logAndDsm('info', 'create', $table, array(), $entry); // Logger and message
     return TRUE;
   }
 
@@ -100,22 +101,34 @@ class BbCrudController {
   public static function update($table = 'NaN', $entry, $condition) {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
-    // Build query
-    $update = db_update($table)
-      ->fields($entry);
-    foreach ($condition as $field => $value) {
-      $update->condition($field, $value);
-    }
 
+    // Get prec values for comparison
+    $old = BbCrudController::load($table, $condition);
+    $old = (array) $old[0];
+    foreach ($entry as $field=>$value) {
+      $entry_old[$field] = $old[$field];
+    }
+    $entry_old['Values']='OLD';
+
+    // Build update query
+    $query = \Drupal::database()->update($table)->fields($entry);
+    foreach ($condition as $field => $value) {
+      $query->condition($field, $value);
+    }
     try {
-      $update->execute();
+      $query->execute();
+    }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e);
     }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e);
     }
 
-    self::logAndDsm('info', 'update', $entry);
+    self::logAndDsm('info', 'update', $table, $condition, $entry, $entry_old); // Logger and message
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -133,24 +146,29 @@ class BbCrudController {
    * @return object
    *   An object containing the loaded entries if found.
    */
-  public static function delete($table = 'NaN', $entry = array()) {
+  public static function delete($table = 'NaN', $condition = array()) {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $delete = db_delete($table);
-    foreach ($entry as $field => $value) {
+    foreach ($condition as $field => $value) {
       $delete->condition($field, $value);
     }
 
     try {
       $delete->execute();
     }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e);
+    }
     catch (\Exception $e) {
-      self::logAndDsm('error', $e->getMessage, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e);
     }
 
-    self::logAndDsm('info', 'delete', $entry);
+    self::logAndDsm('info', 'delete', $table, $condition);
     \Drupal\Core\Database\Database::setActiveConnection();
     return TRUE;
   }
@@ -169,27 +187,27 @@ class BbCrudController {
    * @return object
    *   An object containing the loaded entries if found.
    */
-  public static function load($table, $entry = array()) {
+  public static function load($table, $condition = array()) {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
     $select = db_select($table,'t');
     $select->fields('t');
-    foreach ($entry as $field => $value) {
+    foreach ($condition as $field => $value) {
       $select->condition($field, $value);
     }
 
     try {
       $result = $select->execute()->fetchAll();
     }
+    catch (\PDOException $e) {
+      self::logAndDsm('error', 'Catch PDOException : '. (string) $e);
+    }
+    catch (DatabaseExceptionWrapper $e) {
+      self::logAndDsm('error', 'Catch DatabaseExceptionWrapper : '. (string) $e);
+    }
     catch (\Exception $e) {
-      drupal_set_message(t('db_read failed. Message = %message, query= %query', array(
-            '%message' => $e->getMessage(),
-            '%query' => $e->query_string,
-          )), 'error');
-      return FALSE;
-      self::logAndDsm('error', $e->getMessage, array($e->query_string));
-      return FALSE;
+      self::logAndDsm('error', 'Catch Exception : '. (string) $e);
     }
     \Drupal\Core\Database\Database::setActiveConnection();
     return $result;

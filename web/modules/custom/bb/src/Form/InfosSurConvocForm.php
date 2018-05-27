@@ -60,7 +60,7 @@ class InfosSurConvocForm extends FormBase {
       '#type' => 'textarea',
       // '#type'=>'text_format', // WYSIWYG textarea est mieux :
       '#title' => 'Infos à porter sur la convocation',
-      '#default_value' => $module[0]->convoc_info_on,
+      '#default_value' => (!empty($module))? $module[0]->convoc_info_on : '',
       '#description' => '',
       '#rows' => 5,
       // '#ajax' => [

@@ -36,6 +36,7 @@ function formateur_theme() {
   return [
     'formateur_form' => array(
       'template' => 'formateur-form-layout',
+      'render element' => 'form',
     ),
   ];
 }
