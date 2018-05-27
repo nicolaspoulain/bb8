@@ -138,7 +138,7 @@ margin:10px;
 }
 .fa-envelopeformateur-to-flag:before{
   content: "\f007";
-  color: #FFCC00; }
+  color: orange; }
 .fa-envelopeformateur-to-flag:hover:before{
   content: "\f024";
   color: red;
