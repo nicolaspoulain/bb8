@@ -35,8 +35,11 @@ class Formateur extends ControllerBase {
       'period'   => $annee,
       'type'     => 'dech_dafor'
     );
+    $dech_dafor = 0;
     $formateur = BbCrudController::load( 'gbb_gresp_periodic', $entry);
-    $dech_dafor = $formateur[0]->val;
+    if (!empty($formateur)) {
+      $dech_dafor = $formateur[0]->val;
+    }
     $dech_dafor = ($dech_dafor > 0)? $dech_dafor : 0;
 
     $entry = array(
@@ -44,8 +47,11 @@ class Formateur extends ControllerBase {
       'period'   => $annee,
       'type'     => 'dech_pfa'
     );
+    $dech_pfa = 0;
     $formateur = BbCrudController::load( 'gbb_gresp_periodic', $entry);
-    $dech_pfa = $formateur[0]->val;
+    if (!empty($formateur)) {
+      $dech_pfa = $formateur[0]->val;
+    }
     $dech_pfa = ($dech_pfa > 0)? $dech_pfa : 0;
 
     // switch database (cf settings.php)
