@@ -69,14 +69,17 @@ class FormateurForm extends FormBase {
     $formateur = BbCrudController::load( 'gbb_gresp_dafor', $entry);
     $entry['period'] = $annee;
     $periodic = BbCrudController::load( 'gbb_gresp_periodic', $entry);
-    foreach ($periodic as $elt) {
-      $period[$elt->type] = $elt->val;
+    $period['dech_dafor'] = '';
+    $period['dech_pfa'] = '';
+    $period['dech_dane'] = '';
+    $period['dech_caffa'] = '';
+    $period['resp_dafor'] = '';
+    $period['champ_interv'] = '';
+    if (!empty($periodic)) {
+      foreach ($periodic as $elt) {
+        $period[$elt->type] = $elt->val;
+      }
     }
-    // dpm($period['dech_dafor']);
-    // dpm($period['dech_pfa']);
-    // dpm($period['dech_dane']);
-    // dpm($period['dech_caffa']);
-    // dpm($period['resp_dafor']);
 
     $form['period'] = array(
       '#type' => 'hidden',
