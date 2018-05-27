@@ -914,9 +914,9 @@ function bb_views_data() {
   $data['gbb_session']['co_lieu'] = array( 'help' => t('Code lieu (RNE)'),
   //{{ *** GBB_NETAB_DAFOR intégré
     'title' => t('co_lieu'),
-    'field'  => array('id' => 'numeric',),
+    'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
+    'filter' => array('id' => 'string'),
   );
   $data['gbb_netab_dafor_session']['table'] = array( 'group' => t('gbb_session'),
     'join' => array(
