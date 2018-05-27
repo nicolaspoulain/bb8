@@ -864,7 +864,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"no-link fas fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-flag red\"></a></li>\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-pause gray\"></a></li>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-pause-to-play no-link\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-flag-to-play red no-link\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelope-to-flag green no-link\"></i></a>\n{% elseif status == \"4\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopeformateur-to-flag no-link\"></i></a>\n{% elseif status == \"5\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\"><i class=\"fa fa-envelopestagiaires-to-flag no-link\"></i></a>\n{% endif %}"
+            text: "{% if status == \"0\" %}\n<ul class=\"no-dot\">\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\n             <i class=\"no-link fas fa-play-circle fa-lg blue\"></i>\n             <ul class=\"pure-menu-children\">\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fa fa-flag red\"></a></li>\n               <li class=\"pure-menu-item pure-menu-link\"><a href=\"../../sessionpause/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fas fa-pause gray\"></a></li>\n             </ul>\n            </li>\n</ul>\n{% elseif status == \"1\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link\"><i class=\"fa fa-pause-to-play\"></i></a>\n{% elseif status == \"2\" %}\n<a href=\"../../sessionplay/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link\"><i class=\"fa fa-flag-to-play red\"></i></a>\n{% elseif status == \"3\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link\"><i class=\"fa fa-envelope-to-flag green\"></i></a>\n{% elseif status == \"4\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link\"><i class=\"fa fa-envelopeformateur-to-flag\"></i></a>\n{% elseif status == \"5\" %}\n<a href=\"../../sessionalert/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link\"><i class=\"fa fa-envelopestagiaires-to-flag\"></i></a>\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1552,9 +1552,9 @@ display:
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
+            alt: 'Voir la fiche'
             rel: ''
-            link_class: ''
+            link_class: no-link
             prefix: ''
             suffix: ''
             target: ''
