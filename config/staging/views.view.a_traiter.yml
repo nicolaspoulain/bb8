@@ -291,7 +291,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: date_courte_par_defaut_sans_heure
+          date_format: date_courte
           custom_date_format: ''
           timezone: ''
           plugin_id: date
@@ -764,6 +764,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: true
           group_info:
             label: Année
@@ -777,17 +778,25 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 18-19
+                operator: starts
+                value: '18'
+              2:
                 title: 17-18
                 operator: starts
                 value: '17'
-              2:
+              3:
                 title: 16-17
                 operator: starts
                 value: '16'
-              3:
+              4:
                 title: 15-16
                 operator: starts
                 value: '15'
+              5:
+                title: 14-15
+                operator: starts
+                value: '14'
           plugin_id: string
         nomu:
           id: nomu
