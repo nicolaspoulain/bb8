@@ -363,7 +363,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-pause\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% endif %}\n\n\n\n\n"
+            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"4\" %}\n <i class=\"fa fa-user color-orange\"></i>\n{% elseif status == \"5\" %}\n<i class=\"fa fa-users pink\"></i>\n{% endif %}\n\n\n\n\n"
             make_link: false
             path: ''
             absolute: false
@@ -838,19 +838,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        status:
-          id: status
+        status_2:
+          id: status_2
           table: gbb_session
           field: status
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: '!='
           value:
             min: ''
             max: ''
-            value: '0'
-          group: 2
+            value: '1'
+          group: 1
           exposed: false
           expose:
             operator_id: ''
@@ -864,6 +864,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -877,19 +880,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-        status_1:
-          id: status_1
+        status_3:
+          id: status_3
           table: gbb_session
           field: status
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: '!='
           value:
             min: ''
             max: ''
-            value: '2'
-          group: 2
+            value: '3'
+          group: 1
           exposed: false
           expose:
             operator_id: ''
@@ -903,6 +906,9 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -920,7 +926,6 @@ display:
         operator: AND
         groups:
           1: AND
-          2: OR
       sorts:
         date_ts:
           id: date_ts
