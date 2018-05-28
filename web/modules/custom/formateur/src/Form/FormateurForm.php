@@ -149,7 +149,7 @@ class FormateurForm extends FormBase {
     );
 
     $organismes = array(
-      ''  => '',
+      '0'  => '',
       '1' => 'ESPE',
       'EXT.' => 'Extérieur',
       );
