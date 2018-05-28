@@ -2,8 +2,11 @@ uuid: e62ae9d1-e58c-42ec-b4e0-24d1b0106d06
 langcode: fr
 status: true
 dependencies:
+  config:
+    - user.role.authenticated
   module:
     - bb
+    - user
     - views_block_area
 id: bb_stages_formateur
 label: 'BB: Formateur - stages'
@@ -21,8 +24,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -439,6 +444,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -1003,6 +1009,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_2:
     display_plugin: page
@@ -1568,4 +1575,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
