@@ -44,26 +44,9 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 20
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Précédent'
-            next: 'Suivant ›'
-            first: '« Premier'
-            last: 'Dernier »'
-          expose:
-            items_per_page: true
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options: '20,50,100,200'
-            items_per_page_options_all: true
-            items_per_page_options_all_label: '- Tout -'
-            offset: false
-            offset_label: Décalage
-          quantity: 9
       style:
         type: default
         options:
@@ -823,7 +806,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-      sorts: {  }
+      sorts:
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'BB: Plan LaTeX'
       header: {  }
       footer: {  }
@@ -836,7 +831,6 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
       tags: {  }
   page_1:
     display_plugin: page
@@ -851,5 +845,4 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
-        - url.query_args
       tags: {  }
