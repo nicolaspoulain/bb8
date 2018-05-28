@@ -1,21 +1,16 @@
-uuid: fed9e81a-aaf7-482d-8d61-67835b4d5f0f
+uuid: 0ecaf202-7c37-4b71-bfe4-f7796807518e
 langcode: fr
 status: true
 dependencies:
-  config:
-    - user.role.administrator
-    - user.role.d_admi
-    - user.role.d_cons
   module:
     - bb
-    - user
-id: bb_lieux_de_stage
-label: 'BB: Etab - liste'
+id: bb_etab_stages
+label: 'BB: Etab - stages'
 module: views
 description: ''
 tag: ''
-base_table: gbb_netab_dafor
-base_field: co_lieu
+base_table: gbb_gmodu
+base_field: co_modu
 core: 8.x
 display:
   default:
@@ -25,12 +20,8 @@ display:
     position: 0
     display_options:
       access:
-        type: role
-        options:
-          role:
-            administrator: administrator
-            d_cons: d_cons
-            d_admi: d_admi
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -55,7 +46,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
@@ -65,9 +56,9 @@ display:
             first: '« Premier'
             last: 'Dernier »'
           expose:
-            items_per_page: true
+            items_per_page: false
             items_per_page_label: 'Éléments par page'
-            items_per_page_options: '10, 25, 50'
+            items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Tout -'
             offset: false
@@ -75,23 +66,52 @@ display:
           quantity: 9
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            sess_id: sess_id
+            date_ts: date_ts
+          info:
+            sess_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            date_ts:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
-        co_lieu:
-          id: co_lieu
-          table: gbb_netab_dafor
-          field: co_lieu
+        status:
+          id: status
+          table: gbb_session
+          field: status
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'RNE (ou UAI)'
+          label: status
           exclude: false
           alter:
-            alter_text: false
-            text: ''
-            make_link: true
-            path: 'bb-etab---stages?co_lieu={{ co_lieu }}&id_disp=17'
+            alter_text: true
+            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-pause gray\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% elseif status == \"4\" %}\n <i class=\"fa fa-user color-orange\"></i>\n{% elseif status == \"5\" %}\n<i class=\"fa fa-users pink\"></i>\n{% endif %}"
+            make_link: false
+            path: ''
             absolute: false
             external: false
             replace_spaces: false
@@ -134,17 +154,67 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          entity_type: null
-          entity_field: null
           plugin_id: numeric
-        sigle:
-          id: sigle
-          table: gbb_netab_dafor
-          field: sigle
+        date_ts:
+          id: date_ts
+          table: gbb_session
+          field: date_ts
           relationship: none
           group_type: group
           admin_label: ''
-          label: Sigle
+          label: Date
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: date_courte
+          custom_date_format: ''
+          timezone: ''
+          plugin_id: date
+        horaires:
+          id: horaires
+          table: gbb_session
+          field: horaires
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: horaires
           exclude: false
           alter:
             alter_text: false
@@ -186,14 +256,177 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        denom_comp:
-          id: denom_comp
-          table: gbb_netab_dafor
-          field: denom_comp
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
           relationship: none
           group_type: group
           admin_label: ''
-          label: Nom
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_degre:
+          id: co_degre
+          table: gbb_gmodu
+          field: co_degre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        co_modu:
+          id: co_modu
+          table: gbb_session
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Dispo/Module
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ id_disp }}/{{ co_modu }}'
+            make_link: true
+            path: 'moduleng/{{ co_degre }}/{{co_modu}}'
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Libellé
           exclude: false
           alter:
             alter_text: false
@@ -235,14 +468,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        adr:
-          id: adr
-          table: gbb_netab_dafor
-          field: adr
+        duree_prevue:
+          id: duree_prevue
+          table: gbb_session
+          field: duree_prevue
           relationship: none
           group_type: group
           admin_label: ''
-          label: Adresse
+          label: Durée
           exclude: false
           alter:
             alter_text: false
@@ -284,14 +517,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        cp:
-          id: cp
-          table: gbb_netab_dafor
-          field: cp
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga
+          field: nomu
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Code postal'
+          label: Resp.Orga
           exclude: false
           alter:
             alter_text: false
@@ -333,14 +566,63 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        tel:
-          id: tel
-          table: gbb_netab_dafor
-          field: tel
+        nomu_1:
+          id: nomu_1
+          table: gbb_gresp_peda
+          field: nomu
           relationship: none
           group_type: group
           admin_label: ''
-          label: Tel
+          label: Resp.Peda
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        nomu_2:
+          id: nomu_2
+          table: gbb_gresp_dafor_peda
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Formateur
           exclude: false
           alter:
             alter_text: false
@@ -385,7 +667,7 @@ display:
       filters:
         co_lieu:
           id: co_lieu
-          table: gbb_netab_dafor
+          table: gbb_session
           field: co_lieu
           relationship: none
           group_type: group
@@ -396,8 +678,8 @@ display:
           exposed: true
           expose:
             operator_id: co_lieu_op
-            label: 'RNE (ou UAI)'
-            description: 'p.ex.: 0753345D'
+            label: co_lieu
+            description: ''
             use_operator: false
             operator: co_lieu_op
             identifier: co_lieu
@@ -410,6 +692,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -423,24 +706,24 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        denom_comp:
-          id: denom_comp
-          table: gbb_netab_dafor
-          field: denom_comp
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
+          operator: starts
           value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: denom_comp_op
-            label: 'Nom (tout ou partie)'
-            description: 'p.ex.: Hugo ou Césaire'
+            operator_id: id_disp_op
+            label: id_disp
+            description: ''
             use_operator: false
-            operator: denom_comp_op
-            identifier: denom_comp
+            operator: id_disp_op
+            identifier: id_disp
             required: false
             remember: false
             multiple: false
@@ -450,6 +733,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -463,33 +747,24 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-      sorts:
-        denom_comp:
-          id: denom_comp
-          table: gbb_netab_dafor
-          field: denom_comp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      title: 'BB: Lieux de stage'
+      sorts: {  }
+      title: 'BB: Etab - stages'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -498,12 +773,11 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: lieux-de-stage
+      path: bb-etab---stages
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
       tags: {  }
