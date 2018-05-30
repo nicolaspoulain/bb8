@@ -99,9 +99,6 @@ class BbCrudController {
    * @see db_update()
    */
   public static function update($table = 'NaN', $entry, $condition) {
-    // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
-
     // Get prec values for comparison
     $old = BbCrudController::load($table, $condition);
     $old = (array) $old[0];
@@ -110,6 +107,8 @@ class BbCrudController {
     }
     $entry_old['Values']='OLD';
 
+    // switch database (cf settings.php)
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build update query
     $query = \Drupal::database()->update($table)->fields($entry);
     foreach ($condition as $field => $value) {
