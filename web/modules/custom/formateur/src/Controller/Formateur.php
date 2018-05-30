@@ -115,7 +115,7 @@ class Formateur extends ControllerBase {
     $userCurrent = \Drupal::currentUser();
     $user = \Drupal\user\Entity\User::load($userCurrent->id());
     $roles = $user->getRoles();
-    // dpm($roles);
+    dpm($roles);
 
     return [
       'dech_dafor' => $dech_dafor*27,
@@ -123,7 +123,6 @@ class Formateur extends ControllerBase {
       'sum_dec' => $sum_dec,
       'dech_pfa' => $dech_pfa*27,
       'sum_pfa' => $sum_pfa,
-      'is_anonymous' => $is_anonymous,
     ];
   }
 }
