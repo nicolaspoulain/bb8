@@ -115,7 +115,7 @@ class Formateur extends ControllerBase {
     $userCurrent = \Drupal::currentUser();
     $user = \Drupal\user\Entity\User::load($userCurrent->id());
     $roles = $user->getRoles();
-    dpm($roles);
+    // dpm($roles);
 
     return [
       'dech_dafor' => $dech_dafor*27,
