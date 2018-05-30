@@ -2,8 +2,13 @@ uuid: e51299a7-98d4-47c3-be8f-f02541670c4b
 langcode: fr
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.d_admi
+    - user.role.d_cons
   module:
     - bb
+    - user
 id: bb_pia
 label: 'BB: Module - pia'
 module: views
@@ -20,8 +25,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            d_cons: d_cons
+            d_admi: d_admi
       cache:
         type: tag
         options: {  }
@@ -371,6 +380,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -1152,6 +1162,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   page_2:
     display_plugin: page
@@ -1565,4 +1576,5 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
