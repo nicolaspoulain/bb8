@@ -9,7 +9,7 @@ class Formateur extends ControllerBase {
 
   public function heures() {
     $query = \Drupal::request()->query->all();
-    $co_resp = $query['co_resp'];
+    $co_resp = (array_key_exists('co_resp',$query))? $query['co_resp'] : '';
     // Doit correspondre au filtre groupé id_disp
     // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
     switch ($query['id_disp']) {
