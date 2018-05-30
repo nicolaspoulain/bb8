@@ -109,8 +109,10 @@ class BbCrudController {
 
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
+    // Get a connection going
+    $db = \Drupal\Core\Database\Database::getConnection();
     // Build update query
-    $query = \Drupal::database()->update($table)->fields($entry);
+    $query = $db->update($table)->fields($entry);
     foreach ($condition as $field => $value) {
       $query->condition($field, $value);
     }
