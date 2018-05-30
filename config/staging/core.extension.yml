@@ -16,6 +16,7 @@ module:
   contact: 0
   contextual: 0
   csv_serialization: 0
+  ctools: 0
   datetime: 0
   dblog: 0
   devel: 0
@@ -43,6 +44,9 @@ module:
   offres: 0
   options: 0
   page_cache: 0
+  password_policy: 0
+  password_policy_character_types: 0
+  password_policy_length: 0
   path: 0
   pia: 0
   quickedit: 0
