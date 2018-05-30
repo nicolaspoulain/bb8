@@ -70,7 +70,7 @@ class BbCrudController {
 
     // Execute query if possible
     try {
-      $create->execute();
+      $id = $create->execute();
     }
     catch (\PDOException $e) {
       self::logAndDsm('error', 'Catch PDOException : '. (string) $e);
@@ -84,7 +84,7 @@ class BbCrudController {
 
     \Drupal\Core\Database\Database::setActiveConnection();
     self::logAndDsm('info', 'create', $table, array(), $entry); // Logger and message
-    return TRUE;
+    return $id;
   }
 
   /**

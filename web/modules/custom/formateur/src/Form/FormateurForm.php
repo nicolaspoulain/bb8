@@ -38,7 +38,14 @@ class FormateurForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $query = \Drupal::request()->query->all();
-    $co_resp = $query['co_resp'];
+    if (!array_key_exists('co_resp',$query)) {
+      return False;
+    };
+    if (is_numeric($query['co_resp']) OR $query['co_resp'] == 'ADD') {
+      $co_resp = $query['co_resp'];
+    } else {
+      return False;
+    };
 
     // Doit correspondre au filtre groupé id_disp
     // sur admin/structure/views/view/bb_stages_formateur/edit/page_1
@@ -90,8 +97,8 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Nom'),
       '#size'          => 30,
-      '#default_value' => $formateur[0]->nomu,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->nomu : '',
+      '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
@@ -99,8 +106,8 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Prénom'),
       '#size'          => 30,
-      '#default_value' => $formateur[0]->prenom,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->prenom : '',
+      '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
@@ -108,8 +115,8 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Email'),
       '#size'          => 30,
-      '#default_value' => $formateur[0]->mel,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->mel : '',
+      '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
@@ -117,8 +124,8 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Téléphone'),
       '#size'          => 30,
-      '#default_value' => $formateur[0]->tel,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->tel : '',
+      '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
@@ -126,8 +133,8 @@ class FormateurForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('discipline'),
       '#size'          => 30,
-      '#default_value' => $infoscompl[0]->discipline,
-      '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->discipline : '',
+      '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
@@ -144,7 +151,7 @@ class FormateurForm extends FormBase {
       '#type' => 'select',
       '#title' => $this->t('Grade'),
       '#options' => array_combine($grades, $grades),
-      '#default_value' => $infoscompl[0]->grade,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
     );
 
@@ -157,7 +164,7 @@ class FormateurForm extends FormBase {
       '#type' => 'select',
       '#title' => t('Organisme'),
       '#options' => $organismes,
-      '#default_value' => $infoscompl[0]->statut,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->statut : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
     );
 
@@ -166,7 +173,7 @@ class FormateurForm extends FormBase {
       '#title' => $this->t('Divers'),
       '#rows' =>3,
       '#size'          => 25,
-      '#default_value' => $infoscompl[0]->divers,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->divers : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
     );
 
@@ -235,11 +242,8 @@ class FormateurForm extends FormBase {
     $file ='';
     if (array_key_exists("pj",$period)) {
       $fid = $period['pj'];
-      // dpm($fid);
       $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
-      // dpm($file_loaded);
       if ($file_loaded[0]->status) {
-        // $flist[$f->fid] = $file_loaded[0]->uri.$file_loaded[0]->filename;
         $uri = $file_loaded[0]->uri;
         $url = Url::fromUri(file_create_url($uri));
         $file = \Drupal::l($file_loaded[0]->filename,$url);
@@ -293,26 +297,30 @@ class FormateurForm extends FormBase {
       'co_resp' => \Drupal::request()->query->get('co_resp'),
     );
 
-    $entry = array(
+    $entry_dafor = array(
       'nomu'   => $form_state->getValue('nomu'),
       'prenom' => $form_state->getValue('prenom'),
       'mel'    => $form_state->getValue('mel'),
       'tel'    => $form_state->getValue('tel'),
     );
-    BbCrudController::update( 'gbb_gresp_dafor', $entry, $condition);
-
-    $entry = array(
+    $entry_plus = array(
       'discipline' => $form_state->getValue('discipline'),
       'grade'      => $form_state->getValue('grade'),
       'divers'     => $form_state->getValue('divers'),
       'statut'     => $form_state->getValue('statut'),
     );
-    BbCrudController::update( 'gbb_gresp_plus', $entry, $condition);
-
+    if (is_numeric($condition['co_resp'])) {
+      BbCrudController::update( 'gbb_gresp_dafor', $entry_dafor , $condition);
+      BbCrudController::update( 'gbb_gresp_plus', $entry_plus, $condition);
+    } else {
+      $id = BbCrudController::create( 'gbb_gresp_dafor', $entry_dafor);
+      $condition['co_resp'] = $id;
+      BbCrudController::create( 'gbb_gresp_plus', array_merge($condition,$entry_plus));
+    }
     $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa', 'resp_dafor','champ_interv'];
     foreach ($types as $type) {
       $condition = array(
-        'co_resp' => \Drupal::request()->query->get('co_resp'),
+        'co_resp' => $condition['co_resp'],
         'period'  => $form_state->getValue('period'),
         'type'  => $type,
       );
@@ -339,7 +347,7 @@ class FormateurForm extends FormBase {
         /* Save the file in database */
         $file->save();
         $condition = array(
-          'co_resp' => \Drupal::request()->query->get('co_resp'),
+          'co_resp' => $condition['co_resp'],
           'period'  => $form_state->getValue('period'),
           'type'  => 'pj',
         );
@@ -355,6 +363,12 @@ class FormateurForm extends FormBase {
         }
       }
     }
+    $form_state->setRedirect('view.bb_stages_formateur.page_1',
+      array(
+        'id_disp' => \Drupal::request()->query->get('id_disp'),
+        'co_resp'  => $condition['co_resp'],
+      )
+    );
     return TRUE;
   }
 }
