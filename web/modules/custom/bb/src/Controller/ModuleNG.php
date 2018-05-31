@@ -25,7 +25,7 @@ class ModuleNG extends ControllerBase {
       $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
     }
     $routeparameters = array( 'id_disp' => $id_disp, 'co_anmo' => $co_anmo, 'resp_filter' => $resp_filter);
-    return $this->redirect('view.liste_modules.page_1',$routeparameters);
+    return $this->redirect('view.liste_modules.page_1',$routeparameters,array( 'fragment' => $co_modu));
   }
 
   public function sessionplay($co_degre, $co_modu, $sessid) {
