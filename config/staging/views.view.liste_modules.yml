@@ -1638,9 +1638,17 @@ display:
                 operator: starts
                 value: '16'
               4:
-                title: 2015-16
+                title: '[1D] 2018-19'
                 operator: starts
-                value: '15'
+                value: 18D
+              5:
+                title: '[1D] 2017-18'
+                operator: starts
+                value: 17D
+              6:
+                title: '[1D] 2016-17'
+                operator: starts
+                value: 16D
           plugin_id: string
         co_anmo:
           id: co_anmo
