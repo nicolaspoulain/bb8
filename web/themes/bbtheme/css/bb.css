@@ -394,3 +394,9 @@ box-shadow:inset 1em 0 black;
     /* height: 200px; */
     /* background: black; */
 }
+.ajoutsession {
+  display: block;
+  position: relative;
+  top: -11px;
+  right: -9px;
+}
