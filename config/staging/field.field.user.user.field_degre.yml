@@ -1,0 +1,23 @@
+uuid: effa0e31-e370-482a-96b3-dc23c28ceecd
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_degre
+  module:
+    - options
+    - user
+id: user.user.field_degre
+field_name: field_degre
+entity_type: user
+bundle: user
+label: Degré
+description: 'Si vous êtes conseiller 2nd degré, choisissez 2.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 2
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
