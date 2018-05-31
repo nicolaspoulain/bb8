@@ -400,3 +400,6 @@ box-shadow:inset 1em 0 black;
   top: -11px;
   right: -9px;
 }
+.small {
+  font-size:66%;
+}
