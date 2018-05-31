@@ -61,6 +61,7 @@ bb.planning:
     _title: 'Planning'
     id_disp: '1'
     co_anmo: '1'
+    resp_filter: 'username'
   requirements:
     _permission: 'access content'
 
@@ -71,6 +72,7 @@ bb.liste:
     _title: 'Liste'
     id_disp: '1'
     co_anmo: '1'
+    resp_filter: 'username'
   requirements:
     _permission: 'access content'
 
