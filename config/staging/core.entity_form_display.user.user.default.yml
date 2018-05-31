@@ -3,6 +3,7 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_degre
     - field.field.user.user.field_last_password_reset
     - field.field.user.user.field_name
     - field.field.user.user.field_password_expiration
@@ -16,10 +17,16 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_degre:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_name:
     weight: 0
     settings:
