@@ -969,7 +969,7 @@ function bb_views_data() {
         'left_table' => 'gbb_session',
         'left_field' => 'co_resp',
         'field' => 'co_resp',
-        'extra' => 'gbb_gresp_dafor_peda.co_degre = gbb_gmodu.co_degre',
+        // 'extra' => 'gbb_gresp_dafor_peda.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
