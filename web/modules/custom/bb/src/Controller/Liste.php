@@ -17,11 +17,15 @@ class Liste extends ControllerBase {
    */
   public function page($id_disp,$co_anmo,$resp_filter) {
     if ($resp_filter == "username") {
-    // Load the current user
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    // retrieve field data from that user
-    $resp_filter = $user->get('field_name')->value;
-    }
+      // Load the current user
+      $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+      // retrieve field data from that user
+      $resp_filter = $user->get('field_name')->value;
+      if ($user->get('field_degre')->value == 1) {
+        $id_disp = $id_disp + 3;
+        $resp_filter = '';
+      };
+    };
     // query parameters
     $routeparameters = array(
       'id_disp' => $id_disp,
