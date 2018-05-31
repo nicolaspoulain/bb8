@@ -744,10 +744,10 @@ display:
             offset_label: Décalage
           quantity: 9
       filters:
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga
-          field: nomu
+        resp_filter:
+          id: resp_filter
+          table: gbb_gresp_orga_peda
+          field: resp_filter
           relationship: none
           group_type: group
           admin_label: ''
@@ -756,54 +756,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: nomu_op
-            label: 'Resp. Orga'
+            operator_id: resp_filter_op
+            label: Responsable
             description: ''
             use_operator: false
-            operator: nomu_op
-            identifier: nomu
+            operator: resp_filter_op
+            identifier: resp_filter
             required: false
-            remember: true
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
             remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        nomu_1:
-          id: nomu_1
-          table: gbb_gresp_peda
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: nomu_1_op
-            label: 'Resp. péda'
-            description: ''
-            use_operator: false
-            operator: nomu_1_op
-            identifier: nomu_1
-            required: false
-            remember: true
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -811,6 +771,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
