@@ -184,7 +184,8 @@ class ModalForm extends FormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    if ($form_state->getValue('formateur') == '') {
+    // if ($form_state->getValue('formateur') == '') {
+    if (!preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp)) {
       $form_state->setValue('formateur', 1);
     } else {
       preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
