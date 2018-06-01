@@ -1,0 +1,11 @@
+uuid: caae9892-bdaf-417b-b59f-da637b2760c2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_riche
+id: node.page_riche
+target_entity_type_id: node
+target_bundle: page_riche
+default_langcode: site_default
+language_alterable: false

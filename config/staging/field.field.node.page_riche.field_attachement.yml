@@ -1,0 +1,27 @@
+uuid: 73443059-f253-4461-9b9d-9b0cace0d7ef
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachement
+    - node.type.page_riche
+  module:
+    - file
+id: node.page_riche.field_attachement
+field_name: field_attachement
+entity_type: node
+bundle: page_riche
+label: 'Fichier(s) joint(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'page-riche-attachements-[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'jpg jpeg gif png txt csv rtf doc docx odt xls xlsx ods pdf zip'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
