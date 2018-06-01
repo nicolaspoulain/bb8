@@ -2137,24 +2137,24 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        lib:
-          id: lib
-          table: gbb_gmodu
-          field: lib
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
           relationship: none
           group_type: group
           admin_label: ''
-          operator: allwords
+          operator: '='
           value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: lib_op
-            label: 'Mot(s) dans le libellé du module'
-            description: 'p.ex : math ou RAEP'
+            operator_id: co_orie_op
+            label: 'Code orientation'
+            description: 'p.ex. : 2S45'
             use_operator: false
-            operator: lib_op
-            identifier: lib
+            operator: co_orie_op
+            identifier: co_orie
             required: false
             remember: false
             multiple: false
@@ -2265,6 +2265,47 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_op
+            label: 'Mot(s) dans le libellé du module'
+            description: 'p.ex : math ou RAEP'
+            use_operator: false
+            operator: lib_op
+            identifier: lib
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts:
         id_disp:
           id: id_disp
@@ -2284,18 +2325,7 @@ display:
           field: co_modu
           plugin_id: standard
       title: ''
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<span class=\"pull-right fa-border\">\nRecherche <a href=\"liste-modules?id_disp=1&co_anmo=1&resp_filter=&items_per_page=All\">tous azimuts</a> : utilisez le filtrage en direct\n</span>"
-          plugin_id: text_custom
+      header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }

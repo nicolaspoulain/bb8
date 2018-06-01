@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Bartik theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variables) {
+    $co_anmo   = \Drupal::request()->query->get('co_anmo');
+    $co_tpla   = \Drupal::request()->query->get('co_tpla');
+    $co_camp   = \Drupal::request()->query->get('co_camp');
+    $co_modu   = \Drupal::request()->query->get('co_modu');
+    $co_orie   = \Drupal::request()->query->get('co_orie');
+    $lib       = \Drupal::request()->query->get('lib');
+    $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
+    $items_per_page = \Drupal::request()->query->get('items_per_page');
+
+    $test =  ($co_anmo == 1);
+    $test *= ($co_tpla == '' || $co_tpla == 'All');
+    $test *= ($co_camp == '' || $co_camp == 'All');
+    $test *= ($co_modu == '');
+    $test *= ($co_orie == '');
+    $test *= ($lib == '');
+    $test *= ($id_disp_1 == '');
+    $test *= ($items_per_page == '' || $items_per_page == '250');
+
+    if ($test) {
+      $variables['open'] = "";
+    } else {
+      $variables['open'] = "open";
+    }
+}
+
+

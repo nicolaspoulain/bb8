@@ -403,8 +403,11 @@ box-shadow:inset 1em 0 black;
 .small {
   font-size:66%;
 }
+#insearchcrit {
+  padding: 20px;
+}
 #searchcrit {
   display: block;
   position: relative;
-  top: -21px;
+  top: -13px;
 }
