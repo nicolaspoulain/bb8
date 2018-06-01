@@ -564,6 +564,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        co_tpla:
+          id: co_tpla
+          table: gbb_gdisp
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_tpla
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         co_camp:
           id: co_camp
           table: gbb_gdisp
@@ -711,6 +760,104 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_orie
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_court:
+          id: lib_court
+          table: gbb_norie
+          field: lib_court
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nothing_2:
           id: nothing_2
           table: views
@@ -722,7 +869,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_andi>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span></span>\n{% else %} \n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span>{% endif %} \n\n\n\n"
+            text: "{% if co_andi>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\n{% else %} \n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\n{% endif %} \n\n\n\n"
             make_link: false
             path: ''
             absolute: false
@@ -1675,67 +1822,18 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: co_orie
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_court:
-          id: lib_court
-          table: gbb_norie
+        lib_court_1:
+          id: lib_court_1
+          table: gbb_ntcan
           field: lib_court
           relationship: none
           group_type: group
           admin_label: ''
-          label: Orientation
+          label: ntcan.lib_court
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ co_orie }} <span class="small">{{ lib_court }}</span>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1883,6 +1981,124 @@ display:
                   min: ''
                   max: ''
           plugin_id: numeric
+        co_tpla:
+          id: co_tpla
+          table: gbb_gdisp
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_tpla_op
+            label: co_tpla
+            description: ''
+            use_operator: false
+            operator: co_tpla_op
+            identifier: co_tpla
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Plan
+            description: ''
+            identifier: co_tpla
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: A
+                operator: '='
+                value: A
+              2:
+                title: C
+                operator: '='
+                value: C
+              3:
+                title: C
+                operator: '='
+                value: D
+              4:
+                title: D
+                operator: '='
+                value: D
+              5:
+                title: E
+                operator: '='
+                value: E
+              6:
+                title: P
+                operator: '='
+                value: P
+              7:
+                title: S
+                operator: '='
+                value: S
+          plugin_id: string
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_camp_op
+            label: co_camp
+            description: null
+            use_operator: false
+            operator: co_camp_op
+            identifier: co_camp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'PAF / FIL'
+            description: ''
+            identifier: co_camp
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: PAF
+                operator: '!='
+                value: BS
+              2:
+                title: FIL
+                operator: '='
+                value: BS
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
         resp_filter:
           id: resp_filter
           table: gbb_gresp_orga_peda
@@ -1921,6 +2137,134 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_op
+            label: 'Mot(s) dans le libellé du module'
+            description: 'p.ex : math ou RAEP'
+            use_operator: false
+            operator: lib_op
+            identifier: lib
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        id_disp_1:
+          id: id_disp_1
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_1_op
+            label: 'Identifiant du dispositif'
+            description: 'p.ex. : 18A0010360'
+            use_operator: false
+            operator: id_disp_1_op
+            identifier: id_disp_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_modu_op
+            label: 'Code du module'
+            description: 'p.ex. : 45785'
+            use_operator: false
+            operator: co_modu_op
+            identifier: co_modu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         id_disp:
           id: id_disp
