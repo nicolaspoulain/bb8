@@ -251,7 +251,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "{% if color!='' %}\ncolor-{{ color|trim('#')|lower }}\n{% else %}\ncolor-white\n{% endif %}"
