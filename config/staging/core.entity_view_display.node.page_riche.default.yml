@@ -1,0 +1,37 @@
+uuid: a199b740-d4ec-4d08-9285-8388799b9d75
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.page_riche.body
+    - field.field.node.page_riche.field_attachement
+    - node.type.page_riche
+  module:
+    - file
+    - text
+    - user
+id: node.page_riche.default
+targetEntityType: node
+bundle: page_riche
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_attachement:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

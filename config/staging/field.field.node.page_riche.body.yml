@@ -1,0 +1,22 @@
+uuid: 52d6bca7-531b-4f8a-b467-0488a7e9bf59
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.page_riche
+  module:
+    - text
+id: node.page_riche.body
+field_name: body
+entity_type: node
+bundle: page_riche
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
