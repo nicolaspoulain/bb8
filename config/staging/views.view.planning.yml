@@ -366,7 +366,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-pause\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-flag red\"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-envelope green\"></i>\n{% endif %}\n\n\n\n\n"
+            text: "{% if status == \"0\" %}\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-lg fa-pause gray\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-lg fa-flag red \"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-lg fa-envelope green\"></i>\n{% elseif status == \"4\" %}\n<i class=\"fa fa-lg fa-user orange\"></i>\n{% elseif status == \"5\" %}\n<i class=\"fa fa-lg fa-users pink\"></i>\n{% elseif status == \"6\" %}\n<i class=\"fa fa-lg blue\">DE</i>\n{% endif %}\n\n\n\n\n"
             make_link: false
             path: ''
             absolute: false
