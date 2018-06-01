@@ -157,6 +157,16 @@ bb.sessionalert:
   requirements:
     _permission: 'access content'
 
+bb.sessionchangestatus:
+  path: '/sessionchangestatus/{co_degre}/{co_modu}/{sessid}/{status}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::sessionchangestatus'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access content'
+
 bb.session_ficand_on:
   path: '/session_ficand_on/{co_degre}/{co_modu}/{sessid}'
   defaults:

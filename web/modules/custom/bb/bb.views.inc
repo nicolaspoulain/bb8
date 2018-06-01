@@ -574,6 +574,29 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
+  // ........................................................
+  // session : sess_id d'une session DE
+  // ........................................................
+  $data['gbb_session_de']['table'] = array( 'group' => t('gbb_gmodu'),
+    //{{
+      'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_session',
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_session_de.co_degre = gbb_gmodu.co_degre AND gbb_session_de.status=6',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_session_de']['sess_id'] = array( 'help' => t('Identifiant de la session DE'),
+    //{{
+    'title' => t('sess_id_de'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
   //}}
   //{{ Resp ORGA ou PEDA   filtre pour module (co_tres=2 OU 3)
   // Pour le FILTRE de la grand liste views admin/structure/views/view/liste_modules
