@@ -39,4 +39,6 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     }
 }
 
-
+function bbtheme_preprocess_block(&$variables) {
+  // dpm('lmm');
+}
