@@ -409,5 +409,5 @@ box-shadow:inset 1em 0 black;
 #searchcrit {
   display: block;
   position: relative;
-  top: -13px;
+  top: 10px;
 }
