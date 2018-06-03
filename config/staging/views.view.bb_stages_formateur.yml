@@ -424,7 +424,7 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: 'Fiche formateur'
+      title: ''
       header:
         view:
           id: view
@@ -459,19 +459,6 @@ display:
       display_extenders: {  }
       path: bb-stages-formateur
       header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: '<a href="formateurs">Retour à la liste des formateurs</a>'
-            format: restricted_html
-          plugin_id: text
         views_block_area:
           id: views_block_area
           table: views

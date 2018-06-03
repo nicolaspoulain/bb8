@@ -1829,11 +1829,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ntcan.lib_court
+          label: T.Cand.
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if lib_court_1 == 'INDIVIDUEL' %}\nIndiv.\n{% elseif lib_court_1 == 'COLLECTIV.' %}\nColl.\n{% else %}\n{{ lib_court_1|capitalize }}\n{% endif %}"
             make_link: false
             path: ''
             absolute: false

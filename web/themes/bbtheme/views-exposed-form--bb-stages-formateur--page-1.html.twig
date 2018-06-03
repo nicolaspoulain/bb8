@@ -19,6 +19,8 @@
 {{ q }}
 {% endif %}
 
+<p><a href="formateurs">Retour à la liste des formateurs</a></p>
+
 {% set principal = ['id_disp','actions'] %}
 {% set small = [] %}
 {% set large = [] %}
@@ -34,9 +36,6 @@
       <div class="pure-u-1-12"> {{form.id_disp}} </div>
       <div class="pure-u-1-12"> {{form.actions}} </div>
 </div>
-</div>
-
-</details>
 
 {# {{ form }} #}
 {# {% for k,v in form.co_resp %} #}

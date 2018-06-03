@@ -7,6 +7,63 @@
   <div id="chart_div" class="two"></div>
 </section>
 
+
+
+
+
+
+{# {% set permanent = ['edit-period','nomu','prenom','mel','tel','discipline','grade','statut','divers'] %} #}
+{# {% set periodic = ['fieldset'] %} #}
+{# {% set unused = ['actions','#attached','#token','#type','#action','#build_id','#form_id','#id','#method','#defaults_loaded','#title_display','#description_display'] %} #}
+{# {% set trash = unused|merge(permanent)|merge(periodic) %} #}
+
+{# [> <form class="views-exposed-form" data-drupal-selector="views-exposed-form-bb-stages-formateur-page-1" action="/bb8pp/web/bb-stages-formateur" method="get" id="views-exposed-form-bb-stages-formateur-page-1" accept-charset="UTF-8"> <] #}
+  {# <form class="fapi-example-modal-form" data-drupal-selector="fapi-example-modal-form" enctype="multipart/form-data" action="{{form.form['#attached']}}" method="{{form.form['#method']}}" id="{{form.form['#form_id']}}" accept-charset="UTF-8"> #}
+{# {% for k,v in form.form %} #}
+{# {% if (k in unused) %} #}
+{# **{{k}}--{{v}} #}
+{# {% endif %} #}
+{# {% endfor %} #}
+{# [> {% for k,v in form.form %} <] #}
+{# [> {% if (k not in trash) %} <] #}
+{# [> {{v}} <] #}
+{# [> {% endif %} <] #}
+{# [> {% endfor %} <] #}
+{# [> opopopopopop <] #}
+{# <section class="container"> #}
+  {# <div class="one"> #}
+    {# {{ form.form.fieldset  }} #}
+    {# {{ form.form.actions }} #}
+    {# <div id="chart_div"></div> #}
+  {# </div> #}
+  {# <div class="two"> #}
+    {# <div class="pure-g"> #}
+      {# {% for k,v in form.form %} #}
+      {# {% if (k in permanent) %} #}
+      {# <div class="pure-u-1-3"> {{v}}</div> #}
+      {# {% endif %} #}
+      {# {% endfor %} #}
+    {# </div> #}
+  {# </div> #}
+{# </section> #}
+{# </form> #}
+
+
+
+
+{# {{ form }} #}
+{# {% for k,v in form.form %} #}
+    {# {% if (k not in trash) %} #}
+ {# **{{k}}--{{v}} #}
+ {# {% endif %} #}
+{# {% endfor %} #}
+
+
+
+
+
+
+
 {% set var = form.heures %}
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
