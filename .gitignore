@@ -71,6 +71,7 @@ config/staging/block.block.navigationbb.yml
 config/staging/block.block.changerdutilisateur.yml
 config/staging/block.block.dafor.yml
 config/staging/system.menu.dafor.yml
+config/staging/dblog.settings.yml
 
 modules/custom/bb/tags
 
