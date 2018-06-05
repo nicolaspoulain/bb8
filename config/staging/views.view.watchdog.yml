@@ -650,11 +650,52 @@ display:
           exposed: true
           expose:
             operator_id: variables_op
-            label: Rechercher
+            label: 'Rechercher dans Message'
             description: ''
             use_operator: false
             operator: variables_op
             identifier: variables
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_name_value:
+          id: field_name_value
+          table: user__field_name
+          field: field_name_value
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_name_value_op
+            label: 'Nom de famille de l''utilisateur'
+            description: ''
+            use_operator: false
+            operator: field_name_value_op
+            identifier: field_name_value
             required: false
             remember: false
             multiple: false
