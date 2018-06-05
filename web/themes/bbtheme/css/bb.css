@@ -411,3 +411,6 @@ box-shadow:inset 1em 0 black;
   position: relative;
   top: 10px;
 }
+.warning {
+  background-color: #ffacac;
+}

@@ -24,20 +24,47 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
-    $test =  ($co_anmo == 1);
-    $test *= ($co_tpla == '' || $co_tpla == 'All');
-    $test *= ($co_camp == '' || $co_camp == 'All');
-    $test *= ($co_moda == '' || $co_moda == 'All');
-    $test *= ($co_modu == '');
-    $test *= ($co_orie == '');
-    $test *= ($lib == '');
-    $test *= ($id_disp_1 == '');
-    $test *= ($items_per_page == '' || $items_per_page == '250');
+    if ($co_anmo != 1) {
+      $test = 1;
+      $variables['form']['co_anmo']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tpla != '' AND $co_tpla != 'All') {
+      $test = 1;
+      $variables['form']['co_tpla']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_modu != '') {
+      $test = 1;
+      $variables['form']['co_modu']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_moda != '' AND $co_moda != 'All') {
+      $test = 1;
+      $variables['form']['co_moda']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_camp != '' AND $co_camp != 'All') {
+      $test = 1;
+      $variables['form']['co_camp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_orie != '') {
+      $test = 1;
+      $variables['form']['co_orie']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($lib != '') {
+      $test = 1;
+      $variables['form']['lib']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($id_disp_1 != '') {
+      $test = 1;
+      $variables['form']['id_disp_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($items_per_page != '' AND $items_per_page != '250') {
+      $test = 1;
+      $variables['form']['items_per_page']['#attributes'] = array('class' => array('warning'));
+    }
 
     if ($test) {
-      $variables['open'] = "";
-    } else {
       $variables['open'] = "open";
+    } else {
+      $variables['open'] = "";
     }
 }
 
