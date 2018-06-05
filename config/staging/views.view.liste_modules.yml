@@ -2046,6 +2046,59 @@ display:
                 operator: '='
                 value: ''
           plugin_id: string
+        co_moda:
+          id: co_moda
+          table: gbb_gmodu
+          field: co_moda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_moda_op
+            label: co_moda
+            description: null
+            use_operator: false
+            operator: co_moda_op
+            identifier: co_moda
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Modalité
+            description: ''
+            identifier: co_moda
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Présentiel
+                operator: '='
+                value: L
+              2:
+                title: 'À distance'
+                operator: '='
+                value: 'N'
+              3:
+                title: Autres
+                operator: '='
+                value: R
+              4:
+                title: Hybride
+                operator: '='
+                value: S
+          plugin_id: string
         co_orie:
           id: co_orie
           table: gbb_gdisp

@@ -17,6 +17,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $co_anmo   = \Drupal::request()->query->get('co_anmo');
     $co_tpla   = \Drupal::request()->query->get('co_tpla');
     $co_camp   = \Drupal::request()->query->get('co_camp');
+    $co_moda   = \Drupal::request()->query->get('co_moda');
     $co_modu   = \Drupal::request()->query->get('co_modu');
     $co_orie   = \Drupal::request()->query->get('co_orie');
     $lib       = \Drupal::request()->query->get('lib');
@@ -26,6 +27,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $test =  ($co_anmo == 1);
     $test *= ($co_tpla == '' || $co_tpla == 'All');
     $test *= ($co_camp == '' || $co_camp == 'All');
+    $test *= ($co_moda == '' || $co_moda == 'All');
     $test *= ($co_modu == '');
     $test *= ($co_orie == '');
     $test *= ($lib == '');

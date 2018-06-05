@@ -99,6 +99,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu']['co_moda'] = array( 'help' => t('Code Modalité'),
+    //{{
+    'title' => t('co_moda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu']['cout_p_fonc'] = array( 'help' => t('Coût prévisionnel de fonctionnement par groupe'),
   //{{
     'title'  => t('cout_p_fonc'),
