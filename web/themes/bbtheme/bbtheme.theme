@@ -24,6 +24,8 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
+    $test = 0;
+
     if ($co_anmo != 1) {
       $test = 1;
       $variables['form']['co_anmo']['#attributes'] = array('class' => array('warning'));
