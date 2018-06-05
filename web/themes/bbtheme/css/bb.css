@@ -116,7 +116,11 @@ border-radius:4px;
 }
 .spacedxl {
 padding:10px;
-margin:10px;
+margin:0px;
+}
+
+.hspace {
+margin-left:10px;
 }
 
 
