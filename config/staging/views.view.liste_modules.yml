@@ -1872,69 +1872,6 @@ display:
           hide_alter_empty: true
           plugin_id: standard
       filters:
-        id_disp:
-          id: id_disp
-          table: gbb_gdisp
-          field: id_disp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: starts
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: id_disp_op
-            label: Année
-            description: ''
-            use_operator: false
-            operator: id_disp_op
-            identifier: id_disp
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: true
-          group_info:
-            label: Année
-            description: ''
-            identifier: id_disp
-            optional: false
-            widget: select
-            multiple: false
-            remember: false
-            default_group: '1'
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 2018-19
-                operator: starts
-                value: '18'
-              2:
-                title: 2017-18
-                operator: starts
-                value: '17'
-              3:
-                title: 2016-17
-                operator: starts
-                value: '16'
-              4:
-                title: '[1D] 2018-19'
-                operator: starts
-                value: 18D
-              5:
-                title: '[1D] 2017-18'
-                operator: starts
-                value: 17D
-              6:
-                title: '[1D] 2016-17'
-                operator: starts
-                value: 16D
-          plugin_id: string
         co_anmo:
           id: co_anmo
           table: gbb_gmodu
@@ -1961,9 +1898,12 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: true
           group_info:
-            label: Voir
+            label: 'Ouvert / Fermé'
             description: ''
             identifier: co_anmo
             optional: true
@@ -1976,6 +1916,13 @@ display:
               1:
                 title: Ouvert
                 operator: '<='
+                value:
+                  value: '0'
+                  min: ''
+                  max: ''
+              2:
+                title: Fermé
+                operator: '>'
                 value:
                   value: '0'
                   min: ''
@@ -2098,44 +2045,6 @@ display:
                 title: ''
                 operator: '='
                 value: ''
-          plugin_id: string
-        resp_filter:
-          id: resp_filter
-          table: gbb_gresp_orga_peda
-          field: resp_filter
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: resp_filter_op
-            label: Responsable
-            description: ''
-            use_operator: false
-            operator: resp_filter_op
-            identifier: resp_filter
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
           plugin_id: string
         co_orie:
           id: co_orie
@@ -2293,6 +2202,107 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_op
+            label: Année
+            description: ''
+            use_operator: false
+            operator: id_disp_op
+            identifier: id_disp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Année
+            description: ''
+            identifier: id_disp
+            optional: false
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 2018-19
+                operator: starts
+                value: '18'
+              2:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              3:
+                title: 2016-17
+                operator: starts
+                value: '16'
+              4:
+                title: '[1D] 2018-19'
+                operator: starts
+                value: 18D
+              5:
+                title: '[1D] 2017-18'
+                operator: starts
+                value: 17D
+              6:
+                title: '[1D] 2016-17'
+                operator: starts
+                value: 16D
+          plugin_id: string
+        resp_filter:
+          id: resp_filter
+          table: gbb_gresp_orga_peda
+          field: resp_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: resp_filter_op
+            label: Responsable
+            description: ''
+            use_operator: false
+            operator: resp_filter_op
+            identifier: resp_filter
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
           is_grouped: false
           group_info:
             label: ''
