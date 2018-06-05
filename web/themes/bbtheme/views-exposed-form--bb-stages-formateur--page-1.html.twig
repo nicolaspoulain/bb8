@@ -22,20 +22,13 @@
 <p><a href="formateurs">Retour à la liste des formateurs</a></p>
 
 {% set principal = ['id_disp','actions'] %}
-{% set small = [] %}
-{% set large = [] %}
-{% set unused = ['#action', '#id', '#form_id', '#type', '#defaults_loaded', '#method', '#validated', '#title_display', '#description_display', '#build_id','actions', '#sorted', '#render_children'] %}
-{% set trash = unused|merge(small)|merge(large)|merge(principal) %}
 
 <div class="pure-g">
-  {% for k,v in form %}
-    {% if (k not in trash) %}
-      {{v}}
-    {%endif%}
-  {%endfor%}
-      <div class="pure-u-1-12"> {{form.id_disp}} </div>
-      <div class="pure-u-1-12"> {{form.actions}} </div>
+  <div class="pure-u-1-8"> {{form.id_disp}} </div>
+  <div class="pure-u-1-12"> {{form.actions}} </div>
 </div>
+
+{{ form | without('id_disp', 'actions') }}
 
 {# {{ form }} #}
 {# {% for k,v in form.co_resp %} #}

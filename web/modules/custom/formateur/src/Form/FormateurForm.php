@@ -110,6 +110,97 @@ class FormateurForm extends FormBase {
       '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
+    $an = (int)$annee;
+    $anp = $an+1;
+    $form['fieldset'] = array(
+      '#type' => 'fieldset',
+      '#title' => "20$an - 20$anp",
+      '#attributes' => array('class' => array('annuel')),
+    );
+
+    $form['fieldset']['resp_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Resp. DAFOR'),
+      '#size'          => 29,
+      '#default_value' => $period['resp_dafor'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
+    );
+
+    $form['fieldset']['markupA'] = array(
+      '#markup' => '<div class="pure-u-md-2-24"> </div>',
+    );
+
+    $form['fieldset']['dech_dafor'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Dech DAFOR'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_dafor'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $form['fieldset']['dech_pfa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch PFA'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_pfa'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $form['fieldset']['champ_interv'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Champ d\'intervention'),
+      '#rows' =>2,
+      '#cols'          => 4,
+      '#default_value' => $period['champ_interv'],
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
+    );
+
+    $form['fieldset']['markupB'] = array(
+      '#markup' => '<div class="pure-u-md-2-24"> </div>',
+    );
+
+    $form['fieldset']['dech_dane'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch DANE'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_dane'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $form['fieldset']['dech_caffa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch CAFFA'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_caffa'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $file ='';
+    if (array_key_exists("pj",$period)) {
+      $fid = $period['pj'];
+      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
+      if ($file_loaded[0]->status) {
+        $uri = $file_loaded[0]->uri;
+        $url = Url::fromUri(file_create_url($uri));
+        $file = \Drupal::l($file_loaded[0]->filename,$url);
+      }
+    }
+
+    $form['fieldset']['pj'] = array(
+      '#title' => t('Lettre de mission : ').$file,
+      '#type' => 'managed_file',
+      '#upload_validators'  => array(
+        'file_validate_extensions' => array('jpg jpeg gif png txt csv rtf doc docx odt xls xlsx ods pdf zip'),
+        'file_validate_size' => array(25600000),
+      ),
+      '#upload_location' => 'private://pieces-jointes/',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
+    );
+
 
     $form['mel'] = array(
       '#type' => 'textfield',
@@ -175,90 +266,6 @@ class FormateurForm extends FormBase {
       '#size'          => 25,
       '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->divers : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
-    );
-
-    $an = (int)$annee;
-    $anp = $an+1;
-    $form['fieldset'] = array(
-      '#type' => 'fieldset',
-      '#title' => "20$an - 20$anp",
-      '#attributes' => array('class' => array('annuel')),
-    );
-
-    $form['fieldset']['resp_dafor'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Resp. DAFOR'),
-      '#size'          => 29,
-      '#default_value' => $period['resp_dafor'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
-    );
-
-
-    $form['fieldset']['dech_dafor'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Dech DAFOR'),
-      '#size'          => 6,
-      '#default_value' => $period['dech_dafor'],
-      '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $form['fieldset']['dech_pfa'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Déch PFA'),
-      '#size'          => 6,
-      '#default_value' => $period['dech_pfa'],
-      '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $form['fieldset']['champ_interv'] = array(
-      '#type' => 'textarea',
-      '#title' => $this->t('Champ d\'intervention'),
-      '#rows' =>2,
-      '#cols'          => 4,
-      '#default_value' => $period['champ_interv'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
-    );
-
-    $form['fieldset']['dech_dane'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Déch DANE'),
-      '#size'          => 6,
-      '#default_value' => $period['dech_dane'],
-      '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $form['fieldset']['dech_caffa'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Déch CAFFA'),
-      '#size'          => 6,
-      '#default_value' => $period['dech_caffa'],
-      '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $file ='';
-    if (array_key_exists("pj",$period)) {
-      $fid = $period['pj'];
-      $file_loaded = BbCrudController::load( 'file_managed', ['fid' => $fid]);
-      if ($file_loaded[0]->status) {
-        $uri = $file_loaded[0]->uri;
-        $url = Url::fromUri(file_create_url($uri));
-        $file = \Drupal::l($file_loaded[0]->filename,$url);
-      }
-    }
-
-    $form['fieldset']['pj'] = array(
-      '#title' => t('Lettre de mission : ').$file,
-      '#type' => 'managed_file',
-      '#upload_validators'  => array(
-        'file_validate_extensions' => array('jpg jpeg gif png txt csv rtf doc docx odt xls xlsx ods pdf zip'),
-        'file_validate_size' => array(25600000),
-      ),
-      '#upload_location' => 'private://pieces-jointes/',
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
 
 

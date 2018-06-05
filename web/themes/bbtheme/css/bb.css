@@ -371,7 +371,7 @@ box-shadow:inset 1em 0 black;
 
 .annuel {
   background-color : lightgray;
-  margin-top : 20px;
+  margin-top : 10px;
   letter-spacing: 0em;
 }
 
@@ -380,7 +380,8 @@ box-shadow:inset 1em 0 black;
     /* width: 80%; */
     /* height: 200px; */
     /* background: aqua; */
-    margin: auto;
+    /* margin: auto; */
+  margin-top : -15px;
     /* padding: 10px; */
 }
 .one {
