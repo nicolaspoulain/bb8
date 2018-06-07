@@ -26,6 +26,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $nomu_1    = \Drupal::request()->query->get('nomu_1');
     $lib       = \Drupal::request()->query->get('lib');
     $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
+    $co_tcan   = \Drupal::request()->query->get('co_tcan');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
     $test = 0;
@@ -49,6 +50,10 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     if ($co_camp != '' AND $co_camp != 'All') {
       $test = 1;
       $variables['form']['co_camp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tcan != '' AND $co_tcan != 'All') {
+      $test = 1;
+      $variables['form']['co_tcan']['#attributes'] = array('class' => array('warning'));
     }
     if ($co_orie != '') {
       $test = 1;
