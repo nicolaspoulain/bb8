@@ -264,6 +264,26 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['taxonomy_vocabulary_dafor']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_vocabulary',
+        'left_table' => 'taxonomy_term_data_dafor',
+        'left_field' => 'vid',
+        'field' => 'vid',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_vocabulary_dafor']['name'] = array( 'help' => t('Nom du vocabulaire de taxonomie'),
+  //{{
+    'title' => t('taxonomy_vocabulary.name'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
 
 
