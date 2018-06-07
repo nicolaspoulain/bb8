@@ -107,6 +107,24 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_nmoda']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_moda',
+        'field' => 'co_moda',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nmoda']['lib_court'] = array( 'help' => t('Modalité : libellé court'),
+  //{{
+    'title' => t('nmoda.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu']['cout_p_fonc'] = array( 'help' => t('Coût prévisionnel de fonctionnement par groupe'),
   //{{
     'title'  => t('cout_p_fonc'),
@@ -782,6 +800,25 @@ function bb_views_data() {
   $data['gbb_gdisp']['lobjt'] = array( 'title' => t('lobjt'),
   //{{
     'help' => t('Objectif litteral'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_nobjt']['table'] = array( 'group' => t('gbb_gdisp'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gdisp',
+        'left_field' => 'co_objt',
+        'field' => 'co_objt',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nobjt']['lib_court'] = array( 'help' => t('Objectif : libellé court'),
+  //{{
+    'title' => t('nobjt.lib_court'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
