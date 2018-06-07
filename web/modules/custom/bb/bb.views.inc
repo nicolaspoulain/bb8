@@ -240,6 +240,35 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+
+
+
+
+  $data['taxonomy_term_data_dafor']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term_data',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'tid',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term_data_dafor']['vid'] = array( 'help' => t('Vocabulaire de taxonomie'),
+  //{{
+    'title' => t('vid'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+
+
+
+
+
   $data['taxonomy_term_field_data']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
