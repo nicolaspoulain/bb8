@@ -2892,10 +2892,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        lib_court:
-          id: lib_court
+        lib_long:
+          id: lib_long
           table: gbb_norie
-          field: lib_court
+          field: lib_long
           relationship: none
           group_type: group
           admin_label: ''

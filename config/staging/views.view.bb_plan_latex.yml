@@ -1219,6 +1219,43 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        name:
+          id: name
+          table: taxonomy_vocabulary_dafor
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: papier
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       sorts:
         co_orie:
           id: co_orie
@@ -1298,15 +1335,15 @@ display:
       path: bb-plan-latex-2
       display_description: ''
       fields:
-        lib_long:
-          id: lib_long
-          table: gbb_norie
-          field: lib_long
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: orie
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -1347,18 +1384,18 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
+        lib_long:
+          id: lib_long
+          table: gbb_norie
+          field: lib_long
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: norie.lib_long
+          exclude: false
           alter:
-            alter_text: true
-            text: '\cleardoublepage\section{({{ co_orie }}) -- {{ lib_long }}}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1387,7 +1424,56 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: id_disp
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1499,64 +1585,17 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: NONE
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        vid:
-          id: vid
-          table: taxonomy_term_data_dafor
-          field: vid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: vid
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{% if vid == '43' or vid == '45' or vid =='47' or vid =='49' %}\npapier\n{% else %}\nweb\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
+          empty_zero: true
           hide_alter_empty: true
           plugin_id: standard
       defaults:
         fields: false
         filters: false
         filter_groups: false
+        style: false
+        row: false
       filters:
         id_disp:
           id: id_disp
@@ -1807,10 +1846,61 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            co_orie: co_orie
+            id_disp: id_disp
+            co_modu: co_modu
+            tid: tid
+          info:
+            co_orie:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id_disp:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_modu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            tid:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
+      row:
+        type: fields
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
+        - url.query_args
         - user.roles
       tags: {  }
