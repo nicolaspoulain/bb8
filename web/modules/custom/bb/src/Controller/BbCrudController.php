@@ -190,7 +190,9 @@ class BbCrudController {
    */
   public static function load($table, $condition = array()) {
     // switch database (cf settings.php)
+    if ( !preg_match('/file/',$table) ) {
     \Drupal\Core\Database\Database::setActiveConnection('external');
+    }
     // Build query
     $select = db_select($table,'t');
     $select->fields('t');
