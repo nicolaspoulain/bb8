@@ -151,7 +151,9 @@ class BbCrudController {
    */
   public static function delete($table = 'NaN', $condition = array()) {
     // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
+    if ( !preg_match('/file/',$table) ) {
+      \Drupal\Core\Database\Database::setActiveConnection('external');
+    }
     // Build query
     $delete = db_delete($table);
     foreach ($condition as $field => $value) {
