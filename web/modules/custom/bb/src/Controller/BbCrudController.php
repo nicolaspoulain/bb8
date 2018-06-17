@@ -63,7 +63,9 @@ class BbCrudController {
    */
   public static function create($table = 'NaN', $entry) {
     // switch database (cf settings.php)
-    \Drupal\Core\Database\Database::setActiveConnection('external');
+    if ( !preg_match('/file/',$table) ) {
+      \Drupal\Core\Database\Database::setActiveConnection('external');
+    }
     // Build query
     $create = db_insert($table)
         ->fields($entry);
