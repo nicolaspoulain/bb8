@@ -93,6 +93,7 @@ class FormateurForm extends FormBase {
       '#value' => $annee,
     );
 
+
     $form['nomu'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Nom'),
@@ -101,6 +102,7 @@ class FormateurForm extends FormBase {
       '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
+    if (is_numeric(\Drupal::request()->query->get('co_resp'))) $form['nomu']['#disabled'] = TRUE;
 
     $form['prenom'] = array(
       '#type' => 'textfield',
