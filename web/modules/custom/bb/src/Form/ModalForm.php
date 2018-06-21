@@ -111,7 +111,7 @@ class ModalForm extends FormBase {
       '#attributes' => array('placeholder' => t('p.ex.: 9h-17h')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
     );
-    if ($entries[0]->co_resp == 1) {
+    if ($entries[0]->co_resp == 0 OR $entries[0]->co_resp == 1) {
       $dv = "";
     } else {
       $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (id:" . $entries[0]->co_resp . ")";
