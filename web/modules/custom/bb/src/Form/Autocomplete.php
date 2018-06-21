@@ -28,8 +28,8 @@ class Autocomplete {
         ->range(0, 10)
         ->execute();
       foreach ($result as $res) {
-        $matches[] = array('value' => "$res->nomu $res->prenom ($res->co_resp)",
-          'label' => "$res->nomu $res->prenom ($res->co_resp)",) ;
+        $matches[] = array('value' => "$res->nomu $res->prenom (id:$res->co_resp)",
+          'label' => "$res->nomu $res->prenom (id:$res->co_resp)",) ;
       }
     }
     \Drupal\Core\Database\Database::setActiveConnection();
@@ -47,8 +47,8 @@ class Autocomplete {
         ->range(0, 10)
         ->execute();
       foreach ($result as $res) {
-        $matches[] = array('value' => "$res->sigle $res->denom_comp ($res->co_lieu)",
-          'label' => "$res->sigle $res->denom_comp ($res->co_lieu)",) ;
+        $matches[] = array('value' => "$res->sigle $res->denom_comp (rne:$res->co_lieu)",
+          'label' => "$res->sigle $res->denom_comp (rne:$res->co_lieu)",) ;
       }
     }
     \Drupal\Core\Database\Database::setActiveConnection();

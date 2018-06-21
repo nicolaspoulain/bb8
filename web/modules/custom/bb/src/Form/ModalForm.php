@@ -91,7 +91,7 @@ class ModalForm extends FormBase {
     if ($entries[0]->co_lieu == 0) {
       $dv = "";
     } else {
-      $dv = $entries[0]->sigle . " " . $entries[0]->denom_comp ." (" . $entries[0]->co_lieu . ")";
+      $dv = $entries[0]->sigle . " " . $entries[0]->denom_comp ." (rne:" . $entries[0]->co_lieu . ")";
     }
     $form['lieu'] = array(
       '#type' => 'search',
@@ -114,7 +114,7 @@ class ModalForm extends FormBase {
     if ($entries[0]->co_resp == 1) {
       $dv = "";
     } else {
-      $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (" . $entries[0]->co_resp . ")";
+      $dv = $entries[0]->nomu . " "  . $entries[0]->prenom . " (id:" . $entries[0]->co_resp . ")";
     }
     $form['formateur'] = array(
       '#type'          => 'textfield',
@@ -188,7 +188,7 @@ class ModalForm extends FormBase {
     if (!preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp)) {
       $form_state->setValue('formateur', 1);
     } else {
-      preg_match('#\((.*?)\)#', $form_state->getValue('formateur'), $co_resp);
+      preg_match('#\(id:(.*?)\)#', $form_state->getValue('formateur'), $co_resp);
       $form_state->setValue('formateur', $co_resp[1]);
       if ( !is_numeric($co_resp[1]) )
         $form_state->setErrorByName('formateur', $this->t('Problème !'));
@@ -197,7 +197,7 @@ class ModalForm extends FormBase {
     if ($form_state->getValue('lieu') == '') {
       $form_state->setValue('lieu', 0);
     } else {
-      preg_match('#\((.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
+      preg_match('#\(rne:(.*?)\)#', $form_state->getValue('lieu'), $co_lieu);
       $form_state->setValue('lieu', $co_lieu[1]);
       if ( FALSE )
         $form_state->setErrorByName('lieu', $this->t('Problème !'));
