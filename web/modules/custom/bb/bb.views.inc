@@ -1410,6 +1410,15 @@ function bb_views_data() {
       ),
     ),
   );
+  $data['gbb_netab_moof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_netab',
+        'left_field' => 'co_etab_dem',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
   $data['gbb_gresp_orga_diof']['table'] = array( 'group' => t('gbb_gmoof'),
     'join' => array(
       'gbb_gmoof' => array(
@@ -1433,6 +1442,30 @@ function bb_views_data() {
   $data['gbb_gresp_orga_diof']['nomu'] = array( 'help' => t('Nom respOrga dispo offre'),
     //{{
     'title' => t('nomuOrga'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_moof']['denom_comp'] = array( 'help' => t('Denomination complémentaire etablissement'),
+    //{{
+    'title' => t('denom_comp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_moof']['sigle'] = array( 'help' => t('Sigle etablissement'),
+    //{{
+    'title' => t('sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_moof']['cp'] = array( 'help' => t('CP etablissement'),
+    //{{
+    'title' => t('cp'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
