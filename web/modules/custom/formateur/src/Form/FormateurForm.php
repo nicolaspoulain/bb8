@@ -103,6 +103,7 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
     if (is_numeric(\Drupal::request()->query->get('co_resp'))) $form['nomu']['#disabled'] = TRUE;
+    if (!is_numeric(\Drupal::request()->query->get('co_resp'))) $form['nomu']['#default_value'] = '';
 
     $form['prenom'] = array(
       '#type' => 'textfield',
@@ -112,6 +113,7 @@ class FormateurForm extends FormBase {
       '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
+    if (!is_numeric(\Drupal::request()->query->get('co_resp'))) $form['prenom']['#default_value'] = '';
     $an = (int)$annee;
     $anp = $an+1;
     $form['fieldset'] = array(
