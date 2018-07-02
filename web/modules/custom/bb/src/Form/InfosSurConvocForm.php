@@ -60,22 +60,22 @@ class InfosSurConvocForm extends FormBase {
       '#type' => 'textarea',
       // '#type'=>'text_format', // WYSIWYG textarea est mieux :
       '#title' => 'Infos à porter sur la convocation',
-      '#default_value' => (!empty($module))? $module[0]->convoc_info_on : '',
+      '#default_value' => (!empty($module))? strip_tags($module[0]->convoc_info_on) : '',
       '#description' => '',
       '#rows' => 5,
-      // '#ajax' => [
-        // 'callback' => '::saveJournalAjax',
-        // 'event' => 'change',
-        // 'progress' => array(
-          // 'type' => 'throbber',
-          // 'message' => t('Enregistrement...'),
-        // ),
-      // ],
+      '#ajax' => [
+        'callback' => '::saveAjax',
+        'event' => 'change',
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => t('Enregistrement...'),
+        ),
+      ],
     );
-    $form['submit'] = array(
-      '#type' => 'submit',
-      '#value' => t('Submit'),
-    );
+    // $form['submit'] = array(
+      // '#type' => 'submit',
+      // '#value' => t('Submit'),
+    // );
     return $form;
   }
 
@@ -108,22 +108,25 @@ class InfosSurConvocForm extends FormBase {
   /**
    * Ajax callback to save journal field.
    */
-  // public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
-    // $valid = $this->validateJournal($form, $form_state);
+  public function saveAjax(array &$form, FormStateInterface $form_state) {
+    $valid = $this->validateJournal($form, $form_state);
 
-    // $condition = array(
-      // 'co_degre' => $form_state->getValue('co_degre'),
-      // 'co_modu' => $form_state->getValue('co_modu'),
-    // );
-
-    // $entry = array(
-      // 'organisation'  => $form_state->getValue('organisation'),
-    // );
-    // $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-
-    // $response = new AjaxResponse();
-    // return $response;
-  // }
+    $condition = array(
+      'co_degre' => $form_state->getValue('co_degre'),
+      'co_modu' => $form_state->getValue('co_modu'),
+    );
+    $entry = array(
+      'convoc_info_on'  => $form_state->getValue('infossurconvoc'),
+    );
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gmodu_plus', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
+    }
+    $response = new AjaxResponse();
+    return $response;
+  }
 
 
 

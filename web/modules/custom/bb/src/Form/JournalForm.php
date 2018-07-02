@@ -57,24 +57,24 @@ class JournalForm extends FormBase {
       '#value' => $co_modu,
     );
     $form['organisation'] = array(
-      // '#type' => 'textarea', // WYSIWYG textarea est mieux :
-      '#type'=>'text_format',
+      '#type' => 'textarea', // WYSIWYG textarea est mieux :
+      // '#type'=>'text_format',
       '#title' => 'Journal',
-      '#default_value' => (!empty($module))? $module[0]->organisation : '',
+      '#default_value' => (!empty($module))? strip_tags($module[0]->organisation) : '',
       '#description' => '',
-      // '#ajax' => [
-        // 'callback' => '::saveJournalAjax',
-        // 'event' => 'change',
-        // 'progress' => array(
-          // 'type' => 'throbber',
-          // 'message' => t('Enregistrement...'),
-        // ),
-      // ],
+      '#ajax' => [
+        'callback' => '::saveJournalAjax',
+        'event' => 'change',
+        'progress' => array(
+          'type' => 'throbber',
+          'message' => t('Enregistrement...'),
+        ),
+      ],
     );
-    $form['submit'] = array(
-      '#type' => 'submit',
-      '#value' => t('Submit'),
-    );
+    // $form['submit'] = array(
+      // '#type' => 'submit',
+      // '#value' => t('Submit'),
+    // );
     return $form;
   }
 
@@ -108,22 +108,26 @@ class JournalForm extends FormBase {
   /**
    * Ajax callback to save journal field.
    */
-  // public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
-    // $valid = $this->validateJournal($form, $form_state);
+  public function saveJournalAjax(array &$form, FormStateInterface $form_state) {
+    $valid = $this->validateJournal($form, $form_state);
 
-    // $condition = array(
-      // 'co_degre' => $form_state->getValue('co_degre'),
-      // 'co_modu' => $form_state->getValue('co_modu'),
-    // );
+    $condition = array(
+      'co_degre' => $form_state->getValue('co_degre'),
+      'co_modu' => $form_state->getValue('co_modu'),
+    );
 
-    // $entry = array(
-      // 'organisation'  => $form_state->getValue('organisation'),
-    // );
-    // $module = BbCrudController::update( 'gbb_gmodu_plus', $entry, $condition);
-
-    // $response = new AjaxResponse();
-    // return $response;
-  // }
+    $entry = array(
+      'organisation'  => $form_state->getValue('organisation'),
+    );
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    if (!empty($row)) {
+      $DBWriteStatus = BbCrudController::update('gbb_gmodu_plus', $entry, $condition);
+    } else {
+      $DBWriteStatus = BbCrudController::create('gbb_gmodu_plus', array_merge($condition,$entry));
+    }
+    $response = new AjaxResponse();
+    return $response;
+  }
 
 
 
