@@ -162,20 +162,6 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
-  public function journal() {
-    // These libraries are required to facilitate the ajax modal form demo.
-    $content['#attached']['library'][] = 'core/drupal.ajax';
-    $content['#attached']['library'][] = 'core/drupal.dialog';
-    $content['#attached']['library'][] = 'core/drupal.dialog.ajax';
-
-    $content['intro'] = [ '#markup' => 'src/Controller/ModuleNG.php' ];
-    // See bb.module function bbtheme
-    $content['#theme'] = 'moduleng';
-    // moduleng-layout/html.twig
-
-    // dpm($content);
-    return $content;
-  }
   public function forms($co_degre, $co_modu) {
     // These libraries are required to facilitate the ajax modal form demo.
     $content['#attached']['library'][] = 'core/drupal.ajax';
@@ -197,6 +183,22 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosPasConvocForm', $co_degre, $co_modu);
     $content['infossurconvoc'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosSurConvocForm', $co_degre, $co_modu);
+
+    $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
+    $row = BbCrudController::load('gbb_session', $condition);
+    $last_mod = "1971-01-01 01:01:01";
+    $last_user = "0";
+    foreach ($row as $el) {
+      if (strtotime($las_tmod) < strtotime($el->date_modif)) {
+        $last_mod = $el->date_modif;
+        $last_user = $el->uid;
+      }
+    }
+    setlocale(LC_TIME, 'fr_FR.UTF-8', 'fra');
+    $last_mod = strftime('%A %e %B %Y à %T',strtotime($last_mod));
+    $the_user = user_load($last_user);
+    $content['last_mod'] = [ '#markup' => $last_mod ];
+    $content['last_user'] = [ '#markup' => $the_user->get('name')->value ];
 
     // Disable page caching on the current request.
     \Drupal::service('page_cache_kill_switch')->trigger();
