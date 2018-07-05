@@ -31,70 +31,27 @@ class ModuleNG extends ControllerBase {
   public function sessionchangestatus($co_degre, $co_modu, $sessid, $status) {
     switch ($status) {
       case '0': // Play
-        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0);
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '1': // En attente
-        $entry = array('en_attente' => 1, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 1);
+        $entry = array('en_attente' => 1, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 1, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '2': // Alerte
-        $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
+        $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '3': // convoc sent
-        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3);
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '4': // convoc formateur
-        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 2, 'status' => 4);
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 2, 'status' => 4, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '5': // convoc stagiaires
-        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 3, 'status' => 5);
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 3, 'status' => 5, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '6': // transmis DE
-        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 6);
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 6, 'date_modif' => date("Y-m-d H:i:s"));
         break;
     }
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-  public function sessionplay($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 0, 'status' => 0);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-  public function sessionsent($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 1, 'status' => 3);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-  public function sessionsentformateur($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 2, 'status' => 4);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-  public function sessionsentstagiaires($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 3, 'status' => 5);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-  public function sessionalert($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 0, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 2);
-    $condition = array('sess_id' => $sessid);
-    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
-    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
-    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
-  }
-
-  public function sessionpause($co_degre, $co_modu, $sessid) {
-    $entry = array('en_attente' => 1, 'session_alert' => 1, 'convoc_sent' => 0, 'status' => 1);
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
