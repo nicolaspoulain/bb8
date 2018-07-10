@@ -241,7 +241,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: atraiter
+      path: a_traiter
       fields:
         color:
           id: color
@@ -1010,16 +1010,12 @@ display:
             group_items:
               1:
                 title: 1D
-                operator: starts
-                value: 18D
+                operator: contains
+                value: D
               2:
                 title: 2D
-                operator: not_starts
-                value: 18D
-              3:
-                title: ''
-                operator: '='
-                value: ''
+                operator: not
+                value: D
           plugin_id: string
       filter_groups:
         operator: AND

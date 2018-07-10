@@ -76,6 +76,15 @@ bb.liste:
   requirements:
     _permission: 'access content'
 
+bb.atraiter:
+  path: '/atraiter/{id_disp_1}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\Atraiter::page'
+    _title: 'Liste'
+    id_disp_1: '2'
+  requirements:
+    _permission: 'access content'
+
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
   defaults:
