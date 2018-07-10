@@ -972,6 +972,55 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        id_disp_1:
+          id: id_disp_1
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_1_op
+            label: id_disp
+            description: null
+            use_operator: false
+            operator: id_disp_1_op
+            identifier: id_disp_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Degré
+            description: ''
+            identifier: id_disp_1
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 1D
+                operator: starts
+                value: 18D
+              2:
+                title: 2D
+                operator: not_starts
+                value: 18D
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
