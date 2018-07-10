@@ -47,7 +47,7 @@
 
 {% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="sessions">
-  <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires</summary>
+  <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper sessions">
     {% if 'd_cons' in user.roles %}
     {{ drupal_view('sessions_d_un_module', 'block_1') }}
