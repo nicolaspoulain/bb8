@@ -767,6 +767,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdisp']['co_offreur'] = array( 'title' => t('co_offreur'),
+  //{{
+    'help' => t('Code offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdisp']['co_tcan'] = array( 'title' => t('co_tcan'),
   //{{
     'help' => t('Code type candidature'),
