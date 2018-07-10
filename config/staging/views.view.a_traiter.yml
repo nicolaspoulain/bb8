@@ -3,7 +3,6 @@ langcode: fr
 status: true
 dependencies:
   config:
-    - system.menu.main
     - user.role.administrator
     - user.role.d_admi
     - user.role.d_cons
@@ -1036,7 +1035,7 @@ display:
           plugin_id: standard
       display_description: ''
       menu:
-        type: normal
+        type: none
         title: 'À traiter'
         description: ''
         expanded: false
@@ -1044,7 +1043,6 @@ display:
         weight: 0
         context: '0'
         menu_name: main
-        enabled: true
     cache_metadata:
       max-age: -1
       contexts:
