@@ -146,7 +146,7 @@ class ModuleNG extends ControllerBase {
     $last_mod = "1971-01-01 01:01:01";
     $last_user = "0";
     foreach ($row as $el) {
-      if (strtotime($las_tmod) < strtotime($el->date_modif)) {
+      if (strtotime($last_mod) < strtotime($el->date_modif)) {
         $last_mod = $el->date_modif;
         $last_user = $el->uid;
       }
