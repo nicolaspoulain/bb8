@@ -51,6 +51,9 @@ class ModuleNG extends ControllerBase {
       case '6': // transmis DE
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 6, 'date_modif' => date("Y-m-d H:i:s"));
         break;
+      case '7': // en traitement
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 7, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
     }
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
