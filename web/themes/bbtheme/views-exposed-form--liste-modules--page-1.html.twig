@@ -19,7 +19,7 @@
 {{ q }}
 {% endif %}
 
-{% set small = ['co_anmo', 'co_tpla', 'co_camp', 'co_moda', 'items_per_page','co_tcan'] %}
+{% set small = ['co_anmo', 'co_tpla', 'co_camp', 'co_moda', 'items_per_page','co_tcan','co_offreur'] %}
 {% set large = ['co_orie', 'lib', 'id_disp_1', 'co_modu','co_prac','co_prna','nomu','nomu_1'] %}
 
 <details class="form-wrapper" id="searchcrit" {{ open }}>
@@ -41,7 +41,7 @@
   </div>
 </details>
 
-{{ form | without('id_disp', 'resp_filter','actions','co_anmo', 'co_tpla', 'co_camp', 'items_per_page','co_orie', 'lib', 'id_disp_1', 'co_modu', 'co_moda','co_prac','co_prna','nomu','nomu_1','co_tcan') }}
+{{ form | without('id_disp', 'resp_filter','actions','co_anmo', 'co_tpla', 'co_camp', 'items_per_page','co_orie', 'lib', 'id_disp_1', 'co_modu', 'co_moda','co_prac','co_prna','nomu','nomu_1','co_tcan','co_offreur') }}
 
 <div class="pure-g">
     <div class="pure-u-1-6">
