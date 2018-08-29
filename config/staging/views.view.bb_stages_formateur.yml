@@ -324,25 +324,25 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2019-2020
+                operator: starts
+                value: '19'
+              2:
                 title: 2018-2019
                 operator: starts
                 value: '18'
-              2:
+              3:
                 title: 2017-2018
                 operator: starts
                 value: '17'
-              3:
+              4:
                 title: 2016-2017
                 operator: starts
                 value: '16'
-              4:
+              5:
                 title: 2015-2016
                 operator: starts
                 value: '15'
-              5:
-                title: 2014-2015
-                operator: starts
-                value: '14'
           plugin_id: string
         co_resp:
           id: co_resp
