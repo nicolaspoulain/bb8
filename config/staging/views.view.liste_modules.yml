@@ -60,7 +60,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 250
+          items_per_page: 5000
           offset: 0
           id: 0
           total_pages: null
@@ -70,10 +70,10 @@ display:
             first: '« Premier'
             last: 'Dernier »'
           expose:
-            items_per_page: true
+            items_per_page: false
             items_per_page_label: 'Éléments par page'
-            items_per_page_options: '250,500'
-            items_per_page_options_all: true
+            items_per_page_options: '250,500,5000'
+            items_per_page_options_all: false
             items_per_page_options_all_label: '- Tout -'
             offset: false
             offset_label: Décalage
