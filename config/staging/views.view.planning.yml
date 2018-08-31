@@ -1028,6 +1028,118 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: date
+        co_tcan:
+          id: co_tcan
+          table: gbb_gdisp
+          field: co_tcan
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_tcan_op
+            label: co_tcan
+            description: null
+            use_operator: false
+            operator: co_tcan_op
+            identifier: co_tcan
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Cand.'
+            description: ''
+            identifier: co_tcan
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Indiv. (VO)'
+                operator: '='
+                value:
+                  value: '1'
+                  min: ''
+                  max: ''
+              2:
+                title: Coll.
+                operator: '='
+                value:
+                  value: '2'
+                  min: ''
+                  max: ''
+              3:
+                title: 'Sans (NE)'
+                operator: '='
+                value:
+                  value: '3'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_offreur_op
+            label: co_offreur
+            description: null
+            use_operator: false
+            operator: co_offreur_op
+            identifier: co_offreur
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Rmpl.'
+            description: ''
+            identifier: co_offreur
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: BD
+                operator: '='
+                value: BD
+              2:
+                title: HTS
+                operator: '='
+                value: HTS
+              3:
+                title: SR
+                operator: '='
+                value: SR
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
