@@ -1193,6 +1193,69 @@ display:
             offset_label: Décalage
           quantity: 9
       filters:
+        co_degre:
+          id: co_degre
+          table: gbb_gmodu
+          field: co_degre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_degre_op
+            label: co_degre
+            description: null
+            use_operator: false
+            operator: co_degre_op
+            identifier: co_degre
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: Degré
+            description: ''
+            identifier: co_degre
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 1D
+                operator: '='
+                value:
+                  value: '1'
+                  min: ''
+                  max: ''
+              2:
+                title: 2D
+                operator: '='
+                value:
+                  value: '2'
+                  min: ''
+                  max: ''
+              3:
+                title: ''
+                operator: '='
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+          plugin_id: numeric
         resp_filter:
           id: resp_filter
           table: gbb_gresp_orga_peda
@@ -1438,69 +1501,47 @@ display:
                 operator: '!='
                 value: 1P14
           plugin_id: string
-        co_degre:
-          id: co_degre
-          table: gbb_gmodu
-          field: co_degre
+        co_orie_1:
+          id: co_orie_1
+          table: gbb_gdisp
+          field: co_orie
           relationship: none
           group_type: group
           admin_label: ''
           operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: co_degre_op
-            label: co_degre
-            description: null
+            operator_id: co_orie_1_op
+            label: 'Code orientation'
+            description: 'p.ex : 2S33'
             use_operator: false
-            operator: co_degre_op
-            identifier: co_degre
+            operator: co_orie_1_op
+            identifier: co_orie_1
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
           group_info:
-            label: Degré
+            label: ''
             description: ''
-            identifier: co_degre
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: 1D
-                operator: '='
-                value:
-                  value: '1'
-                  min: ''
-                  max: ''
-              2:
-                title: 2D
-                operator: '='
-                value:
-                  value: '2'
-                  min: ''
-                  max: ''
-              3:
-                title: ''
-                operator: '='
-                value:
-                  value: ''
-                  min: ''
-                  max: ''
-          plugin_id: numeric
+            group_items: {  }
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
