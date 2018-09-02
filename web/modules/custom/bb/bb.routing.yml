@@ -55,13 +55,13 @@ bb.afileform:
     _permission: 'access content'
 
 bb.planning:
-  path: '/planning/{id_disp}/{co_anmo}/{resp_filter}'
+  path: '/planning/{id_disp}/{co_anmo}/{filter}'
   defaults:
     _controller:  '\Drupal\bb\Controller\Planning::page'
     _title: 'Planning'
     id_disp: '1'
     co_anmo: '1'
-    resp_filter: 'username'
+    filter: 'username'
   requirements:
     _permission: 'access content'
 
