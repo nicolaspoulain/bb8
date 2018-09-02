@@ -16,6 +16,7 @@ class Planning extends ControllerBase {
    *   A simple renderable array.
    */
   public function page($id_disp,$co_anmo,$filter) {
+    $co_orie = 'All';
     $resp_filter = '';
     $co_offreur = 'All';
     $date = date("Y-m-d");
@@ -28,10 +29,14 @@ class Planning extends ControllerBase {
     if ($filter == "BD") {
       $co_offreur = 1;
     };
+    if ($filter == "AP") {
+      $co_orie = "1";
+    };
     // query parameters
     $routeparameters = array(
       'date_ts' => $date,
       'co_offreur' => $co_offreur,
+      'co_orie' => $co_orie,
       'resp_filter' => $resp_filter);
     return $this->redirect('view.planning.page_1',$routeparameters);
   }
