@@ -413,13 +413,53 @@ function bb_views_data() {
   );
   //}}
   $data['gbb_gmodu']['co_etab_dem'] = array( 'help' => t('RNE de l etablissement demandeur'),
-  //{{
+  //{{ *** GBB_NETAB_DAFOR intégré
     'title'  => t('co_etab_dem'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  // ........................................................
+  // gbb_netab_dafor * intégré directement dans les champs de gbb_gmodu
+  // ........................................................
+  $data['gbb_netab_modu']['table'] = array( 'group' => t('gbb_gmodu'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_netab',
+        'left_field' => 'co_etab_dem',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
+  $data['gbb_netab_modu']['cp'] = array( 'help' => t('cp'),
+  //{{
+    'title' => t('netab.cp'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
   //}}
+  $data['gbb_netab_modu']['denom_comp'] = array( 'help'   => t('Nom établissement'),
+    //{{
+    'title'  => t('netab.Nom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_modu']['sigle'] = array( 'help'   => t('Sigle'),
+    //{{
+    'title'  => t('netab.Sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
+
+
   $data['gbb_gmodu']['dt_crea'] = array( 'help' => t('Date création'),
   //{{
     'title'  => t('dt_crea'),
@@ -1399,6 +1439,7 @@ function bb_views_data() {
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
   );
+  //}}
   //}}
   //}}
 
