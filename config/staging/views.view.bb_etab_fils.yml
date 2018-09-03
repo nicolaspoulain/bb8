@@ -44,12 +44,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
-          items_per_page: 10
+          items_per_page: 50
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Premier'
+            last: 'Dernier »'
           expose:
             items_per_page: false
             items_per_page_label: 'Éléments par page'
@@ -58,9 +63,7 @@ display:
             items_per_page_options_all_label: '- Tout -'
             offset: false
             offset_label: Décalage
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: default
         options:
@@ -699,6 +702,67 @@ display:
           suffix: ''
           plugin_id: numeric
       filters:
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_op
+            label: id_disp
+            description: null
+            use_operator: false
+            operator: id_disp_op
+            identifier: id_disp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Année
+            description: ''
+            identifier: id_disp
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '2'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 2019-2020
+                operator: starts
+                value: '19'
+              2:
+                title: 2018-2019
+                operator: starts
+                value: '18'
+              3:
+                title: 2017-2018
+                operator: starts
+                value: '17'
+              4:
+                title: 2016-2017
+                operator: starts
+                value: '16'
+              5:
+                title: 2015-2016
+                operator: starts
+                value: '15'
+              6:
+                title: 2014-2015
+                operator: starts
+                value: '14'
+          plugin_id: string
         co_etab_dem:
           id: co_etab_dem
           table: gbb_gmodu
@@ -712,7 +776,7 @@ display:
           exposed: true
           expose:
             operator_id: co_etab_dem_op
-            label: co_etab_dem
+            label: RNE
             description: ''
             use_operator: false
             operator: co_etab_dem_op
@@ -748,6 +812,10 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
