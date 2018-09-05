@@ -1845,7 +1845,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} \n{% if co_etab_dem>0 %}\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"bb-etab---fils?id_disp=2&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\n{% endif %}"
+            text: "{% if co_anmo>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\n{% else %} \n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\n{% endif %} \n{% if co_etab_dem|length>0 %}\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"bb-etab---fils?id_disp=2&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\n{% endif %}"
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
