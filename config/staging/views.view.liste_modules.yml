@@ -873,7 +873,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_andi>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\n{% else %} \n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\n{% endif %} \n\n\n\n"
+            text: "{% if co_andi>0 %}\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\n{% else %} \n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/bb-etab---fils?id_disp=2&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\n{% endif %} \n\n\n\n"
             make_link: false
             path: ''
             absolute: false
