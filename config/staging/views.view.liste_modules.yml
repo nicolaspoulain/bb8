@@ -4315,6 +4315,19 @@ display:
         expanded: false
       defaults:
         fields: true
+        footer: false
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<br/>\r\n<a href=\"../../import_BB_dans_excel.pdf\"><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> Comment lire l'export CSV ci-dessous dans Excel ?</a>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
