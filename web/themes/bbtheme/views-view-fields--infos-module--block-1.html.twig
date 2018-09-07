@@ -43,15 +43,25 @@
 </div>
 </div>
 </div>
-    <div class="pure-u-10-24">
-<div class="round bggreen spacedxl hspace">
-<div class="xl white">
-  <div>Resp. Orga. : {{ fields['nomu'].content}}</div>
-</div>
-<div class="xl white">
-  <div>Resp. Péda.  : {{ fields['nomu_1'].content}}</div>
-</div>
-</div>
+<div class="pure-u-10-24">
+      <div class="round bggreen spacedxl hspace">
+  <div class="pure-g">
+    <div class="pure-u-1-2">
+        <div class="xl white">
+          <div>Resp. Orga. : {{ fields['nomu'].content}}</div>
+          <div>Resp. Péda.  : {{ fields['nomu_1'].content}}</div>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="xl white">
+          {% if fields['co_offreur'].content|length >0 %}
+        <div>Code offreur : {{ fields['co_offreur'].content}}</div>
+          {% endif %}
+        <div>Type Cand. : {{ fields['lib_court'].content}}</div>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
