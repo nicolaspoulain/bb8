@@ -28,6 +28,8 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $lib       = \Drupal::request()->query->get('lib');
     $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
     $co_tcan   = \Drupal::request()->query->get('co_tcan');
+    $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
+    $cp        = \Drupal::request()->query->get('cp');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
     $test = 0;
@@ -91,6 +93,206 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     if ($nomu_1 != '') {
       $test = 1;
       $variables['form']['nomu_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_etab_dem != '') {
+      $test = 1;
+      $variables['form']['co_etab_dem']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($cp != '') {
+      $test = 1;
+      $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($test) {
+      $variables['open'] = "open";
+    } else {
+      $variables['open'] = "";
+    }
+}
+
+function bbtheme_preprocess_views_exposed_form__liste_modules__page_2(&$variables) {
+    $co_anmo   = \Drupal::request()->query->get('co_anmo');
+    $co_tpla   = \Drupal::request()->query->get('co_tpla');
+    $co_camp   = \Drupal::request()->query->get('co_camp');
+    $co_offreur= \Drupal::request()->query->get('co_offreur');
+    $co_moda   = \Drupal::request()->query->get('co_moda');
+    $co_modu   = \Drupal::request()->query->get('co_modu');
+    $co_orie   = \Drupal::request()->query->get('co_orie');
+    $co_prac   = \Drupal::request()->query->get('co_prac');
+    $co_prna   = \Drupal::request()->query->get('co_prna');
+    $nomu      = \Drupal::request()->query->get('nomu');
+    $nomu_1    = \Drupal::request()->query->get('nomu_1');
+    $lib       = \Drupal::request()->query->get('lib');
+    $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
+    $co_tcan   = \Drupal::request()->query->get('co_tcan');
+    $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
+    $cp        = \Drupal::request()->query->get('cp');
+    $items_per_page = \Drupal::request()->query->get('items_per_page');
+
+    $test = 0;
+
+    if ($co_anmo != 1) {
+      $test = 1;
+      $variables['form']['co_anmo']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tpla != '' AND $co_tpla != 'All') {
+      $test = 1;
+      $variables['form']['co_tpla']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_modu != '') {
+      $test = 1;
+      $variables['form']['co_modu']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_moda != '' AND $co_moda != 'All') {
+      $test = 1;
+      $variables['form']['co_moda']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_camp != '' AND $co_camp != 'All') {
+      $test = 1;
+      $variables['form']['co_camp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_offreur != '' AND $co_offreur != 'All') {
+      $test = 1;
+      $variables['form']['co_offreur']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tcan != '' AND $co_tcan != 'All') {
+      $test = 1;
+      $variables['form']['co_tcan']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_orie != '') {
+      $test = 1;
+      $variables['form']['co_orie']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($lib != '') {
+      $test = 1;
+      $variables['form']['lib']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($id_disp_1 != '') {
+      $test = 1;
+      $variables['form']['id_disp_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($items_per_page != '' AND $items_per_page != '250') {
+      $test = 1;
+      $variables['form']['items_per_page']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_prac != '') {
+      $test = 1;
+      $variables['form']['co_prac']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_prna != '') {
+      $test = 1;
+      $variables['form']['co_prna']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($nomu != '') {
+      $test = 1;
+      $variables['form']['nomu']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($nomu_1 != '') {
+      $test = 1;
+      $variables['form']['nomu_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_etab_dem != '') {
+      $test = 1;
+      $variables['form']['co_etab_dem']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($cp != '') {
+      $test = 1;
+      $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($test) {
+      $variables['open'] = "open";
+    } else {
+      $variables['open'] = "";
+    }
+}
+
+function bbtheme_preprocess_views_exposed_form__liste_modules__page_3(&$variables) {
+    $co_anmo   = \Drupal::request()->query->get('co_anmo');
+    $co_tpla   = \Drupal::request()->query->get('co_tpla');
+    $co_camp   = \Drupal::request()->query->get('co_camp');
+    $co_offreur= \Drupal::request()->query->get('co_offreur');
+    $co_moda   = \Drupal::request()->query->get('co_moda');
+    $co_modu   = \Drupal::request()->query->get('co_modu');
+    $co_orie   = \Drupal::request()->query->get('co_orie');
+    $co_prac   = \Drupal::request()->query->get('co_prac');
+    $co_prna   = \Drupal::request()->query->get('co_prna');
+    $nomu      = \Drupal::request()->query->get('nomu');
+    $nomu_1    = \Drupal::request()->query->get('nomu_1');
+    $lib       = \Drupal::request()->query->get('lib');
+    $id_disp_1 = \Drupal::request()->query->get('id_disp_1');
+    $co_tcan   = \Drupal::request()->query->get('co_tcan');
+    $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
+    $cp        = \Drupal::request()->query->get('cp');
+    $items_per_page = \Drupal::request()->query->get('items_per_page');
+
+    $test = 0;
+
+    if ($co_anmo != 1) {
+      $test = 1;
+      $variables['form']['co_anmo']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tpla != '' AND $co_tpla != 'All') {
+      $test = 1;
+      $variables['form']['co_tpla']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_modu != '') {
+      $test = 1;
+      $variables['form']['co_modu']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_moda != '' AND $co_moda != 'All') {
+      $test = 1;
+      $variables['form']['co_moda']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_camp != '' AND $co_camp != 'All') {
+      $test = 1;
+      $variables['form']['co_camp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_offreur != '' AND $co_offreur != 'All') {
+      $test = 1;
+      $variables['form']['co_offreur']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_tcan != '' AND $co_tcan != 'All') {
+      $test = 1;
+      $variables['form']['co_tcan']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_orie != '') {
+      $test = 1;
+      $variables['form']['co_orie']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($lib != '') {
+      $test = 1;
+      $variables['form']['lib']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($id_disp_1 != '') {
+      $test = 1;
+      $variables['form']['id_disp_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($items_per_page != '' AND $items_per_page != '250') {
+      $test = 1;
+      $variables['form']['items_per_page']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_prac != '') {
+      $test = 1;
+      $variables['form']['co_prac']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_prna != '') {
+      $test = 1;
+      $variables['form']['co_prna']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($nomu != '') {
+      $test = 1;
+      $variables['form']['nomu']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($nomu_1 != '') {
+      $test = 1;
+      $variables['form']['nomu_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($co_etab_dem != '') {
+      $test = 1;
+      $variables['form']['co_etab_dem']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($cp != '') {
+      $test = 1;
+      $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
     }
     if ($test) {
       $variables['open'] = "open";
