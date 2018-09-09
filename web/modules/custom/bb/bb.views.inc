@@ -213,6 +213,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu_plus']['organisation'] = array( 'help' => t('organisation'),
+  //{{
+    'title' => t('organisation'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu_taxonomy']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(

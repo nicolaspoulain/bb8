@@ -199,6 +199,9 @@ margin-top:10px;
   width: 70%;
   overflow: hidden;
 }
+.textleft {
+  text-align: left;
+}
 
 .right {
   overflow: hidden;
