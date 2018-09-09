@@ -4563,6 +4563,55 @@ display:
         type: fields
         options: {  }
       fields:
+        organisation:
+          id: organisation
+          table: gbb_gmodu_plus
+          field: organisation
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         lib:
           id: lib
           table: gbb_gdisp
@@ -4721,7 +4770,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "<h2>\r\n{{ id_disp }} {{ lib }}<br/>\r\n{{ co_modu }} {{ lib_1 }}\r\n</h2>"
+            text: "<p>&nbsp; </p>\r\n<hr/>\r\n\r\n<h2 class=\"textleft\">\r\n{{ id_disp }} {{ lib }}<br/>\r\n{{ co_modu }} {{ lib_1 }}\r\n</h2>\r\n<details  class=\"textleft\" open='true'>\r\n<summary></summary>\r\n<div  class=\"textleft\">\r\n{{ organisation|nl2br }}\r\n</div>\r\n</details>\r\n"
             make_link: false
             path: ''
             absolute: false
