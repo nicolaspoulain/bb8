@@ -30,6 +30,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $co_tcan   = \Drupal::request()->query->get('co_tcan');
     $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
     $cp        = \Drupal::request()->query->get('cp');
+    $color     = \Drupal::request()->query->get('color');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
     $test = 0;
@@ -101,6 +102,10 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     if ($cp != '') {
       $test = 1;
       $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($color != '' and $color != 'All') {
+      $test = 1;
+      $variables['form']['color']['#attributes'] = array('class' => array('warning'));
     }
     if ($test) {
       $variables['open'] = "open";
@@ -126,6 +131,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_2(&$variable
     $co_tcan   = \Drupal::request()->query->get('co_tcan');
     $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
     $cp        = \Drupal::request()->query->get('cp');
+    $color     = \Drupal::request()->query->get('color');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
     $test = 0;
@@ -197,6 +203,10 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_2(&$variable
     if ($cp != '') {
       $test = 1;
       $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($color != '' and $color != 'All') {
+      $test = 1;
+      $variables['form']['color']['#attributes'] = array('class' => array('warning'));
     }
     if ($test) {
       $variables['open'] = "open";
@@ -222,6 +232,7 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_3(&$variable
     $co_tcan   = \Drupal::request()->query->get('co_tcan');
     $co_etab_dem = \Drupal::request()->query->get('co_etab_dem');
     $cp        = \Drupal::request()->query->get('cp');
+    $color     = \Drupal::request()->query->get('color');
     $items_per_page = \Drupal::request()->query->get('items_per_page');
 
     $test = 0;
@@ -293,6 +304,10 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_3(&$variable
     if ($cp != '') {
       $test = 1;
       $variables['form']['cp']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($color != '' and $color != 'All') {
+      $test = 1;
+      $variables['form']['color']['#attributes'] = array('class' => array('warning'));
     }
     if ($test) {
       $variables['open'] = "open";
