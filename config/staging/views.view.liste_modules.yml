@@ -2939,6 +2939,10 @@ display:
                 title: '3'
                 operator: '='
                 value: fa-battery-full
+              4:
+                title: 1+2+3
+                operator: starts
+                value: fa-battery-
           plugin_id: string
       sorts:
         id_disp:
