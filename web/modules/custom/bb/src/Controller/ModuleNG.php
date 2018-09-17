@@ -159,9 +159,12 @@ class ModuleNG extends ControllerBase {
     $last_mod = strftime('%A %e %B %Y à %T',strtotime($last_mod));
     $the_user = user_load($last_user);
     $content['last_mod'] = [ '#markup' => $last_mod ];
-    // $content['last_user'] = [ '#markup' => $the_user->get('name')->value ];
-    // $content['last_user'] = [ '#markup' => $the_user->id() ];
-    $content['last_user'] = [ '#markup' => 'NaN' ];
+    if (is_object($the_user)) {
+      $thename = $the_user->get('name')->value;
+    } else {
+      $thename = 'NaN';
+    }
+    $content['last_user'] = [ '#markup' => $thename ];
 
     // Disable page caching on the current request.
     \Drupal::service('page_cache_kill_switch')->trigger();
