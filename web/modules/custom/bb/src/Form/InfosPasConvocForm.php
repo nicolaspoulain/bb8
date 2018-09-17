@@ -62,6 +62,7 @@ class InfosPasConvocForm extends FormBase {
       '#title' => 'Infos à ne PAS porter sur la convocation',
       '#default_value' => (!empty($module))? strip_tags($module[0]->convoc_info_off) : '',
       '#description' => '',
+      '#rows' => 11,
       '#ajax' => [
         'callback' => '::saveAjax',
         'event' => 'change',
