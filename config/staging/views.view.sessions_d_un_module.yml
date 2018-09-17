@@ -1390,8 +1390,8 @@ display:
           alter:
             alter_text: true
             text: '{{ denom_comp }} ({{ sigle }})'
-            make_link: false
-            path: ''
+            make_link: true
+            path: 'bb-etab---stages?co_lieu={{ co_lieu }}&id_disp=18'
             absolute: false
             external: false
             replace_spaces: false
