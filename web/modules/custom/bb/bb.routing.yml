@@ -96,13 +96,14 @@ bb.moduleng:
     _permission: 'access content'
 
 bb.changecolor:
-  path: '/changecolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}'
+  path: '/changecolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'
   defaults:
     _controller:  '\Drupal\bb\Controller\ModuleNG::changecolor'
     _title: 'Form API Examples'
     co_degre: '2'
     co_modu: '1'
     resp_filter: ''
+    id_disp_1: ''
   requirements:
     _permission: 'access content'
 
