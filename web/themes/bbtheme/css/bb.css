@@ -422,3 +422,16 @@ box-shadow:inset 1em 0 black;
 .warning {
   background-color: #ffacac;
 }
+.color-fil-one:before {
+      content: "\24F5";
+  font-weight: bold;
+
+}
+.color-fil-two:before {
+      content: "\24F6";
+  font-weight: bold;
+}
+.color-fil-three:before {
+      content: "\24F7";
+  font-weight: bold;
+}
