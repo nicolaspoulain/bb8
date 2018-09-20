@@ -2930,19 +2930,19 @@ display:
               1:
                 title: '1'
                 operator: '='
-                value: color-fil-one
+                value: fil-one
               2:
                 title: '2'
                 operator: '='
-                value: color-fil-two
+                value: fil-two
               3:
                 title: '3'
                 operator: '='
-                value: color-fil-three
+                value: fil-three
               4:
                 title: 1+2+3
                 operator: starts
-                value: color-fil-
+                value: fil-
           plugin_id: string
       sorts:
         id_disp:
