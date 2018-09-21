@@ -56,6 +56,8 @@ class ModuleNG extends ControllerBase {
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 7, 'date_modif' => date("Y-m-d H:i:s"));
         break;
     }
+    $account = \Drupal::currentUser();
+    $entry['uid'] = $account->id();
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -63,7 +65,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_ficand_on($co_degre, $co_modu, $sessid) {
-    $entry = array('ficand' => 1);
+    $account = \Drupal::currentUser();
+    $entry = array('ficand' => 1, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -71,7 +74,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_ficand_off($co_degre, $co_modu, $sessid) {
-    $entry = array('ficand' => 0);
+    $account = \Drupal::currentUser();
+    $entry = array('ficand' => 0, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -79,7 +83,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_le_on($co_degre, $co_modu, $sessid) {
-    $entry = array('LE_etat' => 1);
+    $account = \Drupal::currentUser();
+    $entry = array('LE_etat' => 1, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -87,7 +92,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_le_off($co_degre, $co_modu, $sessid) {
-    $entry = array('LE_etat' => 0);
+    $account = \Drupal::currentUser();
+    $entry = array('LE_etat' => 0, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -95,7 +101,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_paiement_on($co_degre, $co_modu, $sessid) {
-    $entry = array('paiement_etat' => 1);
+    $account = \Drupal::currentUser();
+    $entry = array('paiement_etat' => 1, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -103,7 +110,8 @@ class ModuleNG extends ControllerBase {
   }
 
   public function session_paiement_off($co_degre, $co_modu, $sessid) {
-    $entry = array('paiement_etat' => 0);
+    $account = \Drupal::currentUser();
+    $entry = array('paiement_etat' => 0, 'uid' => $account->id());
     $condition = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
     $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
@@ -112,7 +120,8 @@ class ModuleNG extends ControllerBase {
 
   public function sessiondelete($co_degre, $co_modu, $sessid) {
     // delete session
-    $entry = array('sess_id' => $sessid);
+    $account = \Drupal::currentUser();
+    $entry = array('sess_id' => $sessid, 'uid' => $account->id());
     $DBWriteStatus = BbCrudController::delete('gbb_session', $entry);
 
     drupal_set_message('Session supprimée');
