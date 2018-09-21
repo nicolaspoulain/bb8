@@ -120,8 +120,7 @@ class ModuleNG extends ControllerBase {
 
   public function sessiondelete($co_degre, $co_modu, $sessid) {
     // delete session
-    $account = \Drupal::currentUser();
-    $entry = array('sess_id' => $sessid, 'uid' => $account->id());
+    $entry = array('sess_id' => $sessid);
     $DBWriteStatus = BbCrudController::delete('gbb_session', $entry);
 
     drupal_set_message('Session supprimée');
