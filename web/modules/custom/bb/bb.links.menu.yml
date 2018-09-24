@@ -1,0 +1,11 @@
+bb.liste:
+  title: 'Stages par responsable'
+  parent: main
+  route_name: bb.liste
+  weight: 10
+
+bb.atraiter:
+  title: 'À traiter'
+  parent: main
+  route_name: bb.atraiter
+  weight: 10

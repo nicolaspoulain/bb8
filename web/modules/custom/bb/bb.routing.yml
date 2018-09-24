@@ -75,6 +75,7 @@ bb.liste:
     resp_filter: 'username'
   requirements:
     _permission: 'access content'
+    _role: 'authenticated user'
 
 bb.atraiter:
   path: '/atraiter/{id_disp_1}'
@@ -84,6 +85,7 @@ bb.atraiter:
     id_disp_1: '2'
   requirements:
     _permission: 'access content'
+    _role: 'authenticated user'
 
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
@@ -94,6 +96,7 @@ bb.moduleng:
     co_modu: '1'
   requirements:
     _permission: 'access content'
+    _role: 'authenticated user'
 
 bb.changecolor:
   path: '/changecolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'

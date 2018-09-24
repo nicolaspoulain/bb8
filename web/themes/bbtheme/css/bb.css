@@ -435,3 +435,6 @@ box-shadow:inset 1em 0 black;
       content: "\24F7";
   font-weight: bold;
 }
+.region-header {
+  padding: 0 15px 10px;
+}
