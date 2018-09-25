@@ -96,7 +96,7 @@ bb.moduleng:
     co_modu: '1'
   requirements:
     _permission: 'access content'
-    _role: 'authenticated user'
+    # _role: 'authenticated user'
 
 bb.changecolor:
   path: '/changecolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'
