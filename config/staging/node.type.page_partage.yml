@@ -1,0 +1,17 @@
+uuid: bc14363b-3ce9-4d1c-942e-2dcfcaf4edf4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'page partage'
+type: page_partage
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,29 @@
+uuid: 5b66fa43-d63f-4d6c-b18c-d01aa59a829b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_partage.body
+    - node.type.page_partage
+  module:
+    - text
+    - user
+id: node.page_partage.teaser
+targetEntityType: node
+bundle: page_partage
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  langcode: true

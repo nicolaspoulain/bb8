@@ -1,0 +1,22 @@
+uuid: 30ee742a-9aab-4781-908e-8f522bb47448
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.page_partage
+  module:
+    - text
+id: node.page_partage.body
+field_name: body
+entity_type: node
+bundle: page_partage
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

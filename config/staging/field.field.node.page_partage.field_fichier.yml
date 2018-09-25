@@ -1,0 +1,27 @@
+uuid: 2b5d6a99-3f99-4d3b-ad43-e5928021f296
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fichier
+    - node.type.page_partage
+  module:
+    - file
+id: node.page_partage.field_fichier
+field_name: field_fichier
+entity_type: node
+bundle: page_partage
+label: 'Fichier(s) joint(s)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'page-partage-attachements-[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt jpg jpeg gif png csv rtf doc docx odt xls xlsx ods pdf zip'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

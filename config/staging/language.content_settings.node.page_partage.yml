@@ -1,0 +1,11 @@
+uuid: 75b20f2c-82e7-4a39-82c3-7f140e9b8222
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_partage
+id: node.page_partage
+target_entity_type_id: node
+target_bundle: page_partage
+default_langcode: site_default
+language_alterable: false
