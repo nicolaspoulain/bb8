@@ -7,4 +7,5 @@ label: D_cons
 weight: 3
 is_admin: null
 permissions:
+  - 'access bb usual'
   - 'edit any page_riche content'

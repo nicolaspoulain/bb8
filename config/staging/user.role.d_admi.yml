@@ -6,4 +6,5 @@ id: d_admi
 label: D_admi
 weight: 4
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access bb usual'

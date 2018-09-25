@@ -5,7 +5,7 @@ bb.journalform:
     _title: 'Mon Formulaire pour le journal'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.infospasconvocform:
   path: '/infospasconvoc/{co_modu}'
@@ -14,7 +14,7 @@ bb.infospasconvocform:
     _title: 'Infos à ne pas porter sur la convocation'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.infossurconvocform:
   path: '/infossurconvoc/{co_modu}'
@@ -23,7 +23,7 @@ bb.infossurconvocform:
     _title: 'Infos à pas porter sur la convocation'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.cfileform:
   path: '/cfile/{co_modu}'
@@ -33,7 +33,7 @@ bb.cfileform:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.propfileform:
   path: '/propfile/{co_modu}'
@@ -43,7 +43,7 @@ bb.propfileform:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.afileform:
   path: '/afile/{co_modu}'
@@ -52,7 +52,7 @@ bb.afileform:
     _title: 'Mon Formulaire pour les fichiers adminstratifs'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.planning:
   path: '/planning/{id_disp}/{co_anmo}/{filter}'
@@ -63,7 +63,7 @@ bb.planning:
     co_anmo: '1'
     filter: 'username'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.liste:
   path: '/liste/{id_disp}/{co_anmo}/{resp_filter}'
@@ -74,8 +74,7 @@ bb.liste:
     co_anmo: '1'
     resp_filter: 'username'
   requirements:
-    _permission: 'access content'
-    # _role: 'authenticated user'
+    _permission: 'access bb usual'
 
 bb.atraiter:
   path: '/atraiter/{id_disp_1}'
@@ -84,8 +83,7 @@ bb.atraiter:
     _title: 'Liste'
     id_disp_1: '2'
   requirements:
-    _permission: 'access content'
-    # _role: 'authenticated user'
+    _permission: 'access bb usual'
 
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
@@ -95,8 +93,7 @@ bb.moduleng:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
-    # _role: 'authenticated user'
+    _permission: 'access bb usual'
 
 bb.changecolor:
   path: '/changecolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'
@@ -108,7 +105,7 @@ bb.changecolor:
     resp_filter: ''
     id_disp_1: ''
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.sessionchangestatus:
   path: '/sessionchangestatus/{co_degre}/{co_modu}/{sessid}/{status}'
@@ -118,7 +115,7 @@ bb.sessionchangestatus:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_ficand_on:
   path: '/session_ficand_on/{co_degre}/{co_modu}/{sessid}'
@@ -128,7 +125,7 @@ bb.session_ficand_on:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_fiacand_off:
   path: '/session_ficand_off/{co_degre}/{co_modu}/{sessid}'
@@ -138,7 +135,7 @@ bb.session_fiacand_off:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_LE_on:
   path: '/session_LE_on/{co_degre}/{co_modu}/{sessid}'
@@ -148,7 +145,7 @@ bb.session_LE_on:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_LE_off:
   path: '/session_LE_off/{co_degre}/{co_modu}/{sessid}'
@@ -158,7 +155,7 @@ bb.session_LE_off:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_paiement_on:
   path: '/session_paiement_on/{co_degre}/{co_modu}/{sessid}'
@@ -168,7 +165,7 @@ bb.session_paiement_on:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.session_paiement_off:
   path: '/session_paiement_off/{co_degre}/{co_modu}/{sessid}'
@@ -178,7 +175,7 @@ bb.session_paiement_off:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.sessiondelete:
   path: '/sessiondelete/{co_degre}/{co_modu}/{sessid}'
@@ -188,7 +185,7 @@ bb.sessiondelete:
     co_degre: '2'
     co_modu: '1'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.modal_form:
   path: '/modal_form/{co_degre}/{co_modu}/{sess_id}/{type}'
@@ -200,14 +197,14 @@ bb.modal_form:
     co_modu: 1
     type: 'edit'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.autocomplete.formateur:
   path: '/autocompFormateur'
   defaults:
     _controller: '\Drupal\bb\Form\Autocomplete::autocompFormateur'
   requirements:
-    _permission: 'access content'
+    _permission: 'access bb usual'
 
 bb.autocomplete.lieu:
   path: '/autocompLieu'

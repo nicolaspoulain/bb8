@@ -1,0 +1,4 @@
+access bb usual:
+  title: 'bb voir les contenus usuels'
+  description: 'Permet de voir les contenus non sensibles de BB'
+  restrict access: TRUE
