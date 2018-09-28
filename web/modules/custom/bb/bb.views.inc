@@ -276,6 +276,26 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_netab_gmofl']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_netab',
+        'left_table' => 'gbb_gmofl',
+        'left_field' => 'co_lieu',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_netab_gmofl']['denom_princ'] = array( 'help' => t('gmofl filtre circo denom_princ'),
+  //{{
+    'title' => t('gmofl_denom_princ'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
 
 
