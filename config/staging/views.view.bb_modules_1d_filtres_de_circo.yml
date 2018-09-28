@@ -62,7 +62,44 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            co_modu: co_modu
+            co_lieu: co_lieu
+            id_disp: id_disp
+          info:
+            co_modu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_lieu:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id_disp:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
@@ -174,7 +211,184 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      filters: {  }
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: id_disp
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+      filters:
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_op
+            label: id_disp
+            description: ''
+            use_operator: false
+            operator: id_disp_op
+            identifier: id_disp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_lieu:
+          id: co_lieu
+          table: gbb_gmofl
+          field: co_lieu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_lieu_op
+            label: co_lieu
+            description: ''
+            use_operator: false
+            operator: co_lieu_op
+            identifier: co_lieu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_modu_op
+            label: co_modu
+            description: ''
+            use_operator: false
+            operator: co_modu_op
+            identifier: co_modu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts: {  }
       title: 'BB: modules 1D - Filtres de circo'
       header: {  }
@@ -187,6 +401,7 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }
   page_1:
@@ -201,5 +416,6 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - url.query_args
       tags: {  }
