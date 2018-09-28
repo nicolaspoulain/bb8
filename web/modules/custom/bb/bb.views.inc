@@ -288,6 +288,14 @@ function bb_views_data() {
     ),
   );
   //}}
+  $data['gbb_netab_gmofl']['denom_comp'] = array( 'help' => t('gmofl filtre circo denom_comp'),
+  //{{
+    'title' => t('gmofl_denom_comp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_netab_gmofl']['denom_princ'] = array( 'help' => t('gmofl filtre circo denom_princ'),
   //{{
     'title' => t('gmofl_denom_princ'),
