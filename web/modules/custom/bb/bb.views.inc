@@ -249,6 +249,33 @@ function bb_views_data() {
   );
   //}}
 
+  $data['gbb_gmofl']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gmodu.co_degre = 1',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gmofl']['lib'] = array( 'help' => t('Libellé'),
+  //{{
+    'title' => t('lib'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmofl']['co_lieu'] = array( 'help' => t('Co_lieu : RNE circo filtre'),
+  //{{
+    'title' => t('co_lieu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
 
 
