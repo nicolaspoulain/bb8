@@ -464,7 +464,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\n{% elseif status == \"1\" %}\n<i class=\"fa fa-lg fa-pause gray\"></i>\n{% elseif status == \"2\" %}\n<i class=\"fa fa-lg fa-flag red \"></i>\n{% elseif status == \"3\" %}\n<i class=\"fa fa-lg fa-envelope green\"></i>\n{% elseif status == \"4\" %}\n<i class=\"fa fa-lg fa-user orange\"></i>\n{% elseif status == \"5\" %}\n<i class=\"fa fa-lg fa-users pink\"></i>\n{% elseif status == \"6\" %}\n<i class=\"fa fa-lg blue\">DE</i>\n{% endif %}\n\n\n\n\n"
+            text: "{% if status == \"0\" %}\r\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\r\n{% elseif status == \"1\" %}\r\n<i class=\"fa fa-lg fa-pause gray\"></i>\r\n{% elseif status == \"2\" %}\r\n<i class=\"fa fa-lg fa-flag red \"></i>\r\n{% elseif status == \"3\" %}\r\n<i class=\"fa fa-lg fa-envelope green\"></i>\r\n{% elseif status == \"4\" %}\r\n<i class=\"fa fa-lg fa-user orange\"></i>\r\n{% elseif status == \"5\" %}\r\n<i class=\"fa fa-lg fa-users pink\"></i>\r\n{% elseif status == \"6\" %}\r\n<i class=\"fa fa-lg blue\">DE</i>\r\n{% elseif status == \"7\" %}\r\n<i class=\"fa fa-cog fa-spin\">DE</i>\r\n{% endif %}\r\n\r\n\r\n\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1171,10 +1171,11 @@ display:
         filters: false
         filter_groups: false
         sorts: false
+        footer: false
       pager:
         type: full
         options:
-          items_per_page: 50
+          items_per_page: 500
           offset: 0
           id: 0
           total_pages: null
@@ -1455,6 +1456,10 @@ display:
                 title: SR
                 operator: '='
                 value: SR
+              4:
+                title: BDL
+                operator: '='
+                value: BDL
           plugin_id: string
         co_orie:
           id: co_orie
@@ -1560,6 +1565,17 @@ display:
             label: ''
           plugin_id: standard
       display_description: ''
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
     cache_metadata:
       max-age: -1
       contexts:
