@@ -48,7 +48,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 25
+          items_per_page: 100
           offset: 0
           id: 0
           total_pages: null
@@ -609,7 +609,17 @@ display:
       sorts: {  }
       title: 'BB: modules 1D - Filtres de circo'
       header: {  }
-      footer: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
       empty: {  }
       relationships: {  }
       arguments: {  }
