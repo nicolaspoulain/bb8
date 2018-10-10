@@ -8,4 +8,13 @@ weight: 3
 is_admin: null
 permissions:
   - 'access bb usual'
+  - 'access files overview'
+  - 'create page_partage content'
+  - 'delete any page_partage content'
+  - 'delete own page_partage content'
+  - 'delete page_partage revisions'
+  - 'edit any page_partage content'
   - 'edit any page_riche content'
+  - 'edit own page_partage content'
+  - 'revert page_partage revisions'
+  - 'view page_partage revisions'
