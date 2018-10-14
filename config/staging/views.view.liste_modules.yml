@@ -2817,7 +2817,7 @@ display:
           exposed: true
           expose:
             operator_id: co_etab_dem_op
-            label: 'Code établissement demandeur (FIL)'
+            label: 'Code étab. demandeur (FIL)'
             description: 'p.ex : 0753345D'
             use_operator: false
             operator: co_etab_dem_op
@@ -2917,7 +2917,7 @@ display:
             placeholder: null
           is_grouped: true
           group_info:
-            label: 'Niv. difficulté'
+            label: Couleur
             description: ''
             identifier: color
             optional: true
@@ -2928,21 +2928,21 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: '1'
+                title: Rouge
                 operator: '='
-                value: fil-one
+                value: red
               2:
-                title: '2'
+                title: Orange
                 operator: '='
-                value: fil-two
+                value: orange
               3:
-                title: '3'
+                title: Vert
                 operator: '='
-                value: fil-three
+                value: green
               4:
-                title: 1+2+3
+                title: Noir
                 operator: starts
-                value: fil-
+                value: black
           plugin_id: string
       sorts:
         id_disp:

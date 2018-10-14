@@ -861,7 +861,7 @@ function bb_views_data() {
   //{{
     'join' => array(
       'gbb_gmodu' => array(
-        'left_table' => 'gbb_gdire',
+        // 'left_table' => 'gbb_gdire',
         'left_field' => 'co_disp',
         'field' => 'co_disp',
         'extra' => 'gbb_gdisp.co_degre = gbb_gmodu.co_degre',
