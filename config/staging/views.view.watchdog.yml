@@ -742,12 +742,10 @@ display:
           field: area
           relationship: none
           group_type: group
-          admin_label: ''
+          admin_label: 'Aucune entrée du journal n''est disponible.'
           empty: true
           tokenize: false
-          content:
-            value: 'Aucune entrée du journal n''est disponible.'
-            format: basic_html
+          content: 'Aucune entrée du journal n''est disponible.'
           plugin_id: text
       relationships:
         uid:

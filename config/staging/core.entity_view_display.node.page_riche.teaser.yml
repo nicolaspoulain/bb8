@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page_riche.body
+    - field.field.node.page_riche.field_attachement
     - node.type.page_riche
   module:
     - text
@@ -25,6 +26,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_attachement: true
   langcode: true
