@@ -4663,17 +4663,10 @@ display:
         page_1: page_1
         default: '0'
       style:
-        type: data_export
+        type: excel_export
         options:
           formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
+            xlsx: xlsx
           xls_settings:
             xls_format: Excel2007
             metadata:
