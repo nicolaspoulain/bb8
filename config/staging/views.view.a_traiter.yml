@@ -354,7 +354,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if ficand == 0 %}\r\n{% elseif ficand == 1 %}\r\n <i class=\"fab fa-fonticons-fi green fa-lg\"></i>\r\n{% endif %}\r\n"
+            text: "{% if ficand == 1 %}\r\n<i class=\"no-link fab fa-fonticons-fi red fa-lg\" title=\"Ficcand non-traité\"></i>\r\n{% elseif ficand == 2 %}\r\n<i class=\"no-link fab fa-fonticons-fi green fa-lg\" title=\"Ficcand traité\"></i>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false

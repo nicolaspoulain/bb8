@@ -127,10 +127,20 @@ bb.session_ficand_on:
   requirements:
     _permission: 'access bb usual'
 
-bb.session_fiacand_off:
+bb.session_ficand_off:
   path: '/session_ficand_off/{co_degre}/{co_modu}/{sessid}'
   defaults:
     _controller:  '\Drupal\bb\Controller\ModuleNG::session_ficand_off'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+  requirements:
+    _permission: 'access bb usual'
+
+bb.session_ficand_done:
+  path: '/session_ficand_done/{co_degre}/{co_modu}/{sessid}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::session_ficand_done'
     _title: 'Form API Examples'
     co_degre: '2'
     co_modu: '1'

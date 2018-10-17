@@ -1177,7 +1177,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{%if sess_id >0 %}{% if ficand == 0%}\n<a href=\"../../session_ficand_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi lightgray\"></a>\n{% else %}\n<a href=\"../../session_ficand_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi green fa-lg\"></a>\n{% endif %}{% endif %}"
+            text: "{%if sess_id >0 %}{% if ficand == 0%}\r\n<a href=\"../../session_ficand_on/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi lightgray\" title=\"Cliquez pour basculer à Ficcand-demandé.\"></a>\r\n{% elseif ficand == 1 %}\r\n<a href=\"../../session_ficand_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi red fa-lg\" title=\"Ficcand non-traité. Cliquez pour basculer à non-demandé.\"></a>\r\n{% else %}\r\n<a href=\"../../session_ficand_off/{{ co_degre }}/{{ co_modu }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi green fa-lg\" title=\"Ficcand traité. Cliquez pour basculer à non-demandé.\"></a>\r\n{% endif %}{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1913,18 +1913,18 @@ display:
       display_extenders: {  }
       block_description: Sessions_de_module
       fields:
-        co_modu:
-          id: co_modu
+        co_degre:
+          id: co_degre
           table: gbb_gmodu
-          field: co_modu
+          field: co_degre
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: co_degre
           exclude: true
           alter:
-            alter_text: true
-            text: "\n"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1953,7 +1953,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1969,8 +1969,120 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          entity_type: null
-          entity_field: null
+          plugin_id: numeric
+        co_modu_1:
+          id: co_modu_1
+          table: gbb_session
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_modu
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sess_id:
+          id: sess_id
+          table: gbb_session
+          field: sess_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: sess_id
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
           plugin_id: numeric
         date_ts:
           id: date_ts
@@ -2353,7 +2465,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if ficand == 0%}\n<i class=\"no-link fab fa-fonticons-fi lightgray\"></i>\n{% else %}\n<i class=\"no-link fab fa-fonticons-fi green fa-lg\"></i>\n{% endif %}"
+            text: "{% if ficand == 0%}\r\n<i class=\"no-link fab fa-fonticons-fi lightgray\"></i>\r\n{% elseif ficand == 1 %}\r\n<a href=\"../../session_ficand_done/{{ co_degre }}/{{ co_modu_1 }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi red fa-lg\" title=\"Ficcand non-traité. Cliquez pour basculer à traité.\"></a>\r\n{% else %}\r\n<a href=\"../../session_ficand_on/{{ co_degre }}/{{ co_modu_1 }}/{{ sess_id }}\" class=\"no-link fab fa-fonticons-fi green fa-lg\" title=\"Ficcand traité. Cliquez pour basculer à non-traité.\"></a>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -2388,8 +2500,8 @@ display:
           element_default_classes: true
           empty: ''
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
+          empty_zero: true
+          hide_alter_empty: true
           plugin_id: custom
       defaults:
         fields: false

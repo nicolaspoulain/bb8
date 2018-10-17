@@ -82,6 +82,15 @@ class ModuleNG extends ControllerBase {
     return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
   }
 
+  public function session_ficand_done($co_degre, $co_modu, $sessid) {
+    $account = \Drupal::currentUser();
+    $entry = array('ficand' => 2, 'uid' => $account->id());
+    $condition = array('sess_id' => $sessid);
+    $DBWriteStatus = BbCrudController::update('gbb_session', $entry, $condition);
+    $routeparameters = array( 'co_degre' => $co_degre, 'co_modu'  => $co_modu,);
+    return $this->redirect('bb.moduleng',$routeparameters,array( 'fragment' => 'sessions'));
+  }
+
   public function session_le_on($co_degre, $co_modu, $sessid) {
     $account = \Drupal::currentUser();
     $entry = array('LE_etat' => 1, 'uid' => $account->id());
