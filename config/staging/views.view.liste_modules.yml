@@ -1368,6 +1368,63 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        ficand:
+          id: ficand
+          table: gbb_session
+          field: ficand
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ficand
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if ficand == 0 %}\r\n{% elseif ficand == 1 %}\r\n <i class=\"fab fa-fonticons-fi green fa-lg\"></i>\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing:
           id: nothing
           table: views
@@ -1379,7 +1436,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if sess_id != \"\" %}\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id }}</span>\n{% endif %}\n{% if sess_id_1 != \"\" %}\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\n{% endif %}\n{% if sess_id_2 != \"\" %}\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\n{% endif %}\n{% if sess_id_3 != \"\" %}\n<i class=\"fa fa-flag fa-lg red\"></i><span class=\"fa red\">{{ sess_id_3 }}</span>\n{% endif %}\n{% if sess_id_4 != \"\" %}\n<i class=\"fa fa-user fa-lg orange\"></i><span class=\"fa orange\">{{ sess_id_4 }}</span>\n{% endif %}\n{% if sess_id_5 != \"\" %}\n<i class=\"fa fa-users fa-lg pink\"></i><span class=\"fa pink\">{{ sess_id_5 }}</span>\n{% endif %}\n{% if sess_id_6!= '' %}\n<i class=\"fa blue fa-lg\">DE</i><span class=\"fa blue\">{{ sess_id_6 }}</span>\n{% endif %}\n{% if sess_id_7!= '' %}\n<i class=\"fa fa-lg fa-cog fa-spin\"></i><span class=\"fa blue\">{{ sess_id_7 }}</span>\n{% endif %}"
+            text: "{% if sess_id != \"\" %}\r\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id }}</span>\r\n{% endif %}\r\n{% if sess_id_1 != \"\" %}\r\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\r\n{% endif %}\r\n{% if sess_id_2 != \"\" %}\r\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\r\n{% endif %}\r\n{% if sess_id_3 != \"\" %}\r\n<i class=\"fa fa-flag fa-lg red\"></i><span class=\"fa red\">{{ sess_id_3 }}</span>\r\n{% endif %}\r\n{% if sess_id_4 != \"\" %}\r\n<i class=\"fa fa-user fa-lg orange\"></i><span class=\"fa orange\">{{ sess_id_4 }}</span>\r\n{% endif %}\r\n{% if sess_id_5 != \"\" %}\r\n<i class=\"fa fa-users fa-lg pink\"></i><span class=\"fa pink\">{{ sess_id_5 }}</span>\r\n{% endif %}\r\n{% if sess_id_6!= '' %}\r\n<i class=\"fa blue fa-lg\">DE</i><span class=\"fa blue\">{{ sess_id_6 }}</span>\r\n{% endif %}\r\n{% if sess_id_7!= '' %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i><span class=\"fa blue\">{{ sess_id_7 }}</span>\r\n{% endif %}\r\n{{ ficand }}"
             make_link: false
             path: ''
             absolute: false
@@ -1585,7 +1642,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n<ul class=\"no-dot\">\r\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\r\n{% if  \"fa\" == color|slice(0,2) %}\r\n             <a href=\"#\"><i class=\"fa fa-lg {{ color }}\"></i></a>\r\n{% else %}\r\n             <a href=\"#\"><i class=\"fa fa-lg fa-stop {{ color }}\"></i></a>\r\n{% endif %}\r\n             <ul class=\"pure-menu-children\">\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/gray/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square gray\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/blue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square blue\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/red/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square red\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/orange/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square orange\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/black/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square black\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/pink/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square pink\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/purple/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square purple\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/green/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square green\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/white/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link far fa-square gray\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/fil-one/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link color-fil-one\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/fil-two/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link color-fil-two\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/fil-three/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link color-fil-three\"></li></a>\r\n             </ul>\r\n            </li>\r\n</ul><span class=\"shifted-anchor\" id={{co_modu}}/>"
+            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n<ul class=\"no-dot\">\r\n           <li class=\"pure-menu-item pure-menu-has-children pure-menu-allow-hover\">\r\n{% if  \"fa\" == color|slice(0,2) %}\r\n             <a href=\"#\"><i class=\"fa fa-lg {{ color }}\"></i></a>\r\n{% else %}\r\n             <a href=\"#\"><i class=\"fa fa-lg fa-stop {{ color }}\"></i></a>\r\n{% endif %}\r\n             <ul class=\"pure-menu-children\">\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/gray/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square gray\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/blue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square blue\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/red/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square red\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/orange/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square orange\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/black/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square black\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/pink/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square pink\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/purple/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square purple\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/green/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link fas fa-square green\"></li></a>\r\n               <a href=\"changecolor/{{ co_degre }}/{{ co_modu }}/white/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\"><li class=\"pure-menu-item pure-menu-link far fa-square gray\"></li></a>\r\n             </ul>\r\n            </li>\r\n</ul><span class=\"shifted-anchor\" id={{co_modu}}/>"
             make_link: false
             path: ''
             absolute: false
@@ -2987,8 +3044,8 @@ display:
   data_export_1:
     display_plugin: data_export
     id: data_export_1
-    display_title: 'Exportation de données'
-    position: 1
+    display_title: 'CSV export'
+    position: 5
     display_options:
       display_extenders: {  }
       path: liste-modules-file
@@ -4639,6 +4696,8 @@ display:
           replica: false
           query_comment: ''
           query_tags: null
+      display_description: ''
+      enabled: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -4663,10 +4722,17 @@ display:
         page_1: page_1
         default: '0'
       style:
-        type: excel_export
+        type: data_export
         options:
           formats:
-            xlsx: xlsx
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
           xls_settings:
             xls_format: Excel2007
             metadata:
@@ -6307,7 +6373,7 @@ display:
     display_plugin: page
     id: page_1
     display_title: 'The List'
-    position: 1
+    position: 2
     display_options:
       display_extenders: {  }
       path: liste-modules
@@ -6317,18 +6383,7 @@ display:
       defaults:
         fields: true
         footer: false
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<br/>\r\n<a href=\"../../import_BB_dans_excel.pdf\"><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i><i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> Comment lire l'export CSV ci-dessous dans Excel ?</a>"
-          plugin_id: text_custom
+      footer: {  }
       display_description: ''
     cache_metadata:
       max-age: -1
@@ -6342,7 +6397,7 @@ display:
     display_plugin: page
     id: page_2
     display_title: Détail-sessions
-    position: 1
+    position: 3
     display_options:
       display_extenders: {  }
       path: liste-sessions
@@ -7395,7 +7450,7 @@ display:
     display_plugin: page
     id: page_3
     display_title: Détail-gaia
-    position: 1
+    position: 4
     display_options:
       display_extenders: {  }
       path: liste-gaia
