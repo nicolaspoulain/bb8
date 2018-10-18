@@ -221,6 +221,15 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu_plus']['prioritaire'] = array( 'help' => t('prioritaire'),
+  //{{
+    'title' => t('prioritaire'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_gmodu_plus']['organisation'] = array( 'help' => t('organisation'),
   //{{
     'title' => t('organisation'),
