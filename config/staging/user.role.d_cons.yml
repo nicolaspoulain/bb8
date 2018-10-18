@@ -9,6 +9,7 @@ is_admin: null
 permissions:
   - 'access bb usual'
   - 'access files overview'
+  - 'access user profiles'
   - 'create page_partage content'
   - 'delete any page_partage content'
   - 'delete own page_partage content'
