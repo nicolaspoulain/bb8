@@ -19,8 +19,8 @@
 {{ q }}
 {% endif %}
 
-{% set small = ['co_anmo', 'co_tpla', 'co_camp', 'co_moda', 'items_per_page','co_tcan','co_offreur'] %}
-{% set large = ['co_orie', 'lib', 'id_disp_1', 'co_modu','co_prac','co_prna','nomu','nomu_1','co_etab_dem','cp','color'] %}
+{% set small = ['co_anmo', 'co_tpla', 'co_camp', 'co_moda', 'items_per_page','co_tcan','co_offreur','co_orie'] %}
+{% set large = ['lib_1', 'lib', 'id_disp_1', 'co_modu','co_prac','co_prna','nomu','nomu_1','co_etab_dem','cp','lcomm','color'] %}
 
 <details class="form-wrapper" id="searchcrit" {{ open }}>
   <summary><i class="fa fa-caret-right"></i> Options de recherche supplémentaires</summary>
@@ -41,7 +41,7 @@
   </div>
 </details>
 
-{{ form | without('id_disp', 'resp_filter','actions','co_anmo', 'co_tpla', 'co_camp', 'items_per_page','co_orie', 'lib', 'id_disp_1', 'co_modu', 'co_moda','co_prac','co_prna','nomu','nomu_1','co_tcan','co_offreur','co_etab_dem','cp','color') }}
+{{ form | without('id_disp', 'lib_1', 'resp_filter','actions','co_anmo', 'co_tpla', 'co_camp', 'items_per_page','co_orie', 'lib', 'id_disp_1', 'co_modu', 'co_moda','co_prac','co_prna','nomu','nomu_1','co_tcan','co_offreur','co_etab_dem','cp','color','lcomm') }}
 
 <div class="pure-g">
     <div class="pure-u-1-6">

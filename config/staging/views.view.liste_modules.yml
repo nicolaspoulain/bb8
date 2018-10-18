@@ -2316,6 +2316,118 @@ display:
                 operator: '='
                 value: S
           plugin_id: string
+        co_tcan:
+          id: co_tcan
+          table: gbb_gdisp
+          field: co_tcan
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_tcan_op
+            label: co_tcan
+            description: null
+            use_operator: false
+            operator: co_tcan_op
+            identifier: co_tcan
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Cand.'
+            description: ''
+            identifier: co_tcan
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Indiv. (VO)'
+                operator: '='
+                value:
+                  value: '1'
+                  min: ''
+                  max: ''
+              2:
+                title: Coll.
+                operator: '='
+                value:
+                  value: '2'
+                  min: ''
+                  max: ''
+              3:
+                title: 'Sans (NE)'
+                operator: '='
+                value:
+                  value: '3'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_offreur_op
+            label: co_offreur
+            description: null
+            use_operator: false
+            operator: co_offreur_op
+            identifier: co_offreur
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Rmpl'
+            description: ''
+            identifier: co_offreur
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: BD
+                operator: '='
+                value: BD
+              2:
+                title: HTS
+                operator: '='
+                value: HTS
+              3:
+                title: SR
+                operator: '='
+                value: SR
+          plugin_id: string
         co_orie:
           id: co_orie
           table: gbb_gdisp
@@ -2375,6 +2487,47 @@ display:
             use_operator: false
             operator: id_disp_1_op
             identifier: id_disp_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        lib_1:
+          id: lib_1
+          table: gbb_gdisp
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_1_op
+            label: 'Mot(s) dans le libellé du dispositif'
+            description: 'p.ex : Histoire ou Math'
+            use_operator: false
+            operator: lib_1_op
+            identifier: lib_1
             required: false
             remember: false
             multiple: false
@@ -2750,118 +2903,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        co_tcan:
-          id: co_tcan
-          table: gbb_gdisp
-          field: co_tcan
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: co_tcan_op
-            label: co_tcan
-            description: null
-            use_operator: false
-            operator: co_tcan_op
-            identifier: co_tcan
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
-          group_info:
-            label: 'Type Cand.'
-            description: ''
-            identifier: co_tcan
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 'Indiv. (VO)'
-                operator: '='
-                value:
-                  value: '1'
-                  min: ''
-                  max: ''
-              2:
-                title: Coll.
-                operator: '='
-                value:
-                  value: '2'
-                  min: ''
-                  max: ''
-              3:
-                title: 'Sans (NE)'
-                operator: '='
-                value:
-                  value: '3'
-                  min: ''
-                  max: ''
-          plugin_id: numeric
-        co_offreur:
-          id: co_offreur
-          table: gbb_gdisp
-          field: co_offreur
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: co_offreur_op
-            label: co_offreur
-            description: null
-            use_operator: false
-            operator: co_offreur_op
-            identifier: co_offreur
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-          is_grouped: true
-          group_info:
-            label: 'Type Rmpl'
-            description: ''
-            identifier: co_offreur
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: BD
-                operator: '='
-                value: BD
-              2:
-                title: HTS
-                operator: '='
-                value: HTS
-              3:
-                title: SR
-                operator: '='
-                value: SR
-          plugin_id: string
         co_etab_dem:
           id: co_etab_dem
           table: gbb_gmodu
@@ -2949,6 +2990,50 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        lcomm:
+          id: lcomm
+          table: gbb_gmodu
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lcomm_op
+            label: Hashtag(s)
+            description: 'p.ex : #EP ou #0753345D'
+            use_operator: false
+            operator: lcomm_op
+            identifier: lcomm
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: lcomm
+            description: null
+            identifier: lcomm
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          plugin_id: string
         color:
           id: color
           table: gbb_gmodu_plus
@@ -4722,17 +4807,10 @@ display:
         page_1: page_1
         default: '0'
       style:
-        type: data_export
+        type: excel_export
         options:
           formats:
-            csv: csv
-          csv_settings:
-            delimiter: ','
-            enclosure: '"'
-            escape_char: \
-            strip_tags: true
-            trim: true
-            encoding: utf8
+            xlsx: xlsx
           xls_settings:
             xls_format: Excel2007
             metadata:
@@ -6346,6 +6424,55 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          plugin_id: standard
+        lcomm:
+          id: lcomm
+          table: gbb_gmodu
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Commentaire
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           plugin_id: standard
       group_by: false
       pager:
