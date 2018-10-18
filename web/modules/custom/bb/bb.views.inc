@@ -91,6 +91,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu']['lcomm'] = array( 'help' => t('Commentaires (hashtag)'),
+  //{{
+    'title'  => t('lcomm'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu']['lform'] = array( 'help' => t('Forme'),
   //{{
     'title'  => t('lform'),
