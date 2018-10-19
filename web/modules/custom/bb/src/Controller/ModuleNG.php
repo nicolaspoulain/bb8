@@ -163,6 +163,16 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosPasConvocForm', $co_degre, $co_modu);
     $content['infossurconvoc'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosSurConvocForm', $co_degre, $co_modu);
+    $content['LEinfo'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\LEinfoForm', $co_degre, $co_modu);
+    $content['LEetat'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\LEetatForm', $co_degre, $co_modu);
+    $content['DSFinfo'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\DSFinfoForm', $co_degre, $co_modu);
+    $content['DSFetat'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\DSFetatForm', $co_degre, $co_modu);
+    $content['DAdateDepot'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\DAdateDepotForm', $co_degre, $co_modu);
 
     $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
     $row = BbCrudController::load('gbb_session', $condition);
