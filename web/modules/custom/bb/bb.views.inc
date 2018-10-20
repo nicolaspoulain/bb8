@@ -53,10 +53,9 @@ function bb_views_data() {
   $data['gbb_gmodu']['co_anmo'] = array( 'help' => t('Code annulation module'),
   //{{
     'title'  => t('co_anmo'),
-    'field'  => array('id' => 'numeric',),
+    'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'numeric'),
-    'argument' => array('id' => 'numeric'),
+    'filter' => array('id' => 'string'),
   );
   //}}
   $data['gbb_gmodu']['lib'] = array( 'help' => t('Libellé'),

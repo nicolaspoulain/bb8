@@ -2189,18 +2189,12 @@ display:
             group_items:
               1:
                 title: Ouvert
-                operator: '<='
-                value:
-                  value: '0'
-                  min: ''
-                  max: ''
+                operator: shorterthan
+                value: '1'
               2:
                 title: Fermé
-                operator: '>'
-                value:
-                  value: '0'
-                  min: ''
-                  max: ''
+                operator: longerthan
+                value: '1'
           plugin_id: numeric
         co_tpla:
           id: co_tpla
@@ -8184,7 +8178,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ prioritaire }}\r\n{% if co_anmo>0 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=1&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
+            text: "{{ prioritaire }}\r\n{% if co_anmo|length >1 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=1&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
