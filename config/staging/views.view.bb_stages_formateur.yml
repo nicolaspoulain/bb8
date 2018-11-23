@@ -793,7 +793,7 @@ display:
             alter_text: true
             text: '{{ id_disp }}/{{ co_modu }}'
             make_link: true
-            path: '../../bb/module/{{ co_degre }}/{{co_modu}}'
+            path: '../../bb8/web/moduleng/{{ co_degre }}/{{co_modu}}'
             absolute: false
             external: false
             replace_spaces: false
