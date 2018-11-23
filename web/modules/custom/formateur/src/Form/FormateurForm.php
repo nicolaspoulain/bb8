@@ -122,10 +122,15 @@ class FormateurForm extends FormBase {
       '#attributes' => array('class' => array('annuel')),
     );
 
+    $responsable = array('------------',
+      "Argo", "Boonen", "Bourdin", "Charpentrat", "Chassin", "Cordier",
+      "Dehamel", "Encontre", "Morvan", "Mambole", "Perrin", "Poulain",
+      "Pozzebon", "Prato", "Rey", "Zytnicki");
+
     $form['fieldset']['resp_dafor'] = array(
-      '#type' => 'textfield',
+      '#type' => 'select',
       '#title' => $this->t('Resp. DAFOR'),
-      '#size'          => 29,
+      '#options' => array_combine($responsable, $responsable),
       '#default_value' => $period['resp_dafor'],
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
@@ -145,7 +150,7 @@ class FormateurForm extends FormBase {
 
     $form['fieldset']['dech_pfa'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Déch PFA'),
+      '#title' => $this->t('Déch PFA (Moyens Doyen.ne)'),
       '#size'          => 6,
       '#default_value' => $period['dech_pfa'],
       '#attributes' => array('placeholder' => t('0')),
@@ -224,27 +229,25 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
+    $disc = array("------------",
+      "ALLEMAND", "ANGLAIS", "ARTS APPLIQUÉS EN LP", "ARTS PLASTIQUES", "AUTRES LANGUES", "DOCUMENTATION", "ÉCONOMIE-GESTION EN LP", "ÉCONOMIE-GESTION EN LT", "ÉDUCATION MUSICALE", "ÉDUCATION PHYSIQUE ET SPORTIVE", "ESPAGNOL", "HISTOIRE-GÉOGRAPHIE", "INTERLANGUES", "ITALIEN", "LETTRES ET LANGUES ANCIENNES", "LETTRES / HISTOIRE GÉOGRAPHIE", "LETTRES / LANGUES VIVANTES EN LP", "MATHÉMATIQUES", "MATHÉMATIQUES-SCIENCES EN LP", "PHILOSOPHIE", "SBSSA (LP)", "SCIENCES DE LA VIE ET DE LA TERRE", "SCIENCES ÉCONOMIQUES ET SOCIALES", "SC ET TECHN INDUSTRIELLES EN LP", "SC ET TECHN INDUSTRIELLES EN LT", "SCIENCES PHYSIQUES ET CHIMIQES", "SMS", "BIOTECHNOLOGIES", "BIOCHIMIE (LT)", "TECHNOLOGIE AU COLLÈGE");
+
     $form['discipline'] = array(
-      '#type' => 'textfield',
+      '#type' => 'select',
       '#title' => $this->t('discipline'),
-      '#size'          => 30,
+      '#options' => array_combine($disc, $disc),
       '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->discipline : '',
       '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
 
-    $grades = array(
-        '', 'NOMENCLATURE', 'VACATAIRE', 'CONTRACTUEL', 'MA',
-        'PEGC', 'PLP', 'CERTIFIE', 'AGREGE', 'INST', 'PE', 'COP',
-        'CPE', 'INF', 'MED', 'ING', 'ASU', 'CASU', 'AS', 'PERDIR',
-        'IA-IPR', 'IEN-EG', 'IEN-ET', 'IEN-CC', 'CC', 'PREC',
-        'PRCE', 'PRAG', 'MC', 'PR', 'ASSOCIATION', 'ENTREPRISE',
-        'UNIVERSITE', 'INTERVENANT-XT',
+    $grades = array("----------",
+      "Inspecteur", "Per.Dir", "Enseignant", "CPE", "PsyEN", "IATSS"
       );
 
     $form['grade'] = array(
       '#type' => 'select',
-      '#title' => $this->t('Grade'),
+      '#title' => $this->t('Fonction'),
       '#options' => array_combine($grades, $grades),
       '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
