@@ -141,7 +141,7 @@ class FormateurForm extends FormBase {
 
     $form['fieldset']['dech_dafor'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Dech DAFOR'),
+      '#title' => $this->t('Dech disponible'),
       '#size'          => 6,
       '#default_value' => $period['dech_dafor'],
       '#attributes' => array('placeholder' => t('0')),
