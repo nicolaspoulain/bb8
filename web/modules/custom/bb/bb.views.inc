@@ -1326,7 +1326,7 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
-  //{{ *** GBB_GRESP_PLUS intégré
+  //{{ *** GBB_GRESP_PERIODIC intégré
   $data['gbb_gresp_periodic']['table'] = array( 'group' => t('gbb_session'),
     'join' => array(
       'gbb_gmodu' => array(
