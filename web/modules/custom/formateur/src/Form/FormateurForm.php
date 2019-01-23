@@ -325,7 +325,12 @@ class FormateurForm extends FormBase {
     );
     if (is_numeric($condition['co_resp'])) {
       BbCrudController::update( 'gbb_gresp_dafor', $entry_dafor , $condition);
-      BbCrudController::update( 'gbb_gresp_plus', $entry_plus, $condition);
+      $row = BbCrudController::load('gbb_gresp_plus', $condition);
+      if (!empty($row)) {
+        BbCrudController::update( 'gbb_gresp_plus', $entry_plus, $condition);
+      } else {
+        BbCrudController::create( 'gbb_gresp_plus', array_merge($entry_plus, $condition));
+      }
     } else {
       $id = BbCrudController::create( 'gbb_gresp_dafor', $entry_dafor);
       $condition['co_resp'] = $id;

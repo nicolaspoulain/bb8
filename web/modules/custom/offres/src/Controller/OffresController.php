@@ -60,7 +60,7 @@ class OffresController extends ControllerBase {
     $query ->leftjoin('gbb_gdiof_dafor', 'dd', 'm.co_omodu = dd.co_omodu');
     $query ->leftjoin('gbb_gresp', 'r', 'd.co_resp = r.co_resp AND r.co_degre = 2');
     $query ->leftjoin('gbb_gresp', 'r2', 'm.co_resp = r2.co_resp AND r2.co_degre = 2');
-    $query ->condition('d.no_offre', '20180000', '>');
+    $query ->condition('d.no_offre', '20190000', '>');
     $query ->fields('m', array(
       'libl', 'co_omodu', 'nb_groupe', 'duree_prev','nb_eff_groupe', 'co_moda',
       'cout_p_excep', 'cout_p_prest', 'cout_p_fonc',
