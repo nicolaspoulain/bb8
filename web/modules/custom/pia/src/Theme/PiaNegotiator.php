@@ -16,8 +16,8 @@ class PiaNegotiator implements ThemeNegotiatorInterface {
     $applies = FALSE;
     $route_name = \Drupal::routeMatch()->getRouteName();
     $pages = array(
+      'view.bb_pia.page_1',
       'view.bb_pia.page_2',
-      'bb_pia_details_module',
     );
     if (in_array($route_name, $pages)) {
       $applies = TRUE;
