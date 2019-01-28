@@ -1,0 +1,22 @@
+uuid: b95fefe2-6fc4-45b9-a6ad-230bbf8827f6
+langcode: fr
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - pia
+_core:
+  default_config_hash: MhtNdV__HKRTab0ZPjkPNfYL4Ng4UPBucDLoC7Rg5Eo
+id: pia_help
+theme: pia
+region: header
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

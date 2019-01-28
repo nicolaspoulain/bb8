@@ -1,0 +1,25 @@
+uuid: 8d26216d-33f8-4859-8680-db251d8d5a06
+langcode: fr
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - pia
+_core:
+  default_config_hash: Cy3vkpYrD1O5JG-BeEnokF0bByHYDEa8CBfWivB4_SQ
+id: pia_branding
+theme: pia
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }
