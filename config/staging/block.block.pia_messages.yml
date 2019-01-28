@@ -1,0 +1,22 @@
+uuid: f1d775cc-5de6-4406-92bb-25430634ae24
+langcode: fr
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - pia
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: pia_messages
+theme: pia
+region: header
+weight: -50
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }
