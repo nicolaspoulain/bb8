@@ -1,0 +1,22 @@
+uuid: 4f0ef2be-47e9-4e6a-a18b-0f099dfb9b38
+langcode: fr
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - pia
+_core:
+  default_config_hash: iggZSiUKz4mYP1YPJ8SsUfFu79HIgOTt6IDy3Up59aM
+id: pia_powered
+theme: pia
+region: footer
+weight: -10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

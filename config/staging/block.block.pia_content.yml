@@ -1,0 +1,22 @@
+uuid: 623c76fc-021f-4251-bf85-c98eb3772e8c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pia
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: pia_content
+theme: pia
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
