@@ -781,7 +781,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Objectif dispo'
+          label: 'Objectif dispositif'
           exclude: false
           alter:
             alter_text: false
@@ -830,7 +830,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Objectif Module'
+          label: 'Contenu module'
           exclude: false
           alter:
             alter_text: false
@@ -879,7 +879,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Objectif pédagogique'
+          label: 'Objectif pédagogique module'
           exclude: false
           alter:
             alter_text: false
