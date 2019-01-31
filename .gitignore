@@ -61,8 +61,6 @@ web.config
 
 config/staging/bartik.*
 config/staging/color.theme.bartik.yml
-config/staging/devel.settings.yml
-config/staging/devel.toolbar.settings.yml
 config/staging/bartik.settings.yml
 config/staging/backup_migrate.*
 config/staging/system.file.yml
