@@ -91,12 +91,6 @@ class FormateurForm extends FormBase {
       }
     }
 
-    $form['period'] = array(
-      '#type' => 'hidden',
-      '#value' => $annee,
-    );
-
-
     $form['nomu'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Nom'),
@@ -118,64 +112,10 @@ class FormateurForm extends FormBase {
     );
 
 
-
-
-    $disc = array("------------",
-      "ALLEMAND", "ANGLAIS", "ARTS APPLIQUÉS EN LP", "ARTS PLASTIQUES", "AUTRES LANGUES", "DOCUMENTATION", "ÉCONOMIE-GESTION EN LP", "ÉCONOMIE-GESTION EN LT", "ÉDUCATION MUSICALE", "ÉDUCATION PHYSIQUE ET SPORTIVE", "ESPAGNOL", "HISTOIRE-GÉOGRAPHIE", "INTERLANGUES", "ITALIEN", "LETTRES ET LANGUES ANCIENNES", "LETTRES / HISTOIRE GÉOGRAPHIE", "LETTRES / LANGUES VIVANTES EN LP", "MATHÉMATIQUES", "MATHÉMATIQUES-SCIENCES EN LP", "PHILOSOPHIE", "SBSSA (LP)", "SCIENCES DE LA VIE ET DE LA TERRE", "SCIENCES ÉCONOMIQUES ET SOCIALES", "SC ET TECHN INDUSTRIELLES EN LP", "SC ET TECHN INDUSTRIELLES EN LT", "SCIENCES PHYSIQUES ET CHIMIQES", "SMS", "BIOTECHNOLOGIES", "BIOCHIMIE (LT)", "TECHNOLOGIE AU COLLÈGE");
-
-    $form['disc_exercice'] = array(
-      '#type' => 'select',
-      '#title' => $this->t('Discipline d\'exercice'),
-      '#options' => array_combine($disc, $disc),
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->disc_exercice : '',
-      '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    $form['period'] = array(
+      '#type' => 'hidden',
+      '#value' => $annee,
     );
-
-    $grades = array("----------",
-      "Inspecteur", "Per.Dir", "Enseignant", "CPE", "PsyEN", "IATSS"
-      );
-
-    $form['grade'] = array(
-      '#type' => 'select',
-      '#title' => $this->t('Fonction'),
-      '#options' => array_combine($grades, $grades),
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $organismes = array(
-      '0'  => '',
-      '1' => 'ESPE',
-      'EXT.' => 'Extérieur',
-      );
-    $form['statut'] = array(
-      '#type' => 'select',
-      '#title' => t('Organisme'),
-      '#options' => $organismes,
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->statut : '',
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-
-    $form['mel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Email'),
-      '#size'          => 30,
-      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->mel : '',
-      '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
-    );
-
-    $form['tel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Téléphone'),
-      '#size'          => 30,
-      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->tel : '',
-      '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
-    );
-
     if (!is_numeric(\Drupal::request()->query->get('co_resp'))) $form['prenom']['#default_value'] = '';
     $an = (int)$annee;
     $anp = $an+1;
@@ -184,6 +124,7 @@ class FormateurForm extends FormBase {
       '#title' => "20$an - 20$anp",
       '#attributes' => array('class' => array('annuel')),
     );
+
 
     // $form['fieldset']['markupA'] = array(
       // '#markup' => '<div class="pure-u-md-2-24"> </div>',
@@ -250,6 +191,64 @@ class FormateurForm extends FormBase {
       '#upload_location' => 'private://pieces-jointes/',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
+
+
+
+    $disc = array("------------",
+      "ALLEMAND", "ANGLAIS", "ARTS APPLIQUÉS EN LP", "ARTS PLASTIQUES", "AUTRES LANGUES", "DOCUMENTATION", "ÉCONOMIE-GESTION EN LP", "ÉCONOMIE-GESTION EN LT", "ÉDUCATION MUSICALE", "ÉDUCATION PHYSIQUE ET SPORTIVE", "ESPAGNOL", "HISTOIRE-GÉOGRAPHIE", "INTERLANGUES", "ITALIEN", "LETTRES ET LANGUES ANCIENNES", "LETTRES / HISTOIRE GÉOGRAPHIE", "LETTRES / LANGUES VIVANTES EN LP", "MATHÉMATIQUES", "MATHÉMATIQUES-SCIENCES EN LP", "PHILOSOPHIE", "SBSSA (LP)", "SCIENCES DE LA VIE ET DE LA TERRE", "SCIENCES ÉCONOMIQUES ET SOCIALES", "SC ET TECHN INDUSTRIELLES EN LP", "SC ET TECHN INDUSTRIELLES EN LT", "SCIENCES PHYSIQUES ET CHIMIQES", "SMS", "BIOTECHNOLOGIES", "BIOCHIMIE (LT)", "TECHNOLOGIE AU COLLÈGE");
+
+    $form['disc_exercice'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Discipline d\'exercice'),
+      '#options' => array_combine($disc, $disc),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->disc_exercice : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    );
+
+    $grades = array("----------",
+      "Inspecteur", "Per.Dir", "Enseignant", "CPE", "PsyEN", "IATSS"
+      );
+
+    $form['grade'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Fonction'),
+      '#options' => array_combine($grades, $grades),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $organismes = array(
+      '0'  => '',
+      '1' => 'ESPE',
+      'EXT.' => 'Extérieur',
+      );
+    $form['statut'] = array(
+      '#type' => 'select',
+      '#title' => t('Organisme'),
+      '#options' => $organismes,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->statut : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $form['mel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Email'),
+      '#size'          => 30,
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->mel : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+    );
+
+    $form['tel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Téléphone'),
+      '#size'          => 30,
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->tel : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+    );
+
 
     $form['disc_interv'] = array(
       '#type' => 'select',
