@@ -80,8 +80,11 @@ class FormateurForm extends FormBase {
     $period['dech_pfa'] = '';
     $period['dech_dane'] = '';
     $period['dech_caffa'] = '';
-    $period['resp_dafor'] = '';
-    $period['champ_interv'] = '';
+    $infoscompl['resp_dafor'] = '';
+    $infoscompl['champ_interv'] = '';
+    $infoscompl['disc_interv'] = '';
+    $infoscompl['transv_interv'] = '';
+    $infoscompl['disc_exercice'] = '';
     if (!empty($periodic)) {
       foreach ($periodic as $elt) {
         $period[$elt->type] = $elt->val;
@@ -113,6 +116,66 @@ class FormateurForm extends FormBase {
       '#attributes' => array('placeholder' => t('')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
     );
+
+
+
+
+    $disc = array("------------",
+      "ALLEMAND", "ANGLAIS", "ARTS APPLIQUÉS EN LP", "ARTS PLASTIQUES", "AUTRES LANGUES", "DOCUMENTATION", "ÉCONOMIE-GESTION EN LP", "ÉCONOMIE-GESTION EN LT", "ÉDUCATION MUSICALE", "ÉDUCATION PHYSIQUE ET SPORTIVE", "ESPAGNOL", "HISTOIRE-GÉOGRAPHIE", "INTERLANGUES", "ITALIEN", "LETTRES ET LANGUES ANCIENNES", "LETTRES / HISTOIRE GÉOGRAPHIE", "LETTRES / LANGUES VIVANTES EN LP", "MATHÉMATIQUES", "MATHÉMATIQUES-SCIENCES EN LP", "PHILOSOPHIE", "SBSSA (LP)", "SCIENCES DE LA VIE ET DE LA TERRE", "SCIENCES ÉCONOMIQUES ET SOCIALES", "SC ET TECHN INDUSTRIELLES EN LP", "SC ET TECHN INDUSTRIELLES EN LT", "SCIENCES PHYSIQUES ET CHIMIQES", "SMS", "BIOTECHNOLOGIES", "BIOCHIMIE (LT)", "TECHNOLOGIE AU COLLÈGE");
+
+    $form['disc_exercice'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Discipline d\'exercice'),
+      '#options' => array_combine($disc, $disc),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->disc_exercice : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    );
+
+    $grades = array("----------",
+      "Inspecteur", "Per.Dir", "Enseignant", "CPE", "PsyEN", "IATSS"
+      );
+
+    $form['grade'] = array(
+      '#type' => 'select',
+      '#title' => $this->t('Fonction'),
+      '#options' => array_combine($grades, $grades),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+    $organismes = array(
+      '0'  => '',
+      '1' => 'ESPE',
+      'EXT.' => 'Extérieur',
+      );
+    $form['statut'] = array(
+      '#type' => 'select',
+      '#title' => t('Organisme'),
+      '#options' => $organismes,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->statut : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+    );
+
+
+    $form['mel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Email'),
+      '#size'          => 30,
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->mel : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+    );
+
+    $form['tel'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Téléphone'),
+      '#size'          => 30,
+      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->tel : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+    );
+
     if (!is_numeric(\Drupal::request()->query->get('co_resp'))) $form['prenom']['#default_value'] = '';
     $an = (int)$annee;
     $anp = $an+1;
@@ -122,53 +185,22 @@ class FormateurForm extends FormBase {
       '#attributes' => array('class' => array('annuel')),
     );
 
-    $responsable = array('------------',
-      "Argo", "Boonen", "Bourdin", "Charpentrat", "Chassin", "Cordier",
-      "Dehamel", "Encontre", "Morvan", "Mambole", "Perrin", "Poulain",
-      "Pozzebon", "Prato", "Rey", "Zytnicki");
-
-    $form['fieldset']['resp_dafor'] = array(
-      '#type' => 'select',
-      '#title' => $this->t('Resp. DAFOR'),
-      '#options' => array_combine($responsable, $responsable),
-      '#default_value' => $period['resp_dafor'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
-    );
-
-    $form['fieldset']['markupA'] = array(
-      '#markup' => '<div class="pure-u-md-2-24"> </div>',
-    );
+    // $form['fieldset']['markupA'] = array(
+      // '#markup' => '<div class="pure-u-md-2-24"> </div>',
+    // );
 
     $form['fieldset']['dech_dafor'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Dech disponible'),
+      '#title' => $this->t('Déch Dispo'),
       '#size'          => 6,
       '#default_value' => $period['dech_dafor'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
-    $form['fieldset']['dech_pfa'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Déch PFA (Moyens Doyen.ne)'),
-      '#size'          => 6,
-      '#default_value' => $period['dech_pfa'],
-      '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
-    );
-
-    $form['fieldset']['champ_interv'] = array(
-      '#type' => 'textarea',
-      '#title' => $this->t('Champ d\'intervention'),
-      '#rows' =>2,
-      '#cols'          => 4,
-      '#default_value' => $period['champ_interv'],
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
-    );
-
-    $form['fieldset']['markupB'] = array(
-      '#markup' => '<div class="pure-u-md-2-24"> </div>',
-    );
+    // $form['fieldset']['markupB'] = array(
+      // '#markup' => '<div class="pure-u-md-2-24"> </div>',
+    // );
 
     $form['fieldset']['dech_dane'] = array(
       '#type' => 'textfield',
@@ -176,7 +208,7 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_dane'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
     );
 
     $form['fieldset']['dech_caffa'] = array(
@@ -185,7 +217,16 @@ class FormateurForm extends FormBase {
       '#size'          => 6,
       '#default_value' => $period['dech_caffa'],
       '#attributes' => array('placeholder' => t('0')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-5-24')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['dech_pfa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Déch PFA (Moyens Doyen.ne)'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_pfa'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
 
     $file ='';
@@ -210,66 +251,54 @@ class FormateurForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
 
-
-    $form['mel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Email'),
-      '#size'          => 30,
-      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->mel : '',
-      '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
-    );
-
-    $form['tel'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Téléphone'),
-      '#size'          => 30,
-      '#default_value' => (array_key_exists(0,$formateur))? $formateur[0]->tel : '',
-      '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
-    );
-
-    $disc = array("------------",
-      "ALLEMAND", "ANGLAIS", "ARTS APPLIQUÉS EN LP", "ARTS PLASTIQUES", "AUTRES LANGUES", "DOCUMENTATION", "ÉCONOMIE-GESTION EN LP", "ÉCONOMIE-GESTION EN LT", "ÉDUCATION MUSICALE", "ÉDUCATION PHYSIQUE ET SPORTIVE", "ESPAGNOL", "HISTOIRE-GÉOGRAPHIE", "INTERLANGUES", "ITALIEN", "LETTRES ET LANGUES ANCIENNES", "LETTRES / HISTOIRE GÉOGRAPHIE", "LETTRES / LANGUES VIVANTES EN LP", "MATHÉMATIQUES", "MATHÉMATIQUES-SCIENCES EN LP", "PHILOSOPHIE", "SBSSA (LP)", "SCIENCES DE LA VIE ET DE LA TERRE", "SCIENCES ÉCONOMIQUES ET SOCIALES", "SC ET TECHN INDUSTRIELLES EN LP", "SC ET TECHN INDUSTRIELLES EN LT", "SCIENCES PHYSIQUES ET CHIMIQES", "SMS", "BIOTECHNOLOGIES", "BIOCHIMIE (LT)", "TECHNOLOGIE AU COLLÈGE");
-
-    $form['discipline'] = array(
+    $form['disc_interv'] = array(
       '#type' => 'select',
-      '#title' => $this->t('discipline'),
+      '#title' => $this->t('Discipline d\'intervention'),
       '#options' => array_combine($disc, $disc),
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->discipline : '',
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->disc_interv : '',
       '#attributes' => array('placeholder' => t('')),
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-1-2')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
 
-    $grades = array("----------",
-      "Inspecteur", "Per.Dir", "Enseignant", "CPE", "PsyEN", "IATSS"
-      );
+    $responsable = array('------------',
+      "Argo", "Boonen", "Bourdin", "Charpentrat", "Chassin", "Cordier",
+      "Dehamel", "Encontre", "Morvan", "Mambole", "Perrin", "Poulain",
+      "Pozzebon", "Prato", "Rey", "Zytnicki");
 
-    $form['grade'] = array(
+    $form['resp_dafor'] = array(
       '#type' => 'select',
-      '#title' => $this->t('Fonction'),
-      '#options' => array_combine($grades, $grades),
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->grade : '',
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
+      '#title' => $this->t('Resp. DAFOR'),
+      '#options' => array_combine($responsable, $responsable),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->resp_dafor : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-9-24')),
     );
 
-    $organismes = array(
-      '0'  => '',
-      '1' => 'ESPE',
-      'EXT.' => 'Extérieur',
-      );
-    $form['statut'] = array(
+    $transv = array("------------",
+      "NUMERIQUE", "BLABLA");
+
+
+    $form['transv_interv'] = array(
       '#type' => 'select',
-      '#title' => t('Organisme'),
-      '#options' => $organismes,
-      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->statut : '',
-      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
+      '#title' => $this->t('Domaine transversal d\'intervention'),
+      '#options' => array_combine($transv, $transv),
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->transv_interv : '',
+      '#attributes' => array('placeholder' => t('')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
+    );
+
+    $form['champ_interv'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Champ d\'intervention'),
+      '#rows' =>2,
+      '#size'          => 25,
+      '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->champ_interv : '',
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
     );
 
     $form['divers'] = array(
     '#type' => 'textarea',
       '#title' => $this->t('Divers'),
-      '#rows' =>3,
+      '#rows' =>4,
       '#size'          => 25,
       '#default_value' => (array_key_exists(0,$infoscompl))? $infoscompl[0]->divers : '',
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-24-24')),
@@ -318,9 +347,13 @@ class FormateurForm extends FormBase {
       'tel'    => $form_state->getValue('tel'),
     );
     $entry_plus = array(
-      'discipline' => $form_state->getValue('discipline'),
+      'disc_exercice' => $form_state->getValue('disc_exercice'),
+      'champ_interv'=> $form_state->getValue('champ_interv'),
+      'transv_interv'=> $form_state->getValue('transv_interv'),
+      'disc_interv'=> $form_state->getValue('disc_interv'),
       'grade'      => $form_state->getValue('grade'),
       'divers'     => $form_state->getValue('divers'),
+      'resp_dafor' => $form_state->getValue('resp_dafor'),
       'statut'     => $form_state->getValue('statut'),
     );
     if (is_numeric($condition['co_resp'])) {
@@ -336,7 +369,7 @@ class FormateurForm extends FormBase {
       $condition['co_resp'] = $id;
       BbCrudController::create( 'gbb_gresp_plus', array_merge($condition,$entry_plus));
     }
-    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa', 'resp_dafor','champ_interv'];
+    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa'];
     foreach ($types as $type) {
       $condition = array(
         'co_resp' => $condition['co_resp'],
