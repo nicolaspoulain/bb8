@@ -23,7 +23,8 @@ class Autocomplete {
     $matches = array();
     if ($string) {
       $query = db_select('gbb_gresp_dafor','r')
-        ->condition('nomu', db_like($string) . '%', 'LIKE')
+        ->where("CONCAT(nomu, ' ', prenom) LIKE :q", array(':q'=>$string.'%'))
+        // ->condition('nomu', db_like($string) . '%', 'LIKE')
         ->fields('r', array('co_resp', 'nomu', 'prenom'))
         ->range(0, 10);
       $result = $query->execute();
