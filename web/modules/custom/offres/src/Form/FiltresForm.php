@@ -50,7 +50,7 @@ class FiltresForm extends FormBase {
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: Dupond')),
     '#default_value' => $nomu,
-    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
   );
   $form['co_orie'] = array(
     '#type' => 'textfield',
@@ -58,7 +58,7 @@ class FiltresForm extends FormBase {
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
     '#default_value' => $co_orie,
-    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
   );
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
   // Group submit handlers in an actions element with a key of "actions" so

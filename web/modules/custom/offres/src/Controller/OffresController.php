@@ -20,11 +20,11 @@ class OffresController extends ControllerBase {
     $co_orie = $gets['co_orie'];
 
 
+    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
+
     $content['message'] = [
       '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
     ];
-
-    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
 
     $headers = array(
     'nomu'         => t('Interloc dispo'),
