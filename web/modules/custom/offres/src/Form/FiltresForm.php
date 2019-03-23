@@ -40,12 +40,16 @@ class FiltresForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $comment=NULL, $co_omodu=NULL) {
+    $gets =\Drupal::request()->query->all();
+    $nomu = $gets['nomu'];
+    $co_orie = $gets['co_orie'];
 
   $form['nomu'] = array(
     '#type' => 'textfield',
     '#title' => $this->t('Intelocuteur dispo'),
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: Dupond')),
+    '#default_value' => $nomu,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
   );
   $form['co_orie'] = array(
@@ -53,6 +57,7 @@ class FiltresForm extends FormBase {
     '#title' => $this->t('Code Orientation'),
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
+    '#default_value' => $co_orie,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-10-24')),
   );
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
