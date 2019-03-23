@@ -15,10 +15,16 @@ class OffresController extends ControllerBase {
    */
   public function list() {
     $content = [];
+    $gets =\Drupal::request()->query->all();
+    $nomu = $gets['nomu'];
+    $co_orie = $gets['co_orie'];
+
 
     $content['message'] = [
       '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
     ];
+
+    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
 
     $headers = array(
     'nomu'         => t('Interloc dispo'),
@@ -61,6 +67,8 @@ class OffresController extends ControllerBase {
     $query ->leftjoin('gbb_gresp', 'r', 'd.co_resp = r.co_resp AND r.co_degre = 2');
     $query ->leftjoin('gbb_gresp', 'r2', 'm.co_resp = r2.co_resp AND r2.co_degre = 2');
     $query ->condition('d.no_offre', '20190000', '>');
+    if (strlen($nomu)>0)    $query ->condition('r.nomu', $nomu, 'like');
+    if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     $query ->fields('m', array(
       'libl', 'co_omodu', 'nb_groupe', 'duree_prev','nb_eff_groupe', 'co_moda',
       'cout_p_excep', 'cout_p_prest', 'cout_p_fonc',
