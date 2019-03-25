@@ -7,7 +7,10 @@ dependencies:
     - user.role.d_cons
   module:
     - bb
+    - rest
+    - serialization
     - user
+    - xls_serialization
 id: bb_liste_offres
 label: 'BB: Offre - liste'
 module: views
@@ -772,6 +775,41 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
+      tags: {  }
+  excel_export_1:
+    display_plugin: excel_export
+    id: excel_export_1
+    display_title: 'Excel export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: offresxls
+      display_description: ''
+      filename: offres
+      style:
+        type: excel_export
+        options:
+          formats:
+            xlsx: xlsx
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - request_format
+        - url
         - user.roles
       tags: {  }
   page_1:

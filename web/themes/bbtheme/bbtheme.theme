@@ -22,6 +22,15 @@ function bbtheme_preprocess_views_view_table__liste_modules__page_1(&$variables)
     $str = "xls?$str";
     $variables['xlsUrl'] = $str;
 }
+function bbtheme_preprocess_views_view_table__bb_liste_offres__page_1(&$variables) {
+    $query = \Drupal::request()->query->all();
+    foreach ($query as $k=>$v) {
+      $tab[] = "$k=$v";
+    }
+    $str = implode("&",$tab);
+    $str = "offresxls?$str";
+    $variables['xlsUrl'] = $str;
+}
 
 function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variables) {
     $co_anmo   = \Drupal::request()->query->get('co_anmo');
