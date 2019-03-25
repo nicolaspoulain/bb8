@@ -2818,9 +2818,9 @@ display:
                 operator: starts
                 value: '17'
               3:
-                title: 2016-17
+                title: 2019-20
                 operator: starts
-                value: '16'
+                value: '19'
               4:
                 title: '[1D] 2018-19'
                 operator: starts
@@ -2830,9 +2830,9 @@ display:
                 operator: starts
                 value: 17D
               6:
-                title: '[1D] 2016-17'
+                title: '[1D] 2019-20'
                 operator: starts
-                value: 16D
+                value: 19D
           plugin_id: string
         resp_filter:
           id: resp_filter
