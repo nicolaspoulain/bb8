@@ -1782,6 +1782,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof']['co_offreur'] = array( 'title' => t('co_offreur'),
+  //{{
+    'help' => t('Code offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof']['co_orie'] = array( 'help' => t('Code orientation'),
     //{{
     'title' => t('co_orie'),
@@ -1855,6 +1863,22 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof_dafor']['prio_paf'] = array( 'help' => t('Priorité PAF'),
+    //{{
+    'title' => t('prio_paf'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['offre_cat'] = array( 'help' => t('AP ou Pub Des'),
+    //{{
+    'title' => t('offre_cat'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof_dafor']['offre_new'] = array( 'help' => t('Offre Nouvelle (p/r an dernier)'),
     //{{
     'title' => t('offre_new'),
@@ -1866,6 +1890,14 @@ function bb_views_data() {
   $data['gbb_gdiof_dafor']['comment'] = array( 'help' => t('Observations'),
     //{{
     'title' => t('Comment'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['interdisc'] = array( 'help' => t('interdisc'),
+    //{{
+    'title' => t('interdisc'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),

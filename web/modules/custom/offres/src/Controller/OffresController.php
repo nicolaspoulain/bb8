@@ -42,6 +42,7 @@ class OffresController extends ControllerBase {
     'nouv_offreur' => array('data' => t('Nouv. offreur'), 'class' => 'jaune'),
     'prio_nat'     => array('data' => t('Pr Nat'), 'class' => 'jaune'),
     'prio_aca'     => array('data' => t('Pr Aca'), 'class' => 'jaune'),
+    'prio_paf'     => array('data' => t('Pr PAF'), 'class' => 'jaune'),
     'nb_hp'        => array('data' => t('Nbre HP'), 'class' => 'jaune'),
     'nb_vac'       => array('data' => t('Nbre vac.'), 'class' => 'jaune'),
     'taux'         => array('data' => t('Taux vac.'), 'class' => 'jaune'),
@@ -79,6 +80,7 @@ class OffresController extends ControllerBase {
     $query ->fields('dd', array(
       'nb_hp','nb_vac','taux','ht2','iufm', 'nouv_offreur',
       'prio_nat','prio_aca', 'offre_cat','interdisc', 'comment','position',
+      'prio_paf',
       // 'offre_new', 'pub_des','anim_peda', 'foad',
     ));
     $query ->fields('r', array('nomu'));
@@ -96,6 +98,7 @@ class OffresController extends ControllerBase {
     $nouv_offreur = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NouvOffreurForm', $r->nouv_offreur, $r->co_omodu);
     $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu);
     $prio_aca = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioAcaForm', $r->prio_aca, $r->co_omodu);
+    $prio_paf = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioPafForm', $r->prio_paf, $r->co_omodu);
     $nb_hp = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NbHpForm', $r->nb_hp, $r->co_omodu);
     $nb_vac = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NbVacForm', $r->nb_vac, $r->co_omodu);
     $taux = \Drupal::formBuilder()->getForm('Drupal\offres\Form\TauxForm', $r->taux, $r->co_omodu);
@@ -118,6 +121,7 @@ class OffresController extends ControllerBase {
       'nouv_offreur' => array('data' => $nouv_offreur),
       'prio_nat'     => array('data' => $prio_nat),
       'prio_aca'     => array('data' => $prio_aca),
+      'prio_paf'     => array('data' => $prio_paf),
       'nb_hp'        => array('data' => $nb_hp),
       'nb_vac'       => array('data' => $nb_vac),
       'taux'         => array('data' => $taux),
