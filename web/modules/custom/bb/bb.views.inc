@@ -1581,6 +1581,26 @@ function bb_views_data() {
       ),
     ),
   );
+  //{{ *** GBB_NOIRE intégré
+  $data['gbb_norie_gdiof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_norie',
+        'left_table' => 'gbb_gdiof',
+        'left_field' => 'co_orie',
+        'field' => 'co_orie',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_norie_gdiof']['lib_court'] = array( 'help' => t('Orientation : libellé court'),
+  //{{
+    'title' => t('norie.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
   $data['gbb_gresp_peda_moof']['nomu'] = array( 'help' => t('Nom respPéda module offre'),
     //{{
