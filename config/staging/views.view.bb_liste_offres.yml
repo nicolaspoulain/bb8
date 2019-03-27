@@ -954,12 +954,12 @@ display:
           plugin_id: standard
         co_offreur:
           id: co_offreur
-          table: gbb_gmoof
+          table: gbb_gdiof
           field: co_offreur
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Code offreur'
+          label: co_offreur
           exclude: 0
           alter:
             alter_text: 0
@@ -2334,6 +2334,10 @@ display:
           plugin_id: standard
       defaults:
         fields: false
+      pager:
+        type: none
+        options:
+          offset: '0'
     cache_metadata:
       max-age: -1
       contexts:
