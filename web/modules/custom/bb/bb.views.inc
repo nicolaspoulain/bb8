@@ -1762,6 +1762,25 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_nmoda_moof']['table'] = array( 'group' => t('gbb_gmoof'),
+  //{{
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_gmoof',
+        'left_field' => 'co_moda',
+        'field' => 'co_moda',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nmoda_moof']['lib_court'] = array( 'help' => t('Modalité : libellé court'),
+  //{{
+    'title' => t('nmoda.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmoof']['lcomm'] = array( 'help' => t('Commentaires (GAIA)'),
     //{{
     'title' => t('lcomm'),
