@@ -1570,6 +1570,26 @@ function bb_views_data() {
       ),
     ),
   );
+  $data['gbb_nobjt_diof']['table'] = array( 'group' => t('gbb_gmoof'),
+  //{{
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_nobjt',
+        'left_table' => 'gbb_gdiof',
+        'left_field' => 'co_objt',
+        'field' => 'co_objt',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nobjt_diof']['lib_court'] = array( 'help' => t('Objectif : libellé court'),
+  //{{
+    'title' => t('nobjt.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gresp_orga_diof']['table'] = array( 'group' => t('gbb_gmoof'),
     'join' => array(
       'gbb_gmoof' => array(
@@ -1766,7 +1786,7 @@ function bb_views_data() {
   //{{
     'join' => array(
       'gbb_gmoof' => array(
-        'table' => 'gbb_gmoof',
+        'table' => 'gbb_nmoda',
         'left_field' => 'co_moda',
         'field' => 'co_moda',
       ),
