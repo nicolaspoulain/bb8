@@ -103,7 +103,8 @@ class ModalForm extends FormBase {
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-14-24')),
     );
     // if ($sess_id==1) $form['lieu']['#default_value']='';
-    $str = " <i class=\"tooltip fa fa-question-circle\" aria-hidden=\"true\"><i class=\"fa fa-at\"></i><span class=\"tooltiptext\">Phase asynchrone :<br/> indiquer durée stagiaire et date de fin de la formation.<br/><br/>Ex. : &nbsp;&nbsp;&nbsp;3h jusqu'à 12/12/2019</span></i>";
+    // $str = " <i class=\"tooltip fa fa-question-circle\" aria-hidden=\"true\"><i class=\"fa fa-at\"></i><span class=\"tooltiptext\">Phase asynchrone :<br/> indiquer durée stagiaire et date de fin de la formation.<br/><br/>Ex. : &nbsp;&nbsp;&nbsp;3h jusqu'à 12/12/2019</span></i>";
+    $str = " <i class=\"tooltip fa fa-question-circle\" aria-hidden=\"true\"><span class=\"tooltiptext\">Phase asynchrone :<br/> indiquer durée stagiaire et date de fin de la formation.<br/><br/>Ex. : &nbsp;&nbsp;&nbsp;3h jusqu'à 12/12/2019</span></i>";
     $form['horaires'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Horaires').$str,
