@@ -1022,7 +1022,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{id_disp}}/{{co_modu}} {{lib}}'
             make_link: false
             path: 'bb-pia_detail?co_modu={{ co_modu }}'
@@ -1048,7 +1048,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: h4
+          element_type: span
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -1061,6 +1061,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Identifiant
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ id_disp }} / {{ co_modu }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         lcibl:
           id: lcibl
           table: gbb_gmodu
