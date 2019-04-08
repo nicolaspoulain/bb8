@@ -586,6 +586,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gresp_orga']['qualite'] = array( 'help' => t('Qualité du responsable organisationnel'),
+    //{{
+    'title' => t('gresp.qualite orga'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //{{ Responsable PEDA    pour un module (co_tres=3)
   $data['gbb_gdire_peda']['table'] = array( 'group' => t('gdire_peda'),
     'join' => array(
@@ -620,6 +628,14 @@ function bb_views_data() {
   $data['gbb_gresp_peda']['prenom'] = array( 'help' => t('Prénom du responsable pédagogique'),
     //{{
     'title' => t('gresp.prenom peda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_peda']['qualite'] = array( 'help' => t('Qualité du responsable pédagogique'),
+    //{{
+    'title' => t('gresp.qualite peda'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -1630,9 +1646,25 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gresp_peda_moof']['qualite'] = array( 'help' => t('QUalite respPéda module offre'),
+    //{{
+    'title' => t('qualite'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gresp_orga_diof']['nomu'] = array( 'help' => t('Nom respOrga dispo offre'),
     //{{
     'title' => t('nomuOrga'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_orga_diof']['qualite'] = array( 'help' => t('Qualité respOrga dispo offre'),
+    //{{
+    'title' => t('qualite'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),

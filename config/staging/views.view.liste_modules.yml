@@ -5640,6 +5640,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        qualite_1:
+          id: qualite_1
+          table: gbb_gresp_orga
+          field: qualite
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Qualité
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
         nomu_1:
           id: nomu_1
           table: gbb_gresp_peda
@@ -5688,6 +5737,55 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          plugin_id: standard
+        qualite:
+          id: qualite
+          table: gbb_gresp_peda
+          field: qualite
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Qualité
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           plugin_id: standard
         lib_court_1:
           id: lib_court_1
@@ -6032,6 +6130,112 @@ display:
           empty_zero: 0
           hide_alter_empty: 1
           plugin_id: standard
+        lcomm:
+          id: lcomm
+          table: gbb_gmodu
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Commentaire
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        nb_groupe:
+          id: nb_groupe
+          table: gbb_gmodu
+          field: nb_groupe
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: nb_groupe
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nb_eff_groupe:
           id: nb_eff_groupe
           table: gbb_gmodu
@@ -6472,6 +6676,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        dt_crea:
+          id: dt_crea
+          table: gbb_gmodu
+          field: dt_crea
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Date création'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
         nothing:
           id: nothing
           table: views
@@ -6578,55 +6831,6 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        lcomm:
-          id: lcomm
-          table: gbb_gmodu
-          field: lcomm
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Commentaire
-          exclude: 0
-          alter:
-            alter_text: 0
-            text: ''
-            make_link: 0
-            path: ''
-            absolute: 0
-            external: 0
-            replace_spaces: 0
-            path_case: none
-            trim_whitespace: 0
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: 0
-            max_length: '0'
-            word_boundary: 1
-            ellipsis: 1
-            more_link: 0
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: 0
-            trim: 0
-            preserve_tags: ''
-            html: 0
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: 1
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: 1
-          empty: ''
-          hide_empty: 0
-          empty_zero: 0
-          hide_alter_empty: 1
-          plugin_id: standard
         sigle:
           id: sigle
           table: gbb_netab_modu
