@@ -1,0 +1,15 @@
+pia_list:
+  path: '/pia/list'
+  defaults:
+    _title: 'Liste des orientations'
+    _controller: '\Drupal\pia\Controller\PiaController::list'
+  requirements:
+    _permission: 'access content'
+
+position.form:
+  path: '/pia/position_form/{position}/{co_modu}/{co_degre}'
+  defaults:
+    _form: '\Drupal\pia\Form\PositionForm'
+  requirements:
+    _permission: 'access content'
+
