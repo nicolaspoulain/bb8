@@ -33,7 +33,7 @@ display:
             administrator: administrator
             d_cons: d_cons
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -2429,11 +2429,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: pro_nat
+          label: prio_nat
           exclude: 0
           alter:
-            alter_text: 0
-            text: ''
+            alter_text: 1
+            text: "{% if prio_nat == \"1\" %}Bac-3/Bac+3\r\n{% elseif prio_nat == \"2\" %}Climat scolaire et lutte contre le harcèlement\r\n{% elseif prio_nat == \"3\" %}Devoirs faits\r\n{% elseif prio_nat == \"4\" %}École maternelle\r\n{% elseif prio_nat == \"5\" %}Education artistique et culturelle\r\n{% elseif prio_nat == \"6\" %}Éducation aux valeurs de la République\r\n{% elseif prio_nat == \"7\" %}Elèves à besoins éducatifs particuliers\r\n{% elseif prio_nat == \"8\" %}Les fondamentaux (1er degré)\r\n{% elseif prio_nat == \"9\" %}Les fondamentaux au cycle 3\r\n{% elseif prio_nat == \"10\" %}Orientation au collège\r\n{% elseif prio_nat == \"11\" %}Professionnalisation des formateurs\r\n{% elseif prio_nat == \"12\" %}Réforme du LGT\r\n{% elseif prio_nat == \"13\" %}Scolarité obligatoire à partir de 3 ans\r\n{% elseif prio_nat == \"14\" %}Sécurisation des parcours\r\n{% elseif prio_nat == \"15\" %}Transformation de la voie professionnelle\r\n{% endif %}"
             make_link: 0
             path: ''
             absolute: 0
@@ -4499,104 +4499,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_omodu:
-          id: co_omodu
-          table: gbb_gmoof
-          field: co_omodu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Module
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        libl_1:
-          id: libl_1
-          table: gbb_gmoof
-          field: libl
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<h2>{{ co_omodu }} {{ libl_1 }}</h2>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         no_offre:
           id: no_offre
           table: gbb_gdiof
@@ -4665,7 +4567,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<b>{{ no_offre }} {{ libl }} </b>'
+            text: '<h2>{{ no_offre }} {{ libl }} </h2>'
             make_link: false
             path: ''
             absolute: false
@@ -4703,14 +4605,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga_diof
-          field: nomu
+        lobjt:
+          id: lobjt
+          table: gbb_gdiof
+          field: lobjt
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Resp. Orga'
+          label: 'Objectif dispositif'
           exclude: false
           alter:
             alter_text: false
@@ -4752,6 +4654,496 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        co_tpla:
+          id: co_tpla
+          table: gbb_gdiof
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Plan
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_omodu:
+          id: co_omodu
+          table: gbb_gmoof
+          field: co_omodu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Module
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        libl_1:
+          id: libl_1
+          table: gbb_gmoof
+          field: libl
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<b>{{ co_omodu }} {{ libl_1 }}</b>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        organ:
+          id: organ
+          table: gbb_gresp_orga_diof
+          field: organ
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Organ respOrga'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        qualite:
+          id: qualite
+          table: gbb_gresp_orga_diof
+          field: qualite
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Qualité respOrga '
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gresp_orga_diof
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Prénom respOrga'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga_diof
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Resp. Orga'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{{ prenom }} {{ nomu }} ({{ qualite }} {{ organ }})\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom_1:
+          id: prenom_1
+          table: gbb_gresp_peda_moof
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Prénom respPéda'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        qualite_1:
+          id: qualite_1
+          table: gbb_gresp_peda_moof
+          field: qualite
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'QUalite respPéda'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        organ_1:
+          id: organ_1
+          table: gbb_gresp_peda_moof
+          field: organ
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Organisme respPéda'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nomu_1:
           id: nomu_1
           table: gbb_gresp_peda_moof
@@ -4762,8 +5154,8 @@ display:
           label: 'Resp. Péda'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{{ prenom_1 }} {{ nomu_1 }} ({{ qualite_1 }} {{ organ_1 }})\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -4857,7 +5249,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Objectif
+          label: 'Objectif module'
           exclude: false
           alter:
             alter_text: false
@@ -4997,6 +5389,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lib_court_1:
+          id: lib_court_1
+          table: gbb_nmoda_moof
+          field: lib_court
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Modalité
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         lmoda:
           id: lmoda
           table: gbb_gmoof
@@ -5054,7 +5495,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Cout prev excep'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -5103,7 +5544,7 @@ display:
           group_type: group
           admin_label: ''
           label: 'Cout prev de fonc'
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -5151,11 +5592,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Cout prev de prest'
+          label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<b>Cout prev excep :</b>  {{ cout_p_excep }} - <b>Cout prev de fonc :</b> -  {{ cout_p_fonc }} - <b>Cout prev de prest :</b> {{ cout_p_prest }}'
             make_link: false
             path: ''
             absolute: false
@@ -5184,7 +5625,7 @@ display:
           element_class: ''
           element_label_type: strong
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -5200,8 +5641,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Effectif groupe'
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -5233,7 +5674,7 @@ display:
           element_class: ''
           element_label_type: strong
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -5249,11 +5690,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Nbre de groupes'
+          label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "<b>Nbre de groupes:</b> {{ nb_groupe }} - <b>Effectif groupe:</b> {{ nb_eff_groupe }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -5282,56 +5723,7 @@ display:
           element_class: ''
           element_label_type: strong
           element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_court_1:
-          id: lib_court_1
-          table: gbb_nmoda_moof
-          field: lib_court
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Modalité
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -5385,6 +5777,153 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prio_aca:
+          id: prio_aca
+          table: gbb_gdiof_dafor
+          field: prio_aca
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '-'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prio_nat:
+          id: prio_nat
+          table: gbb_gdiof_dafor
+          field: prio_nat
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if prio_nat == \"1\" %}Bac-3/Bac+3\r\n{% elseif prio_nat == \"2\" %}Climat scolaire et lutte contre le harcèlement\r\n{% elseif prio_nat == \"3\" %}Devoirs faits\r\n{% elseif prio_nat == \"4\" %}École maternelle\r\n{% elseif prio_nat == \"5\" %}Education artistique et culturelle\r\n{% elseif prio_nat == \"6\" %}Éducation aux valeurs de la République\r\n{% elseif prio_nat == \"7\" %}Elèves à besoins éducatifs particuliers\r\n{% elseif prio_nat == \"8\" %}Les fondamentaux (1er degré)\r\n{% elseif prio_nat == \"9\" %}Les fondamentaux au cycle 3\r\n{% elseif prio_nat == \"10\" %}Orientation au collège\r\n{% elseif prio_nat == \"11\" %}Professionnalisation des formateurs\r\n{% elseif prio_nat == \"12\" %}Réforme du LGT\r\n{% elseif prio_nat == \"13\" %}Scolarité obligatoire à partir de 3 ans\r\n{% elseif prio_nat == \"14\" %}Sécurisation des parcours\r\n{% elseif prio_nat == \"15\" %}Transformation de la voie professionnelle\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '-'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prio_paf:
+          id: prio_paf
+          table: gbb_gdiof_dafor
+          field: prio_paf
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<b>Priorité nationale:</b> {{ prio_nat }} <b>Priorité académique:</b> {{ prio_aca }} <b>Priorité PAF:</b> {{ prio_paf }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '-'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true

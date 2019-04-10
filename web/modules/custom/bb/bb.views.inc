@@ -1562,8 +1562,8 @@ function bb_views_data() {
   $data['gbb_gdiof_dafor']['table'] = array( 'group' => t('gbb_gmoof'),
     'join' => array(
       'gbb_gmoof' => array(
-        'left_field' => 'co_offre',
-        'field' => 'co_offre',
+        'left_field' => 'co_omodu',
+        'field' => 'co_omodu',
       ),
     ),
   );
@@ -1646,9 +1646,25 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gresp_peda_moof']['prenom'] = array( 'help' => t('Prénom respPéda module offre'),
+    //{{
+    'title' => t('prenomPeda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gresp_peda_moof']['qualite'] = array( 'help' => t('QUalite respPéda module offre'),
     //{{
     'title' => t('qualite'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_peda_moof']['organ'] = array( 'help' => t('Organisme respPéda module offre'),
+    //{{
+    'title' => t('organ'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -1662,9 +1678,25 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gresp_orga_diof']['prenom'] = array( 'help' => t('Prénom respOrga dispo offre'),
+    //{{
+    'title' => t('prenomOrga'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gresp_orga_diof']['qualite'] = array( 'help' => t('Qualité respOrga dispo offre'),
     //{{
     'title' => t('qualite'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_orga_diof']['organ'] = array( 'help' => t('Organ respOrga dispo offre'),
+    //{{
+    'title' => t('organ'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -1884,6 +1916,14 @@ function bb_views_data() {
   $data['gbb_gdiof']['co_orie'] = array( 'help' => t('Code orientation'),
     //{{
     'title' => t('co_orie'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof']['lobjt'] = array( 'help' => t('Objectif du didpositif offre'),
+    //{{
+    'title' => t('lobjt'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
