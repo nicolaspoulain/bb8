@@ -1949,17 +1949,19 @@ function bb_views_data() {
   $data['gbb_gdiof_dafor']['nb_hp'] = array( 'help' => t('Heures Poste, sur décharge'),
     //{{
     'title' => t('nb_hp'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gdiof_dafor']['nb_vac'] = array( 'help' => t('Nbre vacations (dont ex-HSE)'),
     //{{
     'title' => t('nb_vac'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gdiof_dafor']['nb_gr'] = array( 'help' => t('nombre de groupes prévus'),
@@ -2069,9 +2071,10 @@ function bb_views_data() {
   $data['gbb_gdiof_dafor']['taux'] = array( 'help' => t('taux'),
     //{{
     'title' => t('taux'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gdiof_dafor']['ht2'] = array( 'help' => t('ht2'),
