@@ -39,14 +39,27 @@ class PositionForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $position=NULL, $co_omodu=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state,
+    $check=0, $position=0, $co_omodu=0) {
 
   $this->formId = rand(11111, 99999);
 
-  $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
-  $form['position'] = array(
+  $rnd = rand(0,1000000000);
+  $form['f']['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
+  $form['f'][$rnd] = array(
+    '#type' => 'checkbox',
+    '#title' => '',
+    '#default_value' => $check,
+    '#prefix' => '<div class="inline">',
+    '#suffix' => '</div>',
+  );
+  $form['f']['position'] = array(
     '#type' => 'textfield', '#size' => 3,
-    '#default_value' => (isset($position))? (int)$position : '0',
+    '#default_value' => (int)$position,
+    '#states' => array(    // This #states rule limits visibility
+      'visible' => array(  // action to take.
+        ':input[name='.$rnd.']' => array('checked' => TRUE),),
+    ),
     '#ajax' => array(
       'callback' => [$this,'saveAjax'],
       'progress' => array('type' => 'throbber', 'message' => '')),);
