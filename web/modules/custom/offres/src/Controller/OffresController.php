@@ -120,7 +120,7 @@ class OffresController extends ControllerBase {
       'co_offreur'   => array('data' => $r->co_offreur),
       'position'     => array('data' => $position),
       'no_offre'     => array('data' => $r->no_offre.' / '.$r->co_omodu, "class"=>$class),
-      'libl'         => array('data' => $titre),
+      'libl'         => array('data' => $titre, "class"=>$class),
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
       'offre_cat'    => array('data' => $offre_cat),
