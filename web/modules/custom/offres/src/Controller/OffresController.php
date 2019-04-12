@@ -107,7 +107,10 @@ class OffresController extends ControllerBase {
     $comment = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CommentForm', $r->comment, $r->co_omodu);
 
     $titre = $r->libl;
-    if ($titre=="") $titre = $r->libdispo;
+    if ($titre=="") {
+      $titre = $r->libdispo;
+      $class = "jaunepia";
+    };
 
     $rows[] = array(
       'nomu'         => array('data' => $r->nomu),
@@ -115,7 +118,7 @@ class OffresController extends ControllerBase {
       'co_orie'      => array('data' => $r->co_orie),
       'co_offreur'   => array('data' => $r->co_offreur),
       'position'     => array('data' => $position),
-      'no_offre'     => array('data' => $r->no_offre.' / '.$r->co_omodu),
+      'no_offre'     => array('data' => $r->no_offre.' / '.$r->co_omodu, "class"=>$class),
       'libl'         => array('data' => $titre),
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
