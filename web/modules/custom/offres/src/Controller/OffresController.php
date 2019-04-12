@@ -107,6 +107,7 @@ class OffresController extends ControllerBase {
     $comment = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CommentForm', $r->comment, $r->co_omodu);
 
     $titre = $r->libl;
+    $class = "normal";
     if ($titre=="") {
       $titre = $r->libdispo;
       $class = "jaunepia";
