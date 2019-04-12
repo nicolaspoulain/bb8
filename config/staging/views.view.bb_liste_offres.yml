@@ -586,12 +586,12 @@ display:
                   min: '20160000'
                   max: '20169999'
               5:
-                title: 15-16
+                title: 20-21
                 operator: between
                 value:
                   value: ''
-                  min: '20150000'
-                  max: '20159999'
+                  min: '20200000'
+                  max: '20209999'
           plugin_id: numeric
         nomu:
           id: nomu
@@ -5621,6 +5621,104 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nb_eff_groupe:
+          id: nb_eff_groupe
+          table: gbb_gmoof
+          field: nb_eff_groupe
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        nb_groupe:
+          id: nb_groupe
+          table: gbb_gmoof
+          field: nb_groupe
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "<b>Nbre de groupes:</b> {{ nb_groupe }} - <b>Effectif groupe:</b> {{ nb_eff_groupe }}\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nb_vac:
           id: nb_vac
           table: gbb_gdiof_dafor
@@ -5784,6 +5882,63 @@ display:
           empty_zero: true
           hide_alter_empty: false
           plugin_id: standard
+        nb_hp:
+          id: nb_hp
+          table: gbb_gdiof_dafor
+          field: nb_hp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing:
           id: nothing
           table: views
@@ -5795,7 +5950,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ nb_vac }}ĥ × {{ taux }}€/h = {{ nb_vac * taux }}€ <b>HT2 : </b> {{ ht2 }}€'
+            text: '{{ nb_vac }}ĥ × {{ taux }}€/h = {{ nb_vac * taux }}€ <b>HT2 : </b> {{ ht2 }}€ <b>HP : </b>  {{ nb_hp }}h'
             make_link: false
             path: ''
             absolute: false
@@ -5833,104 +5988,6 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        nb_eff_groupe:
-          id: nb_eff_groupe
-          table: gbb_gmoof
-          field: nb_eff_groupe
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        nb_groupe:
-          id: nb_groupe
-          table: gbb_gmoof
-          field: nb_groupe
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<b>Nbre de groupes:</b> {{ nb_groupe }} - <b>Effectif groupe:</b> {{ nb_eff_groupe }}\r\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         lib_court_2:
           id: lib_court_2
           table: gbb_nobjt_diof
@@ -5987,7 +6044,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: paca
           exclude: true
           alter:
             alter_text: false
@@ -6036,7 +6093,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: pnat
           exclude: true
           alter:
             alter_text: true
@@ -6086,6 +6143,55 @@ display:
           group_type: group
           admin_label: ''
           label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: '<b>Priorité nationale:</b> {{ prio_nat }} <b>Priorité académique:</b> {{ prio_aca }} <b>Priorité PAF:</b> {{ prio_paf }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '-'
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: false
+          plugin_id: standard
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
           exclude: false
           alter:
             alter_text: true
@@ -6125,8 +6231,8 @@ display:
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
+          hide_alter_empty: false
+          plugin_id: custom
         co_offreur:
           id: co_offreur
           table: gbb_gdiof
