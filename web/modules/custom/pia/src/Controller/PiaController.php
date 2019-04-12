@@ -66,11 +66,13 @@ class PiaController extends ControllerBase {
     foreach ($result = $query->execute()->fetchAll() as $r) {
       $position = $pap[$r->co_orie];
       $check=($position==0)? 0: 1;
-      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', $check, $position, $r->co_orie);
+      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'p', $r->co_orie, $co_modu, $co_degre);
 
       $position = $web[$r->co_orie];
       $check=($position==0)? 0: 1;
-      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', $check, $position, $r->co_orie);
+      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
 
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 

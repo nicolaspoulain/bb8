@@ -84,6 +84,7 @@ class OffresController extends ControllerBase {
       // 'offre_new', 'pub_des','anim_peda', 'foad',
     ));
     $query ->fields('r', array('nomu'));
+    $query ->addfield('d', 'libl', 'libdispo');
     $query ->addField('r2', 'nomu', 'nomu2');
     $query ->distinct();
     $pager = $query->extend('Drupal\Core\Database\Query\PagerSelectExtender')->limit($count);
@@ -105,6 +106,9 @@ class OffresController extends ControllerBase {
     $ht2 = \Drupal::formBuilder()->getForm('Drupal\offres\Form\Ht2Form', $r->ht2, $r->co_omodu);
     $comment = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CommentForm', $r->comment, $r->co_omodu);
 
+    $titre = $r->libl;
+    if ($titre=="") $titre = $r->libdispo;
+
     $rows[] = array(
       'nomu'         => array('data' => $r->nomu),
       'co_tpla'      => array('data' => $r->co_tpla),
@@ -112,7 +116,7 @@ class OffresController extends ControllerBase {
       'co_offreur'   => array('data' => $r->co_offreur),
       'position'     => array('data' => $position),
       'no_offre'     => array('data' => $r->no_offre.' / '.$r->co_omodu),
-      'libl'         => array('data' => $r->libl),
+      'libl'         => array('data' => $titre),
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
       'offre_cat'    => array('data' => $offre_cat),
