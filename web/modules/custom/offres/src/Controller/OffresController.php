@@ -110,7 +110,7 @@ class OffresController extends ControllerBase {
     $class = "normal";
     if ($titre=="") {
       $titre = $r->libdispo;
-      $class = "jaunepia";
+      $class = "red";
     };
 
     $rows[] = array(
