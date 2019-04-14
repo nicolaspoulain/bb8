@@ -66,11 +66,13 @@ class PiaController extends ControllerBase {
     foreach ($result = $query->execute()->fetchAll() as $r) {
       $position = $pap[$r->co_orie];
       $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
       $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
         $check, $position, 'p', $r->co_orie, $co_modu, $co_degre);
 
       $position = $web[$r->co_orie];
       $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
       $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
         $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
 
@@ -93,8 +95,18 @@ class PiaController extends ControllerBase {
 
     $count = 0;
     foreach ($result = $query->execute()->fetchAll() as $r) {
-      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
-      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
+      $position = $pap[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'p', $r->co_orie, $co_modu, $co_degre);
+
+      $position = $web[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
+
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
       $rows[$count]['1P_p']  = array('data' => $str);
@@ -111,8 +123,18 @@ class PiaController extends ControllerBase {
 
     $count = 0;
     foreach ($result = $query->execute()->fetchAll() as $r) {
-      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
-      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
+      $position = $pap[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'p', $r->co_orie, $co_modu, $co_degre);
+
+      $position = $web[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
+
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
       $rows[$count]['PA0_p'] = array('data' => $str);
@@ -129,8 +151,18 @@ class PiaController extends ControllerBase {
 
     $count = 0;
     foreach ($result = $query->execute()->fetchAll() as $r) {
-      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
-      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm', 500, $r->co_orie);
+      $position = $pap[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_p = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'p', $r->co_orie, $co_modu, $co_degre);
+
+      $position = $web[$r->co_orie];
+      $check=($position==0)? 0: 1;
+      $position = ($position==0)? 1:$position;
+      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm',
+        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
+
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
       $rows[$count]['4E_p'] = array('data' => $str);
