@@ -264,6 +264,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu_taxonomy']['type'] = array( 'help' => t('type'),
+  //{{
+    'title' => t('type'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
   $data['gbb_gmofl']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{

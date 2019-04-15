@@ -6,6 +6,14 @@ pia_list:
   requirements:
     _permission: 'access content'
 
+pia_sort:
+  path: '/pia/sort/{co_orie}/{type}'
+  defaults:
+    # _title: 'Classement Papier et Web'
+    _controller: '\Drupal\pia\Controller\SortController::list'
+  requirements:
+    _permission: 'access content'
+
 position.form:
   path: '/pia/position_form/{position}/{co_modu}/{co_degre}'
   defaults:
