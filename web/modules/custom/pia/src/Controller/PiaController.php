@@ -10,36 +10,35 @@ class PiaController extends ControllerBase {
   /**
    * Render a list of entries in the database.
    */
-  public function list() {
+  public function list($co_modu, $co_degre) {
     $content = [];
-    $gets =\Drupal::request()->query->all();
-    $nomu = $gets['nomu'];
-    $co_orie = $gets['co_orie'];
 
-
-    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
-
+    $query = db_select('gbb_gmodu', 'm');
+    $query ->condition('m.co_modu', $co_modu, '=');
+    $query ->condition('m.co_degre', $co_degre, '=');
+    $query ->fields('m', array( 'co_modu', 'lib',));
+    foreach ($result = $query->execute()->fetchAll() as $r) {
+      $content['title'] = [
+        '#markup' => '<h1>'.$co_modu.' '.$r->lib.'</h1>',
+      ];
+    };
     $content['message'] = [
-      '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
+      '#markup' => $this->t('Classer de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
     ];
 
     $headers = array(
-    '2S_p' => t('2S Web'),
-    '2S_pf' => t(''),
-    '2S_w' => t('2S Web'),
-    '2S_wf' => t(''),
-    '1P_p' => t('1P papier'),
-    '1P_pf' => t(''),
-    '1P_w' => t('1P Web'),
-    '1P_wf' => t(''),
-    'PA_p' => t('PA papier'),
-    'PA_pf' => t(''),
-    'PA_w' => t('PA Web'),
-    'PA_wf' => t(''),
-    '4E_p' => t('4E papier'),
-    '4E_pf' => t(''),
-    '4E_w' => t('4E Web'),
-    '4E_wf' => t(''),
+    '2S' => t('2S'),
+    '2S_p' => t('Papier'),
+    '2S_w' => t('Web'),
+    '1P' => t('1P'),
+    '1P_p' => t('Papier'),
+    '1P_w' => t('Web'),
+    'PA' => t('PA'),
+    'PA_p' => t('Papier'),
+    'PA_w' => t('Web'),
+    '4E' => t('4E'),
+    '4E_p' => t('Papier'),
+    '4E_w' => t('Web'),
     );
 
     // switch database (cf settings.php)
@@ -53,8 +52,8 @@ class PiaController extends ControllerBase {
     $query ->condition('n.co_orie', "2S%", 'like');
     $query ->fields('n', array( 'co_orie', 'lib_court',));
 
-    $co_degre=2;
-    $co_modu=22222;
+    // $co_degre=2;
+    // $co_modu=22222;
     $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
     $row = BbCrudController::load('gbb_gmodu_taxonomy', $condition);
     foreach ($row as $l) {
@@ -80,10 +79,9 @@ class PiaController extends ControllerBase {
 
       $rows[] = array(
         // '2S_p'         => array('data' => $str),
-        '2S_p'         => array('data' => $str),
-        '2S_pf'        => array('data' => $position_p),
-        '2S_w' => array('data' => $str,'class'=>'jaunepia'),
-        '2S_wf'=> array('data' => $position_w, 'class'=>'jaunepia'),
+        '2S'   => array('data' => $str),
+        '2S_p' => array('data' => $position_p),
+        '2S_w' => array('data' => $position_w, 'class'=>'jaunepia'),
       );
     }
 
@@ -109,10 +107,9 @@ class PiaController extends ControllerBase {
 
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
-      $rows[$count]['1P_p']  = array('data' => $str);
-      $rows[$count]['1P_pf'] = array('data' => $position_p);
-      $rows[$count]['1P_w'] = array('data' => $str,'class'=>'jaunepia');
-      $rows[$count]['1P_wf'] = array('data' => $position_w,'class'=>'jaunepia');
+      $rows[$count]['1P']   = array('data' => $str);
+      $rows[$count]['1P_p'] = array('data' => $position_p);
+      $rows[$count]['1P_w'] = array('data' => $position_w,'class'=>'jaunepia');
       $count = $count +1;
     }
     //  -------------------------------------------------
@@ -137,10 +134,9 @@ class PiaController extends ControllerBase {
 
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
-      $rows[$count]['PA0_p'] = array('data' => $str);
-      $rows[$count]['PA0_pf'] = array('data' => $position_p);
-      $rows[$count]['PA0_w'] = array('data' => $str,'class'=>'jaunepia');
-      $rows[$count]['PA0_wf'] = array('data' => $position_w,'class'=>'jaunepia');
+      $rows[$count]['PA0']   = array('data' => $str);
+      $rows[$count]['PA0_p'] = array('data' => $position_p);
+      $rows[$count]['PA0_w'] = array('data' => $position_w,'class'=>'jaunepia');
       $count = $count +1;
     }
     //  -------------------------------------------------
@@ -165,10 +161,9 @@ class PiaController extends ControllerBase {
 
       $str = substr($r->co_orie,-2).":".str_replace(" ","_",$r->lib_court);
 
-      $rows[$count]['4E_p'] = array('data' => $str);
-      $rows[$count]['4E_pf'] = array('data' => $position_p);
-      $rows[$count]['4E_w'] = array('data' => $str,'class'=>'jaunepia');
-      $rows[$count]['4E_wf'] = array('data' => $position_w,'class'=>'jaunepia');
+      $rows[$count]['4E']   = array('data' => $str);
+      $rows[$count]['4E_p'] = array('data' => $position_p);
+      $rows[$count]['4E_w'] = array('data' => $position_w,'class'=>'jaunepia');
       $count = $count +1;
     }
 
