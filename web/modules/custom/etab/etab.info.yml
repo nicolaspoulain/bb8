@@ -1,0 +1,5 @@
+name: Etab
+type: module
+description: "Un module pour gérer les etabs."
+package: Custom
+core: 8.x

@@ -1,0 +1,10 @@
+etab.createform:
+  path: '/etab/create'
+  defaults:
+    _form: '\Drupal\etab\Form\EtabForm'
+    _title: 'Formulaire pour créer etab'
+    co_modu: '1'
+  requirements:
+    _permission: 'access bb usual'
+
+
