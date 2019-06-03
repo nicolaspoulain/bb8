@@ -1350,6 +1350,46 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gresp_plus']['disc_exercice'] = array( 'help'   => t('Discipline d exercice'),
+    //{{
+    'title'  => t('disc_exercice'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_plus']['disc_interv'] = array( 'help'   => t('Discipline d intervention'),
+    //{{
+    'title'  => t('disc_interv'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_plus']['champ_interv'] = array( 'help'   => t('Champ d intervention'),
+    //{{
+    'title'  => t('champ_interv'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_plus']['transv_interv'] = array( 'help'   => t('Domaine transversal d intervention'),
+    //{{
+    'title'  => t('transv_interv'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gresp_plus']['resp_dafor'] = array( 'help'   => t('resp_dafor'),
+    //{{
+    'title'  => t('resp_dafor'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //{{ *** GBB_GRESP_PERIODIC intégré
   $data['gbb_gresp_periodic']['table'] = array( 'group' => t('gbb_session'),
     'join' => array(
