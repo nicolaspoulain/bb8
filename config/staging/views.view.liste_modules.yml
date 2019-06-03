@@ -10938,7 +10938,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -10994,7 +10994,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: co_tpla
+          label: Plan
           exclude: false
           alter:
             alter_text: false
@@ -11028,55 +11028,6 @@ display:
           element_label_type: ''
           element_label_class: ''
           element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_camp:
-          id: co_camp
-          table: gbb_gdisp
-          field: co_camp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "{% if  co_camp  == \"BS\" %}\r\n    FIL\r\n{% else %}\r\n    PAF\r\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -11200,11 +11151,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Classer
           exclude: false
           alter:
             alter_text: true
-            text: "<a href =\"pia/list/{{ co_modu }}/{{ co_degre }}\"> {{ lib }} </a> ✓/×\r\n\r\n"
+            text: "<a href =\"pia/list/{{ co_modu }}/{{ co_degre }}\"><i class=\"far fa-square\"></i> <i class=\"far fa-check-square\"></i></a> {{ lib }}\r\n\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -11291,6 +11242,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: R.Orga
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         tid:
           id: tid
           table: gbb_gmodu_taxonomy
@@ -11331,7 +11331,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -11347,61 +11347,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: type
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        weight:
-          id: weight
-          table: gbb_gmodu_taxonomy
-          field: weight
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Poids
+          label: Ordonner
           exclude: false
           alter:
             alter_text: true
-            text: "{% if type==\"w\" %} <a href=\"pia/sort/{{ tid }}/{{ type }}\"><i class=\"fa fa-desktop\">&nbsp;{{tid}}</i><i class=\"fa fa-sort fa-border pull-right\">{{ weight }}</i></a>\r\n{% elseif type==\"p\" %} <a href=\"pia/sort/{{ tid }}/{{ type }}\"><i class=\"fa fa-book\">&nbsp;{{tid}}</i><i class=\"fa fa-sort fa-border pull-right\">{{ weight }}</i></a>\r\n{% else %} /!\\\r\n{% endif %}"
-            make_link: true
+            text: "{{ tid }}\r\n{% if type==\"p\" %}\r\n<a href=\"pia/sort/{{ tid }}/{{ type }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-book\"></i></a>\r\n{% elseif type==\"w\" %}\r\n<a href=\"pia/sort/{{ tid }}/{{ type }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-desktop\"></i></a>\r\n{% endif %}\r\n"
+            make_link: false
             path: ''
             absolute: false
             external: false
