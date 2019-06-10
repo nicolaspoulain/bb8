@@ -1,13 +1,21 @@
 pia_list:
   path: '/pia/list/{co_modu}/{co_degre}'
   defaults:
-    _title: 'Classement Papier et Web'
+    _title: 'Classement Papier'
     _controller: '\Drupal\pia\Controller\PiaController::list'
   requirements:
     _permission: 'access content'
 
+pia_sort_orie:
+  path: '/pia/sortorie/{co_orie}/{type}'
+  defaults:
+    # _title: 'Classement Papier et Web'
+    _controller: '\Drupal\pia\Controller\SortController::listorie'
+  requirements:
+    _permission: 'access content'
+
 pia_sort:
-  path: '/pia/sort/{co_orie}/{type}'
+  path: '/pia/sort/{co_orie}/{tid}'
   defaults:
     # _title: 'Classement Papier et Web'
     _controller: '\Drupal\pia\Controller\SortController::list'

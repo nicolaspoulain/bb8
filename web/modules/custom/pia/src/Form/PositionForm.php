@@ -40,13 +40,14 @@ class PositionForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state,
-    $check=0, $position=1, $type='w', $co_orie=0, $co_modu=0, $co_degre=0) {
+    $check=0, $position=1, $type='w', $tid=0, $co_orie=0, $co_modu=0, $co_degre=0) {
 
   // $this->formId = rand(11111, 99999);
 
   $rnd = rand(0,1000000000);
   $form['co_modu']  = array('#type' => 'hidden','#value' => $co_modu );
   $form['co_degre']  = array('#type' => 'hidden','#value' => $co_degre );
+  $form['tid']  = array('#type' => 'hidden','#value' => $tid );
   $form['co_orie']  = array('#type' => 'hidden','#value' => $co_orie );
   $form['type']  = array('#type' => 'hidden','#value' => $type );
   $form['rnd']  = array('#type' => 'hidden','#value' => $rnd );
@@ -119,6 +120,7 @@ class PositionForm extends FormBase {
     $co_modu = $qu['co_modu'];
     $co_degre= $qu['co_degre'];
     $co_orie = $qu['co_orie'];
+    $tid     = $qu['tid'];
     $type    = $qu['type'];
     $check   = $qu['check'];
     $position= $qu['position'];
@@ -126,14 +128,16 @@ class PositionForm extends FormBase {
       'co_modu'  => $co_modu,
       'co_degre'  => $co_degre,
       'type'  => $type,
-      'tid'  => $co_orie,
+      'tid'  => $tid,
+      'co_orie'  => $co_orie,
       'weight'  => $position,
     );
     $condition = array(
       'co_modu'  => $co_modu,
       'co_degre'  => $co_degre,
       'type'  => $type,
-      'tid'  => $co_orie,
+      'tid'  => $tid,
+      'co_orie'  => $co_orie,
     );
     // dpm($entry);
     if ($check) {
