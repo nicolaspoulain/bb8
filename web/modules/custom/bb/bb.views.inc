@@ -351,6 +351,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['taxonomy_term_data_dafor']['name'] = array( 'help' => t('nom de l elt de taxonomie'),
+  //{{
+    'title' => t('name'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['taxonomy_vocabulary_dafor']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
