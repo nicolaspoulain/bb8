@@ -61,7 +61,7 @@ display:
               rendered: true
               rendered_strip: false
             -
-              field: name
+              field: description
               rendered: true
               rendered_strip: false
             -
@@ -2831,6 +2831,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        description:
+          id: description
+          table: taxonomy_term_data_dafor
+          field: description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '\section{ {{description}} }'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         name:
           id: name
           table: taxonomy_term_data_dafor
@@ -3038,7 +3087,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{% if co_tcan == ''3'' %}\D{% endif %}{# PUB DES #}'
+            text: "{% if co_tcan == '3' %}\\D{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}\\COLL{% endif %}{# Cand. Coll #}"
             make_link: false
             path: ''
             absolute: false
@@ -3967,6 +4016,18 @@ display:
           id: name
           table: taxonomy_vocabulary_dafor
           field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        weight_1:
+          id: weight_1
+          table: taxonomy_vocabulary_dafor
+          field: weight
           relationship: none
           group_type: group
           admin_label: ''
