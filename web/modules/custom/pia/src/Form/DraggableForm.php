@@ -83,6 +83,7 @@ class DraggableForm extends FormBase {
     $query->leftjoin('gbb_gmodu','m', 't.co_modu=m.co_modu AND t.co_degre=m.co_degre');
     $query->condition('t.co_orie', $co_orie, 'like');
     $query->condition('t.tid', $tid);
+    $query->condition('m.co_anmo', '04', 'not like');
     $query->fields('t')
       ->fields('m')
       ->orderBy('weight');
