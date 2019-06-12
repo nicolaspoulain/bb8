@@ -359,6 +359,22 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['taxonomy_term_data_dafor']['description'] = array( 'help' => t('description de l elt de taxonomie'),
+  //{{
+    'title' => t('description'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term_data_dafor']['name'] = array( 'help' => t('nom de l elt de taxonomie'),
+  //{{
+    'title' => t('name'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['taxonomy_vocabulary_dafor']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
@@ -374,6 +390,14 @@ function bb_views_data() {
   $data['taxonomy_vocabulary_dafor']['name'] = array( 'help' => t('Nom du vocabulaire de taxonomie'),
   //{{
     'title' => t('taxonomy_vocabulary.name'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_vocabulary_dafor']['weight'] = array( 'help' => t('weight du vocabulaire de taxonomie'),
+  //{{
+    'title' => t('taxonomy_vocabulary.weight'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
