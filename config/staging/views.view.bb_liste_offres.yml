@@ -56,7 +56,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 25
+          items_per_page: 100
           offset: 0
           id: 0
           total_pages: null
@@ -593,47 +593,6 @@ display:
                   min: '20200000'
                   max: '20209999'
           plugin_id: numeric
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga_diof
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: nomu_op
-            label: 'Interlocuteur Dispo'
-            description: 'p.ex : Cordier'
-            use_operator: false
-            operator: nomu_op
-            identifier: nomu
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         co_tpla:
           id: co_tpla
           table: gbb_gdiof
@@ -716,6 +675,88 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        lcomm:
+          id: lcomm
+          table: gbb_gmoof
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lcomm_op
+            label: Hashtag
+            description: 'p.ex : #EP ou #0753345D'
+            use_operator: false
+            operator: lcomm_op
+            identifier: lcomm
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga_diof
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_op
+            label: 'Interlocuteur Dispo'
+            description: 'p.ex : Cordier'
+            use_operator: false
+            operator: nomu_op
+            identifier: nomu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
         nomu_1:
           id: nomu_1
           table: gbb_gresp_peda_moof
@@ -757,10 +798,51 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        lcomm:
-          id: lcomm
-          table: gbb_gmoof
-          field: lcomm
+        cp:
+          id: cp
+          table: gbb_netab_moof
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: cp_op
+            label: CP
+            description: 'p.ex : 75012'
+            use_operator: false
+            operator: cp_op
+            identifier: cp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        denom_comp:
+          id: denom_comp
+          table: gbb_netab_moof
+          field: denom_comp
           relationship: none
           group_type: group
           admin_label: ''
@@ -769,12 +851,12 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: lcomm_op
-            label: Hashtag
-            description: 'p.ex : #EP ou #0753345D'
+            operator_id: denom_comp_op
+            label: Étab.
+            description: 'p.ex : Matisse'
             use_operator: false
-            operator: lcomm_op
-            identifier: lcomm
+            operator: denom_comp_op
+            identifier: denom_comp
             required: false
             remember: false
             multiple: false
@@ -3242,6 +3324,153 @@ display:
           empty_zero: 0
           hide_alter_empty: 1
           plugin_id: standard
+        cp:
+          id: cp
+          table: gbb_netab_moof
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: CP
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        denom_comp:
+          id: denom_comp
+          table: gbb_netab_moof
+          field: denom_comp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Etab
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        sigle:
+          id: sigle
+          table: gbb_netab_moof
+          field: sigle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Sigle
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
       defaults:
         fields: false
       pager:
@@ -3266,55 +3495,6 @@ display:
       path: offresFlash
       display_description: ''
       fields:
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga_diof
-          field: nomu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Interlocuteur Dispo'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         co_tpla:
           id: co_tpla
           table: gbb_gdiof
@@ -3323,7 +3503,7 @@ display:
           group_type: group
           admin_label: ''
           label: Plan
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -3568,6 +3748,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga_diof
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Interlocuteur Dispo'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nomu_1:
           id: nomu_1
           table: gbb_gresp_peda_moof
@@ -3617,8 +3846,167 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        cp:
+          id: cp
+          table: gbb_netab_moof
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: cp
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        sigle:
+          id: sigle
+          table: gbb_netab_moof
+          field: sigle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: sigle
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        denom_comp:
+          id: denom_comp
+          table: gbb_netab_moof
+          field: denom_comp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Étab.
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ sigle }} {{ denom_comp }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
       defaults:
         fields: false
+        footer: false
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
     cache_metadata:
       max-age: -1
       contexts:
