@@ -11445,11 +11445,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Ordonner
+          label: 'Aperçu PIA / Ordonner'
           exclude: false
           alter:
             alter_text: true
-            text: "{{ name }}/{{ co_orie }}\r\n{% if type==\"p\" %}\r\n<a href=\"pia/sort/{{co_orie}}/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-book\"></i></a>\r\n{% elseif type==\"w\" %}\r\n<a href=\"pia/sort/{{co_orie}}/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-desktop\"></i></a>\r\n{% endif %}\r\n"
+            text: "<a href=\"pia-p-mod-par-tid?tid={{ tid }}\"><i class=\"far fa-eye\"></i></a>\r\n{{ name }}/{{ co_orie }}\r\n{% if type==\"p\" %}\r\n<a href=\"pia/sort/{{co_orie}}/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-book\"></i></a>\r\n{% elseif type==\"w\" %}\r\n<a href=\"pia/sort/{{co_orie}}/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-desktop\"></i></a>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
