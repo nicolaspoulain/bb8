@@ -52,6 +52,10 @@ class SortController extends ControllerBase {
       '#markup' => $this->t('Ré-organisez ici les modules en les déplaçant avec la souris.'),
     ];
     $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\pia\Form\DraggableForm', 'WEB', $tid);
+    $content['message2'] = [
+      '#markup' => $this->t('Vous pouvez être intéressé par :'),
+    ];
+    $content['filtre2'] = \Drupal::formBuilder()->getForm('Drupal\pia\Form\DraggableForm', 'WEB2', $tid);
 
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;

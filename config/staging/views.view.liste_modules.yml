@@ -13134,7 +13134,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if vid =='55' or vid =='56' or vid=='57' or vid=='58' %}\r\n<a href=\"pia-w-mod-par-tid?tid={{ tid }}\"><i class=\"far fa-eye\"></i></a>\r\n{{ name }} <a href=\"pia/sort/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-desktop\"></i></a>\r\n{% endif %}"
+            text: "{% if vid =='55' or vid =='56' or vid=='57' or vid=='58' %}\r\n<a href=\"pia-w-mod-par-tid?tid={{ tid }}\"><i class=\"far fa-eye\"></i></a>\r\n{{ name }} <a href=\"pia/sort_w/{{ tid }}\"><i class=\"fa fa-sort fa-border\"></i><i class=\"fas fa-desktop\"></i></a>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
