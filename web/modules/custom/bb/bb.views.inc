@@ -348,7 +348,8 @@ function bb_views_data() {
     'title' => t('vid'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['taxonomy_term_data_dafor']['name'] = array( 'help' => t('nom de l elt de taxonomie'),
@@ -433,7 +434,8 @@ function bb_views_data() {
     'title' => t('vid'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['taxonomy_term_field_data']['description__value'] = array( 'help' => t('Nom abbrégé du terme de taxonomie'),
