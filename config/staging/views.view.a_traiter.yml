@@ -928,29 +928,29 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '1'
+            default_group: '2'
             default_group_multiple: {  }
             group_items:
               1:
+                title: 19-20
+                operator: starts
+                value: '19'
+              2:
                 title: 18-19
                 operator: starts
                 value: '18'
-              2:
+              3:
                 title: 17-18
                 operator: starts
                 value: '17'
-              3:
+              4:
                 title: 16-17
                 operator: starts
                 value: '16'
-              4:
+              5:
                 title: 15-16
                 operator: starts
                 value: '15'
-              5:
-                title: 14-15
-                operator: starts
-                value: '14'
           plugin_id: string
         nomu:
           id: nomu

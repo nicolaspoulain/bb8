@@ -11739,7 +11739,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href =\"pia/list/{{ co_modu }}/{{ co_degre }}\"><i class=\"far fa-square\"></i> <i class=\"far fa-check-square\"></i></a> {{ lib }}\r\n\r\n\r\n"
+            text: "<a href =\"pia/list_w/{{ co_modu }}/{{ co_degre }}\"><i class=\"far fa-square\"></i> <i class=\"far fa-check-square\"></i></a> {{ lib }}\r\n"
             make_link: false
             path: ''
             absolute: false
