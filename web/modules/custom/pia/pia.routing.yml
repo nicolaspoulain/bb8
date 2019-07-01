@@ -14,11 +14,19 @@ pia_list_w:
   requirements:
     _permission: 'access content'
 
-pia_sort_orie:
-  path: '/pia/sortorie/{co_orie}/{type}'
+position.form:
+  path: '/pia/position_form/{position}/{co_modu}/{co_degre}'
+  defaults:
+    _form: '\Drupal\pia\Form\PositionForm'
+  requirements:
+    _permission: 'access content'
+
+
+pia_sort_w:
+  path: '/pia/sort_w/{tid}'
   defaults:
     # _title: 'Classement Papier et Web'
-    _controller: '\Drupal\pia\Controller\SortController::listorie'
+    _controller: '\Drupal\pia\Controller\SortController::list_w'
   requirements:
     _permission: 'access content'
 
@@ -27,13 +35,6 @@ pia_sort:
   defaults:
     # _title: 'Classement Papier et Web'
     _controller: '\Drupal\pia\Controller\SortController::list'
-  requirements:
-    _permission: 'access content'
-
-position.form:
-  path: '/pia/position_form/{position}/{co_modu}/{co_degre}'
-  defaults:
-    _form: '\Drupal\pia\Form\PositionForm'
   requirements:
     _permission: 'access content'
 

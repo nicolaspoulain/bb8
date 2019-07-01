@@ -35,7 +35,7 @@ class DraggableForm extends FormBase {
    * @return array
    *   The render array defining the elements of the form.
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $co_orie="2S30", $tid="p") {
+  public function buildForm(array $form, FormStateInterface $form_state, $co_orie="2S30 ou WEB", $tid="123456") {
     $form['table-row'] = [
       '#type' => 'table',
       '#header' => [
@@ -81,9 +81,12 @@ class DraggableForm extends FormBase {
 
     $query = db_select('gbb_gmodu_taxonomy', 't');
     $query->leftjoin('gbb_gmodu','m', 't.co_modu=m.co_modu AND t.co_degre=m.co_degre');
-    $query->condition('t.co_orie', $co_orie, 'like');
     $query->condition('t.tid', $tid);
     $query->condition('m.co_anmo', '04', 'not like');
+    if ($co_orie != "WEB" ) {
+    $query->condition('t.co_orie', $co_orie, 'like');
+    }
+
     $query->fields('t')
       ->fields('m')
       ->orderBy('weight');

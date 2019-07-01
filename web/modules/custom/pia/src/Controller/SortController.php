@@ -35,24 +35,23 @@ class SortController extends ControllerBase {
     return $content;
   }
 
-  public function listorie($co_orie, $type) {
+  public function list_w($tid) {
     $content = [];
+    \Drupal\Core\Database\Database::setActiveConnection('external');
 
-    if ($type=='p') $letype="papier";
-    if ($type=='w') $letype="Web";
-    $query = db_select('gbb_norie', 'n');
-    $query ->condition('n.co_orie', $co_orie, 'like');
-    $query ->fields('n', array('lib_long',));
+    $query = db_select('taxonomy_term_data', 'ttd');
+    $query ->condition('ttd.tid', $tid);
+    $query ->fields('ttd', array('name'));
     foreach ($result = $query->execute()->fetchAll() as $r) {
       $content['title'] = [
-        '#markup' => "<h1>Classement $letype pour ".$co_orie.' '.$r->lib_long.'</h1>',
+        '#markup' => "<h1>Classement web pour ".$r->name.'</h1>',
       ];
     };
 
     $content['message'] = [
       '#markup' => $this->t('Ré-organisez ici les modules en les déplaçant avec la souris.'),
     ];
-    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\pia\Form\DraggableForm', $co_orie, $type);
+    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\pia\Form\DraggableForm', 'WEB', $tid);
 
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;
