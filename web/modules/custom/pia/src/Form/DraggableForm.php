@@ -114,7 +114,7 @@ class DraggableForm extends FormBase {
       // TableDrag: Weight column element.
       $form['table-row'][$row->id]['weight'] = [
         '#type' => 'weight',
-        '#delta' => 100,
+        '#delta' => 150,
         '#title' => $this
           ->t('Weight for @title', [
           '@title' => $row->co_modu,
