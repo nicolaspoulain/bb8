@@ -66,6 +66,10 @@ display:
               field: name_1
               rendered: true
               rendered_strip: false
+            -
+              field: co_orie
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           type: ul
