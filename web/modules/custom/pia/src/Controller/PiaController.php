@@ -280,6 +280,7 @@ class PiaController extends ControllerBase {
   public function list_w($co_modu, $co_degre) {
     $content = [];
 
+    \Drupal\Core\Database\Database::setActiveConnection('external');
     $query = db_select('gbb_gmodu', 'm');
     $query ->condition('m.co_modu', $co_modu, '=');
     $query ->condition('m.co_degre', $co_degre, '=');
@@ -290,7 +291,7 @@ class PiaController extends ControllerBase {
       ];
     };
     $content['message'] = [
-      '#markup' => $this->t('Multi-affichage.'),
+      '#markup' => $this->t('Multi-affichage. Nombre >100 pour les domanies ou disc. non porteurs'),
     ];
 
     $headers = array(
