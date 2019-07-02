@@ -322,10 +322,13 @@ class PiaController extends ControllerBase {
     $row = BbCrudController::load('gbb_gmodu_taxonomy', $condition);
     foreach ($row as $l) {
       if ($l->type=='w') $web[$l->tid]=$l->weight;
+      $web[$l->tid]=$l->weight;
+      $checktab[$l->tid]=1;
     }
     foreach ($result = $query->execute()->fetchAll() as $r) {
       $position = $web[$r->tid];
-      $check=($position==0)? 0: 1;
+      $check=$checktab[$r->tid];
+      // print($r->tid."-".$check.' ** ');
       $position = ($position==0)? 1:$position;
       $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm_w',
         $check, $position, 'w', $r->tid, $co_modu, $co_degre);
