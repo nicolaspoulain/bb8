@@ -81,8 +81,10 @@ class DraggableForm extends FormBase {
 
     $query = db_select('gbb_gmodu_taxonomy', 't');
     $query->leftjoin('gbb_gmodu','m', 't.co_modu=m.co_modu AND t.co_degre=m.co_degre');
+    $query->leftjoin('gbb_gdisp','d', 'm.co_disp=d.co_disp AND m.co_degre=d.co_degre');
     $query->condition('t.tid', $tid);
     $query->condition('m.co_anmo', '04', 'not like');
+    $query->condition('d.co_camp', 'BS', 'not like');
     if ($co_orie == "WEB") {
     $query->condition('t.weight', 100, '<');
     } elseif ($co_orie == "WEB2") {
