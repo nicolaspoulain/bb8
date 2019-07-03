@@ -49,11 +49,17 @@ class ModuleNG extends ControllerBase {
       case '5': // convoc stagiaires
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 3, 'status' => 5, 'date_modif' => date("Y-m-d H:i:s"));
         break;
-      case '6': // transmis DE
+      case '6': // DE orange
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 6, 'date_modif' => date("Y-m-d H:i:s"));
         break;
       case '7': // en traitement
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 7, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
+      case '8': // DE vert
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 8, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
+      case '9': // DE rouge
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 9, 'date_modif' => date("Y-m-d H:i:s"));
         break;
     }
     $account = \Drupal::currentUser();

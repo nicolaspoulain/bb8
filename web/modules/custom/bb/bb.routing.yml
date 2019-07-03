@@ -209,6 +209,18 @@ bb.modal_form:
   requirements:
     _permission: 'access bb usual'
 
+bb.modal_de_form:
+  path: '/modal_de_form/{co_degre}/{co_modu}/{sess_id}/{type}'
+  defaults:
+    _form:  '\Drupal\bb\Form\ModalDeForm'
+    _title_callback:  '\Drupal\bb\Form\ModalDeForm::getTitle'
+    sess_id: 1
+    co_degre: 2
+    co_modu: 1
+    type: 'edit'
+  requirements:
+    _permission: 'access bb usual'
+
 bb.autocomplete.formateur:
   path: '/autocompFormateur'
   defaults:
