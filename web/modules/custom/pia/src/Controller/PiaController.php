@@ -356,7 +356,7 @@ class PiaController extends ControllerBase {
       $check=($position==0)? 0: 1;
       $position = ($position==0)? 1:$position;
       $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm_w',
-        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
+        $check, $position, 'w', $r->tid, $co_modu, $co_degre);
 
       $str = $r->name;
 
@@ -366,6 +366,28 @@ class PiaController extends ControllerBase {
     }
     //  -------------------------------------------------
     //  ----- PA ----------
+    \Drupal\Core\Database\Database::setActiveConnection('external');
+    $query = db_select('taxonomy_term_data', 'ttd');
+    $query ->condition('ttd.vid', "58");
+    $query ->fields('ttd', array( 'name', 'tid',))
+           ->orderBy('weight', 'ASC');
+
+    $count = 0;
+    foreach ($result = $query->execute()->fetchAll() as $r) {
+      $position = $web[$r->tid];
+      $check=$checktab[$r->tid];
+      print($r->tid."-".$check.' ** ');
+      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm_w',
+        $check, $position, 'w', $r->tid, $co_modu, $co_degre);
+
+      $str = $r->name;
+
+      $rows[$count]['PA0']   = array('data' => $str);
+      $rows[$count]['PA0_w'] = array('data' => $position_w,'class'=>'jaunepia');
+      $count = $count +1;
+    }
+    //  -------------------------------------------------
+    //  ----- 4E ----------
     \Drupal\Core\Database\Database::setActiveConnection('external');
     $query = db_select('taxonomy_term_data', 'ttd');
     $query ->condition('ttd.vid', "57");
@@ -378,29 +400,7 @@ class PiaController extends ControllerBase {
       $check=($position==0)? 0: 1;
       $position = ($position==0)? 1:$position;
       $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm_w',
-        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
-
-      $str = $r->name;
-
-      $rows[$count]['PA0']   = array('data' => $str);
-      $rows[$count]['PA0_w'] = array('data' => $position_w,'class'=>'jaunepia');
-      $count = $count +1;
-    }
-    //  -------------------------------------------------
-    //  ----- 4E ----------
-    \Drupal\Core\Database\Database::setActiveConnection('external');
-    $query = db_select('taxonomy_term_data', 'ttd');
-    $query ->condition('ttd.vid', "58");
-    $query ->fields('ttd', array( 'name', 'tid',))
-           ->orderBy('weight', 'ASC');
-
-    $count = 0;
-    foreach ($result = $query->execute()->fetchAll() as $r) {
-      $position = $web[$r->tid];
-      $check=($position==0)? 0: 1;
-      $position = ($position==0)? 1:$position;
-      $position_w = \Drupal::formBuilder()->getForm('Drupal\pia\Form\PositionForm_w',
-        $check, $position, 'w', $r->co_orie, $co_modu, $co_degre);
+        $check, $position, 'w', $r->tid, $co_modu, $co_degre);
 
       $str = $r->name;
 
