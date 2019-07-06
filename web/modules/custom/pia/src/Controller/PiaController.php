@@ -213,6 +213,8 @@ class PiaController extends ControllerBase {
     $rows[6]['PA_p'] = array('data' => "", 'class'=>'jaunepia');
     $rows[7]['PA']   = array('data' => "");
     $rows[7]['PA_p'] = array('data' => "", 'class'=>'jaunepia');
+    $rows[8]['PA']   = array('data' => "");
+    $rows[8]['PA_p'] = array('data' => "", 'class'=>'jaunepia');
     //  -------------------------------------------------
     //  ----- 4E ----------
 
