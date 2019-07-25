@@ -63,6 +63,7 @@ module:
   views_current_path: 0
   views_data_export: 0
   views_ui: 0
+  x_frame_options_configuration: 0
   xls_serialization: 0
   menu_link_content: 1
   views: 10

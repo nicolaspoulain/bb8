@@ -261,7 +261,8 @@ function bb_views_data() {
     'title' => t('weight'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gmodu_taxonomy']['type'] = array( 'help' => t('type'),
@@ -401,7 +402,8 @@ function bb_views_data() {
     'title' => t('taxonomy_vocabulary.weight'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
 

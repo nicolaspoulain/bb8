@@ -18,6 +18,13 @@ class PiaNegotiator implements ThemeNegotiatorInterface {
     $pages = array(
       'view.bb_pia.page_1',
       'view.bb_pia.page_2',
+      'view.bb_pia_01.page_1',
+      'view.bb_pia_02.page_1',
+      'view.bb_pia_02.page_2',
+      'view.bb_pia_03.page_1',
+      'view.bb_pia_03.page_2',
+      'view.bb_pia_04.page_1',
+      'view.bb_pia_04.page_2',
     );
     if (in_array($route_name, $pages)) {
       $applies = TRUE;

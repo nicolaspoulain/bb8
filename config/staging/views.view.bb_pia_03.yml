@@ -1,4 +1,4 @@
-uuid: e51299a7-98d4-47c3-be8f-f02541670c4b
+uuid: f021c3c6-0828-40fc-a741-040614229c80
 langcode: fr
 status: true
 dependencies:
@@ -10,8 +10,8 @@ dependencies:
   module:
     - bb
     - user
-id: bb_pia
-label: 'BB: Module - pia'
+id: bb_pia_03
+label: 'BB : PIA 03'
 module: views
 description: ''
 tag: ''
@@ -63,11 +63,7 @@ display:
         options:
           grouping:
             -
-              field: name_1
-              rendered: true
-              rendered_strip: false
-            -
-              field: co_orie
+              field: name
               rendered: true
               rendered_strip: false
           row_class: ''
@@ -78,6 +74,55 @@ display:
       row:
         type: fields
       fields:
+        weight:
+          id: weight
+          table: gbb_gmodu_taxonomy
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         id_disp:
           id: id_disp
           table: gbb_gdisp
@@ -197,7 +242,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{id_disp}}/{{co_modu}} {{lib}}'
+            text: '{{weight}} - {{id_disp}}/{{co_modu}} {{lib}}'
             make_link: false
             path: 'bb-pia_detail?co_modu={{ co_modu }}'
             absolute: false
@@ -723,18 +768,6 @@ display:
             group_items: {  }
           plugin_id: string
       sorts:
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
         weight:
           id: weight
           table: gbb_gmodu_taxonomy
@@ -764,11 +797,11 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Papier-modu/tid
+    display_title: 'aff selct° de tid 2D'
     position: 2
     display_options:
       display_extenders: {  }
-      path: pia-p-mod-par-tid
+      path: pia03-dom
       display_description: ''
       filters:
         id_disp:
@@ -799,46 +832,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        tid:
-          id: tid
-          table: gbb_gmodu_taxonomy
-          field: tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: tid_op
-            label: tid
-            description: ''
-            use_operator: false
-            operator: tid_op
-            identifier: tid
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -889,6 +882,48 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        tid_2:
+          id: tid_2
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: '1902541'
+            max: '1902565'
+            value: '1929485'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -899,13 +934,64 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       pager:
         type: none
         options:
           offset: 0
+      title: papier-modules-par-tid
       fields:
-        name_1:
-          id: name_1
+        weight:
+          id: weight
+          table: gbb_gmodu_taxonomy
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{weight}} {% if weight matches ''/^1\\d\\d$/'' %} VPEIP {% endif %}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        name:
+          id: name
           table: taxonomy_term_data_dafor
           field: name
           relationship: none
@@ -914,106 +1000,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: true
-            text: '<h2><b>{{ name_1 }}</b></h2>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_long:
-          id: lib_long
-          table: gbb_norie
-          field: lib_long
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{{ co_orie }} : {{ lib_long }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1159,55 +1147,6 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: numeric
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Identifiant
-          exclude: true
-          alter:
-            alter_text: true
-            text: '{{ id_disp }} / {{ co_modu }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
         lib:
           id: lib
           table: gbb_gmodu
@@ -1219,7 +1158,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ nothing }} {{ lib }}'
+            text: '{{weight}} - {{id_disp}}/{{co_modu}} {{lib}}'
             make_link: false
             path: 'bb-pia_detail?co_modu={{ co_modu }}'
             absolute: false
@@ -1244,7 +1183,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
+          element_type: h4
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -1657,22 +1596,30 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      title: papier-modules-par-tid
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          plugin_id: standard
+        lib_long:
+          id: lib_long
+          table: gbb_norie
+          field: lib_long
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - url
         - user.roles
       tags: {  }
   page_2:
     display_plugin: page
     id: page_2
-    display_title: Web-modu/tid
+    display_title: 'aff selct° de tid 2D'
     position: 2
     display_options:
       display_extenders: {  }
-      path: pia-w-mod-par-tid
+      path: pia03-disc
       display_description: ''
       filters:
         id_disp:
@@ -1703,46 +1650,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        tid:
-          id: tid
-          table: gbb_gmodu_taxonomy
-          field: tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: tid_op
-            label: tid
-            description: ''
-            use_operator: false
-            operator: tid_op
-            identifier: tid
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1793,6 +1700,48 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        tid_2:
+          id: tid_2
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: '1902511'
+            max: '1902540'
+            value: '1929485'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -1803,13 +1752,64 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       pager:
         type: none
         options:
           offset: 0
+      title: papier-modules-par-tid
       fields:
-        name_1:
-          id: name_1
+        weight:
+          id: weight
+          table: gbb_gmodu_taxonomy
+          field: weight
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{weight}} {% if weight matches ''/^1\\d\\d$/'' %} VPEIP {% endif %}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        name:
+          id: name
           table: taxonomy_term_data_dafor
           field: name
           relationship: none
@@ -1818,106 +1818,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: true
-            text: '<h1>{{ name_1 }}</h1>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_long:
-          id: lib_long
-          table: gbb_norie
-          field: lib_long
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
             alter_text: false
             text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_orie:
-          id: co_orie
-          table: gbb_gdisp
-          field: co_orie
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{{ co_orie }} : {{ lib_long }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -2063,55 +1965,6 @@ display:
           entity_type: null
           entity_field: null
           plugin_id: numeric
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Identifiant
-          exclude: true
-          alter:
-            alter_text: true
-            text: '{{ id_disp }} / {{ co_modu }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
         lib:
           id: lib
           table: gbb_gmodu
@@ -2123,7 +1976,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ nothing }} {{ lib }}'
+            text: '{{weight}} - {{id_disp}}/{{co_modu}} {{lib}}'
             make_link: false
             path: 'bb-pia_detail?co_modu={{ co_modu }}'
             absolute: false
@@ -2148,7 +2001,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
+          element_type: h4
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -2561,11 +2414,19 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      title: Web-modules-par-tid
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          plugin_id: standard
+        lib_long:
+          id: lib_long
+          table: gbb_norie
+          field: lib_long
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - url
         - user.roles
       tags: {  }

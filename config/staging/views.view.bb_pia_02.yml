@@ -1,4 +1,4 @@
-uuid: e51299a7-98d4-47c3-be8f-f02541670c4b
+uuid: 749ab94d-4da8-4ad5-a622-ebb957e6d3e9
 langcode: fr
 status: true
 dependencies:
@@ -10,8 +10,8 @@ dependencies:
   module:
     - bb
     - user
-id: bb_pia
-label: 'BB: Module - pia'
+id: bb_pia_02
+label: 'BB : PIA 02'
 module: views
 description: ''
 tag: ''
@@ -764,11 +764,11 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Papier-modu/tid
+    display_title: 'aff selct° de tid 1D'
     position: 2
     display_options:
       display_extenders: {  }
-      path: pia-p-mod-par-tid
+      path: pia02-1D
       display_description: ''
       filters:
         id_disp:
@@ -799,46 +799,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        tid:
-          id: tid
-          table: gbb_gmodu_taxonomy
-          field: tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: tid_op
-            label: tid
-            description: ''
-            use_operator: false
-            operator: tid_op
-            identifier: tid
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -889,6 +849,342 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        tid_2:
+          id: tid_2
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929485'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_3:
+          id: tid_3
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: '1929488'
+            max: '1929494'
+            value: '1929488'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid:
+          id: tid
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929489'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_1:
+          id: tid_1
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929490'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_5:
+          id: tid_5
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929491'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_6:
+          id: tid_6
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929492'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_7:
+          id: tid_7
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929493'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        tid_8:
+          id: tid_8
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1929494'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -899,6 +1195,7 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       pager:
         type: none
         options:
@@ -1662,17 +1959,16 @@ display:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - url
         - user.roles
       tags: {  }
   page_2:
     display_plugin: page
     id: page_2
-    display_title: Web-modu/tid
+    display_title: 'aff selct° de tid 2D'
     position: 2
     display_options:
       display_extenders: {  }
-      path: pia-w-mod-par-tid
+      path: pia02-2D
       display_description: ''
       filters:
         id_disp:
@@ -1703,46 +1999,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        tid:
-          id: tid
-          table: gbb_gmodu_taxonomy
-          field: tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: tid_op
-            label: tid
-            description: ''
-            use_operator: false
-            operator: tid_op
-            identifier: tid
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1793,6 +2049,48 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        tid_2:
+          id: tid_2
+          table: gbb_gmodu_taxonomy
+          field: tid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: between
+          value:
+            min: '1929474'
+            max: '1929479'
+            value: '1929485'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       defaults:
         filters: false
         filter_groups: false
@@ -1803,6 +2101,7 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       pager:
         type: none
         options:
@@ -1819,7 +2118,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<h1>{{ name_1 }}</h1>'
+            text: '<h2><b>{{ name_1 }}</b></h2>'
             make_link: false
             path: ''
             absolute: false
@@ -2561,11 +2860,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      title: Web-modules-par-tid
+      title: papier-modules-par-tid
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
-        - url
         - user.roles
       tags: {  }

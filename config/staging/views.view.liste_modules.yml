@@ -8688,7 +8688,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ prioritaire }}\r\n{% if co_anmo|length >1 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=1&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
+            text: "{{ prioritaire }}\r\n{% if co_anmo|length >1 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=3&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
@@ -10001,6 +10001,8 @@ display:
         row: false
         group_by: false
         pager: false
+        filters: false
+        filter_groups: false
       footer: {  }
       display_description: ''
       style:
@@ -11002,6 +11004,1040 @@ display:
             offset: false
             offset_label: Décalage
           quantity: 9
+      filters:
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_anmo_op
+            label: co_anmo
+            description: null
+            use_operator: false
+            operator: co_anmo_op
+            identifier: co_anmo
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Ouvert / Fermé'
+            description: ''
+            identifier: co_anmo
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Ouvert
+                operator: shorterthan
+                value: '1'
+              2:
+                title: Fermé
+                operator: longerthan
+                value: '1'
+          plugin_id: numeric
+        co_tpla:
+          id: co_tpla
+          table: gbb_gdisp
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_tpla_op
+            label: co_tpla
+            description: ''
+            use_operator: false
+            operator: co_tpla_op
+            identifier: co_tpla
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Plan
+            description: ''
+            identifier: co_tpla
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: A
+                operator: '='
+                value: A
+              2:
+                title: C
+                operator: '='
+                value: C
+              3:
+                title: C
+                operator: '='
+                value: D
+              4:
+                title: D
+                operator: '='
+                value: D
+              5:
+                title: E
+                operator: '='
+                value: E
+              6:
+                title: P
+                operator: '='
+                value: P
+              7:
+                title: S
+                operator: '='
+                value: S
+          plugin_id: string
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_camp_op
+            label: co_camp
+            description: null
+            use_operator: false
+            operator: co_camp_op
+            identifier: co_camp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'PAF / FIL'
+            description: ''
+            identifier: co_camp
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: PAF
+                operator: '!='
+                value: BS
+              2:
+                title: FIL
+                operator: '='
+                value: BS
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
+        co_moda:
+          id: co_moda
+          table: gbb_gmodu
+          field: co_moda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_moda_op
+            label: co_moda
+            description: null
+            use_operator: false
+            operator: co_moda_op
+            identifier: co_moda
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Modalité
+            description: ''
+            identifier: co_moda
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Présentiel
+                operator: '='
+                value: L
+              2:
+                title: 'À distance'
+                operator: '='
+                value: 'N'
+              3:
+                title: Autres
+                operator: '='
+                value: R
+              4:
+                title: Hybride
+                operator: '='
+                value: S
+          plugin_id: string
+        co_tcan:
+          id: co_tcan
+          table: gbb_gdisp
+          field: co_tcan
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_tcan_op
+            label: co_tcan
+            description: null
+            use_operator: false
+            operator: co_tcan_op
+            identifier: co_tcan
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Cand.'
+            description: ''
+            identifier: co_tcan
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Indiv. (VO)'
+                operator: '='
+                value:
+                  value: '1'
+                  min: ''
+                  max: ''
+              2:
+                title: Coll.
+                operator: '='
+                value:
+                  value: '2'
+                  min: ''
+                  max: ''
+              3:
+                title: 'Sans (NE)'
+                operator: '='
+                value:
+                  value: '3'
+                  min: ''
+                  max: ''
+          plugin_id: numeric
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_offreur_op
+            label: co_offreur
+            description: null
+            use_operator: false
+            operator: co_offreur_op
+            identifier: co_offreur
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Rmpl'
+            description: ''
+            identifier: co_offreur
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: BD
+                operator: '='
+                value: BD
+              2:
+                title: HTS
+                operator: '='
+                value: HTS
+              3:
+                title: SR
+                operator: '='
+                value: SR
+          plugin_id: string
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_orie_op
+            label: 'Code orientation'
+            description: 'p.ex. : 2S45'
+            use_operator: false
+            operator: co_orie_op
+            identifier: co_orie
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        id_disp_1:
+          id: id_disp_1
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_1_op
+            label: 'Identifiant du dispositif'
+            description: 'p.ex. : 18A0010360'
+            use_operator: false
+            operator: id_disp_1_op
+            identifier: id_disp_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        lib_1:
+          id: lib_1
+          table: gbb_gdisp
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_1_op
+            label: 'Mot(s) dans le libellé du dispositif'
+            description: 'p.ex : Histoire ou Math'
+            use_operator: false
+            operator: lib_1_op
+            identifier: lib_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_modu_op
+            label: 'Code du module'
+            description: 'p.ex. : 45785'
+            use_operator: false
+            operator: co_modu_op
+            identifier: co_modu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        lib:
+          id: lib
+          table: gbb_gmodu
+          field: lib
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_op
+            label: 'Mot(s) dans le libellé du module'
+            description: 'p.ex : math ou RAEP'
+            use_operator: false
+            operator: lib_op
+            identifier: lib
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_prac:
+          id: co_prac
+          table: gbb_gmodu
+          field: co_prac
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_prac_op
+            label: 'Code Priorité Académique'
+            description: 'p.ex : PA11'
+            use_operator: false
+            operator: co_prac_op
+            identifier: co_prac
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_prna:
+          id: co_prna
+          table: gbb_gmodu
+          field: co_prna
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_prna_op
+            label: 'Code Priorité Nationale'
+            description: 'p.ex : 182j'
+            use_operator: false
+            operator: co_prna_op
+            identifier: co_prna
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: id_disp_op
+            label: Année
+            description: ''
+            use_operator: false
+            operator: id_disp_op
+            identifier: id_disp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: Année
+            description: ''
+            identifier: id_disp
+            optional: false
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '3'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 2018-19
+                operator: starts
+                value: '18'
+              2:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              3:
+                title: 2019-20
+                operator: starts
+                value: '19'
+              4:
+                title: '[1D] 2018-19'
+                operator: starts
+                value: 18D
+              5:
+                title: '[1D] 2017-18'
+                operator: starts
+                value: 17D
+              6:
+                title: '[1D] 2019-20'
+                operator: starts
+                value: 19D
+          plugin_id: string
+        resp_filter:
+          id: resp_filter
+          table: gbb_gresp_orga_peda
+          field: resp_filter
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: resp_filter_op
+            label: Responsable
+            description: ''
+            use_operator: false
+            operator: resp_filter_op
+            identifier: resp_filter
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        nomu:
+          id: nomu
+          table: gbb_gresp_orga
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_op
+            label: 'Responsable Organisationnel'
+            description: 'p.ex : Cordier'
+            use_operator: false
+            operator: nomu_op
+            identifier: nomu
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        nomu_1:
+          id: nomu_1
+          table: gbb_gresp_peda
+          field: nomu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nomu_1_op
+            label: 'Responsable Pédagogique'
+            description: 'p.ex : Cordier'
+            use_operator: false
+            operator: nomu_1_op
+            identifier: nomu_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_etab_dem:
+          id: co_etab_dem
+          table: gbb_gmodu
+          field: co_etab_dem
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_etab_dem_op
+            label: 'Code étab. demandeur (FIL)'
+            description: 'p.ex : 0753345D'
+            use_operator: false
+            operator: co_etab_dem_op
+            identifier: co_etab_dem
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        cp:
+          id: cp
+          table: gbb_netab_modu
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: cp_op
+            label: 'Code Postal etab. dem. (FIL)'
+            description: 'p.ex : 75012'
+            use_operator: false
+            operator: cp_op
+            identifier: cp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        lcomm:
+          id: lcomm
+          table: gbb_gmodu
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lcomm_op
+            label: Hashtag(s)
+            description: 'p.ex : #EP ou #0753345D'
+            use_operator: false
+            operator: lcomm_op
+            identifier: lcomm
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: lcomm
+            description: null
+            identifier: lcomm
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          plugin_id: string
+        color:
+          id: color
+          table: gbb_gmodu_plus
+          field: color
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: color_op
+            label: color
+            description: null
+            use_operator: false
+            operator: color_op
+            identifier: color
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Couleur
+            description: ''
+            identifier: color
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Rouge
+                operator: '='
+                value: red
+              2:
+                title: Orange
+                operator: '='
+                value: orange
+              3:
+                title: Vert
+                operator: '='
+                value: green
+              4:
+                title: Noir
+                operator: starts
+                value: black
+          plugin_id: string
+        id_disp_2:
+          id: id_disp_2
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: not_starts
+          value: 18N
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
