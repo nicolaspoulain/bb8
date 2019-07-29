@@ -18,19 +18,24 @@
  * @ingroup themeable
  */
 #}
+{% set alea=random(100000000, 999999999) %}
+
 {% if attributes -%}
   <div{{ attributes }}>
 {% endif %}
   {% if title %}
-    <h3>{{ title }}</h3>
+    <h3 style="cursor: pointer;" onclick="yourFunction('{{alea}}')">{{ title }}</h3>
   {% endif %}
+
+  <div style="display:none" class='{{alea}}'>
 
   <{{ list.type }}{{ list.attributes }}>
     {% for row in rows %}
-      <li{{ row.attributes }} onclick="myFunction('a')">{{mystring}} {{ row.content }}</li>
+      <li{{ row.attributes }}>{{mystring}} {{ row.content }}</li>
     {% endfor %}
-
   </{{ list.type }}>
+
+  </div>
 
 {% if attributes -%}
   </div>
