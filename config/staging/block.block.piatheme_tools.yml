@@ -1,4 +1,4 @@
-uuid: a78eec35-542a-462b-b5a5-d1ca504f0db3
+uuid: bf661f2f-d82f-4deb-ba02-f2c1925f8ffd
 langcode: fr
 status: false
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - system
   theme:
-    - pia
+    - piatheme
 _core:
   default_config_hash: f3Dd5TnUiFDjFZp9yEGJInwt6cUzs7O6SvLTFTATSlU
-id: pia_tools
-theme: pia
+id: piatheme_tools
+theme: piatheme
 region: header
 weight: 0
 provider: null

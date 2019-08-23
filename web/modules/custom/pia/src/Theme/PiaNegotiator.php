@@ -37,6 +37,6 @@ class PiaNegotiator implements ThemeNegotiatorInterface {
    * {@inheritdoc}
    */
   public function determineActiveTheme(RouteMatchInterface $route_match) {
-    return 'pia';
+    return 'piatheme';
   }
 }

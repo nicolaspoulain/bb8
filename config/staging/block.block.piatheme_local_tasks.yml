@@ -1,0 +1,22 @@
+uuid: d2eff6d6-9ed2-4582-89b8-7eaf786a7c98
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - piatheme
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
+id: piatheme_local_tasks
+theme: piatheme
+region: header
+weight: 10
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,12 +1,12 @@
-name: pia
+name: piatheme
 type: theme
 description: Theme pour l affichage PIA sub theme of bootstrap
 core: 8.x
 # Defines the base theme
-# base theme: bootstrap
+base theme: bootstrap
 # Defines libraries group in which we can add css/js.
 libraries:
-  - pia/global-css
+  - piatheme/global-css
 stylesheets-remove:
   - core/themes/stable/css/system/components/sticky-header.module.css
 # Regions

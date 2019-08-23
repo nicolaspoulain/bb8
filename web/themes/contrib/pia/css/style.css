@@ -1,4 +1,7 @@
-.VPEIPtoggle {
+.body{
+  background-color: #BBB;
+}
+  .VPEIPtoggle {
   position: -webkit-sticky;
   position: sticky;
   top: 0;

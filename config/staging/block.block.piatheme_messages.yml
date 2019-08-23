@@ -1,0 +1,22 @@
+uuid: d54c3a8c-10ee-47ea-b60d-eb04e91de444
+langcode: fr
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - piatheme
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: piatheme_messages
+theme: piatheme
+region: header
+weight: -50
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

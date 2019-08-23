@@ -1,0 +1,22 @@
+uuid: ed9d883c-0c23-4b49-8614-bd9859355c48
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - piatheme
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: piatheme_content
+theme: piatheme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

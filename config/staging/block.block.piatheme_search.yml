@@ -1,15 +1,15 @@
-uuid: cad5beea-75af-44ed-847d-4bfd8e278403
+uuid: 3f10a21e-a944-4f9a-b94d-1587a93b0bee
 langcode: fr
 status: false
 dependencies:
   module:
     - search
   theme:
-    - pia
+    - piatheme
 _core:
   default_config_hash: F3d5hyAFunLh4PhGviJF019fHn1Z3_zy5gzsQ0tX1K0
-id: pia_search
-theme: pia
+id: piatheme_search
+theme: piatheme
 region: header
 weight: -1
 provider: null

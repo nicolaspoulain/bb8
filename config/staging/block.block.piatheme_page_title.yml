@@ -1,0 +1,20 @@
+uuid: 95980577-7a1d-4ed7-872f-6c682fb40543
+langcode: fr
+status: false
+dependencies:
+  theme:
+    - piatheme
+_core:
+  default_config_hash: 1TQP4b3ZnlzvIH9bj6cpCz_SyUHdJjLQkZnHpikjjhw
+id: piatheme_page_title
+theme: piatheme
+region: header
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
