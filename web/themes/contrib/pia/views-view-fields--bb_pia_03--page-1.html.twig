@@ -50,7 +50,11 @@
   {%- endif %}
   {%- if field.element_type -%}
   {# NICO \/ #}
-  <{{ field.element_type }}{{ field.element_attributes }} style="cursor: pointer;" onclick="myFunction('{{alea}}')">{{ field.content }}</{{ field.element_type }}>
+  {% if field.content matches '/VPEIP/' %}
+  <{{ field.element_type }}{{ field.element_attributes }} style="cursor: pointer;" onclick="myFunction('{{alea}}')"><div class='VPEIP' style='display:none'> {{ field.content|replace({'VPEIP':''}) }}</div> </{{ field.element_type }}>
+  {% else  %}
+  <{{ field.element_type }}{{ field.element_attributes }} style="cursor: pointer;" onclick="myFunction('{{alea}}')"> {{ field.content }} </{{ field.element_type }}>
+  {% endif  %}
   {# NICO /\ #}
 
   {%- else -%}
