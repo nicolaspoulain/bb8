@@ -1,6 +1,6 @@
 uuid: 10866b85-6a8e-446a-b853-f9c6228a56b0
 langcode: fr
-status: true
+status: false
 dependencies:
   config:
     - user.role.administrator

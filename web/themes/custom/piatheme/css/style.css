@@ -21,3 +21,45 @@
 .views-exposed-form {
   display: none;
 }
+.logoI {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 7px;
+  margin: 1px;
+  background-color: #FFDFD3;
+}
+.logoC {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #e0BBE4;
+}
+.logoP {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #CCFFDD;
+}
+.logoD {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #FFEECC;
+}
+.logoM {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #CCDDEE;
+}
+.logoH {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #CCDDEE;
+}
