@@ -1785,7 +1785,7 @@ display:
           hide_alter_empty: true
           plugin_id: standard
       style:
-        type: default
+        type: html_list
         options:
           grouping:
             -
@@ -1794,6 +1794,9 @@ display:
               rendered_strip: false
           row_class: ''
           default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options: {  }
@@ -2808,7 +2811,7 @@ display:
             label: ''
           plugin_id: standard
       style:
-        type: default
+        type: html_list
         options:
           grouping:
             -
@@ -2817,6 +2820,9 @@ display:
               rendered_strip: false
           row_class: ''
           default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       row:
         type: fields
         options: {  }

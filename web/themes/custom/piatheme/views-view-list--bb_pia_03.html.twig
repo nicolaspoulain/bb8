@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a view template to display a list of rows.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the container.
+ * - rows: A list of rows for this list.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's contents.
+ * - title: The title of this group of rows. May be empty.
+ * - list: @todo.
+ *   - type: Starting tag will be either a ul or ol.
+ *   - attributes: HTML attributes for the list element.
+ *
+ * @see template_preprocess_views_view_list()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if attributes -%}
+  <div{{ attributes }}>
+{% endif %}
+{% set alea=random(100000000, 999999999) %}
+
+{% if title %}
+    <h4 style="cursor: pointer;" onclick="yourFunction('{{alea}}')">{{ title }}</h4>
+{% endif %}
+
+<div style="display:none" class='{{alea}}'>
+  <{{ list.type }}{{ list.attributes }}>
+
+    {% for row in rows %}
+      <li{{ row.attributes }}>
+        {{- row.content -}}
+      </li>
+    {% endfor %}
+<div class="VPEIPtoggle" onclick="yourFunction('VPEIP')">Afficher/masquer d'éventuels stages pouvant aussi vous intéresser</div>
+</div>
+
+  </{{ list.type }}>
+
+{% if attributes -%}
+  </div>
+{% endif %}
