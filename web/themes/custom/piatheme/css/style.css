@@ -1,4 +1,4 @@
-.VPEIPtoggle {
+.VPEIPtoggle_old {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -10,6 +10,10 @@
   padding: 50px;
   font-size: 20px;
   z-index: 100;
+}
+.VPEIPtoggle {
+  color: #28B468;
+  cursor: pointer;
 }
 .VPEIP {
   color: #28B468;
