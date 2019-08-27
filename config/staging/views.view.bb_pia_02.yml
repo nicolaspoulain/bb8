@@ -748,7 +748,18 @@ display:
             label: ''
           plugin_id: standard
       title: modules
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<h1>1D > Formations en réponse aux besoins de l’institution</h1>'
+          plugin_id: text_custom
       footer: {  }
       empty: {  }
       relationships: {  }
@@ -1185,12 +1196,62 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_camp_op
+            label: co_camp
+            description: null
+            use_operator: false
+            operator: co_camp_op
+            identifier: co_camp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: co_camp
+            description: ''
+            identifier: co_camp
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: interdegré
+                operator: '='
+                value: D
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
       defaults:
         filters: false
         filter_groups: false
         fields: false
         pager: false
         title: false
+        header: true
       filter_groups:
         operator: AND
         groups:
@@ -1310,7 +1371,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{{ co_orie }} : {{ lib_long }}\r\n"
+            text: "{{ lib_long }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -1541,7 +1602,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
+          element_type: strong
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -1848,6 +1909,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lmoda:
+          id: lmoda
+          table: gbb_gmodu
+          field: lmoda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Modalités
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         duree_prev:
           id: duree_prev
           table: gbb_gmodu
@@ -1905,60 +2015,12 @@ display:
           prefix: ''
           suffix: h
           plugin_id: numeric
-        lmoda:
-          id: lmoda
-          table: gbb_gmodu
-          field: lmoda
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Modalités
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
       title: papier-modules-par-tid
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - user.roles
       tags: {  }
   page_2:
@@ -2091,12 +2153,62 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        co_camp:
+          id: co_camp
+          table: gbb_gdisp
+          field: co_camp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_camp_op
+            label: co_camp
+            description: null
+            use_operator: false
+            operator: co_camp_op
+            identifier: co_camp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: co_camp
+            description: ''
+            identifier: co_camp
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: interdegré
+                operator: '='
+                value: D
+              2:
+                title: ''
+                operator: '='
+                value: ''
+              3:
+                title: ''
+                operator: '='
+                value: ''
+          plugin_id: string
       defaults:
         filters: false
         filter_groups: false
         fields: false
         pager: false
         title: false
+        header: false
       filter_groups:
         operator: AND
         groups:
@@ -2216,7 +2328,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{{ co_orie }} : {{ lib_long }}\r\n"
+            text: "{{ lib_long }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -2447,7 +2559,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
+          element_type: strong
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -2754,6 +2866,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lmoda:
+          id: lmoda
+          table: gbb_gmodu
+          field: lmoda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Modalités
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         duree_prev:
           id: duree_prev
           table: gbb_gmodu
@@ -2811,60 +2972,24 @@ display:
           prefix: ''
           suffix: h
           plugin_id: numeric
-        lmoda:
-          id: lmoda
-          table: gbb_gmodu
-          field: lmoda
+      title: papier-modules-par-tid
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
           relationship: none
           group_type: group
           admin_label: ''
-          label: Modalités
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-      title: papier-modules-par-tid
+          empty: false
+          tokenize: false
+          content: '<h1>2D > Formations en réponse aux besoins de l’institution</h1>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
+        - url
         - user.roles
       tags: {  }
   page_3:
@@ -3213,6 +3338,7 @@ display:
         fields: false
         pager: false
         title: false
+        header: false
       filter_groups:
         operator: AND
         groups:
@@ -3332,7 +3458,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{{ co_orie }} : {{ lib_long }}\r\n"
+            text: "{{ lib_long }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -3563,7 +3689,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: span
+          element_type: strong
           element_class: name
           element_label_type: ''
           element_label_class: ''
@@ -3870,6 +3996,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lmoda:
+          id: lmoda
+          table: gbb_gmodu
+          field: lmoda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Modalités
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         duree_prev:
           id: duree_prev
           table: gbb_gmodu
@@ -3927,56 +4102,19 @@ display:
           prefix: ''
           suffix: h
           plugin_id: numeric
-        lmoda:
-          id: lmoda
-          table: gbb_gmodu
-          field: lmoda
+      title: papier-modules-par-tid
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
           relationship: none
           group_type: group
           admin_label: ''
-          label: Modalités
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-      title: papier-modules-par-tid
+          empty: false
+          tokenize: false
+          content: '<h1>Encadrement > Formations en réponse aux besoins de l’institution</h1>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:

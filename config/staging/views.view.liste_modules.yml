@@ -2810,29 +2810,29 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 2018-19
-                operator: starts
-                value: '18'
-              2:
-                title: 2017-18
-                operator: starts
-                value: '17'
-              3:
                 title: 2019-20
                 operator: starts
                 value: '19'
+              2:
+                title: 2018-19
+                operator: starts
+                value: '18'
+              3:
+                title: 2020-21
+                operator: starts
+                value: '20'
               4:
-                title: '[1D] 2018-19'
-                operator: starts
-                value: 18D
-              5:
-                title: '[1D] 2017-18'
-                operator: starts
-                value: 17D
-              6:
                 title: '[1D] 2019-20'
                 operator: starts
                 value: 19D
+              5:
+                title: '[1D] 2018-19'
+                operator: starts
+                value: 18D
+              6:
+                title: '[1D] 2020-21'
+                operator: starts
+                value: 20D
           plugin_id: string
         resp_filter:
           id: resp_filter

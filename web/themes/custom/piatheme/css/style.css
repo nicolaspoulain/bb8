@@ -3,9 +3,17 @@
   position: sticky;
   top: 0;
   float : right;
-  width : 100px;
+  width : 185px;
+  height : 66px;
   background-color: yellow;
+  background : url(vpeip.png) no-repeat 0 0;
   padding: 50px;
   font-size: 20px;
   z-index: 100;
+}
+.VPEIP {
+  color: #28B468;
+}
+.views-exposed-form {
+  display: none;
 }
