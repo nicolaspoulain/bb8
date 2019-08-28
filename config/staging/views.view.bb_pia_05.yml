@@ -1293,7 +1293,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">P</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">G</span>{% endif %}{# Cand. Coll #}"
+            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">D</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">CC</span>{% endif %}{# Cand. Coll #}"
             make_link: false
             path: ''
             absolute: false
@@ -2411,7 +2411,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">P</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">G</span>{% endif %}{# Cand. Coll #}"
+            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">D</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">CC</span>{% endif %}{# Cand. Coll #}"
             make_link: false
             path: ''
             absolute: false
@@ -3529,7 +3529,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">P</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">G</span>{% endif %}{# Cand. Coll #}"
+            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">D</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">CC</span>{% endif %}{# Cand. Coll #}"
             make_link: false
             path: ''
             absolute: false
