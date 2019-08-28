@@ -2915,7 +2915,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<h2><b>Interdegré > {{ name_1 }}</b></h2>'
+            text: '<h2><b>Interdegrés > {{ name_1 }}</b></h2>'
             make_link: false
             path: ''
             absolute: false

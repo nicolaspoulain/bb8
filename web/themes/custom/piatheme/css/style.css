@@ -21,6 +21,9 @@
 .views-exposed-form {
   display: none;
 }
+#views-exposed-form-bb-pia-04-page-2 {
+  display: block;
+}
 .logoI {
   border: 1px solid;
   border-radius: 6px;
@@ -34,6 +37,13 @@
   padding: 0px 3px;
   margin: 1px;
   background-color: #e0BBE4;
+}
+.logoG {
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0px 3px;
+  margin: 1px;
+  background-color: #CCEEEE;
 }
 .logoP {
   border: 1px solid;
