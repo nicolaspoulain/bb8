@@ -23,7 +23,7 @@
 </details>
 {% endif %}
 
-{% if 'd_admi' in user.roles %}
+{% if 'd_admi' in user.roles or 'd_de' in user.roles %}
 <details open class="details-wrapper" id="sessions">
   <summary class="sessions-dark">Zone Gestionnaires - Non visible par les Conseillers</summary>
   <div class="common-wrapper sessions">
@@ -35,10 +35,12 @@
       </div>
       <!--<div class="pure-u-1-24"> &nbsp; </div>
       <div class="pure-u-10-24">-->
+     {% if 'd_admi' in user.roles %}
       <div class="pure-u-24-24">
         <p><b> Sessions formateurs </b></p>
         {{ drupal_view('sessions_d_un_module', 'block_3') }}
       </div>
+     {% endif %}
     </div>
     <div class="clear"></div>
   </div>

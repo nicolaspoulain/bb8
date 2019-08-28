@@ -6,6 +6,7 @@ dependencies:
     - user.role.administrator
     - user.role.d_admi
     - user.role.d_cons
+    - user.role.d_de
   module:
     - bb
     - user
@@ -31,6 +32,7 @@ display:
             administrator: administrator
             d_cons: d_cons
             d_admi: d_admi
+            d_de: d_de
       cache:
         type: tag
         options: {  }

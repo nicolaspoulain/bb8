@@ -1,0 +1,10 @@
+uuid: 2eba7893-e677-4277-8c3d-bce2047905e7
+langcode: fr
+status: true
+dependencies: {  }
+id: d_de
+label: D_de
+weight: 5
+is_admin: null
+permissions:
+  - 'access bb usual'

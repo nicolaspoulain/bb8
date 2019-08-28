@@ -1,0 +1,14 @@
+uuid: 60f1e79c-36fc-4b7d-a5a8-cb2f437978ae
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_de
+  module:
+    - user
+id: user_add_role_action.d_de
+label: 'Ajouter le rôle d_de aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_de
