@@ -1230,6 +1230,14 @@ function bb_views_data() {
     'filter' => array('id' => 'numeric'),
   );
   //}}
+  $data['gbb_session']['de_info'] = array( 'help' => t('Info textuelle pour DE-DAFOR'),
+    //{{
+    'title' => t('de_info'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_session']['ficand'] = array( 'help' => t('La session est Ficand BOOL'),
     //{{
     'title' => t('ficand'),
