@@ -106,10 +106,10 @@ class PiaController extends ControllerBase {
       // $rows[$count]['PA0_w'] = array('data' => $position_w,'class'=>'jaunepia');
       $count = $count +1;
     }
-    $rows[10]['2S']   = array('data' => "");
-    $rows[10]['2S_p'] = array('data' => "", 'class'=>'jaunepia');
     $rows[11]['2S']   = array('data' => "");
     $rows[11]['2S_p'] = array('data' => "", 'class'=>'jaunepia');
+    $rows[12]['2S']   = array('data' => "");
+    $rows[12]['2S_p'] = array('data' => "", 'class'=>'jaunepia');
 
     //  -------------------------------------------------
     //  ----- 1P ----------

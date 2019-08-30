@@ -96,6 +96,7 @@ class DraggableForm extends FormBase {
 
     $query->fields('t')
       ->fields('m')
+      ->fields('d')
       ->orderBy('weight');
     $results = $query->execute()->fetchAll();
     // dpm($results);
@@ -109,7 +110,8 @@ class DraggableForm extends FormBase {
       $form['table-row'][$row->id]['#weight'] = $row->weight;
 
       // Some table columns containing raw markup.
-      $str = $row->co_modu." ".$row->lib;
+      $pub_des = ($row->co_tcan == 3)? "Ⓓ " : "";
+      $str = $row->co_modu." ".$row->lib." ".$pub_des;
       $form['table-row'][$row->id]['text'] = [
         '#markup' => $str,
       ];

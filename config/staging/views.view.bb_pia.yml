@@ -895,6 +895,7 @@ display:
         fields: false
         pager: false
         title: false
+        cache: false
       filter_groups:
         operator: AND
         groups:
@@ -1813,6 +1814,9 @@ display:
           suffix: h
           plugin_id: numeric
       title: papier-modules-par-tid
+      cache:
+        type: none
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:

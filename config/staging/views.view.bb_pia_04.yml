@@ -950,6 +950,7 @@ display:
         fields: false
         pager: false
         title: false
+        sorts: false
       filter_groups:
         operator: AND
         groups:
@@ -1664,6 +1665,19 @@ display:
           hide_alter_empty: true
           plugin_id: standard
       title: papier-modules-par-tid
+      sorts:
+        lib_long:
+          id: lib_long
+          table: gbb_norie
+          field: lib_long
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
