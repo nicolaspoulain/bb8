@@ -2244,6 +2244,55 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        de_info:
+          id: de_info
+          table: gbb_session
+          field: de_info
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if de_info|upper matches '/MIRA/' %}\r\n  pink  \r\n{% elseif de_info|upper matches '/HADDA/' %}\r\n  blue  \r\n{% else %}\r\n  lightgray  \r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: lightgray
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         nothing_1:
           id: nothing_1
           table: views
@@ -2255,7 +2304,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if sess_id >0 and co_degre==1 %}<a href=\"../../modal_de_form/{{co_degre}}/{{co_modu}}/{{ sess_id }}/edit\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;50%&quot;}\" class=\"use-ajax no-link fas fa-file fa-lg blue\"></a>{% endif %}\r\n"
+            text: "{% if sess_id >0 and co_degre==1 %}<a href=\"../../modal_de_form/{{co_degre}}/{{co_modu}}/{{ sess_id }}/edit\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;: &quot;50%&quot;}\" class=\"use-ajax no-link fas fa-file fa-lg {{ de_info }}\"></a>{% endif %}\r\n"
             make_link: false
             path: ''
             absolute: false
