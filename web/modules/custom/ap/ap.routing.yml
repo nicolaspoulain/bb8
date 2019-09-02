@@ -1,0 +1,15 @@
+ap.list:
+  path: '/ap'
+  defaults:
+    _controller: '\Drupal\ap\Controller\ApController::list'
+    _title: 'Liste'
+  requirements:
+    _permission: 'access content'
+
+ap.circo:
+  path: '/ap/{circo}'
+  defaults:
+    _controller: '\Drupal\ap\Controller\ApController::circo'
+    _title: 'Circo'
+  requirements:
+    _permission: 'access content'
