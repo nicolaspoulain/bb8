@@ -2806,7 +2806,7 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: '1'
+            default_group: '2'
             default_group_multiple: {  }
             group_items:
               1:
@@ -2818,9 +2818,9 @@ display:
                 operator: starts
                 value: '18'
               3:
-                title: 2020-21
+                title: 2017-18
                 operator: starts
-                value: '20'
+                value: '17'
               4:
                 title: '[1D] 2019-20'
                 operator: starts
@@ -2830,9 +2830,9 @@ display:
                 operator: starts
                 value: 18D
               6:
-                title: '[1D] 2020-21'
+                title: '[1D] 2017-18'
                 operator: starts
-                value: 20D
+                value: 17D
           plugin_id: string
         resp_filter:
           id: resp_filter
