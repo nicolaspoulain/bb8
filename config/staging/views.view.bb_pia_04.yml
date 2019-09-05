@@ -1941,7 +1941,7 @@ display:
           exposed: true
           expose:
             operator_id: lib_2_op
-            label: 'Saisissez un ou plusieurs mots'
+            label: ''
             description: ''
             use_operator: false
             operator: lib_2_op
@@ -1955,6 +1955,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
             placeholder: ''
           is_grouped: false
           group_info:
