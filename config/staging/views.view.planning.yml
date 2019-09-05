@@ -1447,8 +1447,8 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: BD
-                operator: '='
+                title: 'BD*'
+                operator: starts
                 value: BD
               2:
                 title: HTS
@@ -1459,6 +1459,14 @@ display:
                 operator: '='
                 value: SR
               4:
+                title: BD
+                operator: '='
+                value: BD
+              5:
+                title: BDMath
+                operator: starts
+                value: BDm
+              6:
                 title: BDL
                 operator: '='
                 value: BDL
