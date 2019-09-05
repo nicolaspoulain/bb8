@@ -1,0 +1,35 @@
+<h2 class="block-title">Plan Académique de Formation</h2>
+<p><a href="../ap" class="titre">[Retour à la liste des circonscriptions]</a></p>
+<p> </p>
+<p>Pour l’année scolaire 2018-2019, une seule modalité d’inscription : la candidature individuelle (exceptée l’inscription par liste aux parcours à thématique transversale réservés aux T1).</p>
+
+<h3>{{ circo_name }}</h3>
+
+
+<p>Stages proposés par la circonscription</p>
+{% for disp,data in tab %}
+{% if data['module'] and data['display'] %}
+  <p>{{ disp }} <span class="togg titre" onclick="myToggle('{{ disp }}')">{{ data['lib'] }}</span></p>
+  <ul>
+    {% for co_modu,m in data['module'] %}
+    <li class="{{ disp }}" style="display: none;"> {{co_modu }} {{ m['lib'] }} <br/>
+      <span class="module"> {{ m['lcont'] }}</span>";
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endfor %}
+
+<p>Stages académiques et partenaires retenus par la circonscription</p>
+{% for disp,data in inter %}
+{% if data['module'] and data['display'] %}
+  <p>{{ disp }} <span class="togg titre" onclick="myToggle('{{ disp }}')">{{ data['lib'] }}</span></p>
+  <ul>
+    {% for co_modu,m in data['module'] %}
+    <li class="{{ disp }}" style="display: none;"> {{co_modu }} {{ m['lib'] }} <br/>
+      <span class="module"> {{ m['lcont'] }}</span>";
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endfor %}

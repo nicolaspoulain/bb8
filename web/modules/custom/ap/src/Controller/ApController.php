@@ -269,28 +269,60 @@ class ApController {
       );
     }}
   if ( $circo != "0754460R") {
-  $html  .= self::gbb_ap_print("Stages proposés par la circonscription", "", $grand_tableau,1);
+    $html  .= self::gbb_ap_print("Stages proposés par la circonscription", "", $grand_tableau,1);
   };
-  // print_r($grand_tableau);
-
-  // unset($grand_tableau);
-  // foreach ($res as $stage) {
-    // $grand_tableau[$stage->id_disp]['lib'] = $stage->lib_dispo;
-    // $grand_tableau[$stage->id_disp]['display'] = True;
-    // if (in_array($stage->co_modu,$modules_inter)) {
-      // $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
-        // 'lib'=>$stage->lib,
-        // 'lcont'=>$stage->lcont,
-      // );
-    // }}
   if ( $circo == "0750086L" || $circo == "0754335E" || $circo == "0753073H" || $circo == "0754396W") {
-  $html  .= self::gbb_ap_print("Stages académiques, partenaires et pôle 19 retenus par la circonscription", "", $grand_tableau_inter,1);
-  } elseif ($circo != "0754460R") {
+    $html  .= self::gbb_ap_print("Stages académiques, partenaires et pôle 19 retenus par la circonscription", "", $grand_tableau_inter,1);
+  } elseif ( $circo != "0754460R") {
     $html  .= self::gbb_ap_print("Stages académiques et partenaires retenus par la circonscription", "", $grand_tableau_inter,2);
   };
+  // return array(
+      // '#title' => 'Demo Module',
+      // '#markup' => $html,
+    // );
+    $circo_tab = array(
+      '0750080E'=>'CIRCONSCRIPTION 1-2-4 LOUVRE',
+      '0750078C'=>'CIRCONSCRIPTION 5-6 LUXEMBOURG-SORBONNE',
+      '0754742X'=>'CIRCONSCRIPTION 7-8 INVALIDES-ETOILE',
+      '0752941P'=>'CIRCONSCRIPTION 9-10A ROCHECHOUART',
+      '0750099A'=>'CIRCONSCRIPTION 10B RECOLLETS',
+      '0750081F'=>'CIRCONSCRIPTION 11A VOLTAIRE',
+      '0750098Z'=>'CIRCONSCRIPTION 11B BASTILLE',
+      '0754334D'=>'CIRCONSCRIPTION 12A-3 DAUMESNIL-MARAIS',
+      '0750097Y'=>'CIRCONSCRIPTION 12B NATION',
+      '0752428G'=>'CIRCONSCRIPTION 13A OLYMPIADES',
+      '0750096X'=>'CIRCONSCRIPTION 13B BUTTES AUX CAILLES',
+      '0752305Y'=>'CIRCONSCRIPTION 13C AUSTERLITZ',
+      '0750094V'=>'CIRCONSCRIPTION 14A MONTPARNASSE',
+      '0754462T'=>'CIRCONSCRIPTION 14B-15A MONTSOURIS-VOLONTAIRES',
+      '0750079D'=>'CIRCONSCRIPTION 15B GRENELLE',
+      '0750093U'=>'CIRCONSCRIPTION 15C CONVENTION',
+      '0754461S'=>'CIRCONSCRIPTION 16A AUTEUIL',
+      '0750091S'=>'CIRCONSCRIPTION 16B TROCADERO',
+      '0752307A'=>'CIRCONSCRIPTION 17A WAGRAM',
+      '0750090R'=>'CIRCONSCRIPTION 17B BESSIERE',
+      '0750088N'=>'CIRCONSCRIPTION 18A LA CHAPELLE',
+      '0750089P'=>'CIRCONSCRIPTION 18B GOUTTE D OR',
+      '0753385X'=>'CIRCONSCRIPTION 18C MONTMARTRE',
+      '0755240N'=>'CIRCONSCRIPTION 18D JULES JOFFRIN',
+      '0750086L'=>'CIRCONSCRIPTION 19A BUTTES CHAUMONT',
+      '0754335E'=>'CIRCONSCRIPTION 19B STALINGRAD',
+      '0753073H'=>'CIRCONSCRIPTION 19C JAURES',
+      '0754396W'=>'CIRCONSCRIPTION 19D COLONEL FABIEN',
+      '0750085K'=>'CIRCONSCRIPTION 20A TELEGRAPHE',
+      '0750084J'=>'CIRCONSCRIPTION 20B MENILMONTANT',
+      '0752306Z'=>'CIRCONSCRIPTION 20C GAMBETTA',
+      '0750083H'=>'CIRCONSCRIPTION 20D BELLEVILLE',
+      // '0754460R'=>'CIRCONSCRIPTION ASH',
+      '0750082G'=>'CIRCONSCRIPTION ASH1',
+    );
+
     return array(
       '#title' => 'Demo Module',
-      '#markup' => $html,
+      '#theme' => 'apcirco',
+      '#inter' => $grand_tableau_inter,
+      '#tab' => $grand_tableau,
+      '#circo_name' => $circo_tab[$circo],
     );
   }
 function gbb_ap_print($title,$chapo,$tab,$tag) {
@@ -303,7 +335,8 @@ function gbb_ap_print($title,$chapo,$tab,$tag) {
       $html .= "<span class=\"titredisp\">";
       $html .= $disp;
       // $html .= "<span class=\"togg titre\" onclick=\"$('#$disp-$tag').toggle('slow');\">";
-      $html .= "<span class=\"togg titre\" onclick=\"myFunction('$disp-$tag')\">";
+      // $html .= "<span class=\"togg titre\" onclick=\"myToggle('$disp-$tag')\">";
+      $html .= "<span class=\"togg titre\" onclick=\"myToggle()\">";
       $html .= " ". $data['lib'];
       $html .= "</span>";
       $html .= "</span>";

@@ -73,3 +73,22 @@
   margin: 1px;
   background-color: #CCDDEE;
 }
+.iddisp {
+  min-width : 6em;
+  float: left;
+  text-align : right;
+  padding-right: 4px;
+}
+.togg {
+cursor: pointer;
+}
+.module {
+  font-style : italic;
+  font-size: 89%;
+  color : #677;
+}
+.titre {
+color :  #000066;
+font-weight : bold;
+}
+

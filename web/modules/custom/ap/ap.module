@@ -1,0 +1,15 @@
+<?php
+
+function ap_theme($existing, $type, $theme, $path) {
+  return array(
+    'apcirco' => array(
+      'variables' => array(
+        'inter' => NULL,
+        'tab' => NULL,
+        'circo_name' => NULL
+      ),
+      'template' => 'apcirco-layout', // see templates/apcirco-layout.html.twig
+      'render element' => 'html',
+    ),
+  );
+}
