@@ -62,6 +62,7 @@ class ApController {
   }
   public function circo($circo) {
 
+    \Drupal\Core\Database\Database::setActiveConnection('external');
   $html = "";
   $html .= "<h3>$tab[$circo]</h3>";
 
@@ -69,7 +70,7 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->fields('f', array('co_modu'))
         ->groupBy('f.co_modu');
 
@@ -80,13 +81,13 @@ class ApController {
 
   $query->orderBy('m.co_modu', 'ASC');
   $modules_inter = $query->distinct()->execute()->fetchCol();
-  print($query);
+  // print($query);
 
   # Liste des modules ayant >= 1 filtre
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -124,7 +125,7 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -160,7 +161,7 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -196,7 +197,7 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -232,7 +233,7 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "18D%" , 'LIKE');
+  $query->condition('d.id_disp', "19D%" , 'LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -301,7 +302,8 @@ function gbb_ap_print($title,$chapo,$tab,$tag) {
       $html .= "<p>";
       $html .= "<span class=\"titredisp\">";
       $html .= $disp;
-      $html .= "<span class=\"togg titre\" onclick=\"$('#$disp-$tag').toggle('slow');\">";
+      // $html .= "<span class=\"togg titre\" onclick=\"$('#$disp-$tag').toggle('slow');\">";
+      $html .= "<span class=\"togg titre\" onclick=\"myFunction('$disp-$tag')\">";
       $html .= " ". $data['lib'];
       $html .= "</span>";
       $html .= "</span>";
