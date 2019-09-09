@@ -6,6 +6,7 @@ function ap_theme($existing, $type, $theme, $path) {
       'variables' => array(
         'inter' => NULL,
         'tab' => NULL,
+        'circo' => NULL,
         'circo_name' => NULL
       ),
       'template' => 'apcirco-layout', // see templates/apcirco-layout.html.twig

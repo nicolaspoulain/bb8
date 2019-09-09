@@ -323,6 +323,7 @@ class ApController {
       '#inter' => $grand_tableau_inter,
       '#tab' => $grand_tableau,
       '#circo_name' => $circo_tab[$circo],
+      '#circo' => $circo,
     );
   }
 function gbb_ap_print($title,$chapo,$tab,$tag) {

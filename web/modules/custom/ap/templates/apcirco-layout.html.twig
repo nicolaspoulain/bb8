@@ -1,12 +1,21 @@
 <h2 class="block-title">Plan Académique de Formation</h2>
-<p><a href="../ap" class="titre">[Retour à la liste des circonscriptions]</a></p>
+<p><a href="/gbbdr/ap/index_tmp" class="titre">[Retour à la liste des circonscriptions]</a></p>
 <p> </p>
-<p>Pour l’année scolaire 2018-2019, une seule modalité d’inscription : la candidature individuelle (exceptée l’inscription par liste aux parcours à thématique transversale réservés aux T1).</p>
+<p>
+Pour l’année scolaire 2019-2020, une seule modalité d’inscription : la candidature individuelle.
+</p>
+<p>
+Les collègues T1 sont inscrits à un parcours spécifique de formation et doivent compléter leur inscription à hauteur de leur quotité de service (9h par défaut).
+</p>
+<p>
+Les collègues de cycle 3 concernés par le plan mathématiques sont inscrits à un parcours spécifique géré par le rectorat, ils n'ont pas à s'inscrire sur GAIA.
+</p>
 
 <h3>{{ circo_name }}</h3>
 
+<p>&nbsp;<br/></p>
 
-<p>Stages proposés par la circonscription</p>
+<h4 class='titreap'>Stages proposés par la circonscription</h4>
 {% for disp,data in tab %}
 {% if data['module'] and data['display'] %}
   <p>{{ disp }} <span class="togg titre" onclick="myToggle('{{ disp }}')">{{ data['lib'] }}</span></p>
@@ -20,7 +29,13 @@
   {% endif %}
 {% endfor %}
 
-<p>Stages académiques et partenaires retenus par la circonscription</p>
+<p>&nbsp;<br/></p>
+{% if circo == "0750086L" or circo == "0754335E" or circo == "0753073H" or circo == "0754396W" %}
+<h4 class='titreap'>Stages académiques, partenaires et pôle 19 retenus par la circonscription</h4>
+{% else %}
+<h4 class='titreap'>Stages académiques et partenaires retenus par la circonscription</h4>
+{% endif %}
+
 {% for disp,data in inter %}
 {% if data['module'] and data['display'] %}
   <p>{{ disp }} <span class="togg titre" onclick="myToggle('{{ disp }}')">{{ data['lib'] }}</span></p>
