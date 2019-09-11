@@ -22,7 +22,8 @@ Les collègues de cycle 3 concernés par le plan mathématiques sont inscrits à
   <ul>
     {% for co_modu,m in data['module'] %}
     <li class="{{ disp }}" style="display: none;"> {{co_modu }} {{ m['lib'] }} <br/>
-      <span class="module"> {{ m['lcont'] }}</span>";
+      <span class="module"><b>Contenu</b> : {{ m['lcont'] }}</span><br/>
+      <span class="module"><b>Durée</b> : {{ m['duree_prev'] }}&#8239;h</span>
     </li>
     {% endfor %}
   </ul>
@@ -42,7 +43,8 @@ Les collègues de cycle 3 concernés par le plan mathématiques sont inscrits à
   <ul>
     {% for co_modu,m in data['module'] %}
     <li class="{{ disp }}" style="display: none;"> {{co_modu }} {{ m['lib'] }} <br/>
-      <span class="module"> {{ m['lcont'] }}</span>";
+      <span class="module"><b>Contenu</b> : {{ m['lcont'] }}</span><br/>
+      <span class="module"><b>Durée</b> : {{ m['duree_prev'] }}&#8239;h</span>
     </li>
     {% endfor %}
   </ul>
