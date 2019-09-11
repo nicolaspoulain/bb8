@@ -531,6 +531,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        rorgacolor:
+          id: rorgacolor
+          table: gbb_gmodu_plus
+          field: rorgacolor
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         prenom:
           id: prenom
           table: gbb_gresp_orga
@@ -591,7 +640,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ prenom }} {{ nomu }}'
+            text: "{% if rorgacolor==\"respred\" %}\r\n<span class=\"respredlight\">{{ prenom }} {{ nomu }}</span>\r\n{% elseif rorgacolor==\"respgreen\" %}\r\n<span class=\"respgreenlight\">{{ prenom }} {{ nomu }}</span>\r\n{% else %}\r\n{{ prenom }} {{ nomu }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -621,6 +670,55 @@ display:
           element_label_type: strong
           element_label_class: ''
           element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        rpedacolor:
+          id: rpedacolor
+          table: gbb_gmodu_plus
+          field: rpedacolor
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -689,7 +787,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ prenom_1 }} {{ nomu_1 }}'
+            text: "{% if rpedacolor==\"respred\" %}\r\n<span class=\"respredlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% elseif rpedacolor==\"respgreen\" %}\r\n<span class=\"respgreenlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% else %}\r\n{{ prenom }} {{ nomu_1 }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1018,6 +1116,55 @@ display:
           element_default_classes: true
           empty: ''
           hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_prna:
+          id: co_prna
+          table: gbb_gmodu
+          field: co_prna
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Prio. Nat.'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
@@ -1363,55 +1510,6 @@ display:
           group_type: group
           admin_label: ''
           label: 'Prio. Aca.'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_prna:
-          id: co_prna
-          table: gbb_gmodu
-          field: co_prna
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Prio. Nat.'
           exclude: false
           alter:
             alter_text: false

@@ -7406,7 +7406,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if  co_camp  == \"BS\" %}\n    FIL\n{% else %}\n    PAF\n{% endif %}"
+            text: '{% if  co_camp  == "BS" %}FIL{% else %}PAF{% endif %}'
             make_link: false
             path: ''
             absolute: false
@@ -8726,6 +8726,55 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        rorgacolor:
+          id: rorgacolor
+          table: gbb_gmodu_plus
+          field: rorgacolor
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: respblue
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          plugin_id: standard
         nomu:
           id: nomu
           table: gbb_gresp_orga
@@ -8736,8 +8785,8 @@ display:
           label: R.Orga
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n\r\n\r\n{% if co_camp == \"PAF\" %}\r\n{{ nomu }}\r\n{% else %}\r\n{% if rorgacolor==\"respgreen\" %}\r\n<a href=\"rorgacolor/{{ co_degre }}/{{ co_modu }}/respred/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rorgacolor}}\">{{ nomu }}</a>\r\n{% elseif rorgacolor==\"respred\" %}\r\n<a href=\"rorgacolor/{{ co_degre }}/{{ co_modu }}/respblue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rorgacolor}}\">{{ nomu }}</a>\r\n{% else %}\r\n<a href=\"rorgacolor/{{ co_degre }}/{{ co_modu }}/respgreen/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rorgacolor}}\">{{ nomu }}</a>\r\n{% endif %}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -8775,6 +8824,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        rpedacolor:
+          id: rpedacolor
+          table: gbb_gmodu_plus
+          field: rpedacolor
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: respblue
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          plugin_id: standard
         nomu_1:
           id: nomu_1
           table: gbb_gresp_peda
@@ -8785,8 +8883,8 @@ display:
           label: R.Péda
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n\r\n{% if co_camp == \"PAF\" %}\r\n{{ nomu }}\r\n{% else %}\r\n{% if rpedacolor==\"respgreen\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respred/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% elseif rpedacolor==\"respred\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respblue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% else %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respgreen/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% endif %}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
