@@ -93,6 +93,7 @@ class ApController {
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%math%', 'like');
   $query->fields('m', array('co_modu','lib','lcont'));
+  $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
   $query->addfield('d', 'lib', 'lib_dispo');
   $query->orderBy('m.co_modu', 'ASC');
@@ -109,6 +110,7 @@ class ApController {
       $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   foreach ($res as $stage) {
@@ -119,6 +121,7 @@ class ApController {
       $grand_tableau_inter[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   # Liste des modules ayant >= 1 filtre
@@ -131,6 +134,7 @@ class ApController {
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%langa%', 'like');
   $query->fields('m', array('co_modu','lib','lcont'));
+  $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
   $query->addfield('d', 'lib', 'lib_dispo');
   $query->orderBy('m.co_modu', 'ASC');
@@ -145,6 +149,7 @@ class ApController {
       $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   foreach ($res as $stage) {
@@ -155,6 +160,7 @@ class ApController {
       $grand_tableau_inter[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   # Liste des modules ayant >= 1 filtre
@@ -167,6 +173,7 @@ class ApController {
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%franc%', 'like');
   $query->fields('m', array('co_modu','lib','lcont'));
+  $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
   $query->addfield('d', 'lib', 'lib_dispo');
   $query->orderBy('m.co_modu', 'ASC');
@@ -181,6 +188,7 @@ class ApController {
       $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   foreach ($res as $stage) {
@@ -191,6 +199,7 @@ class ApController {
       $grand_tableau_inter[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   # Liste des modules ayant >= 1 filtre
@@ -203,6 +212,7 @@ class ApController {
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%choral%', 'like');
   $query->fields('m', array('co_modu','lib','lcont'));
+  $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
   $query->addfield('d', 'lib', 'lib_dispo');
   $query->orderBy('m.co_modu', 'ASC');
@@ -217,6 +227,7 @@ class ApController {
       $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   foreach ($res as $stage) {
@@ -227,6 +238,7 @@ class ApController {
       $grand_tableau_inter[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   # Liste des modules ayant >= 1 filtre
@@ -242,6 +254,7 @@ class ApController {
   $query->condition('m.lib', '%franc%', 'not like');
   $query->condition('m.lib', '%choral%', 'not like');
   $query->fields('m', array('co_modu','lib','lcont'));
+  $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
   $query->addfield('d', 'lib', 'lib_dispo');
   $query->orderBy('m.co_modu', 'ASC');
@@ -256,6 +269,7 @@ class ApController {
       $grand_tableau[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   foreach ($res as $stage) {
@@ -266,6 +280,7 @@ class ApController {
       $grand_tableau_inter[$stage->id_disp]['module'][$stage->co_modu] = array(
         'lib'=>$stage->lib,
         'lcont'=>$stage->lcont,
+        'duree_prev'=>$stage->duree_prev,
       );
     }}
   if ( $circo != "0754460R") {
@@ -315,6 +330,8 @@ class ApController {
       '0750083H'=>'CIRCONSCRIPTION 20D BELLEVILLE',
       // '0754460R'=>'CIRCONSCRIPTION ASH',
       '0750082G'=>'CIRCONSCRIPTION ASH1',
+      '0750087M'=>'CIRCONSCRIPTION ASH2',
+      '0755967D'=>'CIRCONSCRIPTION ASH3',
     );
 
     return array(
