@@ -220,6 +220,22 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu_plus']['rpedacolor'] = array( 'help' => t('rpedacolor'),
+  //{{
+    'title' => t('rpedacolor'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmodu_plus']['rorgacolor'] = array( 'help' => t('rorgacolor'),
+  //{{
+    'title' => t('rorgacolor'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu_plus']['prioritaire'] = array( 'help' => t('prioritaire'),
   //{{
     'title' => t('prioritaire'),

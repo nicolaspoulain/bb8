@@ -107,6 +107,30 @@ bb.changecolor:
   requirements:
     _permission: 'access bb usual'
 
+bb.rpedacolor:
+  path: '/rpedacolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::rpedacolor'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+    resp_filter: ''
+    id_disp_1: ''
+  requirements:
+    _permission: 'access bb usual'
+
+bb.rorgacolor:
+  path: '/rorgacolor/{co_degre}/{co_modu}/{color}/{id_disp}/{co_anmo}/{resp_filter}/{id_disp_1}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\ModuleNG::rorgacolor'
+    _title: 'Form API Examples'
+    co_degre: '2'
+    co_modu: '1'
+    resp_filter: ''
+    id_disp_1: ''
+  requirements:
+    _permission: 'access bb usual'
+
 bb.sessionchangestatus:
   path: '/sessionchangestatus/{co_degre}/{co_modu}/{sessid}/{status}'
   defaults:

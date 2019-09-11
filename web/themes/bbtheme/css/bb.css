@@ -47,6 +47,15 @@ body {
 .blue {
   color: blue;
 }
+.respblue { color: #3b3b3b; }
+.respblue:hover, a.respblue:active {color: green;}
+.respred { color: red; }
+.respredlight { color: #C30; font-weight:bold; }
+.respred:hover, a.respred:active {color: #3b3b3b;}
+.respgreen{ color: green; }
+.respgreenlight{ color: #33ff00; }
+.respgreen:hover, a.respgreen:active {color: red;}
+
 .red {
   color: red;
 }
