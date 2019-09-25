@@ -985,6 +985,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdisp']['co_them'] = array( 'title' => t('co_them'),
+  //{{
+    'help' => t('Code thematique'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdisp']['co_offreur'] = array( 'title' => t('co_offreur'),
   //{{
     'help' => t('Code offreur'),

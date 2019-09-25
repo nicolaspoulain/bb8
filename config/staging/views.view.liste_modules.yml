@@ -2744,7 +2744,7 @@ display:
           expose:
             operator_id: co_prna_op
             label: 'Code Priorité Nationale'
-            description: 'p.ex : 182j'
+            description: 'p.ex : 182j ou (00 pour vide)'
             use_operator: false
             operator: co_prna_op
             identifier: co_prna
@@ -2757,6 +2757,7 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -6586,95 +6587,242 @@ display:
           group_type: group
           admin_label: ''
           label: 'lib prac'
-          exclude: false
+          exclude: 1
           alter:
-            alter_text: false
+            alter_text: 0
             text: ''
-            make_link: false
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: 1
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           plugin_id: standard
-        lib_court_4:
-          id: lib_court_4
-          table: gbb_nprna
-          field: lib_court
+        co_prna:
+          id: co_prna
+          table: gbb_gmodu
+          field: co_prna
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'lib prna'
-          exclude: false
+          label: ''
+          exclude: 1
           alter:
-            alter_text: true
-            text: "{% if co_prna != '' %}\n{{ lib_court_4 }}\n{% endif %}"
-            make_link: false
+            alter_text: 0
+            text: ''
+            make_link: 0
             path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
+            absolute: 0
+            external: 0
+            replace_spaces: 0
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: 0
             alt: ''
             rel: ''
             link_class: ''
             prefix: ''
             suffix: ''
             target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
-            trim: false
+            strip_tags: 0
+            trim: 0
             preserve_tags: ''
-            html: false
+            html: 0
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: 1
           empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        lib_long_2:
+          id: lib_long_2
+          table: gbb_nprac
+          field: lib_long
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Priorité académique'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: '0'
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        lib_long_1:
+          id: lib_long_1
+          table: gbb_nprna
+          field: lib_long
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Priorité nationale'
+          exclude: 0
+          alter:
+            alter_text: 1
+            text: "{% if lib_long_1 == \"Aucune des priorités nationales actuelles\" %}0\r\n{% else %} {{ lib_long_1 }}\r\n{% endif %}"
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 0
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: '0'
+          hide_empty: 0
+          empty_zero: 1
+          hide_alter_empty: 0
+          plugin_id: standard
+        co_them:
+          id: co_them
+          table: gbb_gdisp
+          field: co_them
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Thème
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           plugin_id: standard
         dt_crea:
           id: dt_crea
@@ -6724,6 +6872,55 @@ display:
           hide_empty: 0
           empty_zero: 0
           hide_alter_empty: 1
+          plugin_id: standard
+        denom_comp:
+          id: denom_comp
+          table: gbb_netab_modu
+          field: denom_comp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Etab. Dem.'
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ sigle }} {{ denom_comp }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
           plugin_id: standard
         nothing:
           id: nothing
@@ -6880,55 +7077,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        denom_comp:
-          id: denom_comp
-          table: gbb_netab_modu
-          field: denom_comp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Etab. Dem.'
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ sigle }} {{ denom_comp }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         cp:
           id: cp
           table: gbb_netab_modu
@@ -7034,6 +7182,55 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          plugin_id: standard
+        co_prna_1:
+          id: co_prna_1
+          table: gbb_gmodu
+          field: co_prna
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: 1
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
           plugin_id: standard
       group_by: false
       pager:
@@ -8688,7 +8885,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ prioritaire }}\r\n{% if co_anmo|length >1 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=3&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
+            text: "{{ prioritaire }}\r\n{% if co_anmo|length >1 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i> <a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"strike\">{{ co_modu }} {{ lib | replace({'&#039;': ' '}) }}</span></a>\r\n{% else %} \r\n<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"{{co_modu}} bg-{{color}}\">{{ co_modu }}</span> {{ lib | replace({'&#039;': ' '}) }}</a>\r\n{% endif %} \r\n{% if co_etab_dem|length>0 %}\r\n&nbsp; <i class=\"fa fa-university gray\" aria-hidden=\"true\"></i><a href=\"liste-gaia?co_anmo=1&id_disp=1&co_etab_dem={{ co_etab_dem }}\" class=\"gray\">{{ co_etab_dem }}</a>\r\n{% endif %}"
             make_link: false
             path: 'moduleng/{{ co_degre }}/{{ co_modu }}'
             absolute: false
@@ -8884,7 +9081,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n\r\n{% if co_camp == \"PAF\" %}\r\n{{ nomu }}\r\n{% else %}\r\n{% if rpedacolor==\"respgreen\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respred/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% elseif rpedacolor==\"respred\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respblue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% else %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respgreen/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% endif %}\r\n{% endif %}"
+            text: "{% set pa = current_path|split('=') %}\r\n{% set anmo =current_path|split('co_anmo=')  %} {% set anmo2= anmo[1]|split('&') %} {% set co_anmo = anmo2[0] %} \r\n{% set iddisp= current_path|split('id_disp=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp = iddisp2[0] %} \r\n{% set respfi = current_path|split('resp_filter=') %}{% set respfi2= respfi[1]|split('&') %}  {% set resp_filter = respfi2[0] %}\r\n{% if resp_filter=='' %}{% set resp_filter = 'NaN' %}{% endif %}\r\n{% set iddisp= current_path|split('id_disp_1=') %}{% set iddisp2= iddisp[1]|split('&') %}    {% set id_disp_1 = iddisp2[0] %} \r\n\r\n{% if co_camp == \"PAF\" %}\r\n{{ nomu_1 }}\r\n{% else %}\r\n{% if rpedacolor==\"respgreen\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respred/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% elseif rpedacolor==\"respred\" %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respblue/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% else %}\r\n<a href=\"rpedacolor/{{ co_degre }}/{{ co_modu }}/respgreen/{{ id_disp }}/{{ co_anmo }}/{{ resp_filter }}/{{id_disp_1}}\" class=\"{{rpedacolor}}\">{{ nomu_1 }}</a>\r\n{% endif %}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false

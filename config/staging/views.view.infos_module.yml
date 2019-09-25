@@ -787,7 +787,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if rpedacolor==\"respred\" %}\r\n<span class=\"respredlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% elseif rpedacolor==\"respgreen\" %}\r\n<span class=\"respgreenlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% else %}\r\n{{ prenom }} {{ nomu_1 }}\r\n{% endif %}"
+            text: "{% if rpedacolor==\"respred\" %}\r\n<span class=\"respredlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% elseif rpedacolor==\"respgreen\" %}\r\n<span class=\"respgreenlight\">{{ prenom_1 }} {{ nomu_1 }}</span>\r\n{% else %}\r\n{{ prenom_1 }} {{ nomu_1 }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
