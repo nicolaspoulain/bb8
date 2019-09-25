@@ -71,6 +71,7 @@ class ApController {
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
   $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('f', array('co_modu'))
         ->groupBy('f.co_modu');
 
@@ -92,6 +93,7 @@ class ApController {
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%math%', 'like');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('m', array('co_modu','lib','lcont'));
   $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
@@ -133,6 +135,7 @@ class ApController {
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%langa%', 'like');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('m', array('co_modu','lib','lcont'));
   $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
@@ -172,6 +175,7 @@ class ApController {
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%franc%', 'like');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('m', array('co_modu','lib','lcont'));
   $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
@@ -211,6 +215,7 @@ class ApController {
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
   $query->condition('m.lib', '%choral%', 'like');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('m', array('co_modu','lib','lcont'));
   $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
@@ -253,6 +258,7 @@ class ApController {
   $query->condition('m.lib', '%langa%', 'not like');
   $query->condition('m.lib', '%franc%', 'not like');
   $query->condition('m.lib', '%choral%', 'not like');
+  $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('m', array('co_modu','lib','lcont'));
   $query->fields('m', array('co_modu','duree_prev','duree_prev'));
   $query->fields('d', array('id_disp'));
