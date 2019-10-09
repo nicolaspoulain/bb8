@@ -16,6 +16,7 @@ tmux*
 # Ignore core and vendor when managing dependencies with Composer.
 web/core
 vendor
+console
 
 # Ignore configuration files that may contain sensitive information.
 # Ignore paths that contain user-generated content.
