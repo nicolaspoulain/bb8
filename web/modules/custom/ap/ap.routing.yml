@@ -13,3 +13,5 @@ ap.circo:
     _title: 'Circo'
   requirements:
     _permission: 'access content'
+  options:
+    no_cache: 'TRUE'
