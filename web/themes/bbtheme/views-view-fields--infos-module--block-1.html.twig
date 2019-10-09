@@ -54,8 +54,8 @@
       </div>
       <div class="pure-u-1-2">
         <div class="xl white">
-        <div>{{ fields['co_camp'].content}}</div>
-          {% if fields['co_offreur'].content|length >0 %}
+        <div>{{ fields['co_camp'].content}} [{{ fields['nb_place_prev'].content }} places prev.] </div>
+             {% if fields['co_offreur'].content|length >0 %}
         <div>Code offreur : {{ fields['co_offreur'].content}}</div>
           {% endif %}
         <div>Typ Cand. : {{ fields['lib_court'].content}}</div>
