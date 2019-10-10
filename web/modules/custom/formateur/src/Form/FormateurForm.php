@@ -130,6 +130,50 @@ class FormateurForm extends FormBase {
       // '#markup' => '<div class="pure-u-md-2-24"> </div>',
     // );
 
+   if ($an >  18) {
+    $form['fieldset']['dech_fcTrans'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('FC Trans.'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_fcTrans'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+    $form['fieldset']['dech_fcDisc'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('FC Disc.'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_fcDisc'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['dech_fi'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('FI'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_fi'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+    $form['fieldset']['dech_dane'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('DANE'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_dane'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+
+    $form['fieldset']['dech_caffa'] = array(
+      '#type' => 'textfield',
+      '#title' => $this->t('Prépa CAFFA'),
+      '#size'          => 6,
+      '#default_value' => $period['dech_caffa'],
+      '#attributes' => array('placeholder' => t('0')),
+      '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+    );
+   } else {
     $form['fieldset']['dech_dafor'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Déch Dispo'),
@@ -154,7 +198,7 @@ class FormateurForm extends FormBase {
 
     $form['fieldset']['dech_caffa'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Déch CAFFA'),
+      '#title' => $this->t('Prépa CAFFA'),
       '#size'          => 6,
       '#default_value' => $period['dech_caffa'],
       '#attributes' => array('placeholder' => t('0')),
@@ -169,6 +213,7 @@ class FormateurForm extends FormBase {
       '#attributes' => array('placeholder' => t('0')),
       '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-11-24')),
     );
+   }
 
     $file ='';
     if (array_key_exists("pj",$period)) {
@@ -367,8 +412,9 @@ class FormateurForm extends FormBase {
       $condition['co_resp'] = $id;
       BbCrudController::create( 'gbb_gresp_plus', array_merge($condition,$entry_plus));
     }
-    $types = ['dech_dafor', 'dech_pfa', 'dech_dane', 'dech_caffa'];
+    $types = ['dech_fcTrans', 'dech_fcDisc', 'dech_dafor', 'dech_pfa', 'dech_fi', 'dech_dane', 'dech_caffa'];
     foreach ($types as $type) {
+      if (is_numeric($form_state->getValue($type))) {
       $condition = array(
         'co_resp' => $condition['co_resp'],
         'period'  => $form_state->getValue('period'),
@@ -382,6 +428,7 @@ class FormateurForm extends FormBase {
         $DBWriteStatus = BbCrudController::update('gbb_gresp_periodic', $entry, $condition);
       } else {
         $DBWriteStatus = BbCrudController::create('gbb_gresp_periodic', array_merge($condition,$entry));
+      }
       }
     };
 
