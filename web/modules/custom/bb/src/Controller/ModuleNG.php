@@ -89,6 +89,9 @@ class ModuleNG extends ControllerBase {
       case '9': // DE rouge
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 9, 'date_modif' => date("Y-m-d H:i:s"));
         break;
+      case '10': // DE orange Drapeau
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 10, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
     }
     $account = \Drupal::currentUser();
     $entry['uid'] = $account->id();
