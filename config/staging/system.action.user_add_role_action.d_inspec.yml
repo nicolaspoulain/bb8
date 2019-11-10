@@ -1,0 +1,14 @@
+uuid: c699bb6a-e512-46b6-9462-37b58e4bad65
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_inspec
+  module:
+    - user
+id: user_add_role_action.d_inspec
+label: 'Ajouter le rôle D_inspec aux utilisateurs sélectionnés'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: d_inspec

@@ -1,0 +1,10 @@
+uuid: 59f40e0f-2fb4-4cfb-bfd8-224bfbaed046
+langcode: fr
+status: true
+dependencies: {  }
+id: d_inspec
+label: D_inspec
+weight: 6
+is_admin: null
+permissions:
+  - 'access bb usual'

@@ -7,6 +7,7 @@ dependencies:
     - user.role.d_admi
     - user.role.d_cons
     - user.role.d_de
+    - user.role.d_inspec
   module:
     - bb
     - user
@@ -33,6 +34,7 @@ display:
             d_cons: d_cons
             d_admi: d_admi
             d_de: d_de
+            d_inspec: d_inspec
       cache:
         type: tag
         options: {  }

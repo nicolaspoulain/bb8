@@ -1,7 +1,6 @@
 {{ drupal_view('infos_module', 'block_1') }}
 
-
-{% if 'd_cons' in user.roles %}
+{% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="journal">
   <summary class="journal-dark">Zone Conseillers - Non visible par les gestionnaires</summary>
   <div class="common-wrapper journal">
@@ -24,7 +23,12 @@
 {% endif %}
 
 {% if 'd_admi' in user.roles or 'd_de' in user.roles %}
+{% if 'd_admi' in user.roles %}
+<details class="details-wrapper" id="sessions">
+{% endif %}
+{% if 'd_de' in user.roles %}
 <details open class="details-wrapper" id="sessions">
+{% endif %}
   <summary class="sessions-dark">Zone Gestionnaires - Non visible par les Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper sessions">
     <div class="pure-g">
@@ -47,13 +51,37 @@
 </details>
 {% endif %}
 
+{% if 'd_admi' in user.roles or 'd_inspec' in user.roles %}
+{% if 'd_admi' in user.roles %}
+<details class="details-wrapper" id="sessions">
+{% endif %}
+{% if 'd_de' in user.roles %}
+<details open class="details-wrapper" id="sessions">
+{% endif %}
+  <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
+  <div class="common-wrapper inspec">
+    {{ drupal_view('sessions_d_un_module', 'block_4') }}
+    <div class="pure-g">
+      <div class="pure-u-15-24">
+        {# {{ html.infospasconvoc }} #}
+      </div>
+      <div class="pure-u-1-24"> &nbsp; </div>
+      <div class="pure-u-8-24">
+        {# {{ html.afile }} #}
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</details>
+{% endif %}
+
+
+
 {% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="sessions">
   <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper sessions">
-    {% if 'd_cons' in user.roles %}
     {{ drupal_view('sessions_d_un_module', 'block_1') }}
-    {% endif %}
     <div class="pure-g">
       <div class="pure-u-15-24">
         {{ html.infospasconvoc }}

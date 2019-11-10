@@ -38,6 +38,12 @@ body {
 .journal-dark {
   background-color:#E0E3EF;
 }
+.inspec-dark {
+  background-color:#F3F0AF;
+}
+.inspec {
+  background-color:#F8F0FF;
+}
 .lightgray {
   color: #AAA;
 }

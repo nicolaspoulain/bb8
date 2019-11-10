@@ -1,0 +1,14 @@
+uuid: 3e6ed590-c138-4359-8146-ab07735fc291
+langcode: fr
+status: true
+dependencies:
+  config:
+    - user.role.d_inspec
+  module:
+    - user
+id: user_remove_role_action.d_inspec
+label: 'Enlever le rôle D_inspec des utilisateurs sélectionnés'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: d_inspec
