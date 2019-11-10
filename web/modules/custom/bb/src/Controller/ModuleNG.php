@@ -196,6 +196,8 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm', $co_degre, $co_modu);
     $content['afile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\AfileForm', $co_degre, $co_modu);
+    $content['ifile'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\IfileForm', $co_degre, $co_modu);
     $content['infospasconvoc'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\InfosPasConvocForm', $co_degre, $co_modu);
     $content['infossurconvoc'] =
