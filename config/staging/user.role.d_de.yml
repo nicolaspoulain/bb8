@@ -7,4 +7,5 @@ label: D_de
 weight: 5
 is_admin: null
 permissions:
+  - 'access bb daforteam'
   - 'access bb usual'

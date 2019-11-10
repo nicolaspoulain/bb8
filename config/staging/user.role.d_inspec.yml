@@ -7,4 +7,5 @@ label: D_inspec
 weight: 6
 is_admin: null
 permissions:
+  - 'access bb inspec'
   - 'access bb usual'

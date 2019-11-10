@@ -2,3 +2,13 @@ access bb usual:
   title: 'bb voir les contenus usuels'
   description: 'Permet de voir les contenus non sensibles de BB'
   restrict access: TRUE
+
+access bb daforteam:
+  title: 'bb voir les contenus réservés DAFOR'
+  description: 'Permet de voir les contenus réserves aux membres de la dafor'
+  restrict access: TRUE
+
+access bb inspec:
+  title: 'bb voir les contenus inspecteurs'
+  description: 'Permet de voir les contenus réservés aux inspecteurs dans BB'
+  restrict access: TRUE

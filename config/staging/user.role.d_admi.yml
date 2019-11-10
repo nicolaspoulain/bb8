@@ -7,5 +7,6 @@ label: D_admi
 weight: 4
 is_admin: null
 permissions:
+  - 'access bb daforteam'
   - 'access bb usual'
   - 'access user profiles'

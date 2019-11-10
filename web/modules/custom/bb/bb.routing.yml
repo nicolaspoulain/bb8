@@ -74,7 +74,18 @@ bb.liste:
     co_anmo: '1'
     resp_filter: 'username'
   requirements:
-    _permission: 'access bb usual'
+    _permission: 'access bb daforteam'
+
+bb.liste_co_orie:
+  path: '/liste_co_orie/{id_disp}/{co_anmo}/{co_orie}'
+  defaults:
+    _controller:  '\Drupal\bb\Controller\Liste::page_orie'
+    _title: 'Liste'
+    id_disp: '1'
+    co_anmo: '1'
+    co_orie: 'co_orie'
+  requirements:
+    _permission: 'access bb inspec'
 
 bb.atraiter:
   path: '/atraiter/{id_disp_1}'
@@ -83,7 +94,7 @@ bb.atraiter:
     _title: 'Liste'
     id_disp_1: '2'
   requirements:
-    _permission: 'access bb usual'
+    _permission: 'access bb daforteam'
 
 bb.moduleng:
   path: '/moduleng/{co_degre}/{co_modu}'
