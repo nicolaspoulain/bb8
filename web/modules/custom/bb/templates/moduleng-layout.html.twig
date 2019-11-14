@@ -1,6 +1,6 @@
 {{ drupal_view('infos_module', 'block_1') }}
 
-{% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
+{% if 'administrator' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="journal">
   <summary class="journal-dark">Zone Conseillers - Non visible par les gestionnaires</summary>
   <div class="common-wrapper journal">
@@ -24,11 +24,11 @@
 </details>
 {% endif %}
 
-{% if 'd_admi' in user.roles or 'd_de' in user.roles %}
-{% if 'd_admi' in user.roles %}
+{% if 'administrator' in user.roles or 'd_admi' in user.roles or 'd_de' in user.roles %}
+{% if 'administrator' in user.roles %}
 <details class="details-wrapper" id="sessions">
 {% endif %}
-{% if 'd_de' in user.roles %}
+{% if 'd_admi' in user.roles or 'd_de' in user.roles %}
 <details open class="details-wrapper" id="sessions">
 {% endif %}
   <summary class="sessions-dark">Zone Gestionnaires - Non visible par les Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
@@ -53,11 +53,11 @@
 </details>
 {% endif %}
 
-{% if 'd_admi' in user.roles or 'd_inspec' in user.roles %}
-{% if 'd_admi' in user.roles %}
+{% if 'administrator' in user.roles or 'd_inspec' in user.roles %}
+{% if 'administrator' in user.roles %}
 <details class="details-wrapper" id="sessions">
 {% endif %}
-{% if 'd_de' in user.roles %}
+{% if 'd_inspec' in user.roles %}
 <details open class="details-wrapper" id="sessions">
 {% endif %}
   <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
