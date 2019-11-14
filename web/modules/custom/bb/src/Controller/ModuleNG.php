@@ -188,6 +188,8 @@ class ModuleNG extends ControllerBase {
     $content['#theme'] = 'moduleng';
     // moduleng-layout/html.twig
 
+    $content['journalinspec'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalInspecForm', $co_degre, $co_modu);
     $content['journal'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm', $co_degre, $co_modu);
     $content['prioritaire'] =

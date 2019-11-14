@@ -7,6 +7,15 @@ bb.journalform:
   requirements:
     _permission: 'access bb usual'
 
+bb.journalinspecform:
+  path: '/journalinspec/{co_modu}'
+  defaults:
+    _form: '\Drupal\bb\Form\JournalInspecForm'
+    _title: 'Mon Formulaire pour le journal'
+    co_modu: '1'
+  requirements:
+    _permission: 'access bb usual'
+
 bb.infospasconvocform:
   path: '/infospasconvoc/{co_modu}'
   defaults:

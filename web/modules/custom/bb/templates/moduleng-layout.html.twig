@@ -15,7 +15,25 @@
       </div>
       <div class="pure-u-6-24">
         {{ html.cfile }}
-        <div>&nbsp;</div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</details>
+{% endif %}
+
+{% if 'administrator' in user.roles or 'd_cons' in user.roles %}
+<details open class="details-wrapper" id="journal">
+  <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
+  <div class="common-wrapper journal">
+    <div class="pure-g">
+      <div class="pure-u-17-24">
+        {{ html.journalinspec }}
+      </div>
+      <div class="pure-u-1-24">
+        &nbsp;
+      </div>
+      <div class="pure-u-6-24">
         {{ html.ifile }}
       </div>
     </div>
@@ -63,14 +81,15 @@
   <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper inspec">
     {{ drupal_view('sessions_d_un_module', 'block_4') }}
-    <div class="pure-g">
-      <div class="pure-u-15-24">
-        <div>&nbsp;</div>
-        {{ html.ifile }}
+    <div class="clear"></div>
+      <div class="pure-u-16-24">
+        {{ html.journalinspec }}
       </div>
-      <div class="pure-u-1-24"> &nbsp; </div>
-      <div class="pure-u-8-24">
-        {# {{ html.afile }} #}
+      <div class="pure-u-1-24">
+        &nbsp;
+      </div>
+      <div class="pure-u-6-24">
+        {{ html.ifile }}
       </div>
     </div>
     <div class="clear"></div>
