@@ -84,7 +84,9 @@
 <details open class="details-wrapper" id="sessions">
   <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper sessions">
+{% if 'd_cons' in user.roles %}
     {{ drupal_view('sessions_d_un_module', 'block_1') }}
+{% endif %}
     <div class="pure-g">
       <div class="pure-u-15-24">
         {{ html.infospasconvoc }}
