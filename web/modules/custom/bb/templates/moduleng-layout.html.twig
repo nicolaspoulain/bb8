@@ -25,7 +25,7 @@
 {% if 'administrator' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="journal">
   <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
-  <div class="common-wrapper journal">
+  <div class="common-wrapper inspec">
     <div class="pure-g">
       <div class="pure-u-17-24">
         {{ html.journalinspec }}
@@ -101,7 +101,7 @@
 
 {% if 'd_admi' in user.roles or 'd_cons' in user.roles %}
 <details open class="details-wrapper" id="sessions">
-  <summary class="journal-dark">Zone d'échanges entre Conseillers et Gestionnaires. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
+  <summary class="cons-gest-dark">Zone d'échanges entre Conseillers et Gestionnaires. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
   <div class="common-wrapper sessions">
 {% if 'd_cons' in user.roles or 'administrator' in user.roles %}
     {{ drupal_view('sessions_d_un_module', 'block_1') }}

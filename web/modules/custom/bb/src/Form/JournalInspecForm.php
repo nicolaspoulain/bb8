@@ -60,6 +60,7 @@ class JournalInspecForm extends FormBase {
       '#type' => 'textarea', // WYSIWYG textarea est mieux :
       // '#type'=>'text_format',
       '#title' => 'Notes',
+      '#rows' => 4,
       '#default_value' => (!empty($module))? strip_tags($module[0]->organisation_inspec) : '',
       '#description' => '',
       '#ajax' => [

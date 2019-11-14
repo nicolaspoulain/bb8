@@ -38,11 +38,14 @@ body {
 .journal-dark {
   background-color:#E0E3EF;
 }
-.inspec-dark {
+.cons-gest-dark {
   background-color:#F3F0AF;
 }
+.inspec-dark {
+  background-color:#EEEEEE;
+}
 .inspec {
-  background-color:#F8F0FF;
+  background-color:#EFEFEF;
 }
 .lightgray {
   color: #AAA;
