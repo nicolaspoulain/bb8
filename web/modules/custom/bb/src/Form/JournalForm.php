@@ -34,7 +34,7 @@ class JournalForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'fapi_example_modal_form';
+    return 'JournalForm';
   }
 
   /**
