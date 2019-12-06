@@ -92,6 +92,12 @@ class ModuleNG extends ControllerBase {
       case '10': // DE orange Drapeau
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 10, 'date_modif' => date("Y-m-d H:i:s"));
         break;
+      case '11': // Inspec noir
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 11, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
+      case '12': // Inspec red
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 12, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
     }
     $account = \Drupal::currentUser();
     $entry['uid'] = $account->id();

@@ -74,12 +74,13 @@ google.charts.setOnLoadCallback(drawStacked);
 
 function drawStacked() {
       var data = google.visualization.arrayToDataTable([
-        ['Type'       , 'Heures dues'           , 'En h. déch.'        , 'En h. vac.'         , 'En h. PFA'] ,
-        ['Dech Dispo' , {{ var['dech_dafor'] }} , 0                    , 0                    , 0]           ,
-        ['Faites'     , 0                       , {{ var['sum_dec'] }} , {{ var['sum_vac'] }} , 0]           ,
-        [''           , 0                       , 0                    , 0                    , 0]           ,
-        ['Dech PFA'   , {{ var['dech_pfa'] }}   , 0                    , 0                    , 0]           ,
-        ['Faites'     , 0                       , 0                    , 0                    , {{ var['sum_pfa'] }}]           ,
+        ['Type'       ,  'FCDISC'                 , 'FCTRANS'                , 'DECH'                  , 'FI'                 , 'Autres'             , 'VAC'                ] ,
+        ['FC'         ,  {{ var['dech_fcDisc'] }} , {{ var['dech_fcTrans'] }}, {{ var['dech_dafor'] }} , 0                    , 0                    , 0                    ] ,
+        ['FC Faites'  ,  {{ var['sum_fcdisc'] }}  , {{ var['sum_fctrans'] }} , {{ var['sum_dec'] }}    , 0                    , 0                    , 0                    ] ,
+        ['FI'         ,  0                        , 0                        , 0                       , {{ var['dech_fi'] }} , 0                    , 0                    ] ,
+        ['FI Faites'  ,  0                        , 0                        , 0                       , {{ var['sum_fi'] }}  , 0                    , 0                    ] ,
+        ['Autres   '  ,  0                        , 0                        , 0                       , 0                    , {{ var['sum_pfa'] }} , 0                    ] ,
+        ['VAC'        ,  0                        , 0                        , 0                       , 0                    , 0                    , {{ var['sum_vac'] }} ] ,
       ]);
 
       var options = {
