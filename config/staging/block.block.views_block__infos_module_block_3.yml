@@ -1,0 +1,25 @@
+uuid: 4c5e17a3-181f-4bbd-82c7-19cab7051ca6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.infos_module
+  module:
+    - views
+  theme:
+    - bbtheme
+id: views_block__infos_module_block_3
+theme: bbtheme
+region: help
+weight: 0
+provider: null
+plugin: 'views_block:infos_module-block_3'
+settings:
+  id: 'views_block:infos_module-block_3'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }
