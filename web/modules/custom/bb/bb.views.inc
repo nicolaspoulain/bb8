@@ -535,6 +535,9 @@ function bb_views_data() {
   );
   //}}
   //}}
+
+
+
   $data['gbb_gmodu']['lcibl'] = array( 'help' => t('Cible litterale'),
   //{{
     'title'  => t('lcibl'),
@@ -1513,6 +1516,197 @@ function bb_views_data() {
   $data['gbb_gresp_periodic']['val'] = array( 'help' => t('Valeur'),
   //{{
     'title'  => t('Valeur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
+  // ********************************************************
+  // * gbb_gcamo + gpers ** et toutes ses colonnes
+  // ********************************************************
+  //{{
+  $data['gbb_gcamo']['table'] = array( 'group' => t('gbb_gcamo'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gpers']['table'] = array( 'group' => t('gbb_gcamo'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gcamo',
+        'left_field' => 'no_matr',
+        'field' => 'no_matr',
+        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gcamo']['no_matr'] = array( 'help' => t('No matricule candidat retenu'),
+  //{{
+    'title' => t('no_matr'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gcamo']['retenu'] = array( 'help' => t('Retenu R/N'),
+  //{{
+    'title'  => t('retenu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers']['nomu'] = array( 'help' => t('Nom du candidat retenu'),
+  //{{
+    'title'  => t('nomu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers']['prenom'] = array( 'help' => t('Prénom du candidat retenu'),
+  //{{
+    'title'  => t('prenom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers']['co_disrec'] = array( 'help' => t('Code disc. de recrutement'),
+  //{{
+    'title'  => t('co_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
+
+  // ********************************************************
+  // * gbb_gsess + gconv ** et toutes ses colonnes
+  // ********************************************************
+  //{{
+  $data['gbb_gsess']['table'] = array( 'group' => t('gbb_gsess'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gconv']['table'] = array( 'group' => t('gbb_gsess'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gsess',
+        'left_field' => 'no_sess',
+        'field' => 'no_sess',
+        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gpers_sess']['table'] = array( 'group' => t('gbb_gsess'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_gpers',
+        'left_table' => 'gbb_gconv',
+        'left_field' => 'no_matr',
+        'field' => 'no_matr',
+        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gsess']['dt_deb'] = array( 'help' => t('Date début'),
+  //{{
+    'title' => t('dt_deb'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['dt_fin'] = array( 'help' => t('Date fin'),
+  //{{
+    'title' => t('dt_fin'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['hm_deb'] = array( 'help' => t('Heure début'),
+  //{{
+    'title' => t('hm_deb'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['hm_fin'] = array( 'help' => t('Heure fin'),
+  //{{
+    'title' => t('hm_fin'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['no_groupe'] = array( 'help' => t('Numéro de groupe'),
+  //{{
+    'title' => t('no_groupe'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['co_lieu'] = array( 'help' => t('Code lieu'),
+  //{{
+    'title' => t('co_lieu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['commentaire'] = array( 'help' => t('Commentaire'),
+  //{{
+    'title' => t('commentaire'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gsess']['observation'] = array( 'help' => t('Observation'),
+  //{{
+    'title' => t('observation'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers_sess']['nomu'] = array( 'help' => t('nomu'),
+  //{{
+    'title' => t('nomu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers_sess']['prenom'] = array( 'help' => t('prenom'),
+  //{{
+    'title' => t('prenom'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
