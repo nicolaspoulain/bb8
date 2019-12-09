@@ -222,6 +222,12 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\DAdateDepotForm', $co_degre, $co_modu);
 
     $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
+    $row = BbCrudController::load('gbb_gmodu_plus', $condition);
+    foreach ($row as $el) {
+      $content['isInspecOpen']=(strlen($el->organisation_inspec) >0)? 1 : 0;
+    }
+
+    $condition = array('co_modu' => $co_modu, 'co_degre' => $co_degre);
     $row = BbCrudController::load('gbb_session', $condition);
     $last_mod = "1971-01-01 01:01:01";
     $last_user = "0";

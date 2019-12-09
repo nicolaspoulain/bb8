@@ -23,8 +23,13 @@
 {% endif %}
 
 {% if 'administrator' in user.roles or 'd_cons' in user.roles %}
+{% if html.isInspecOpen == 1 %}
 <details open class="details-wrapper" id="journal">
   <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
+{% else %}
+<details class="details-wrapper" id="journal">
+  <summary class="inspec-dark">Zone d'échanges entre Inspecteurs et Conseillers. - Dernière modification : {{ html.last_mod}} par {{ html.last_user }}</summary>
+{% endif %}
   <div class="common-wrapper inspec">
     <div class="pure-g">
       <div class="pure-u-17-24">
