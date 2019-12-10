@@ -1613,6 +1613,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gpers']['mel'] = array( 'help' => t('Email de la personne'),
+  //{{
+    'title'  => t('mel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   //}}
 
   // ********************************************************
@@ -1730,6 +1738,14 @@ function bb_views_data() {
   $data['gbb_gpers_sess']['prenom'] = array( 'help' => t('prenom'),
   //{{
     'title' => t('prenom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers_sess']['mel'] = array( 'help' => t('mail de la personne'),
+  //{{
+    'title' => t('mel'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
