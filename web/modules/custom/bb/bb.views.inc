@@ -1703,6 +1703,15 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gsess']['nb_hr'] = array( 'help' => t('Nbre d heures'),
+  //{{
+    'title' => t('nb_hr'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_gsess']['no_groupe'] = array( 'help' => t('Numéro de groupe'),
   //{{
     'title' => t('no_groupe'),
