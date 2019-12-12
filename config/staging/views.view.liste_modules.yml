@@ -23,7 +23,6 @@ description: ''
 tag: bb
 base_table: gbb_gmodu
 base_field: co_modu
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -2177,6 +2176,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Ouvert / Fermé'
@@ -2226,6 +2227,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Plan
@@ -2291,6 +2294,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'PAF / FIL'
@@ -2340,6 +2345,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Modalité
@@ -2398,6 +2405,8 @@ display:
             placeholder: null
             min_placeholder: null
             max_placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Cand.'
@@ -2456,6 +2465,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Rmpl'
@@ -2509,6 +2520,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2550,6 +2563,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2591,6 +2606,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2637,6 +2654,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2678,6 +2697,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2719,6 +2740,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2761,6 +2784,8 @@ display:
               d_admi: '0'
               d_de: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2800,6 +2825,8 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -2862,6 +2889,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2903,6 +2932,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2944,6 +2975,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2985,6 +3018,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3031,6 +3066,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3072,6 +3109,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: lcomm
@@ -3112,6 +3151,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Couleur
@@ -3165,6 +3206,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11445,6 +11488,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Ouvert / Fermé'
@@ -11494,6 +11539,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Plan
@@ -11559,6 +11606,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'PAF / FIL'
@@ -11608,6 +11657,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Modalité
@@ -11666,6 +11717,8 @@ display:
             placeholder: null
             min_placeholder: null
             max_placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Cand.'
@@ -11724,6 +11777,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Rmpl'
@@ -11777,6 +11832,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11818,6 +11875,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11859,6 +11918,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11905,6 +11966,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11946,6 +12009,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -11987,6 +12052,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12028,6 +12095,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12067,6 +12136,8 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -12129,6 +12200,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12170,6 +12243,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12211,6 +12286,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12252,6 +12329,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12298,6 +12377,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -12339,6 +12420,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: lcomm
@@ -12379,6 +12462,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Couleur
@@ -12432,6 +12517,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13115,6 +13202,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Ouvert / Fermé'
@@ -13164,6 +13253,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Plan
@@ -13229,6 +13320,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'PAF / FIL'
@@ -13278,6 +13371,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Modalité
@@ -13336,6 +13431,8 @@ display:
             placeholder: null
             min_placeholder: null
             max_placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Cand.'
@@ -13394,6 +13491,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Rmpl'
@@ -13447,6 +13546,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13488,6 +13589,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13529,6 +13632,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13575,6 +13680,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13616,6 +13723,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13657,6 +13766,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13698,6 +13809,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13737,6 +13850,8 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -13799,6 +13914,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13840,6 +13957,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13881,6 +14000,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13922,6 +14043,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -13968,6 +14091,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -14009,6 +14134,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: lcomm
@@ -14049,6 +14176,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Couleur
@@ -14102,6 +14231,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -14748,6 +14879,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Ouvert / Fermé'
@@ -14797,6 +14930,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Plan
@@ -14862,6 +14997,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'PAF / FIL'
@@ -14911,6 +15048,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Modalité
@@ -14969,6 +15108,8 @@ display:
             placeholder: null
             min_placeholder: null
             max_placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Cand.'
@@ -15027,6 +15168,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: 'Type Rmpl'
@@ -15080,6 +15223,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15121,6 +15266,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15162,6 +15309,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15208,6 +15357,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15249,6 +15400,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15290,6 +15443,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15331,6 +15486,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15370,6 +15527,8 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -15432,6 +15591,8 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15473,6 +15634,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15514,6 +15677,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15555,6 +15720,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15601,6 +15768,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -15642,6 +15811,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: lcomm
@@ -15682,6 +15853,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Couleur
@@ -15735,6 +15908,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

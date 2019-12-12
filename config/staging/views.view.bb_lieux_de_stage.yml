@@ -16,7 +16,6 @@ description: ''
 tag: ''
 base_table: gbb_netab_dafor
 base_field: co_lieu
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -410,6 +409,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -450,6 +451,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

@@ -17,7 +17,6 @@ description: ''
 tag: ''
 base_table: gbb_gmodu
 base_field: co_modu
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -669,6 +668,8 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -709,6 +710,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -799,6 +802,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -839,6 +844,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -876,6 +883,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1862,6 +1871,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1902,6 +1913,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1939,6 +1952,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2766,6 +2781,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2806,6 +2823,8 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2843,6 +2862,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2880,6 +2901,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

@@ -18,7 +18,6 @@ description: ''
 tag: bb
 base_table: gbb_gmoof
 base_field: co_offre
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -545,6 +544,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -621,6 +622,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -662,6 +665,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -703,6 +708,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -744,6 +751,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -785,6 +794,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -826,6 +837,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -867,6 +880,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4559,6 +4574,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: no_offre
@@ -4635,6 +4652,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4676,6 +4695,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4717,6 +4738,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4763,6 +4786,8 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4855,6 +4880,8 @@ display:
             placeholder: null
             min_placeholder: null
             max_placeholder: null
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -4917,6 +4944,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4958,6 +4987,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -4999,6 +5030,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

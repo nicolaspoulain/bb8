@@ -19,7 +19,6 @@ description: ''
 tag: ''
 base_table: gbb_gresp_dafor
 base_field: co_resp
-core: 8.x
 display:
   default:
     display_plugin: default
@@ -434,6 +433,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -513,6 +514,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -554,6 +557,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -591,6 +596,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1328,6 +1335,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1369,6 +1378,8 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1406,6 +1417,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
