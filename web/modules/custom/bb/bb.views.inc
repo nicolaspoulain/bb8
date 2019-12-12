@@ -1663,6 +1663,14 @@ function bb_views_data() {
   );
   //}}
 
+  $data['gbb_gsess']['no_sess'] = array( 'help' => t('no_sess'),
+  //{{
+    'title' => t('no_sess'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gsess']['dt_deb'] = array( 'help' => t('Date début'),
   //{{
     'title' => t('dt_deb'),
