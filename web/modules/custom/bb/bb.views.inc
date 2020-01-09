@@ -1567,7 +1567,7 @@ function bb_views_data() {
         'left_table' => 'gbb_gcamo',
         'left_field' => 'no_matr',
         'field' => 'no_matr',
-        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+        'extra' => 'gbb_gpers.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
