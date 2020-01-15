@@ -1633,6 +1633,7 @@ function bb_views_data() {
       'gbb_gmodu' => array(
         'left_field' => 'co_modu',
         'field' => 'co_modu',
+        'extra' => 'gbb_gsess.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
@@ -1644,7 +1645,7 @@ function bb_views_data() {
         'left_table' => 'gbb_gsess',
         'left_field' => 'no_sess',
         'field' => 'no_sess',
-        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+        // 'extra' => 'gbb_gconv.co_degre = gbb_gsess.co_degre',
       ),
     ),
   );
@@ -1657,7 +1658,7 @@ function bb_views_data() {
         'left_table' => 'gbb_gconv',
         'left_field' => 'no_matr',
         'field' => 'no_matr',
-        // 'extra' => 'gbb_gresp_orga.co_degre = gbb_gmodu.co_degre',
+        'extra' => 'gbb_gpers_sess.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
