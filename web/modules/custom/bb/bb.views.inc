@@ -245,6 +245,15 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
+  $data['gbb_gmodu_plus']['reforme'] = array( 'help' => t('reforme'),
+  //{{
+    'title' => t('reforme'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_gmodu_plus']['organisation'] = array( 'help' => t('organisation'),
   //{{
     'title' => t('organisation'),

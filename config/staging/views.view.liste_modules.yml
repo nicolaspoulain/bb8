@@ -8666,6 +8666,63 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        reforme:
+          id: reforme
+          table: gbb_gmodu_plus
+          field: reforme
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: reforme
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{%if reforme==1 %}<i class="fas fa-registered fa-lg red"></i>{% endif %}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing:
           id: nothing
           table: views
@@ -8677,7 +8734,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if sess_id != \"\" %}\r\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id }}</span>\r\n{% endif %}\r\n{% if sess_id_1 != \"\" %}\r\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\r\n{% endif %}\r\n{% if sess_id_2 != \"\" %}\r\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\r\n{% endif %}\r\n{% if sess_id_3 != \"\" %}\r\n<i class=\"fa fa-flag fa-lg red\"></i><span class=\"fa red\">{{ sess_id_3 }}</span>\r\n{% endif %}\r\n{% if sess_id_4 != \"\" %}\r\n<i class=\"fa fa-user fa-lg orange\"></i><span class=\"fa orange\">{{ sess_id_4 }}</span>\r\n{% endif %}\r\n{% if sess_id_5 != \"\" %}\r\n<i class=\"fa fa-users fa-lg pink\"></i><span class=\"fa pink\">{{ sess_id_5 }}</span>\r\n{% endif %}\r\n{% if sess_id_6!= '' %}\r\n<i class=\"fa blue fa-lg\">DE</i><span class=\"fa blue\">{{ sess_id_6 }}</span>\r\n{% endif %}\r\n{% if sess_id_7!= '' %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i>{{ sess_id_7 }}\r\n{% endif %}\r\n{% if sess_id_8!= '' %}\r\n<i class=\"fab fa-lg fa-linkedin\"></i>{{ sess_id_8 }}\r\n{% endif %}\r\n{% if sess_id_9!= '' %}\r\n<i class=\"fab fa-lg fa-linkedin red\"></i>{{ sess_id_9 }}\r\n{% endif %}\r\n{{ ficand }}"
+            text: "{{ reforme }}\r\n{% if sess_id != \"\" %}\r\n<i class=\"fa fa-envelope fa-lg green\"></i><span class=\"fa green\">{{ sess_id }}</span>\r\n{% endif %}\r\n{% if sess_id_1 != \"\" %}\r\n<i class=\"fa fa-pause fa-lg \"></i>{{ sess_id_1 }}\r\n{% endif %}\r\n{% if sess_id_2 != \"\" %}\r\n<i class=\"fa fa-play-circle fa-lg blue\"></i><span class=\"fa blue\">{{ sess_id_2 }}</span>\r\n{% endif %}\r\n{% if sess_id_3 != \"\" %}\r\n<i class=\"fa fa-flag fa-lg red\"></i><span class=\"fa red\">{{ sess_id_3 }}</span>\r\n{% endif %}\r\n{% if sess_id_4 != \"\" %}\r\n<i class=\"fa fa-user fa-lg orange\"></i><span class=\"fa orange\">{{ sess_id_4 }}</span>\r\n{% endif %}\r\n{% if sess_id_5 != \"\" %}\r\n<i class=\"fa fa-users fa-lg pink\"></i><span class=\"fa pink\">{{ sess_id_5 }}</span>\r\n{% endif %}\r\n{% if sess_id_6!= '' %}\r\n<i class=\"fa blue fa-lg\">DE</i><span class=\"fa blue\">{{ sess_id_6 }}</span>\r\n{% endif %}\r\n{% if sess_id_7!= '' %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i>{{ sess_id_7 }}\r\n{% endif %}\r\n{% if sess_id_8!= '' %}\r\n<i class=\"fab fa-lg fa-linkedin\"></i>{{ sess_id_8 }}\r\n{% endif %}\r\n{% if sess_id_9!= '' %}\r\n<i class=\"fab fa-lg fa-linkedin red\"></i>{{ sess_id_9 }}\r\n{% endif %}\r\n{{ ficand }}"
             make_link: false
             path: ''
             absolute: false

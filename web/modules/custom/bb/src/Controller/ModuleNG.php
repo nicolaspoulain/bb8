@@ -200,6 +200,8 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\JournalForm', $co_degre, $co_modu);
     $content['prioritaire'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\PrioritaireForm', $co_degre, $co_modu);
+    $content['reforme'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\ReformeForm', $co_degre, $co_modu);
     $content['cfile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm', $co_degre, $co_modu);
     $content['afile'] =
