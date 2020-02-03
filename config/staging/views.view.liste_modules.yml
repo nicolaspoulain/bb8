@@ -7990,6 +7990,120 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        sess_id_8:
+          id: sess_id_8
+          table: gbb_session_inspecteur
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: sess_id_inspecteur
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: true
+          hide_alter_empty: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sess_id_9:
+          id: sess_id_9
+          table: gbb_session_inspecteur_red
+          field: sess_id
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: sess_id_inspecteur_red
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: true
+          hide_alter_empty: false
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         nothing_2:
           id: nothing_2
           table: views
@@ -8001,7 +8115,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_andi>0 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\r\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\r\n{% else %} \r\n<span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n{% endif %} \r\n\r\n\r\n\r\n"
+            text: "{% if co_andi>0 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\r\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\r\n{% else %} \r\n  {% if sess_id_8!= '' or sess_id_9!= ''%}\r\n  <span class={{ co_camp }}>&nbsp;{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n   {% else %} \r\n  <span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n  {% endif %}\r\n{% endif %} \r\n\r\n\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -8446,120 +8560,6 @@ display:
           group_type: count_distinct
           admin_label: ''
           label: sess_id_en_tmt
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: true
-          hide_alter_empty: false
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        sess_id_8:
-          id: sess_id_8
-          table: gbb_session_inspecteur
-          field: sess_id
-          relationship: none
-          group_type: count_distinct
-          admin_label: ''
-          label: sess_id_inspecteur
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: true
-          hide_alter_empty: false
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        sess_id_9:
-          id: sess_id_9
-          table: gbb_session_inspecteur_red
-          field: sess_id
-          relationship: none
-          group_type: count_distinct
-          admin_label: ''
-          label: sess_id_inspecteur_red
           exclude: true
           alter:
             alter_text: false
