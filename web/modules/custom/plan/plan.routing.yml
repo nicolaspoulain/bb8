@@ -1,0 +1,14 @@
+plan_list:
+  path: '/plan/list'
+  defaults:
+    _title: 'Liste des modules du plan'
+    _controller: '\Drupal\plan\Controller\PlanController::list'
+  requirements:
+    _permission: 'access content'
+
+prio_nat.form:
+  path: '/plan/prio_nat_form/{prio_nat}/{co_modu}/{co_degre}'
+  defaults:
+    _form: '\Drupal\plan\Form\PrioNatForm'
+  requirements:
+    _permission: 'access content'

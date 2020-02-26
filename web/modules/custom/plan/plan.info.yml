@@ -1,0 +1,6 @@
+name: Plan
+type: module
+description: 'Gestion du plan avec le tableau orange'
+package: Custom
+core: 8.x
+
