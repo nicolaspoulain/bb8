@@ -7,8 +7,15 @@ plan_list:
     _permission: 'access content'
 
 prio_nat.form:
-  path: '/plan/prio_nat_form/{prio_nat}/{co_modu}/{co_degre}'
+  path: '/plan/prio_nat_form/{prio_nat}/{co_modu}/{co_degre}/{co_tpla}'
   defaults:
     _form: '\Drupal\plan\Form\PrioNatForm'
+  requirements:
+    _permission: 'access content'
+
+thematique.form:
+  path: '/plan/thematique_form/{thematique}/{co_modu}/{co_degre}/{co_tpla}'
+  defaults:
+    _form: '\Drupal\plan\Form\ThematiqueForm'
   requirements:
     _permission: 'access content'

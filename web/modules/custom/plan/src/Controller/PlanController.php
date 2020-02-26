@@ -4,6 +4,7 @@ namespace Drupal\plan\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\bb\Controller\BbCrudController;
+use Drupal\Component\Render\FormattableMarkup;
 
 /**
  * Controller
@@ -22,19 +23,16 @@ class PlanController extends ControllerBase {
 
     $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\plan\Form\FiltresForm', $r->comment, $r->co_omodu);
 
-    $content['message'] = [
-      '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les plan de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
-    ];
-
     $headers = array(
-    'nomu_o'         => t('Resp. O'),
+    'nomu_o'       => t('Resp. O'),
     'co_tpla'      => t('Plan'),
     'co_orie'      => t('Orie'),
     'id_disp'      => t('Id disp'),
     'co_modu'      => t('Module'),
     'libl'         => t('Titre'),
-    'nomu_p'        => t('Resp. P.'),
-    'prio_nat'     => array('data' => t('Pr Nat'), 'class' => 'jaune'),
+    'nomu_p'       => t('Resp. P.'),
+    'prio_nat'     => array('data' => t('Priorité nationale'), 'class' => 'jaune'),
+    'thematique'   => array('data' => t('Thématique'), 'class' => 'jaune'),
     );
 
     // switch database (cf settings.php)
@@ -49,18 +47,17 @@ class PlanController extends ControllerBase {
     $query ->leftjoin('gbb_gdire', 'dp', 'dp.co_modu = m.co_modu AND dp.co_degre = m.co_degre AND dp.co_tres = 3');
     $query ->leftjoin('gbb_gresp', 'ro', 'do.co_resp = ro.co_resp AND do.co_degre = ro.co_degre');
     $query ->leftjoin('gbb_gresp', 'rp', 'dp.co_resp = rp.co_resp AND dp.co_degre = rp.co_degre');
-    // $query ->leftjoin('gbb_gresp', 'r2', 'm.co_resp = r2.co_resp AND r2.co_degre = 2');
     $query ->condition('d.id_disp', '19%', 'LIKE');
     if (strlen($nomu)>0)    $query ->condition('ro.nomu', $nomu, 'like');
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     $query ->fields('m', array(
-      'libl', 'co_modu', 'co_degre',
+      'libl', 'co_modu', 'co_degre', 'lpeda',
     ));
     $query ->fields('d', array(
       'id_disp', 'co_tpla', 'co_orie',
     ));
     $query ->fields('mm', array(
-      'prio_nat',
+      'prio_nat', 'thematique',
     ));
     // $query ->fields('ro', array('nomu'));
     $query ->addfield('d', 'libl', 'libdispo');
@@ -71,8 +68,8 @@ class PlanController extends ControllerBase {
 
   $rows = array();
   foreach ($result = $pager->execute()->fetchAll() as $r) {
-    // $comment = render(drupal_get_form('gbb_plan_comment_form', // $r->comment, $r->co_omodu)) ;
-    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\plan\Form\PrioNatForm', $r->prio_nat, $r->co_modu, $r->co_degre);
+    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\plan\Form\PrioNatForm', $r->prio_nat, $r->co_modu, $r->co_degre, $r->co_tpla);
+    $thematique = \Drupal::formBuilder()->getForm('Drupal\plan\Form\ThematiqueForm', $r->thematique, $r->co_modu, $r->co_degre, $r->co_tpla);
 
     $titre = $r->libl;
     $class = "normal";
@@ -86,10 +83,11 @@ class PlanController extends ControllerBase {
       'co_tpla'      => array('data' => $r->co_tpla),
       'co_orie'      => array('data' => $r->co_orie),
       'id_disp'      => array('data' => $r->id_disp),
-      'co_modu'      => array('data' => $r->co_modu),
+      'co_modu'      => array('data' =>  new FormattableMarkup('<a href=":link">@name</a>', [':link' => "../moduleng/".$r->co_degre."/".$r->co_modu, '@name' => $r->co_modu]), "title"=> $r->lpeda),
       'libl'         => array('data' => $titre, "class"=>$class),
       'nomu_p'        => array('data' => $r->nomu_p),
       'prio_nat'     => array('data' => $prio_nat),
+      'thematique'     => array('data' => $thematique),
     );
   }
 
