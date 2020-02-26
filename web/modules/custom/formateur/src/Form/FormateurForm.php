@@ -305,8 +305,8 @@ class FormateurForm extends FormBase {
     );
 
     $responsable = array('------------',
-      "Argo", "Boonen", "Bourdin", "Charpentrat", "Chassin", "Cordier",
-      "Dehamel", "Encontre", "Morvan", "Mambole", "Perrin", "Poulain",
+      "Argo", "Boonen", "Bourdin", "Chassin", "Cordier",
+      "El Mokhtari", "Morvan", "Mambole", "Perrin", "Poncet", "Poulain",
       "Pozzebon", "Prato", "Rey", "Zytnicki");
 
     $form['resp_dafor'] = array(
