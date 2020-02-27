@@ -5,6 +5,7 @@ namespace Drupal\plan\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\bb\Controller\BbCrudController;
 use Drupal\Component\Render\FormattableMarkup;
+use Drush\Commands\core\CacheCommands;
 
 /**
  * Controller
@@ -103,7 +104,9 @@ class PlanController extends ControllerBase {
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;
 
-drupal_flush_all_caches(); // For Drupal-8
+// drupal_flush_all_caches(); // For Drupal-8
+    CacheCommands::clearRender();
+    CacheCommands::clearPlugin();
 
     return $content;
   }
