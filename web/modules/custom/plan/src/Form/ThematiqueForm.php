@@ -39,7 +39,7 @@ class ThematiqueForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $thematique=NULL, $co_modu=NULL, $co_degre=NULL, $co_tpla=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $thematique=NULL, $co_modu=NULL, $co_degre=NULL, $co_tpla=NULL, $id_disp=NULL) {
 
 $th_1d = array(
 0=> "-",
@@ -159,12 +159,10 @@ $th_2d = array(
 "908" => "908 : Préparation aux concours de recrutement des personnels d'encadrement",
 );
 
-if ($co_tpla=="S") {
-  $thematiques = $th_2d;
-} elseif ($co_tpla=="D") {
+if ($co_tpla=="P") {
   $thematiques = $th_1d;
 } else {
-   $thematiques = array();
+  $thematiques = $th_2d;
  }
 
   $form['co_modu']  = array('#type' => 'hidden','#value' => $co_modu );

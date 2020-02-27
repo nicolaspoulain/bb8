@@ -49,10 +49,12 @@ class PlanController extends ControllerBase {
     $query ->leftjoin('gbb_gresp', 'ro', 'do.co_resp = ro.co_resp AND do.co_degre = ro.co_degre');
     $query ->leftjoin('gbb_gresp', 'rp', 'dp.co_resp = rp.co_resp AND dp.co_degre = rp.co_degre');
     $query ->condition('d.id_disp', '19%', 'LIKE');
+    $query ->condition('d.id_disp', '19N%', 'NOT LIKE');
+    // $query ->condition('d.co_andi', '19%', 'LIKE');
     if (strlen($nomu)>0)    $query ->condition('ro.nomu', $nomu, 'like');
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     $query ->fields('m', array(
-      'libl', 'co_modu', 'co_degre', 'lpeda',
+      'libl', 'co_modu', 'co_degre', 'lpeda', 'co_anmo',
     ));
     $query ->fields('d', array(
       'id_disp', 'co_tpla', 'co_orie',
@@ -69,8 +71,8 @@ class PlanController extends ControllerBase {
 
   $rows = array();
   foreach ($result = $pager->execute()->fetchAll() as $r) {
-    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\plan\Form\PrioNatForm', $r->prio_nat, $r->co_modu, $r->co_degre, $r->co_tpla);
-    $thematique = \Drupal::formBuilder()->getForm('Drupal\plan\Form\ThematiqueForm', $r->thematique, $r->co_modu, $r->co_degre, $r->co_tpla);
+    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\plan\Form\PrioNatForm', $r->prio_nat, $r->co_modu, $r->co_degre, $r->co_tpla,$r->id_disp);
+    $thematique = \Drupal::formBuilder()->getForm('Drupal\plan\Form\ThematiqueForm', $r->thematique, $r->co_modu, $r->co_degre, $r->co_tpla,$r->id_disp);
 
     $titre = $r->libl;
     $class = "normal";
@@ -78,6 +80,9 @@ class PlanController extends ControllerBase {
       $titre = $r->libdispo;
       $class = "red";
     };
+    if (strlen($r->co_anmo)>=1) {
+      $class = "strike";
+    }
 
     $rows[] = array(
       'nomu_o'         => array('data' => $r->nomu_o),

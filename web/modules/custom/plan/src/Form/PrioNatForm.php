@@ -39,7 +39,7 @@ class PrioNatForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $prio_nat=NULL, $co_modu=NULL, $co_degre=NULL, $co_tpla=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $prio_nat=NULL, $co_modu=NULL, $co_degre=NULL, $co_tpla=NULL, $id_disp=NULL) {
 
 $prna_A = array(
 0=> "-",
@@ -89,7 +89,7 @@ $prna_S = array(
 "19211" => "192K : 2D-Evolutions profession. valorisation compétences",
 "19212" => "192L : 2D-Innovation",
 );
-$prna_D = array(
+$prna_P = array(
 0=> "-",
 "1910" => "1910 : 1D-Ecole maternelle",
 "1911" => "1911 : 1D-Apprentissage des fondamentaux à l'école",
@@ -135,10 +135,16 @@ if ($co_tpla=="S") {
   $prios = $prna_S;
 } elseif ($co_tpla=="A") {
   $prios = $prna_A;
-} elseif ($co_tpla=="D") {
-  $prios = $prna_D;
 } elseif ($co_tpla=="E") {
   $prios = $prna_E;
+} elseif ($co_tpla=="P") {
+  $prios = $prna_P;
+} elseif ($co_tpla=="D" or $co_tpla=="C") {
+  if (strpos($id_disp, "A") == 2) {
+    $prios = $prna_S;
+  } else {
+    $prios = $prna_P;
+  }
 } else {
   $prios = array();
 }
@@ -147,7 +153,7 @@ if ($co_tpla=="S") {
   $form['co_degre']  = array('#type' => 'hidden','#value' => $co_degre );
   $form['prio_nat'] = array(
     '#type' => 'select',
-    // '#title'=>  $prio_nat,
+    // '#title'=>  $id_disp,
     '#options' => $prios,
     '#default_value' => (isset($prio_nat))? (int)$prio_nat : '0',
     '#ajax' => array(
