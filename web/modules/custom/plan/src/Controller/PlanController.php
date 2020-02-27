@@ -31,8 +31,8 @@ class PlanController extends ControllerBase {
     'co_modu'      => t('Module'),
     'libl'         => t('Titre'),
     'nomu_p'       => t('Resp. P.'),
-    'prio_nat'     => array('data' => t('Priorité nationale'), 'class' => 'jaune'),
-    'thematique'   => array('data' => t('Thématique'), 'class' => 'jaune'),
+    'prio_nat'     => array('data' => t('Priorité nationale'), 'class' => 'orangebg'),
+    'thematique'   => array('data' => t('Thématique'), 'class' => 'orangebg'),
     );
 
     // switch database (cf settings.php)
@@ -102,6 +102,8 @@ class PlanController extends ControllerBase {
 
     // Don't cache this page.
     $content['#cache']['max-age'] = 0;
+
+drupal_flush_all_caches(); // For Drupal-8
 
     return $content;
   }
