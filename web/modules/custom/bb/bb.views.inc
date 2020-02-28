@@ -1581,6 +1581,26 @@ function bb_views_data() {
     ),
   );
   //}}
+  $data['gbb_gaffe']['table'] = array( 'group' => t('gbb_gcamo'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gpers',
+        'left_field' => 'no_matr',
+        'field' => 'no_matr',
+        'extra' => 'gbb_gpers.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gaffe']['flag_princ'] = array( 'help' => t('Flag affectation principale O/N'),
+  //{{
+    'title'  => t('flag_princ'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
   $data['gbb_gcamo']['no_matr'] = array( 'help' => t('No matricule candidat retenu'),
   //{{
