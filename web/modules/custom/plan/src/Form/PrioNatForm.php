@@ -141,9 +141,9 @@ if ($co_tpla=="S") {
   $prios = $prna_P;
 } elseif ($co_tpla=="D" or $co_tpla=="C") {
   if (strpos($id_disp, "A") == 2) {
-    $prios = $prna_S;
+    $prios = array_merge($prna_S,$prna_A);
   } else {
-    $prios = $prna_P;
+    $prios = array_merge($prna_P,$prna_A);
   }
 } else {
   $prios = array();

@@ -42,7 +42,7 @@ class PlanController extends ControllerBase {
     $count = 12;
 
     $query = db_select('gbb_gdisp', 'd');
-    $query ->leftjoin('gbb_gmodu', 'm', 'd.co_disp = m.co_disp');
+    $query ->leftjoin('gbb_gmodu', 'm', 'd.co_disp = m.co_disp and d.co_degre=m.co_degre');
     $query ->leftjoin('gbb_gmodu_plus', 'mm', 'mm.co_modu = m.co_modu AND mm.co_degre = m.co_degre');
     $query ->leftjoin('gbb_gdire', 'do', 'do.co_modu = m.co_modu AND do.co_degre = m.co_degre AND do.co_tres = 2');
     $query ->leftjoin('gbb_gdire', 'dp', 'dp.co_modu = m.co_modu AND dp.co_degre = m.co_degre AND dp.co_tres = 3');
