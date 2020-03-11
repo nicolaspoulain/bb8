@@ -43,14 +43,35 @@ class FiltresForm extends FormBase {
     $gets =\Drupal::request()->query->all();
     $nomu = $gets['nomu'];
     $co_orie = $gets['co_orie'];
+    $co_tpla = $gets['co_tpla'];
+    $co_camp = $gets['co_camp'];
 
+  $form['co_camp'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'FIL'=>'FIL',
+      'PAF'=>'PAF',
+    ),
+    '#title' => $this->t('Campagne'),
+    '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
+    '#default_value' => $co_camp,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+  );
+  $form['co_tpla'] = array(
+    '#type' => 'textfield',
+    '#title' => $this->t('Plan'),
+    '#size'          => 15,
+    '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
+    '#default_value' => $co_tpla,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+  );
   $form['nomu'] = array(
     '#type' => 'textfield',
     '#title' => $this->t('Intelocuteur dispo'),
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: Dupond')),
     '#default_value' => $nomu,
-    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
   $form['co_orie'] = array(
     '#type' => 'textfield',
@@ -58,7 +79,7 @@ class FiltresForm extends FormBase {
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
     '#default_value' => $co_orie,
-    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-6-24')),
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
   // Group submit handlers in an actions element with a key of "actions" so
@@ -83,11 +104,15 @@ class FiltresForm extends FormBase {
     $entry = array(
       'nomu'       => $form_state->getValue('nomu'),
       'co_orie'       => $form_state->getValue('co_orie'),
+      'co_tpla'       => $form_state->getValue('co_tpla'),
+      'co_camp'       => $form_state->getValue('co_camp'),
     );
     $form_state->setRedirect('offres_list',
       array(
         'nomu' => $form_state->getValue('nomu'),
-        'co_orie'  => $form_state->getValue('co_orie')
+        'co_orie'  => $form_state->getValue('co_orie'),
+        'co_tpla'  => $form_state->getValue('co_tpla'),
+        'co_camp'  => $form_state->getValue('co_camp'),
       ),
       array( 'fragment' => 'sessions')
     );

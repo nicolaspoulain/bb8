@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains Drupal\offres\Form\InterdiscForm.
+ * Contains Drupal\offres\Form\ProxForm.
  */
 
 namespace Drupal\offres\Form;
@@ -18,34 +18,33 @@ use Drupal\bb\Controller\BbCrudController;
 
 
 /**
- * Implements the InterdiscForm form controller.
+ * Implements the ProxForm form controller.
  */
-class InterdiscForm extends FormBase {
+class ProxForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getTitle() {
-    return 'Modification de la interdisc';
+    return 'Modification de la prox';
   }
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'InterdiscForm';
+    return 'ProxForm';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $interdisc=NULL, $co_omodu=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $prox=NULL, $co_omodu=NULL) {
 
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
-  $interdisc = ($interdisc=='1')? 1 : '0';
-  $form['interdisc'] = array(
+  $form['prox'] = array(
     '#type' => 'checkbox', '#size' => 1,
-    '#default_value' => (int)$interdisc,
+    '#default_value' => (isset($prox))? (int)$prox : '0',
     '#ajax' => array(
       'callback' => [$this,'saveAjax'],
       'progress' => array('type' => 'throbber', 'message' => '')),);
@@ -74,7 +73,7 @@ class InterdiscForm extends FormBase {
       'co_omodu'  => $coo['co_omodu'],
     );
     $entry = array(
-      'interdisc'  => $form_state->getValue('interdisc'),
+      'prox'  => $form_state->getValue('prox'),
     );
     $row = BbCrudController::load('gbb_gdiof_dafor', $condition);
     if (!empty($row)) {

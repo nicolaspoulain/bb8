@@ -48,7 +48,8 @@ class PrioPafForm extends FormBase {
       '0' =>'-',
       '1'=>'1',
       '2'=>'2',
-      '3'=>'3',),
+      '3'=>'3',
+      '4'=>'4',),
     '#default_value' => (is_numeric($prio_paf)? $prio_paf : '0'),
     '#ajax' => array(
       'callback' => [$this,'saveAjax'],

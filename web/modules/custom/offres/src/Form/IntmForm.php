@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains Drupal\offres\Form\InterdiscForm.
+ * Contains Drupal\offres\Form\IntmForm.
  */
 
 namespace Drupal\offres\Form;
@@ -18,34 +18,33 @@ use Drupal\bb\Controller\BbCrudController;
 
 
 /**
- * Implements the InterdiscForm form controller.
+ * Implements the IntmForm form controller.
  */
-class InterdiscForm extends FormBase {
+class IntmForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getTitle() {
-    return 'Modification de la interdisc';
+    return 'Modification de la intm';
   }
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'InterdiscForm';
+    return 'IntmForm';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $interdisc=NULL, $co_omodu=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $intm=NULL, $co_omodu=NULL) {
 
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
-  $interdisc = ($interdisc=='1')? 1 : '0';
-  $form['interdisc'] = array(
+  $form['intm'] = array(
     '#type' => 'checkbox', '#size' => 1,
-    '#default_value' => (int)$interdisc,
+    '#default_value' => (isset($intm))? (int)$intm : '0',
     '#ajax' => array(
       'callback' => [$this,'saveAjax'],
       'progress' => array('type' => 'throbber', 'message' => '')),);
@@ -74,7 +73,7 @@ class InterdiscForm extends FormBase {
       'co_omodu'  => $coo['co_omodu'],
     );
     $entry = array(
-      'interdisc'  => $form_state->getValue('interdisc'),
+      'intm'  => $form_state->getValue('intm'),
     );
     $row = BbCrudController::load('gbb_gdiof_dafor', $condition);
     if (!empty($row)) {

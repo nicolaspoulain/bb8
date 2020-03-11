@@ -18,6 +18,8 @@ class OffresController extends ControllerBase {
     $gets =\Drupal::request()->query->all();
     $nomu = $gets['nomu'];
     $co_orie = $gets['co_orie'];
+    $co_tpla = $gets['co_tpla'];
+    $co_camp = $gets['co_camp'];
 
 
     $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
@@ -37,11 +39,15 @@ class OffresController extends ControllerBase {
     'nomu2'        => t('Resp. péda.'),
     'co_moda'      => t('Hybr'),
     'offre_cat'    => array('data' => t('AP ou Pub Dés'), 'class' => 'jaune'),
+    'prox'         => array('data' => t('Form de prox'), 'class' => 'jaune'),
+    'entm'         => array('data' => t('Entr métier'), 'class' => 'jaune'),
+    'intm'         => array('data' => t('Inter métier'), 'class' => 'jaune'),
+    'fofo'         => array('data' => t('Fo de fo'), 'class' => 'jaune'),
     'iufm'         => array('data' => t('Offreur'), 'class' => 'jaune'),
     'interdisc'    => array('data' => t('Interdisc'), 'class' => 'jaune'),
     'nouv_offreur' => array('data' => t('Nouv. offreur'), 'class' => 'jaune'),
     'prio_nat'     => array('data' => t('Pr Nat'), 'class' => 'jaune'),
-    'prio_aca'     => array('data' => t('Pr Aca'), 'class' => 'jaune'),
+    // 'prio_aca'     => array('data' => t('Pr Aca'), 'class' => 'jaune'),
     'prio_paf'     => array('data' => t('Pr PAF'), 'class' => 'jaune'),
     'nb_hp'        => array('data' => t('Nbre HP'), 'class' => 'jaune'),
     'nb_vac'       => array('data' => t('Nbre vac.'), 'class' => 'jaune'),
@@ -70,17 +76,20 @@ class OffresController extends ControllerBase {
     $query ->condition('d.no_offre', '20190000', '>');
     if (strlen($nomu)>0)    $query ->condition('r.nomu', $nomu, 'like');
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
+    if (strlen($co_tpla)>0) $query ->condition('d.co_tpla', $co_tpla, 'like');
+    if ($co_camp=='FIL') $query ->condition('d.co_camp', 'BS', 'like');
+    if ($co_camp=='PAF') $query ->condition('d.co_camp', 'BS', 'not like');
     $query ->fields('m', array(
       'libl', 'co_omodu', 'nb_groupe', 'duree_prev','nb_eff_groupe', 'co_moda',
       'cout_p_excep', 'cout_p_prest', 'cout_p_fonc',
     ));
     $query ->fields('d', array(
-      'no_offre', 'co_tpla', 'co_orie','co_offreur',
+      'no_offre', 'co_tpla', 'co_orie','co_offreur','co_camp',
     ));
     $query ->fields('dd', array(
       'nb_hp','nb_vac','taux','ht2','iufm', 'nouv_offreur',
       'prio_nat','prio_aca', 'offre_cat','interdisc', 'comment','position',
-      'prio_paf',
+      'prio_paf','prox','entm','intm','fofo',
       // 'offre_new', 'pub_des','anim_peda', 'foad',
     ));
     $query ->fields('r', array('nomu'));
@@ -94,11 +103,17 @@ class OffresController extends ControllerBase {
     // $comment = render(drupal_get_form('gbb_offres_comment_form', // $r->comment, $r->co_omodu)) ;
     $position = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PositionForm', $r->position, $r->co_omodu);
     $offre_cat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\OffreCatForm', $r->offre_cat, $r->co_omodu);
+
+    $prox = \Drupal::formBuilder()->getForm('Drupal\offres\Form\ProxForm', $r->prox, $r->co_omodu);
+    $entm = \Drupal::formBuilder()->getForm('Drupal\offres\Form\EntmForm', $r->entm, $r->co_omodu);
+    $intm = \Drupal::formBuilder()->getForm('Drupal\offres\Form\IntmForm', $r->intm, $r->co_omodu);
+    $fofo = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FofoForm', $r->fofo, $r->co_omodu);
+
     $iufm = \Drupal::formBuilder()->getForm('Drupal\offres\Form\IufmForm', $r->iufm, $r->co_omodu);
     $interdisc = \Drupal::formBuilder()->getForm('Drupal\offres\Form\InterdiscForm', $r->interdisc, $r->co_omodu);
     $nouv_offreur = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NouvOffreurForm', $r->nouv_offreur, $r->co_omodu);
-    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu);
-    $prio_aca = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioAcaForm', $r->prio_aca, $r->co_omodu);
+    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu, $r->co_tpla);
+    // $prio_aca = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioAcaForm', $r->prio_aca, $r->co_omodu);
     $prio_paf = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioPafForm', $r->prio_paf, $r->co_omodu);
     $nb_hp = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NbHpForm', $r->nb_hp, $r->co_omodu);
     $nb_vac = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NbVacForm', $r->nb_vac, $r->co_omodu);
@@ -124,11 +139,15 @@ class OffresController extends ControllerBase {
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
       'offre_cat'    => array('data' => $offre_cat),
+      'prox'         => array('data' => $prox),
+      'entm'         => array('data' => $entm),
+      'intm'         => array('data' => $intm),
+      'fofo'         => array('data' => $fofo),
       'iufm'         => array('data' => $iufm),
       'intedisc'     => array('data' => $interdisc),
       'nouv_offreur' => array('data' => $nouv_offreur),
       'prio_nat'     => array('data' => $prio_nat),
-      'prio_aca'     => array('data' => $prio_aca),
+      // 'prio_aca'     => array('data' => $prio_aca),
       'prio_paf'     => array('data' => $prio_paf),
       'nb_hp'        => array('data' => $nb_hp),
       'nb_vac'       => array('data' => $nb_vac),
