@@ -156,6 +156,7 @@ if ($co_tpla=="S") {
   $prios = $prna_P;
 } elseif ($co_tpla=="D" or $co_tpla=="C") {
   if (strpos($id_disp, "A") == 2) {
+// # tous les tableaux
     $prios = $prna_S;
   } else {
     $prios = $prna_P;

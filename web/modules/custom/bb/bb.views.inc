@@ -262,6 +262,50 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gmodu_plus']['thematique'] = array( 'help' => t('thematique orange'),
+  //{{
+    'title' => t('thematique orange'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmodu_plus']['prio_nat'] = array( 'help' => t('prio_nat orange'),
+  //{{
+    'title' => t('prio_nat orange'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_nprna_orange']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_nprna',
+        'left_table' => 'gbb_gmodu_plus',
+        'left_field' => 'prio_nat',
+        'field' => 'co_prna',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_nprna_orange']['lib_court'] = array( 'help' => t('Priorite nationale : libellé court (orange)'),
+  //{{
+    'title' => t('nprna_orange.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_nprna_orange']['lib_long'] = array( 'help' => t('Priorite nationale : libellé long (orange)'),
+  //{{
+    'title' => t('nprna_orange.lib_long'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gmodu_taxonomy']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(

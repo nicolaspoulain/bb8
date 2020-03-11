@@ -41,6 +41,8 @@ class PrioNatForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $prio_nat=NULL, $co_modu=NULL, $co_degre=NULL, $co_tpla=NULL, $id_disp=NULL) {
 
+
+
 $prna_A = array(
 0=> "-",
 "1930" => "1930 : EA-Déontologie de la fonction publique",
@@ -141,9 +143,11 @@ if ($co_tpla=="S") {
   $prios = $prna_P;
 } elseif ($co_tpla=="D" or $co_tpla=="C") {
   if (strpos($id_disp, "A") == 2) {
-    $prios = array_merge($prna_S,$prna_A);
+    // $prios = array_merge($prna_S,$prna_A);
+    $prios = $prna_S+$prna_A;
   } else {
-    $prios = array_merge($prna_P,$prna_A);
+    // $prios = array_merge($prna_P,$prna_A);
+    $prios = $prna_P+$prna_A;
   }
 } else {
   $prios = array();

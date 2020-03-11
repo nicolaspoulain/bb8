@@ -49,10 +49,11 @@ class FiltresForm extends FormBase {
   $form['co_camp'] = array(
     '#type' => 'select',
     '#options' => array(
+      'TOUT'=>'Tout',
       'FIL'=>'FIL',
       'PAF'=>'PAF',
     ),
-    '#title' => $this->t('Campagne'),
+    '#title' => $this->t('PAF/FIL'),
     '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
     '#default_value' => $co_camp,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
