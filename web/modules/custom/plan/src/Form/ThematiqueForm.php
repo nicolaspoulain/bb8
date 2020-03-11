@@ -159,8 +159,14 @@ $th_2d = array(
 "908" => "908 : Préparation aux concours de recrutement des personnels d'encadrement",
 );
 
-if ($co_tpla=="P") {
+if ($co_tpla=="P" )  {
   $thematiques = $th_1d;
+} elseif ($co_tpla=="D" or $co_tpla=="C") {
+  if (strpos($id_disp, "A") == 2) {
+    $thematiques = $th_2d;
+  } else {
+    $thematiques = $th_1d;
+  }
 } else {
   $thematiques = $th_2d;
  }

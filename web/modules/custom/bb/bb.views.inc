@@ -1588,9 +1588,55 @@ function bb_views_data() {
         'left_table' => 'gbb_gpers',
         'left_field' => 'no_matr',
         'field' => 'no_matr',
-        'extra' => 'gbb_gpers.co_degre = gbb_gmodu.co_degre',
+        'extra' => 'gbb_gaffe.co_degre = gbb_gmodu.co_degre',
       ),
     ),
+  );
+  //}}
+  $data['gbb_netab_affe']['table'] = array( 'group' => t('gbb_gcamo'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_netab',
+        'left_table' => 'gbb_gaffe',
+        'left_field' => 'co_lieu',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
+  //}}
+
+
+  $data['gbb_netab_affe']['sigle'] = array( 'help' => t('Sigle etab affectation'),
+  //{{
+    'title'  => t('sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_affe']['denom_comp'] = array( 'help' => t('Nom etab affectation'),
+  //{{
+    'title'  => t('denom_comp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gaffe']['flag_princ'] = array( 'help' => t('Flag affectation principale O/N'),
+  //{{
+    'title'  => t('flag_princ'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gaffe']['co_lieu'] = array( 'help' => t('Code lieu affectation'),
+  //{{
+    'title'  => t('gaffe.co_lieu'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
   );
   //}}
   $data['gbb_gaffe']['flag_princ'] = array( 'help' => t('Flag affectation principale O/N'),
@@ -1645,6 +1691,14 @@ function bb_views_data() {
   $data['gbb_gpers']['mel'] = array( 'help' => t('Email de la personne'),
   //{{
     'title'  => t('mel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gpers']['co_posi'] = array( 'help' => t('Code position'),
+  //{{
+    'title'  => t('co_posi'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
