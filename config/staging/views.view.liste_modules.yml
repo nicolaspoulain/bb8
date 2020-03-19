@@ -62,7 +62,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 3000
+          items_per_page: 500
           offset: 0
           id: 0
           total_pages: null
@@ -7493,6 +7493,55 @@ display:
           element_wrapper_class: ''
           element_default_classes: 1
           empty: "{% if prio_nat==\"19303\" %} A-Culture juridique commune\r\n{% elseif prio_nat==\"19304\" %} A-Gestion matérielle, admin, financière comptable \r\n{% elseif prio_nat==\"19305\" %} A-Qualité de vie au travail\r\n{% elseif prio_nat==\"19306\" %} A-Accompagnement des évolutions professionnelles\r\n{% elseif prio_nat==\"19307\" %} EA-GRH de proximité\r\n{% elseif prio_nat==\"19308\" %} EA-Professionnalisation des acteurs RH & formation\r\n{% elseif prio_nat==\"19309\" %} A-Promotion de la santé\r\n{% elseif prio_nat==\"19310\" %} A-Santé et sécurité au travail\r\n{% elseif prio_nat==\"19311\" %} A-Action sociale pour les personnels\r\n{% elseif prio_nat==\"19312\" %} A-Développement professionnel personnels de santé \r\n{% elseif prio_nat==\"19313\" %} A-Evolutions profession. valorisation compétences \r\n{% elseif prio_nat==\"19314\" %} EA-Innovation\r\n{% elseif prio_nat==\"19201\" %} 2D-Déontologie de la fonction publique\r\n{% elseif prio_nat==\"19202\" %} 2D-Culture juridique et fondamentaux du droit\r\n{% elseif prio_nat==\"19203\" %} 2D-Valeurs de la république\r\n{% elseif prio_nat==\"19204\" %} 2D-Egalité des chances réussite de tous les élèves\r\n{% elseif prio_nat==\"19205\" %} 2D-Ecole inclusive\r\n{% elseif prio_nat==\"19206\" %} 2D-Mode projet et collectifs de travail\r\n{% elseif prio_nat==\"19207\" %} 2D-Relations & conflits : savoir faire savoir être\r\n{% elseif prio_nat==\"19208\" %} 2D-Prévention des violences éducatives ordinaires \r\n{% elseif prio_nat==\"19209\" %} 2D-Promotion de la santé\r\n{% elseif prio_nat==\"19210\" %} 2D-Santé et sécurité au travail\r\n{% elseif prio_nat==\"19211\" %} 2D-Evolutions profession. valorisation compétences\r\n{% elseif prio_nat==\"19212\" %} 2D-Innovation\r\n{% elseif prio_nat==\"19101\" %} 1D-Numérique et IA dans le cadre pédagogique\r\n{% elseif prio_nat==\"19102\" %} 1D-Sciences cognitives, mécanismes d'apprentissage\r\n{% elseif prio_nat==\"19103\" %} 1D-Education artistique et culturelle\r\n{% elseif prio_nat==\"19104\" %} 1D-Evaluations nationales des élèves\r\n{% elseif prio_nat==\"19105\" %} 1D-Diversité des élèves dans les apprentissages\r\n{% elseif prio_nat==\"19106\" %} 1D-Promotion de la santé\r\n{% elseif prio_nat==\"19107\" %} 1D-Santé et sécurité au travail\r\n{% elseif prio_nat==\"19108\" %} 1D-Evolutions profession. valorisation compétences\r\n{% elseif prio_nat==\"19109\" %} 1D-Innovation\r\n{% elseif prio_nat==\"19110\" %} 1D-Continuum form. initiale - form. continuée\r\n{% elseif prio_nat==\"19301\" %} E-Modernisation du service public & communication \r\n{% elseif prio_nat==\"19302\" %} E-Evaluation nationale des établissements\r\n{% elseif prio_nat==\"19307\" %} EA-GRH de proximité\r\n{% elseif prio_nat==\"19308\" %} EA-Professionnalisation des acteurs RH & formation\r\n{% elseif prio_nat==\"19314\" %} EA-Innovation\r\n{% else %} ?? \r\n{% endif %}\r\n"
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        thematique:
+          id: thematique
+          table: gbb_gmodu_plus
+          field: thematique
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Thématique (tab. orange)'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
           hide_empty: 0
           empty_zero: 0
           hide_alter_empty: 1
@@ -19634,7 +19683,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if thematique==\"13\" %}   13 : Accompagnement des professeurs stagiaires\r\n{% elseif thematique==\"17\" %}   17 : Enseignement de l'histoire des arts\r\n{% elseif thematique==\"18\" %}   18 : Intégration pédagogique des ENT\r\n{% elseif thematique==\"20\" %}   20 : Numérique au sein de la discipline\r\n{% elseif thematique==\"21\" %}   21 : Éducation au développement durable\r\n{% elseif thematique==\"22\" %}   22 : Europe et international\r\n{% elseif thematique==\"29\" %}   29 : Formation réglementaire des nouveaux directeurs d'école\r\n{% elseif thematique==\"30\" %}   30 : Certification CLES\r\n{% elseif thematique==\"31\" %}   31 : Certification C2i2e\r\n{% elseif thematique==\"32\" %}   32 : Éducation prioritaire\r\n{% elseif thematique==\"33\" %}   33 : Activités pédagogiques complémentaires (école)\r\n{% elseif thematique==\"37\" %}   37 : Enseignement du français (école)\r\n{% elseif thematique==\"38\" %}   38 : Enseignement des mathématiques (école)\r\n{% elseif thematique==\"39\" %}   39 : Développement de la pratique des langues vivantes\r\n{% elseif thematique==\"441\"%}   441 : Parcours d'éducation artistique et culturelle\r\n{% elseif thematique==\"442\"%}   442 : Parcours éducatif de santé\r\n{% elseif thematique==\"443\"%}   443 : Parcours citoyen\r\n{% elseif thematique==\"49\" %}   49 : Sciences cognitives et mécanismes d'apprentissage\r\n{% elseif thematique==\"50\" %}   50 : Recherche et développement, innovation et expérimentation\r\n{% elseif thematique==\"51\" %}   51 : Différenciation pédagogique\r\n{% elseif thematique==\"52\" %}   52 : Objectifs, modalités et pratiques d'évaluation\r\n{% elseif thematique==\"53\" %}   53 : Liaison+Ecole-collège\r\n{% elseif thematique==\"54\" %}   54 : Egalité entre les filles et les garçons\r\n{% elseif thematique==\"55\" %}   55 : Laïcité\r\n{% elseif thematique==\"56\" %}   56 : Dialogue avec les parents\r\n{% elseif thematique==\"57\" %}   57 : Accueil+élèves+allophones+ou familles+itinérantes\r\n{% elseif thematique==\"58\" %}   58 : Formations certificatives ASH\r\n{% elseif thematique==\"59\" %}   59 : Autres formations ASH\r\n{% elseif thematique==\"61\" %}   61 : Accompagnement du dispositif CP dédoublés\r\n{% elseif thematique==\"62\" %}   62 : Accompagnement du dispositif CE1 dédoublés\r\n{% elseif thematique==\"63\" %}   63 : Maternelle - Sécurité affective\r\n{% elseif thematique==\"64\" %}   64 : Maternelle - Apprentissage des fondamentaux \r\n{% elseif thematique==\"65\" %}   65 : Maternelle - Enseignement structuré du vocabulaire\r\n{% elseif thematique==\"66\" %}   66 : Accompagnement du plan mathématiques\r\n{% elseif thematique==\"80\" %}   80 : Lutte contre le harcèlement\r\n{% elseif thematique==\"81\" %}   81 : Lutte contre les discriminations\r\n{% elseif thematique==\"82\" %}   82 : Prévention de la radicalisation\r\n{% elseif thematique==\"83\" %}   83 : Respecter autrui\r\n{% elseif thematique==\"84\" %}   84 : Lutte contre le décrochage scolaire\r\n{% elseif thematique==\"85\" %}   85 : Certification numérique PIX\r\n{% elseif thematique==\"86\" %}   86 : Enseignement des sciences informatiques et numériques\r\n{% elseif thematique==\"87\" %}   87 : Sécurité et protection des données\r\n{% elseif thematique==\"88\" %}   88 : Secourisme\r\n{% elseif thematique==\"89\" %}   89 : Certification de formateur - CAFFA, CAFIPEFM\r\n{% elseif thematique==\"90\" %}   90 : Certification en langues\r\n{% elseif thematique==\"907\"%}   907 : Préparation aux concours ITRF\r\n{% elseif thematique==\"908\"%}   908 : Préparation aux concours de recrutement des personnels d'encadrement\r\n{% elseif thematique==\"13\" %}   13 : Accompagnement des professeurs stagiaires\r\n{% elseif thematique==\"14\" %}   14 : Lycée technologique : la série STI2D\r\n{% elseif thematique==\"15\" %}   15 : Lycée technologique : la série STL\r\n{% elseif thematique==\"16\" %}   16 : Lycée technologique : la série STD2A\r\n{% elseif thematique==\"17\" %}   17 : Enseignement de l'histoire des arts\r\n{% elseif thematique==\"18\" %}   18 : Intégration pédagogique des ENT\r\n{% elseif thematique==\"20\" %}   20 : Numérique au sein de la discipline\r\n{% elseif thematique==\"21\" %}   21 : Éducation au développement durable\r\n{% elseif thematique==\"22\" %}   22 : Europe et international\r\n{% elseif thematique==\"30\" %}   30 : Certification CLES\r\n{% elseif thematique==\"31\" %}   31 : Certification C2i2e\r\n{% elseif thematique==\"32\" %}   32 : Éducation prioritaire\r\n{% elseif thematique==\"34\" %}   34 : Accompagnement éducatif (collège)\r\n{% elseif thematique==\"35\" %}   35 : Accompagnement personnalisé (collège)\r\n{% elseif thematique==\"36\" %}   36 : Accompagnement personnalisé (lycée)\r\n{% elseif thematique==\"39\" %}   39 : Développement de la pratique des langues vivantes\r\n{% elseif thematique==\"40\" %}   40 : Evaluation des compétences orales au ; baccalauréat\r\n{% elseif thematique==\"42\" %}   42 : Lycée technologique : la série STMG\r\n{% elseif thematique==\"43\" %}   43 : Enseignements d'exploration\r\n{% elseif thematique==\"44\" %}   44 : Accompagnement+à l'orientation+collège+lycée\r\n{% elseif thematique==\"441\"%}   441 : Parcours d'éducation artistique et culturelle\r\n{% elseif thematique==\"442\"%}   442 : Parcours éducatif de santé\r\n{% elseif thematique==\"443\"%}   443 : Parcours citoyen\r\n{% elseif thematique==\"45\" %}   45 : Bac -3, bac +3 au lycée général et technologique\r\n{% elseif thematique==\"46\" %}   46 : Bac -3, bac +3 au lycée professionnel\r\n{% elseif thematique==\"47\" %}   47 : Vie de l'élève\r\n{% elseif thematique==\"48\" %}   48 : Relation+école-entreprise\r\n{% elseif thematique==\"49\" %}   49 : Sciences cognitives et mécanismes d'apprentissage\r\n{% elseif thematique==\"50\" %}   50 : Recherche et développement, innovation et expérimentation\r\n{% elseif thematique==\"51\" %}   51 : Différenciation pédagogique\r\n{% elseif thematique==\"52\" %}   52 : Objectifs, modalités et pratiques d'évaluation\r\n{% elseif thematique==\"53\" %}   53 : Liaison+Ecole-collège\r\n{% elseif thematique==\"54\" %}   54 : Egalité entre les filles et les garçons\r\n{% elseif thematique==\"55\" %}   55 : Laïcité\r\n{% elseif thematique==\"56\" %}   56 : Dialogue avec les parents\r\n{% elseif thematique==\"57\" %}   57 : Accueil+élèves+allophones+ou familles+itinérantes\r\n{% elseif thematique==\"58\" %}   58 : Formations certificatives ASH\r\n{% elseif thematique==\"59\" %}   59 : Autres formations ASH\r\n{% elseif thematique==\"60\" %}   60 : Enseignements pratiques interdisciplinaires \r\n{% elseif thematique==\"70\" %}   70 : Enseignements pratiques et interdisciplinaires\r\n{% elseif thematique==\"71\" %}   71 : Baccalauréat - Le grand oral\r\n{% elseif thematique==\"72\" %}   72 : TVP - Chef d'oeuvre\r\n{% elseif thematique==\"73\" %}   73 : TVP - Famille des métiers\r\n{% elseif thematique==\"74\" %}   74 : TVP - Co-intervention\r\n{% elseif thematique==\"80\" %}   80 : Lutte contre le harcèlement\r\n{% elseif thematique==\"81\" %}   81 : Lutte contre les discriminations\r\n{% elseif thematique==\"82\" %}   82 : Prévention de la radicalisation\r\n{% elseif thematique==\"83\" %}   83 : Respecter autrui\r\n{% elseif thematique==\"84\" %}   84 : Lutte contre le décrochage scolaire\r\n{% elseif thematique==\"85\" %}   85 : Certification numérique PIX\r\n{% elseif thematique==\"86\" %}   86 : Enseignement des sciences informatiques et numériques\r\n{% elseif thematique==\"87\" %}   87 : Sécurité et protection des données\r\n{% elseif thematique==\"88\" %}   88 : Secourisme\r\n{% elseif thematique==\"89\" %}   89 : Certification de formateur - CAFFA, CAFIPEFM\r\n{% elseif thematique==\"90\" %}   90 : Certification en langues\r\n{% elseif thematique==\"901\"%}   901 : Préparation aux concours - CAPES, CAPET, CAPEPS, CAPLP\r\n{% elseif thematique==\"902\"%}   902 : Préparation aux concours - Agrégation\r\n{% elseif thematique==\"903\"%}   903 : Préparation au concours de recrutement des CPE\r\n{% elseif thematique==\"904\"%}   904 : Préparation au concours de recrutement des PSYEN\r\n{% elseif thematique==\"905\"%}   905 : Préparation au concours Administration\r\n{% elseif thematique==\"906\"%}   906 : Préparation au concours - Santé, social\r\n{% elseif thematique==\"907\"%}   907 : Préparation aux concours ITRF\r\n{% elseif thematique==\"908\"%}   908 : Préparation aux concours de recrutement des personnels d'encadrement\r\n{% else %} ??\r\n{% endif %}\r\n"
+            text: "{% if thematique==\"13\" %}   13 : Accompagnement des professeurs stagiaires\r\n{% elseif thematique==\"17\" %}   17 : Enseignement de l'histoire des arts\r\n{% elseif thematique==\"18\" %}   18 : Intégration pédagogique des ENT\r\n{% elseif thematique==\"20\" %}   20 : Numérique au sein de la discipline\r\n{% elseif thematique==\"21\" %}   21 : Éducation au développement durable\r\n{% elseif thematique==\"22\" %}   22 : Europe et international\r\n{% elseif thematique==\"29\" %}   29 : Formation réglementaire des nouveaux directeurs d'école\r\n{% elseif thematique==\"30\" %}   30 : Certification CLES\r\n{% elseif thematique==\"31\" %}   31 : Certification C2i2e\r\n{% elseif thematique==\"32\" %}   32 : Éducation prioritaire\r\n{% elseif thematique==\"33\" %}   33 : Activités pédagogiques complémentaires (école)\r\n{% elseif thematique==\"37\" %}   37 : Enseignement du français (école)\r\n{% elseif thematique==\"38\" %}   38 : Enseignement des mathématiques (école)\r\n{% elseif thematique==\"39\" %}   39 : Développement de la pratique des langues vivantes\r\n{% elseif thematique==\"441\"%}   441 : Parcours d'éducation artistique et culturelle\r\n{% elseif thematique==\"442\"%}   442 : Parcours éducatif de santé\r\n{% elseif thematique==\"443\"%}   443 : Parcours citoyen\r\n{% elseif thematique==\"49\" %}   49 : Sciences cognitives et mécanismes d'apprentissage\r\n{% elseif thematique==\"50\" %}   50 : Recherche et développement, innovation et expérimentation\r\n{% elseif thematique==\"51\" %}   51 : Différenciation pédagogique\r\n{% elseif thematique==\"52\" %}   52 : Objectifs, modalités et pratiques d'évaluation\r\n{% elseif thematique==\"53\" %}   53 : Liaison+Ecole-collège\r\n{% elseif thematique==\"54\" %}   54 : Egalité entre les filles et les garçons\r\n{% elseif thematique==\"55\" %}   55 : Laïcité\r\n{% elseif thematique==\"56\" %}   56 : Dialogue avec les parents\r\n{% elseif thematique==\"57\" %}   57 : Accueil+élèves+allophones+ou familles+itinérantes\r\n{% elseif thematique==\"58\" %}   58 : Formations certificatives ASH\r\n{% elseif thematique==\"59\" %}   59 : Autres formations ASH\r\n{% elseif thematique==\"61\" %}   61 : Accompagnement du dispositif CP dédoublés\r\n{% elseif thematique==\"62\" %}   62 : Accompagnement du dispositif CE1 dédoublés\r\n{% elseif thematique==\"63\" %}   63 : Maternelle - Sécurité affective\r\n{% elseif thematique==\"64\" %}   64 : Maternelle - Apprentissage des fondamentaux \r\n{% elseif thematique==\"65\" %}   65 : Maternelle - Enseignement structuré du vocabulaire\r\n{% elseif thematique==\"66\" %}   66 : Accompagnement du plan mathématiques\r\n{% elseif thematique==\"80\" %}   80 : Lutte contre le harcèlement\r\n{% elseif thematique==\"81\" %}   81 : Lutte contre les discriminations\r\n{% elseif thematique==\"82\" %}   82 : Prévention de la radicalisation\r\n{% elseif thematique==\"83\" %}   83 : Respecter autrui\r\n{% elseif thematique==\"84\" %}   84 : Lutte contre le décrochage scolaire\r\n{% elseif thematique==\"85\" %}   85 : Certification numérique PIX\r\n{% elseif thematique==\"86\" %}   86 : Enseignement des sciences informatiques et numériques\r\n{% elseif thematique==\"87\" %}   87 : Sécurité et protection des données\r\n{% elseif thematique==\"88\" %}   88 : Secourisme\r\n{% elseif thematique==\"89\" %}   89 : Certification de formateur - CAFFA, CAFIPEFM\r\n{% elseif thematique==\"90\" %}   90 : Certification en langues\r\n{% elseif thematique==\"907\"%}   907 : Préparation aux concours ITRF\r\n{% elseif thematique==\"908\"%}   908 : Préparation aux concours de recrutement des personnels d'encadrement\r\n{% elseif thematique==\"13\" %}   13 : Accompagnement des professeurs stagiaires\r\n{% elseif thematique==\"14\" %}   14 : Lycée technologique : la série STI2D\r\n{% elseif thematique==\"15\" %}   15 : Lycée technologique : la série STL\r\n{% elseif thematique==\"16\" %}   16 : Lycée technologique : la série STD2A\r\n{% elseif thematique==\"17\" %}   17 : Enseignement de l'histoire des arts\r\n{% elseif thematique==\"18\" %}   18 : Intégration pédagogique des ENT\r\n{% elseif thematique==\"20\" %}   20 : Numérique au sein de la discipline\r\n{% elseif thematique==\"21\" %}   21 : Éducation au développement durable\r\n{% elseif thematique==\"22\" %}   22 : Europe et international\r\n{% elseif thematique==\"30\" %}   30 : Certification CLES\r\n{% elseif thematique==\"31\" %}   31 : Certification C2i2e\r\n{% elseif thematique==\"32\" %}   32 : Éducation prioritaire\r\n{% elseif thematique==\"34\" %}   34 : Accompagnement éducatif (collège)\r\n{% elseif thematique==\"35\" %}   35 : Accompagnement personnalisé (collège)\r\n{% elseif thematique==\"36\" %}   36 : Accompagnement personnalisé (lycée)\r\n{% elseif thematique==\"39\" %}   39 : Développement de la pratique des langues vivantes\r\n{% elseif thematique==\"40\" %}   40 : Evaluation des compétences orales au ; baccalauréat\r\n{% elseif thematique==\"42\" %}   42 : Lycée technologique : la série STMG\r\n{% elseif thematique==\"43\" %}   43 : Enseignements d'exploration\r\n{% elseif thematique==\"44\" %}   44 : Accompagnement+à l'orientation+collège+lycée\r\n{% elseif thematique==\"441\"%}   441 : Parcours d'éducation artistique et culturelle\r\n{% elseif thematique==\"442\"%}   442 : Parcours éducatif de santé\r\n{% elseif thematique==\"443\"%}   443 : Parcours citoyen\r\n{% elseif thematique==\"45\" %}   45 : Bac -3, bac +3 au lycée général et technologique\r\n{% elseif thematique==\"46\" %}   46 : Bac -3, bac +3 au lycée professionnel\r\n{% elseif thematique==\"47\" %}   47 : Vie de l'élève\r\n{% elseif thematique==\"48\" %}   48 : Relation+école-entreprise\r\n{% elseif thematique==\"49\" %}   49 : Sciences cognitives et mécanismes d'apprentissage\r\n{% elseif thematique==\"50\" %}   50 : Recherche et développement, innovation et expérimentation\r\n{% elseif thematique==\"51\" %}   51 : Différenciation pédagogique\r\n{% elseif thematique==\"52\" %}   52 : Objectifs, modalités et pratiques d'évaluation\r\n{% elseif thematique==\"53\" %}   53 : Liaison+Ecole-collège\r\n{% elseif thematique==\"54\" %}   54 : Egalité entre les filles et les garçons\r\n{% elseif thematique==\"55\" %}   55 : Laïcité\r\n{% elseif thematique==\"56\" %}   56 : Dialogue avec les parents\r\n{% elseif thematique==\"57\" %}   57 : Accueil+élèves+allophones+ou familles+itinérantes\r\n{% elseif thematique==\"58\" %}   58 : Formations certificatives ASH\r\n{% elseif thematique==\"59\" %}   59 : Autres formations ASH\r\n{% elseif thematique==\"60\" %}   60 : Enseignements pratiques interdisciplinaires \r\n{% elseif thematique==\"70\" %}   70 : Enseignements pratiques et interdisciplinaires\r\n{% elseif thematique==\"71\" %}   71 : Baccalauréat - Le grand oral\r\n{% elseif thematique==\"72\" %}   72 : TVP - Chef d'oeuvre\r\n{% elseif thematique==\"73\" %}   73 : TVP - Famille des métiers\r\n{% elseif thematique==\"74\" %}   74 : TVP - Co-intervention\r\n{% elseif thematique==\"80\" %}   80 : Lutte contre le harcèlement\r\n{% elseif thematique==\"81\" %}   81 : Lutte contre les discriminations\r\n{% elseif thematique==\"82\" %}   82 : Prévention de la radicalisation\r\n{% elseif thematique==\"83\" %}   83 : Respecter autrui\r\n{% elseif thematique==\"84\" %}   84 : Lutte contre le décrochage scolaire\r\n{% elseif thematique==\"85\" %}   85 : Certification numérique PIX\r\n{% elseif thematique==\"86\" %}   86 : Enseignement des sciences informatiques et numériques\r\n{% elseif thematique==\"87\" %}   87 : Sécurité et protection des données\r\n{% elseif thematique==\"88\" %}   88 : Secourisme\r\n{% elseif thematique==\"89\" %}   89 : Certification de formateur - CAFFA, CAFIPEFM\r\n{% elseif thematique==\"90\" %}   90 : Certification en langues\r\n{% elseif thematique==\"901\"%}   901 : Préparation aux concours - CAPES, CAPET, CAPEPS, CAPLP\r\n{% elseif thematique==\"902\"%}   902 : Préparation aux concours - Agrégation\r\n{% elseif thematique==\"903\"%}   903 : Préparation au concours de recrutement des CPE\r\n{% elseif thematique==\"904\"%}   904 : Préparation au concours de recrutement des PSYEN\r\n{% elseif thematique==\"905\"%}   905 : Préparation au concours Administration\r\n{% elseif thematique==\"906\"%}   906 : Préparation au concours - Santé, social\r\n{% elseif thematique==\"907\"%}   907 : Préparation aux concours ITRF\r\n{% elseif thematique==\"908\"%}   908 : Préparation aux concours de recrutement des personnels d'encadrement\r\n{% else %}\r\n{% endif %}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -20734,6 +20783,96 @@ display:
             placeholder: ''
             operator_limit_selection: false
             operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        prio_nat:
+          id: prio_nat
+          table: gbb_gmodu_plus
+          field: prio_nat
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: prio_nat_op
+            label: 'Priorité nationale (tab. orange)'
+            description: ''
+            use_operator: false
+            operator: prio_nat_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: prio_nat
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        thematique:
+          id: thematique
+          table: gbb_gmodu_plus
+          field: thematique
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: thematique_op
+            label: 'Thématique (tab. orange)'
+            description: ''
+            use_operator: false
+            operator: thematique_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: thematique
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
