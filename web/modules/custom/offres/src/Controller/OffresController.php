@@ -20,9 +20,13 @@ class OffresController extends ControllerBase {
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
+    $annee   = $gets['annee'];
+    if (! strlen($annee)>0) {
+      $annee = 2020;
+    }
 
 
-    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu);
+    $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu, $annee);
 
     $content['message'] = [
       '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
@@ -73,10 +77,11 @@ class OffresController extends ControllerBase {
     $query ->leftjoin('gbb_gdiof_dafor', 'dd', 'm.co_omodu = dd.co_omodu');
     $query ->leftjoin('gbb_gresp', 'r', 'd.co_resp = r.co_resp AND r.co_degre = 2');
     $query ->leftjoin('gbb_gresp', 'r2', 'm.co_resp = r2.co_resp AND r2.co_degre = 2');
-    $query ->condition('d.no_offre', '20190000', '>');
+    // $query ->condition('d.no_offre', '20190000', '>');
     if (strlen($nomu)>0)    $query ->condition('r.nomu', $nomu, 'like');
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     if (strlen($co_tpla)>0) $query ->condition('d.co_tpla', $co_tpla, 'like');
+    if (strlen($annee)>0) $query ->condition('d.no_offre', $annee."0000", '>');
     if ($co_camp=='FIL') $query ->condition('d.co_camp', 'BS', 'like');
     if ($co_camp=='PAF') $query ->condition('d.co_camp', 'BS', 'not like');
     $query ->fields('m', array(

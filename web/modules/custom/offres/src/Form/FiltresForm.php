@@ -39,13 +39,25 @@ class FiltresForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $comment=NULL, $co_omodu=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $comment=NULL, $co_omodu=NULL, $annee=NULL) {
     $gets =\Drupal::request()->query->all();
     $nomu = $gets['nomu'];
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
 
+  $form['annee'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      '2021'=>'2021-22',
+      '2020'=>'2020-21',
+      '2019'=>'2019-20',
+      '2018'=>'2018-19',
+    ),
+    '#title' => $this->t('Année'),
+    '#default_value' => $annee,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+  );
   $form['co_camp'] = array(
     '#type' => 'select',
     '#options' => array(
@@ -107,6 +119,7 @@ class FiltresForm extends FormBase {
       'co_orie'       => $form_state->getValue('co_orie'),
       'co_tpla'       => $form_state->getValue('co_tpla'),
       'co_camp'       => $form_state->getValue('co_camp'),
+      'annee'         => $form_state->getValue('annee'),
     );
     $form_state->setRedirect('offres_list',
       array(
@@ -114,6 +127,7 @@ class FiltresForm extends FormBase {
         'co_orie'  => $form_state->getValue('co_orie'),
         'co_tpla'  => $form_state->getValue('co_tpla'),
         'co_camp'  => $form_state->getValue('co_camp'),
+        'annee'    => $form_state->getValue('annee'),
       ),
       array( 'fragment' => 'sessions')
     );
