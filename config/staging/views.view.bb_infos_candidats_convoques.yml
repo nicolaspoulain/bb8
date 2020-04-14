@@ -5,8 +5,12 @@ dependencies:
   config:
     - block.block.views_block__infos_module_block_1
     - block.block.views_block__infos_module_block_3
+    - user.role.d_admi
+    - user.role.d_cons
+    - user.role.d_inspec
   module:
     - bb
+    - user
 id: bb_infos_candidats_convoques
 label: 'BB: infos candidats & convoqués'
 module: views
@@ -22,8 +26,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            d_cons: d_cons
+            d_admi: d_admi
+            d_inspec: d_inspec
       cache:
         type: tag
         options: {  }
@@ -620,6 +628,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -634,6 +643,7 @@ display:
       contexts:
         - 'languages:language_interface'
         - url
+        - user.roles
       tags: {  }
   page_2:
     display_plugin: page
@@ -1485,4 +1495,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
