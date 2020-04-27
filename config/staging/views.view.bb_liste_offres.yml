@@ -80,13 +80,14 @@ display:
           row_class: ''
           default_row_class: true
           override: true
-          sticky: false
+          sticky: true
           caption: ''
           summary: ''
           description: ''
           columns:
             co_tpla: co_tpla
             co_orie: co_orie
+            co_tpla_1: co_tpla_1
             no_offre: no_offre
             co_omodu: co_omodu
             libl: libl
@@ -98,6 +99,8 @@ display:
             denom_comp: denom_comp
             co_offreur: co_offreur
             dt_crea: dt_crea
+            co_omodu_1: co_omodu_1
+            lcomm: lcomm
           info:
             co_tpla:
               sortable: true
@@ -108,6 +111,13 @@ display:
               responsive: ''
             co_orie:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_tpla_1:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -185,6 +195,20 @@ display:
               responsive: ''
             dt_crea:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_omodu_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lcomm:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -626,10 +650,10 @@ display:
                   min: '20170000'
                   max: '20179999'
           plugin_id: numeric
-        co_etab_dem:
-          id: co_etab_dem
-          table: gbb_gmoof
-          field: co_etab_dem
+        nomu_2:
+          id: nomu_2
+          table: gbb_gresp_orga_diof
+          field: nomu
           relationship: none
           group_type: group
           admin_label: ''
@@ -638,14 +662,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: co_etab_dem_op
-            label: co_etab_dem
+            operator_id: nomu_2_op
+            label: nomuOrga
             description: null
             use_operator: false
-            operator: co_etab_dem_op
+            operator: nomu_2_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: co_etab_dem
+            identifier: nomu_2
             required: false
             remember: false
             multiple: false
@@ -656,7 +680,7 @@ display:
           group_info:
             label: PAF/FIL
             description: ''
-            identifier: co_etab_dem
+            identifier: nomu_2
             optional: true
             widget: select
             multiple: false
@@ -666,12 +690,12 @@ display:
             group_items:
               1:
                 title: FIL
-                operator: longerthan
-                value: '1'
+                operator: '='
+                value: mouttapa
               2:
                 title: PAF
-                operator: shorterthan
-                value: '1'
+                operator: '!='
+                value: mouttapa
               3:
                 title: ''
                 operator: '='
@@ -727,7 +751,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: starts
           value: ''
           group: 1
           exposed: true
@@ -737,6 +761,8 @@ display:
             description: 'p.ex : 2S33'
             use_operator: false
             operator: co_orie_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: co_orie
             required: false
             remember: false
@@ -747,9 +773,9 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -763,24 +789,29 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        lcomm:
-          id: lcomm
-          table: gbb_gmoof
-          field: lcomm
+        no_offre_1:
+          id: no_offre_1
+          table: gbb_gdiof
+          field: no_offre
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
-          value: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: lcomm_op
-            label: Hashtag
-            description: 'p.ex : #EP ou #0753345D'
+            operator_id: no_offre_1_op
+            label: 'Numéro d''offre'
+            description: ''
             use_operator: false
-            operator: lcomm_op
-            identifier: lcomm
+            operator: no_offre_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: no_offre_1
             required: false
             remember: false
             multiple: false
@@ -790,9 +821,56 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        libl:
+          id: libl
+          table: gbb_gmoof
+          field: libl
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: libl_op
+            label: 'Titre module'
+            description: 'Mots clés'
+            use_operator: false
+            operator: libl_op
             operator_limit_selection: false
             operator_list: {  }
+            identifier: libl
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -892,6 +970,94 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdiof
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_offreur_op
+            label: 'code offreur'
+            description: ''
+            use_operator: false
+            operator: co_offreur_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: co_offreur
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        lcomm:
+          id: lcomm
+          table: gbb_gmoof
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lcomm_op
+            label: Hashtag
+            description: 'p.ex : #EP ou #0753345D'
+            use_operator: false
+            operator: lcomm_op
+            identifier: lcomm
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+            placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
         cp:
           id: cp
           table: gbb_netab_moof
@@ -965,51 +1131,6 @@ display:
             placeholder: ''
             operator_limit_selection: false
             operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        co_offreur:
-          id: co_offreur
-          table: gbb_gdiof
-          field: co_offreur
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: co_offreur_op
-            label: 'code offreur'
-            description: ''
-            use_operator: false
-            operator: co_offreur_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: co_offreur
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -3736,6 +3857,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        co_tpla_1:
+          id: co_tpla_1
+          table: gbb_gdiof
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Plan
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         no_offre:
           id: no_offre
           table: gbb_gdiof
@@ -3849,7 +4019,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Titre long'
+          label: 'Titre module'
           exclude: false
           alter:
             alter_text: false
@@ -4266,6 +4436,104 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_omodu_1:
+          id: co_omodu_1
+          table: gbb_gmoof
+          field: co_omodu
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_omodu
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lcomm:
+          id: lcomm
+          table: gbb_gmoof
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Commentaire / Contact'
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ lcomm[:15] }} <a href="detailsOffre?co_omodu={{ co_omodu_1 }}&no_offre_1=1">[...]</a> {{ lcomm[-10:] }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 40
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: +
+            more_link_path: qsdqsdqsdq
             strip_tags: false
             trim: false
             preserve_tags: ''
@@ -6129,6 +6397,55 @@ display:
           alter:
             alter_text: true
             text: "{{ prenom_1 }} {{ nomu_1 }} ({{ qualite_1 }} {{ organ_1 }})\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lcomm:
+          id: lcomm
+          table: gbb_gmoof
+          field: lcomm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Personne à contacter'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false

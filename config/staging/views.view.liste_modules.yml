@@ -2832,6 +2832,8 @@ display:
             description: ''
             use_operator: false
             operator: id_disp_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp
             required: false
             remember: false
@@ -2841,8 +2843,6 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -2856,29 +2856,29 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2020-21
+                operator: starts
+                value: '20'
+              2:
                 title: 2019-20
                 operator: starts
                 value: '19'
-              2:
+              3:
                 title: 2018-19
                 operator: starts
                 value: '18'
-              3:
-                title: 2017-18
-                operator: starts
-                value: '17'
               4:
+                title: '[1D] 2020-21'
+                operator: starts
+                value: 20D
+              5:
                 title: '[1D] 2019-20'
                 operator: starts
                 value: 19D
-              5:
+              6:
                 title: '[1D] 2018-19'
                 operator: starts
                 value: 18D
-              6:
-                title: '[1D] 2017-18'
-                operator: starts
-                value: 17D
           plugin_id: string
         resp_filter:
           id: resp_filter
@@ -11362,29 +11362,29 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2020-21
+                operator: starts
+                value: '20'
+              2:
                 title: 2019-20
                 operator: starts
                 value: '19'
-              2:
+              3:
                 title: 2018-19
                 operator: starts
                 value: '18'
-              3:
-                title: 2017-18
-                operator: starts
-                value: '17'
               4:
+                title: '[1D] 2020-21'
+                operator: starts
+                value: 20D
+              5:
                 title: '[1D] 2019-20'
                 operator: starts
                 value: 19D
-              5:
+              6:
                 title: '[1D] 2018-19'
                 operator: starts
                 value: 18D
-              6:
-                title: '[1D] 2017-18'
-                operator: starts
-                value: 17D
           plugin_id: string
         resp_filter:
           id: resp_filter

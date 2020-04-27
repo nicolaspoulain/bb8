@@ -4,6 +4,8 @@ namespace Drupal\offres\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\bb\Controller\BbCrudController;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Controller
@@ -70,7 +72,7 @@ class OffresController extends ControllerBase {
     // switch database (cf settings.php)
     \Drupal\Core\Database\Database::setActiveConnection('external');
     // Build query
-    $count = 12;
+    $count = 50;
 
     $query = db_select('gbb_gdiof', 'd');
     $query ->leftjoin('gbb_gmoof', 'm', 'd.co_offre = m.co_offre');
@@ -139,7 +141,7 @@ class OffresController extends ControllerBase {
       'co_orie'      => array('data' => $r->co_orie),
       'co_offreur'   => array('data' => $r->co_offreur),
       'position'     => array('data' => $position),
-      'no_offre'     => array('data' => $r->no_offre.' / '.$r->co_omodu, "class"=>$class),
+      'no_offre'     => array('data' => Link::fromTextAndUrl($r->no_offre.' / '.$r->co_omodu, Url::fromUri('https://daforbb.scola.ac-paris.fr/bb8/web/detailsOffre?co_omodu='.$r->co_omodu)), "class"=>$class),
       'libl'         => array('data' => $titre, "class"=>$class),
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
@@ -172,8 +174,11 @@ class OffresController extends ControllerBase {
       '#type' => 'table',
       '#header' => $headers,
       '#rows' => $rows,
+      '#sticky' => true,
+      // '#attributes' => array('class' => array('sticky-header')),
     );
-    $content['table'][] = array(
+
+  $content['table'][] = array(
       '#type' => 'pager',
     );
 
