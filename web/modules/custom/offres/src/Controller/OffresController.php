@@ -84,8 +84,8 @@ class OffresController extends ControllerBase {
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     if (strlen($co_tpla)>0) $query ->condition('d.co_tpla', $co_tpla, 'like');
     if (strlen($annee)>0) $query ->condition('d.no_offre', $annee."0000", '>');
-    if ($co_camp=='FIL') $query ->condition('d.co_camp', 'BS', 'like');
-    if ($co_camp=='PAF') $query ->condition('d.co_camp', 'BS', 'not like');
+    if ($co_camp=='FIL') $query ->condition('r.nomu', 'mouttapa', 'like');
+    if ($co_camp=='PAF') $query ->condition('r.nomu', 'mouttapa', 'not like');
     $query ->fields('m', array(
       'libl', 'co_omodu', 'nb_groupe', 'duree_prev','nb_eff_groupe', 'co_moda',
       'cout_p_excep', 'cout_p_prest', 'cout_p_fonc',
