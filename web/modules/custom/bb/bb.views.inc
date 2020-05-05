@@ -1609,7 +1609,6 @@ function bb_views_data() {
       'gbb_gmodu' => array(
         'left_field' => 'co_modu',
         'field' => 'co_modu',
-        'extra' => 'gbb_camo.co_degre = gbb_gmodu.co_degre',
       ),
     ),
   );
