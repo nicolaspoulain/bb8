@@ -22,6 +22,7 @@ class OffresController extends ControllerBase {
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
+    $co_offreur = $gets['co_offreur'];
     $annee   = $gets['annee'];
     if (! strlen($annee)>0) {
       $annee = 2020;
@@ -44,6 +45,11 @@ class OffresController extends ControllerBase {
     'libl'         => t('Titre'),
     'nomu2'        => t('Resp. péda.'),
     'co_moda'      => t('Hybr'),
+    'ecarte'         => array('data' => t('Ecartée'), 'class' => 'jaune'),
+    'ptrim'         => array('data' => t('Prem. trim'), 'class' => 'jaune'),
+    'hybridable'         => array('data' => t('Hybridable'), 'class' => 'jaune'),
+    'echange'         => array('data' => t('Echange coll.'), 'class' => 'jaune'),
+    'commbis'         => array('data' => t('Commentaires'), 'class' => 'jaune'),
     'offre_cat'    => array('data' => t('AP ou Pub Dés'), 'class' => 'jaune'),
     'prox'         => array('data' => t('Form de prox'), 'class' => 'jaune'),
     'entm'         => array('data' => t('Entrée métier'), 'class' => 'jaune'),
@@ -83,6 +89,7 @@ class OffresController extends ControllerBase {
     if (strlen($nomu)>0)    $query ->condition('r.nomu', $nomu, 'like');
     if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
     if (strlen($co_tpla)>0) $query ->condition('d.co_tpla', $co_tpla, 'like');
+    if (strlen($co_offreur)>0) $query ->condition('d.co_offreur', $co_offreur."%", 'like');
     if (strlen($annee)>0) $query ->condition('d.no_offre', $annee."0000", '>');
     if ($co_camp=='FIL') $query ->condition('r.nomu', 'mouttapa', 'like');
     if ($co_camp=='PAF') $query ->condition('r.nomu', 'mouttapa', 'not like');
@@ -97,6 +104,7 @@ class OffresController extends ControllerBase {
       'nb_hp','nb_vac','taux','ht2','iufm', 'nouv_offreur',
       'prio_nat','prio_aca', 'offre_cat','interdisc', 'comment','position',
       'prio_paf','prox','entm','intm','fofo',
+      'ecarte', 'commbis', 'hybridable', 'echange','ptrim',
       // 'offre_new', 'pub_des','anim_peda', 'foad',
     ));
     $query ->fields('r', array('nomu'));
@@ -117,9 +125,14 @@ class OffresController extends ControllerBase {
     $fofo = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FofoForm', $r->fofo, $r->co_omodu);
 
     $iufm = \Drupal::formBuilder()->getForm('Drupal\offres\Form\IufmForm', $r->iufm, $r->co_omodu);
+    $commbis = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CommbisForm', $r->commbis, $r->co_omodu);
+    $echange = \Drupal::formBuilder()->getForm('Drupal\offres\Form\EchangeForm', $r->echange, $r->co_omodu);
+    $ecarte = \Drupal::formBuilder()->getForm('Drupal\offres\Form\EcarteForm', $r->ecarte, $r->co_omodu);
+    $ptrim = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PtrimForm', $r->ptrim, $r->co_omodu);
+    $hybridable = \Drupal::formBuilder()->getForm('Drupal\offres\Form\HybridableForm', $r->hybridable, $r->co_omodu);
     $interdisc = \Drupal::formBuilder()->getForm('Drupal\offres\Form\InterdiscForm', $r->interdisc, $r->co_omodu);
     $nouv_offreur = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NouvOffreurForm', $r->nouv_offreur, $r->co_omodu);
-    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu, $r->co_tpla);
+    $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu, $r->co_tpla, $r->co_orie);
     // $prio_aca = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioAcaForm', $r->prio_aca, $r->co_omodu);
     $prio_paf = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioPafForm', $r->prio_paf, $r->co_omodu);
     $nb_hp = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NbHpForm', $r->nb_hp, $r->co_omodu);
@@ -145,6 +158,11 @@ class OffresController extends ControllerBase {
       'libl'         => array('data' => $titre, "class"=>$class),
       'nomu2'        => array('data' => $r->nomu2),
       'co_moda'      => array('data' => ($r->co_moda=="S")? "OUI" : '-'),
+      'ecarte'              => array('data' => $ecarte),
+      'ptrim'              => array('data' => $ptrim),
+      'hybridable'          => array('data' => $hybridable),
+      'echange'             => array('data' => $echange),
+      'commbis'             => array('data' => $commbis),
       'offre_cat'    => array('data' => $offre_cat),
       'prox'         => array('data' => $prox),
       'entm'         => array('data' => $entm),

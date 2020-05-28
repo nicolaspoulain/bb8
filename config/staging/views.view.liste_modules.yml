@@ -2879,6 +2879,30 @@ display:
                 title: '[1D] 2018-19'
                 operator: starts
                 value: 18D
+              7:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              8:
+                title: 2016-17
+                operator: starts
+                value: '16'
+              9:
+                title: 2015-16
+                operator: starts
+                value: '15'
+              10:
+                title: 2014-15
+                operator: starts
+                value: '14'
+              11:
+                title: 2013-14
+                operator: starts
+                value: '13'
+              12:
+                title: 2012-13
+                operator: starts
+                value: '12'
           plugin_id: string
         resp_filter:
           id: resp_filter
@@ -11897,11 +11921,11 @@ display:
             label: Année
             description: ''
             identifier: id_disp
-            optional: false
+            optional: 0
             widget: select
-            multiple: false
-            remember: false
-            default_group: '2'
+            multiple: 0
+            remember: 0
+            default_group: 2
             default_group_multiple: {  }
             group_items:
               1:
@@ -11928,6 +11952,30 @@ display:
                 title: '[1D] 2018-19'
                 operator: starts
                 value: 18D
+              7:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              8:
+                title: 2016-17
+                operator: starts
+                value: '16'
+              9:
+                title: 2015-16
+                operator: starts
+                value: '15'
+              10:
+                title: 2014-15
+                operator: starts
+                value: '14'
+              11:
+                title: 2013-14
+                operator: starts
+                value: '13'
+              12:
+                title: 2012-13
+                operator: starts
+                value: '12'
           plugin_id: string
         resp_filter:
           id: resp_filter
@@ -15190,6 +15238,30 @@ display:
                 title: '[1D] 2018-19'
                 operator: starts
                 value: 18D
+              7:
+                title: 2017-18
+                operator: starts
+                value: '17'
+              8:
+                title: 2016-17
+                operator: starts
+                value: '16'
+              9:
+                title: 2015-16
+                operator: starts
+                value: '15'
+              10:
+                title: 2014-15
+                operator: starts
+                value: '14'
+              11:
+                title: 2013-14
+                operator: starts
+                value: '13'
+              12:
+                title: 2012-13
+                operator: starts
+                value: '12'
           plugin_id: string
         resp_filter:
           id: resp_filter
@@ -22618,7 +22690,7 @@ display:
           group_type: group
           admin_label: ''
           label: co_orie
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -22666,8 +22738,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
+          label: Orientation
+          exclude: false
           alter:
             alter_text: false
             text: ''

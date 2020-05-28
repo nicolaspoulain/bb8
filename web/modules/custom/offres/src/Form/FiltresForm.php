@@ -45,6 +45,7 @@ class FiltresForm extends FormBase {
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
+    $co_offreur = $gets['co_offreur'];
 
   $form['annee'] = array(
     '#type' => 'select',
@@ -74,7 +75,7 @@ class FiltresForm extends FormBase {
     '#type' => 'textfield',
     '#title' => $this->t('Plan'),
     '#size'          => 15,
-    '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
+    '#attributes' => array('placeholder' => t('p.ex.: S')),
     '#default_value' => $co_tpla,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
@@ -92,6 +93,14 @@ class FiltresForm extends FormBase {
     '#size'          => 15,
     '#attributes' => array('placeholder' => t('p.ex.: 2S49')),
     '#default_value' => $co_orie,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+  );
+  $form['co_offreur'] = array(
+    '#type' => 'textfield',
+    '#title' => $this->t('Priorité CDC'),
+    '#size'          => 15,
+    '#attributes' => array('placeholder' => t('p.ex.: 22')),
+    '#default_value' => $co_offreur,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
   $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
@@ -119,6 +128,7 @@ class FiltresForm extends FormBase {
       'co_orie'       => $form_state->getValue('co_orie'),
       'co_tpla'       => $form_state->getValue('co_tpla'),
       'co_camp'       => $form_state->getValue('co_camp'),
+      'co_offreur'       => $form_state->getValue('co_offreur'),
       'annee'         => $form_state->getValue('annee'),
     );
     $form_state->setRedirect('offres_list',
@@ -128,6 +138,7 @@ class FiltresForm extends FormBase {
         'co_tpla'  => $form_state->getValue('co_tpla'),
         'co_camp'  => $form_state->getValue('co_camp'),
         'annee'    => $form_state->getValue('annee'),
+        'co_offreur'       => $form_state->getValue('co_offreur'),
       ),
       array( 'fragment' => 'sessions')
     );

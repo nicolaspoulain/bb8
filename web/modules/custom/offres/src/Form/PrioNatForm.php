@@ -39,7 +39,7 @@ class PrioNatForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, $prio_nat=NULL, $co_omodu=NULL, $co_tpla=NULL) {
+  public function buildForm(array $form, FormStateInterface $form_state, $prio_nat=NULL, $co_omodu=NULL, $co_tpla=NULL, $co_orie=NULL) {
 
   // $prios = array(
 // 0=> "-",
@@ -155,11 +155,12 @@ if ($co_tpla=="S") {
 } elseif ($co_tpla=="P") {
   $prios = $prna_P;
 } elseif ($co_tpla=="D" or $co_tpla=="C") {
-  if (strpos($id_disp, "A") == 2) {
-// # tous les tableaux
+  if (preg_match('/^2S/', $co_orie)) {
     $prios = $prna_S;
-  } else {
+  } elseif (preg_match('/^1P/', $co_orie)) {
     $prios = $prna_P;
+  } else {
+    $prios = array_merge($prna_A,$prna_E, $prna_P, $prna_S);
   }
 } else {
   $prios = array();

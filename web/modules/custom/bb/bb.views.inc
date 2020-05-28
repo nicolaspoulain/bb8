@@ -2454,6 +2454,15 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof']['cle'] = array( 'help' => t('Clé de l offre'),
+    //{{
+    'title' => t('cle'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_gdiof']['no_offre'] = array( 'help' => t('Numéro de l offre'),
     //{{
     'title' => t('no_offre'),
@@ -2594,6 +2603,38 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
+  $data['gbb_gdiof_dafor']['prio_nat'] = array( 'help' => t('prio_nat'),
+    //{{
+    'title' => t('prio_nat tabjaune'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['intm'] = array( 'help' => t('intm'),
+    //{{
+    'title' => t('intm'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['prox'] = array( 'help' => t('prox'),
+    //{{
+    'title' => t('prox'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['entm'] = array( 'help' => t('entm'),
+    //{{
+    'title' => t('entm'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof_dafor']['ht2'] = array( 'help' => t('ht2'),
     //{{
     'title' => t('ht2'),
@@ -2605,6 +2646,38 @@ function bb_views_data() {
   $data['gbb_gdiof_dafor']['anim_peda'] = array( 'help' => t('anim_peda'),
     //{{
     'title' => t('anim_peda'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['ecarte'] = array( 'help' => t('ecarte'),
+    //{{
+    'title' => t('ecarte'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['hybridable'] = array( 'help' => t('hybridable'),
+    //{{
+    'title' => t('hybridable'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['echange'] = array( 'help' => t('echange'),
+    //{{
+    'title' => t('echange'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['commbis'] = array( 'help' => t('commbis'),
+    //{{
+    'title' => t('commbis'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),

@@ -28,8 +28,10 @@ function bbtheme_preprocess_views_view_table__bb_liste_offres__page_1(&$variable
       $tab[] = "$k=$v";
     }
     $str = implode("&",$tab);
-    $str = "offresxls?$str";
-    $variables['xlsUrl'] = $str;
+    $stra = "offresxls?$str";
+    $variables['xlsUrl'] = $stra;
+    $strb = "offresxlslight?$str";
+    $variables['xlsLightUrl'] = $strb;
 }
 
 function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variables) {
