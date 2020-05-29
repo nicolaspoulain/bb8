@@ -2659,6 +2659,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof_dafor']['ptrim'] = array( 'help' => t('ptrim'),
+    //{{
+    'title' => t('ptrim'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof_dafor']['hybridable'] = array( 'help' => t('hybridable'),
     //{{
     'title' => t('hybridable'),
