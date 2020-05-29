@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains Drupal\offres\Form\evaluuForm.
+ * Contains Drupal\offres\Form\EvaluForm.
  */
 
 namespace Drupal\offres\Form;
@@ -18,9 +18,9 @@ use Drupal\bb\Controller\BbCrudController;
 
 
 /**
- * Implements the evaluuForm form controller.
+ * Implements the EvaluForm form controller.
  */
-class evaluuForm extends FormBase {
+class EvaluForm extends FormBase {
 
   /**
    * {@inheritdoc}
@@ -33,7 +33,7 @@ class evaluuForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'evaluuForm';
+    return 'EvaluForm';
   }
 
   /**

@@ -2667,6 +2667,46 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof_dafor']['oral'] = array( 'help' => t('oral'),
+    //{{
+    'title' => t('oral'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['coint'] = array( 'help' => t('coint'),
+    //{{
+    'title' => t('co-intervention'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['coe'] = array( 'help' => t('coe'),
+    //{{
+    'title' => t('chef d oeuvre'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['evalu'] = array( 'help' => t('evalu'),
+    //{{
+    'title' => t('evaluation'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gdiof_dafor']['apl'] = array( 'help' => t('apl'),
+    //{{
+    'title' => t('apl anim peda lycée'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof_dafor']['hybridable'] = array( 'help' => t('hybridable'),
     //{{
     'title' => t('hybridable'),

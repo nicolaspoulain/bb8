@@ -32,7 +32,8 @@ class OffresController extends ControllerBase {
     $content['filtres'] = \Drupal::formBuilder()->getForm('Drupal\offres\Form\FiltresForm', $r->comment, $r->co_omodu, $annee);
 
     $content['message'] = [
-      '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
+      // '#markup' => $this->t('À propos de «Position» : Pour chaque orientation, classer les offres de 1 (indispensable) à 500 (non retenue). Ex-aequo autorisés.'),
+      '#markup' => $this->t('Nouveau : Les colonnes <span class="jaunepia">Réforme des lycées</span>.'),
     ];
 
     $headers = array(
@@ -46,12 +47,12 @@ class OffresController extends ControllerBase {
     'nomu2'        => t('Resp. péda.'),
     'co_moda'      => t('Hybr'),
     'ecarte'         => array('data' => t('Ecartée'), 'class' => 'jaune'),
-    'ptrim'         => array('data' => t('Prem. trim'), 'class' => 'jaune'),
-    'hybridable'         => array('data' => t('Hybridable'), 'class' => 'jaune'),
-    'echange'         => array('data' => t('Echange coll.'), 'class' => 'jaune'),
+    'ptrim'         => array('data' => t('Prem trim'), 'class' => 'jaune'),
+    'hybridable'         => array('data' => t('Hybri dable'), 'class' => 'jaune'),
+    'echange'         => array('data' => t('Ech. coll.'), 'class' => 'jaune'),
     'oral'         => array('data' => t('Oral'), 'class' => 'jaunepia'),
     'coint'         => array('data' => t('Co int.'), 'class' => 'jaunepia'),
-    'coe'         => array('data' => t('Chef œuvre'), 'class' => 'jaunepia'),
+    'coe'         => array('data' => t('Chef œuv'), 'class' => 'jaunepia'),
     'evalu'         => array('data' => t('Eval'), 'class' => 'jaunepia'),
     'apl'         => array('data' => t('Anim péda'), 'class' => 'jaunepia'),
     'commbis'         => array('data' => t('Commentaires'), 'class' => 'jaune'),
@@ -175,12 +176,12 @@ class OffresController extends ControllerBase {
       'ptrim'              => array('data' => $ptrim),
       'hybridable'          => array('data' => $hybridable),
       'echange'             => array('data' => $echange),
-      'commbis'             => array('data' => $commbis),
       'oral'              => array('data' => $oral),
       'coint'              => array('data' => $coint),
       'coe'              => array('data' => $coe),
       'evalu'              => array('data' => $evalu),
       'apl'              => array('data' => $apl),
+      'commbis'             => array('data' => $commbis),
       'offre_cat'    => array('data' => $offre_cat),
       'prox'         => array('data' => $prox),
       'entm'         => array('data' => $entm),
