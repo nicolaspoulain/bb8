@@ -49,6 +49,11 @@ class OffresController extends ControllerBase {
     'ptrim'         => array('data' => t('Prem. trim'), 'class' => 'jaune'),
     'hybridable'         => array('data' => t('Hybridable'), 'class' => 'jaune'),
     'echange'         => array('data' => t('Echange coll.'), 'class' => 'jaune'),
+    'oral'         => array('data' => t('Oral'), 'class' => 'jaunepia'),
+    'coint'         => array('data' => t('Co int.'), 'class' => 'jaunepia'),
+    'coe'         => array('data' => t('Chef œuvre'), 'class' => 'jaunepia'),
+    'evalu'         => array('data' => t('Eval'), 'class' => 'jaunepia'),
+    'apl'         => array('data' => t('Anim péda'), 'class' => 'jaunepia'),
     'commbis'         => array('data' => t('Commentaires'), 'class' => 'jaune'),
     'offre_cat'    => array('data' => t('AP ou Pub Dés'), 'class' => 'jaune'),
     'prox'         => array('data' => t('Form de prox'), 'class' => 'jaune'),
@@ -105,6 +110,7 @@ class OffresController extends ControllerBase {
       'prio_nat','prio_aca', 'offre_cat','interdisc', 'comment','position',
       'prio_paf','prox','entm','intm','fofo',
       'ecarte', 'commbis', 'hybridable', 'echange','ptrim',
+      'oral', 'coint', 'coe', 'evalu','apl',
       // 'offre_new', 'pub_des','anim_peda', 'foad',
     ));
     $query ->fields('r', array('nomu'));
@@ -130,6 +136,13 @@ class OffresController extends ControllerBase {
     $ecarte = \Drupal::formBuilder()->getForm('Drupal\offres\Form\EcarteForm', $r->ecarte, $r->co_omodu);
     $ptrim = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PtrimForm', $r->ptrim, $r->co_omodu);
     $hybridable = \Drupal::formBuilder()->getForm('Drupal\offres\Form\HybridableForm', $r->hybridable, $r->co_omodu);
+
+    $oral = \Drupal::formBuilder()->getForm('Drupal\offres\Form\OralForm', $r->oral, $r->co_omodu);
+    $coint = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CointForm', $r->coint, $r->co_omodu);
+    $coe = \Drupal::formBuilder()->getForm('Drupal\offres\Form\CoeForm', $r->coe, $r->co_omodu);
+    $evalu = \Drupal::formBuilder()->getForm('Drupal\offres\Form\EvaluForm', $r->evalu, $r->co_omodu);
+    $apl = \Drupal::formBuilder()->getForm('Drupal\offres\Form\AplForm', $r->apl, $r->co_omodu);
+
     $interdisc = \Drupal::formBuilder()->getForm('Drupal\offres\Form\InterdiscForm', $r->interdisc, $r->co_omodu);
     $nouv_offreur = \Drupal::formBuilder()->getForm('Drupal\offres\Form\NouvOffreurForm', $r->nouv_offreur, $r->co_omodu);
     $prio_nat = \Drupal::formBuilder()->getForm('Drupal\offres\Form\PrioNatForm', $r->prio_nat, $r->co_omodu, $r->co_tpla, $r->co_orie);
@@ -163,6 +176,11 @@ class OffresController extends ControllerBase {
       'hybridable'          => array('data' => $hybridable),
       'echange'             => array('data' => $echange),
       'commbis'             => array('data' => $commbis),
+      'oral'              => array('data' => $oral),
+      'coint'              => array('data' => $coint),
+      'coe'              => array('data' => $coe),
+      'evalu'              => array('data' => $evalu),
+      'apl'              => array('data' => $apl),
       'offre_cat'    => array('data' => $offre_cat),
       'prox'         => array('data' => $prox),
       'entm'         => array('data' => $entm),
