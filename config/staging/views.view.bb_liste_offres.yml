@@ -8739,6 +8739,7 @@ display:
         filter_groups: false
         fields: false
         header: false
+        sorts: false
       path: detailsOffre
       arguments: {  }
       style:
@@ -8751,6 +8752,10 @@ display:
               rendered_strip: false
             -
               field: co_orie
+              rendered: true
+              rendered_strip: false
+            -
+              field: co_offreur
               rendered: true
               rendered_strip: false
           row_class: ''
@@ -9154,6 +9159,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        co_tpla:
+          id: co_tpla
+          table: gbb_gdiof
+          field: co_tpla
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Plan
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         no_offre:
           id: no_offre
           table: gbb_gdiof
@@ -9222,7 +9276,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<h3><b>{{ no_offre }} {{ libl }} </b></h3>'
+            text: '<h3><b>{{ no_offre }} {{ libl }} </b> - Plan : {{ co_tpla }}</h3>'
             make_link: false
             path: ''
             absolute: false
@@ -9268,55 +9322,6 @@ display:
           group_type: group
           admin_label: ''
           label: 'Objectif dispositif'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_tpla:
-          id: co_tpla
-          table: gbb_gdiof
-          field: co_tpla
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Plan
           exclude: false
           alter:
             alter_text: false
@@ -9897,6 +9902,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lib_court_1:
+          id: lib_court_1
+          table: gbb_nmoda_moof
+          field: lib_court
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Modalité
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         duree_prev:
           id: duree_prev
           table: gbb_gmoof
@@ -9908,7 +9962,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ duree_prev }}h'
+            text: '{{ duree_prev }}h - <b>Modalité</b>: {{ lib_court_1 }}'
             make_link: false
             path: ''
             absolute: false
@@ -10101,55 +10155,6 @@ display:
           group_type: group
           admin_label: ''
           label: Forme
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_court_1:
-          id: lib_court_1
-          table: gbb_nmoda_moof
-          field: lib_court
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Modalité
           exclude: false
           alter:
             alter_text: false
@@ -10569,7 +10574,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ nb_vac }}ĥ × {{ taux }}€/h = {{ nb_vac * taux }}€ <b>HT2 : </b> {{ ht2 }}€ <b>HP : </b>  {{ nb_hp }}h'
+            text: '{{ nb_vac }}ĥ × {{ taux }}€/h = {{ nb_vac * taux }}€ &nbsp;&nbsp;&nbsp;<b>Facture : </b> {{ ht2 }}€ &nbsp;&nbsp;&nbsp;<b>Heures de décharge : </b>  {{ nb_hp }}h'
             make_link: false
             path: ''
             absolute: false
@@ -10607,6 +10612,55 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        comment:
+          id: comment
+          table: gbb_gdiof_dafor
+          field: comment
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Observations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         lib_court_2:
           id: lib_court_2
           table: gbb_nobjt_diof
@@ -10656,55 +10710,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        prio_aca:
-          id: prio_aca
-          table: gbb_gdiof_dafor
-          field: prio_aca
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: paca
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '-'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         prio_nat:
           id: prio_nat
           table: gbb_gdiof_dafor
@@ -10716,7 +10721,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if prio_nat == \"1\" %}Bac-3/Bac+3\r\n{% elseif prio_nat == \"2\" %}Climat scolaire et lutte contre le harcèlement\r\n{% elseif prio_nat == \"3\" %}Devoirs faits\r\n{% elseif prio_nat == \"4\" %}École maternelle\r\n{% elseif prio_nat == \"5\" %}Education artistique et culturelle\r\n{% elseif prio_nat == \"6\" %}Éducation aux valeurs de la République\r\n{% elseif prio_nat == \"7\" %}Elèves à besoins éducatifs particuliers\r\n{% elseif prio_nat == \"8\" %}Les fondamentaux (1er degré)\r\n{% elseif prio_nat == \"9\" %}Les fondamentaux au cycle 3\r\n{% elseif prio_nat == \"10\" %}Orientation au collège\r\n{% elseif prio_nat == \"11\" %}Professionnalisation des formateurs\r\n{% elseif prio_nat == \"12\" %}Réforme du LGT\r\n{% elseif prio_nat == \"13\" %}Scolarité obligatoire à partir de 3 ans\r\n{% elseif prio_nat == \"14\" %}Sécurisation des parcours\r\n{% elseif prio_nat == \"15\" %}Transformation de la voie professionnelle\r\n{% endif %}"
+            text: "{% set foo = {\r\n_1910 : \"1910 : 1D-Ecole maternelle\",\r\n_19101 : \"191A : 1D-Numérique et IA dans le cadre pédagogique\",\r\n_19102 : \"191B : 1D-Sciences cognitives, mécanismes d apprentissage\",\r\n_19103 : \"191C : 1D-Education artistique et culturelle\",\r\n_19104 : \"191D : 1D-Evaluations nationales des élèves\",\r\n_19105 : \"191E : 1D-Diversité des élèves dans les apprentissages\",\r\n_19106 : \"191F : 1D-Promotion de la santé\",\r\n_19107 : \"191G : 1D-Santé et sécurité au travail\",\r\n_19108 : \"191H : 1D-Evolutions profession. valorisation compétences\",\r\n_19109 : \"191I : 1D-Innovation\",\r\n_1911 : \"1911 : 1D-Apprentissage des fondamentaux à l école\",\r\n_19110 : \"191J : 1D-Continuum form. initiale - form. continuée\",\r\n_1912 : \"1912 : 1D-Déontologie de la fonction publique\",\r\n_1913 : \"1913 : 1D-Culture juridique et fondamentaux du droit\",\r\n_1914 : \"1914 : 1D-Valeurs de la république\",\r\n_1915 : \"1915 : 1D-Egalité des chances réussite de tous les élèves\",\r\n_1916 : \"1916 : 1D-Ecole inclusive\",\r\n_1917 : \"1917 : 1D-Mode projet et collectifs de travail\",\r\n_1918 : \"1918 : 1D-Relations et conflits : savoir faire savoir être\",\r\n_1919 : \"1919 : 1D-Prévention des violences éducatives ordinaires\",\r\n_1920 : \"1920 : 2D-Réforme du lycée et du baccalauréat\",\r\n_19201 : \"192A : 2D-Déontologie de la fonction publique\",\r\n_19202 : \"192B : 2D-Culture juridique et fondamentaux du droit\",\r\n_19203 : \"192C : 2D-Valeurs de la république\",\r\n_19204 : \"192D : 2D-Egalité des chances réussite de tous les élèves\",\r\n_19205 : \"192E : 2D-Ecole inclusive\",\r\n_19206 : \"192F : 2D-Mode projet et collectifs de travail\",\r\n_19207 : \"192G : 2D-Relations et conflits : savoir faire savoir être\",\r\n_19208 : \"192H : 2D-Prévention des violences éducatives ordinaires\",\r\n_19209 : \"192I : 2D-Promotion de la santé\",\r\n_1921 : \"1921 : 2D-Transformation de la voie professionnelle\",\r\n_19210 : \"192J : 2D-Santé et sécurité au travail\",\r\n_19211 : \"192K : 2D-Evolutions profession. valorisation compétences\",\r\n_19212 : \"192L : 2D-Innovation\",\r\n_1922 : \"1922 : 2D-Continuum lycées-enseignement supérieur\",\r\n_1923 : \"1923 : 2D-Nouveaux programmes LYC, LGT, LP\",\r\n_1924 : \"1924 : 2D-Numérique et IA dans le cadre pédagogique\",\r\n_1925 : \"1925 : 2D-Sciences cognitives, mécanismes d apprentissage\",\r\n_1926 : \"1926 : 2D-Education artistique et culturelle\",\r\n_1927 : \"1927 : 2D-Evaluations nationales des élèves\",\r\n_1928 : \"1928 : 2D-Diversité des élèves dans les apprentissages\",\r\n_1929 : \"1929 : 2D-Continuum form. initiale - form. continuée\",\r\n_1930 : \"1930 : EA-Déontologie de la fonction publique\",\r\n_19301 : \"193A : E-Modernisation du service public et communication\",\r\n_19302 : \"193B : E-Evaluation nationale des établissements\",\r\n_19303 : \"193C : A-Culture juridique commune\",\r\n_19304 : \"193D : A-Gestion matérielle, admin, financière comptable\",\r\n_19305 : \"193E : A-Qualité de vie au travail\",\r\n_19306 : \"193F : A-Accompagnement des évolutions professionnelles\",\r\n_19307 : \"193G : EA-GRH de proximité\",\r\n_19308 : \"193H : EA-Professionnalisation des acteurs RH et formation\",\r\n_19309 : \"193I : A-Promotion de la santé\",\r\n_1931 : \"1931 : EA-Culture juridique et fondamentaux du droit\",\r\n_19310 : \"193J : A-Santé et sécurité au travail\",\r\n_19311 : \"193K : A-Action sociale pour les personnels\",\r\n_19312 : \"193L : A-Développement professionnel personnels de santé\",\r\n_19313 : \"193M : A-Evolutions profession. valorisation compétences\",\r\n_19314 : \"193N : EA-Innovation\",\r\n_1932 : \"1932 : EA-Valeurs de la république\",\r\n_1934 : \"1934 : EA-Egalité des chances réussite de tous les élèves\",\r\n_1935 : \"1935 : EA-Ecole inclusive\",\r\n_1936 : \"1936 : EA-Mode projet et collectifs de travail\",\r\n_1937 : \"1937 : EA-Relations et conflits : savoir faire savoir être\",\r\n_1938 : \"1938 : EA-Prévention des violences éducatives ordinaires\",\r\n_1939 : \"1939 : E-Management et collectif de travail\"\r\n} %}\r\n{{ foo['_'~prio_nat] }}"
             make_link: false
             path: ''
             absolute: false
@@ -10814,7 +10819,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<b>Priorité nationale:</b> {{ prio_nat }} <b>Priorité académique:</b> {{ prio_aca }} <b>Priorité PAF:</b> {{ prio_paf }}'
+            text: '<b>Priorité nationale:</b> {{ prio_nat }}'
             make_link: false
             path: ''
             absolute: false
@@ -10901,7 +10906,522 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        iufm:
+          id: iufm
+          table: gbb_gdiof_dafor
+          field: iufm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Offreur
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        ecarte:
+          id: ecarte
+          table: gbb_gdiof_dafor
+          field: ecarte
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: "&#9746; Non pertinent au vu du CDC  &nbsp;&nbsp; \r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          plugin_id: standard
+        entm:
+          id: entm
+          table: gbb_gdiof_dafor
+          field: entm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  entm=="1" %}&#9745;{% else %}&#9744;{% endif %} Entrée métier'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        interdisc:
+          id: interdisc
+          table: gbb_gdiof_dafor
+          field: interdisc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  interdisc=="1" %}&#9745;{% else %}&#9744;{% endif %} Interdisciplinaire'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        intm:
+          id: intm
+          table: gbb_gdiof_dafor
+          field: intm
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  intm=="1" %}&#9745;{% else %}&#9744;{% endif %} Inter-métiers'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        nouv_offreur:
+          id: nouv_offreur
+          table: gbb_gdiof_dafor
+          field: nouv_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  nouv_offreur=="1" %}&#9745;{% else %}&#9744;{% endif %} Nouvel offreur'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        prox:
+          id: prox
+          table: gbb_gdiof_dafor
+          field: prox
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  prox=="1" %}&#9745;{% else %}&#9744;{% endif %} Formation de proximité'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        pub_des:
+          id: pub_des
+          table: gbb_gdiof_dafor
+          field: pub_des
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  pub_des=="1" %}&#9745;{% else %}&#9744;{% endif %} Public désigné '
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        fofo:
+          id: fofo
+          table: gbb_gdiof_dafor
+          field: fofo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{% if  fofo=="1" %}&#9745;{% else %}&#9744;{% endif %} Formation de formateurs'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: standard
+        nothing_2:
+          id: nothing_2
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{{ ecarte }}{{ nouv_offreur }} &nbsp;&nbsp; {{ pub_des }} &nbsp;&nbsp; {{ interdisc }} &nbsp;&nbsp; {{ intm }}<br/>\r\n{{ fofo }} &nbsp;&nbsp; {{ prox }} &nbsp;&nbsp; {{ entm }} \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
       header: {  }
+      sorts:
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdiof
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        no_offre:
+          id: no_offre
+          table: gbb_gdiof
+          field: no_offre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:

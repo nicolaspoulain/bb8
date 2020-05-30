@@ -2506,6 +2506,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gdiof_dafor']['fofo'] = array( 'help' => t('Formation de formateurs'),
+    //{{
+    'title' => t('fofo'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gdiof_dafor']['prio_nat'] = array( 'help' => t('Priorité nationale'),
     //{{
     'title' => t('prio_nat'),
