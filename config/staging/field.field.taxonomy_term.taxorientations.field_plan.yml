@@ -1,0 +1,19 @@
+uuid: 278b93a0-2f66-4944-8b28-7f866de1e788
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_plan
+    - taxonomy.vocabulary.taxorientations
+id: taxonomy_term.taxorientations.field_plan
+field_name: field_plan
+entity_type: taxonomy_term
+bundle: taxorientations
+label: plan
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

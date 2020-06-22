@@ -1,0 +1,23 @@
+uuid: e2351da7-b230-4b92-b3ae-3701a13504e4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_dom_disc
+    - taxonomy.vocabulary.taxorientations
+  module:
+    - options
+id: taxonomy_term.taxorientations.field_dom_disc
+field_name: field_dom_disc
+entity_type: taxonomy_term
+bundle: taxorientations
+label: dom/disc
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: domaine
+default_value_callback: ''
+settings: {  }
+field_type: list_string

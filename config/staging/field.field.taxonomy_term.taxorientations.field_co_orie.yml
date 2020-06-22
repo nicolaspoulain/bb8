@@ -1,0 +1,19 @@
+uuid: 2410b88c-16dc-4c98-8cb7-693d5af7cb2d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_co_orie
+    - taxonomy.vocabulary.taxorientations
+id: taxonomy_term.taxorientations.field_co_orie
+field_name: field_co_orie
+entity_type: taxonomy_term
+bundle: taxorientations
+label: co_orie
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

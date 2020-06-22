@@ -1,0 +1,42 @@
+uuid: 2a52f19f-3310-4816-9b9e-e22c1da11334
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.taxorientations.field_co_orie
+    - field.field.taxonomy_term.taxorientations.field_dom_disc
+    - field.field.taxonomy_term.taxorientations.field_plan
+    - taxonomy.vocabulary.taxorientations
+  module:
+    - options
+id: taxonomy_term.taxorientations.default
+targetEntityType: taxonomy_term
+bundle: taxorientations
+mode: default
+content:
+  field_co_orie:
+    weight: -4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_dom_disc:
+    weight: -2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_plan:
+    weight: -3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  description: true
+  langcode: true

@@ -1,0 +1,11 @@
+uuid: 6fd40cf5-060f-407d-990d-ccfc2ad1119b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.taxorientations
+id: taxonomy_term.taxorientations
+target_entity_type_id: taxonomy_term
+target_bundle: taxorientations
+default_langcode: site_default
+language_alterable: false

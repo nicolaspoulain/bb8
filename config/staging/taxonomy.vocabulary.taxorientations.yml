@@ -1,0 +1,8 @@
+uuid: 0eb44d33-c0c9-4324-8141-4ca2e4d6dfa7
+langcode: fr
+status: true
+dependencies: {  }
+name: Taxorientations
+vid: taxorientations
+description: 'Copie des orientations en taxo pour la souplesse'
+weight: 0
