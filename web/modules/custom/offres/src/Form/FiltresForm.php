@@ -42,6 +42,7 @@ class FiltresForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state, $comment=NULL, $co_omodu=NULL, $annee=NULL) {
     $gets =\Drupal::request()->query->all();
     $nomu = $gets['nomu'];
+    $no_offre = $gets['no_offre'];
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
@@ -87,6 +88,34 @@ class FiltresForm extends FormBase {
     '#default_value' => $nomu,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
+  $form['co_omodu'] = array(
+    '#type' => 'textfield',
+    '#title' => $this->t('Numéro module'),
+    '#size'          => 15,
+    '#attributes' => array('placeholder' => t('p.ex.: 25006')),
+    '#default_value' => $co_omodu,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+  );
+  $form['no_offre'] = array(
+    '#type' => 'textfield',
+    '#title' => $this->t('Numéro offre'),
+    '#size'          => 15,
+    '#attributes' => array('placeholder' => t('p.ex.: 20200056')),
+    '#default_value' => $no_offre,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
+  );
+  $form['position'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'tous'=>'tous',
+      'autre'=>'pas 500-800',
+      '500'=>'500',
+      '800'=>'800',
+    ),
+    '#title' => $this->t('position'),
+    '#default_value' => $position,
+    '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-2-24')),
+  );
   $form['co_orie'] = array(
     '#type' => 'textfield',
     '#title' => $this->t('Code Orientation'),
@@ -103,7 +132,7 @@ class FiltresForm extends FormBase {
     '#default_value' => $co_offreur,
     '#wrapper_attributes' => array('class' => array('pure-u-1','pure-u-md-4-24')),
   );
-  $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
+  // $form['co_omodu']  = array('#type' => 'hidden','#value' => $co_omodu );
   // Group submit handlers in an actions element with a key of "actions" so
   // that it gets styled correctly, and so that other modules may add actions
   // to the form.
@@ -125,6 +154,9 @@ class FiltresForm extends FormBase {
     $valid = $this->validate($form, $form_state);
     $entry = array(
       'nomu'       => $form_state->getValue('nomu'),
+      'co_omodu'       => $form_state->getValue('co_omodu'),
+      'position'       => $form_state->getValue('position'),
+      'no_offre'       => $form_state->getValue('no_offre'),
       'co_orie'       => $form_state->getValue('co_orie'),
       'co_tpla'       => $form_state->getValue('co_tpla'),
       'co_camp'       => $form_state->getValue('co_camp'),
@@ -134,6 +166,9 @@ class FiltresForm extends FormBase {
     $form_state->setRedirect('offres_list',
       array(
         'nomu' => $form_state->getValue('nomu'),
+        'co_omodu'  => $form_state->getValue('co_omodu'),
+        'position'  => $form_state->getValue('position'),
+        'no_offre'  => $form_state->getValue('no_offre'),
         'co_orie'  => $form_state->getValue('co_orie'),
         'co_tpla'  => $form_state->getValue('co_tpla'),
         'co_camp'  => $form_state->getValue('co_camp'),

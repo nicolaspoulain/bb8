@@ -20764,7 +20764,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href =\"pia/list_w/{{ co_modu }}/{{ co_degre }}\"><i class=\"far fa-square\"></i> <i class=\"far fa-check-square\"></i></a> {{ lib }}\r\n"
+            text: "<a href =\"pia/list_w/{{ co_modu }}/{{ co_degre }}\"><i class=\"fas fa-cog\"></i></a> {{ lib }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -21500,9 +21500,11 @@ display:
           expose:
             operator_id: id_disp_1_op
             label: 'Identifiant du dispositif'
-            description: 'p.ex. : 18A0010360'
+            description: 'p.ex. : 20A0010360'
             use_operator: false
             operator: id_disp_1_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp_1
             required: false
             remember: false
@@ -21513,9 +21515,9 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -21766,6 +21768,8 @@ display:
             description: ''
             use_operator: false
             operator: id_disp_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp
             required: false
             remember: false
@@ -21775,8 +21779,6 @@ display:
               anonymous: '0'
               administrator: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -21790,29 +21792,29 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 2018-19
+                title: 2020-21
                 operator: starts
-                value: '18'
+                value: '20'
               2:
-                title: 2017-18
-                operator: starts
-                value: '17'
-              3:
                 title: 2019-20
                 operator: starts
                 value: '19'
+              3:
+                title: 2018-19
+                operator: starts
+                value: '18'
               4:
-                title: '[1D] 2018-19'
+                title: '[1D] 2020-21'
                 operator: starts
-                value: 18D
+                value: 20D
               5:
-                title: '[1D] 2017-18'
-                operator: starts
-                value: 17D
-              6:
                 title: '[1D] 2019-20'
                 operator: starts
                 value: 19D
+              6:
+                title: '[1D] 2018-19'
+                operator: starts
+                value: 18D
           plugin_id: string
         resp_filter:
           id: resp_filter
@@ -22140,7 +22142,7 @@ display:
           group_type: group
           admin_label: ''
           operator: not_starts
-          value: 18N
+          value: 20N
           group: 1
           exposed: false
           expose:
@@ -22149,6 +22151,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -22156,8 +22160,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''

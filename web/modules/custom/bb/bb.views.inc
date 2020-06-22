@@ -2094,6 +2094,16 @@ function bb_views_data() {
       ),
     ),
   );
+  $data['gbb_grcoof']['table'] = array( 'group' => t('gbb_gmoof'),
+    'join' => array(
+      'gbb_gmoof' => array(
+        'table' => 'gbb_grcoof',
+        'left_table' => 'gbb_gdiof',
+        'left_field' => 'co_offreur',
+        'field' => 'code',
+      ),
+    ),
+  );
   $data['gbb_netab_moof']['table'] = array( 'group' => t('gbb_gmoof'),
     'join' => array(
       'gbb_gmoof' => array(
@@ -2134,6 +2144,39 @@ function bb_views_data() {
       ),
     ),
   );
+    $data['gbb_grcoof']['groupe'] = array( 'help' => t('Groupe code_offreur'),
+  //{{
+    'title' => t('groupe co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof']['entree'] = array( 'help' => t('Entree code_offreur'),
+  //{{
+    'title' => t('Entree co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof']['axe'] = array( 'help' => t('Axe code_offreur'),
+  //{{
+    'title' => t('axe co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof']['prio'] = array( 'help' => t('Prio code_offreur'),
+  //{{
+    'title' => t('prio co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+
   //{{ *** GBB_NOIRE intégré
   $data['gbb_norie_gdiof']['table'] = array( 'group' => t('gbb_gmoof'),
     'join' => array(
@@ -2149,6 +2192,14 @@ function bb_views_data() {
   $data['gbb_norie_gdiof']['lib_court'] = array( 'help' => t('Orientation : libellé court'),
   //{{
     'title' => t('norie.lib_court'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_norie_gdiof']['lib_long'] = array( 'help' => t('Orientation : libellé long'),
+  //{{
+    'title' => t('norie.lib_long'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -2246,9 +2297,10 @@ function bb_views_data() {
   $data['gbb_gmoof']['co_omodu'] = array( 'help' => t('Code module'),
     //{{
     'title' => t('co_omodu'),
-    'field'  => array('id' => 'standard',),
+    'field'  => array('id' => 'numeric',),
     'sort'   => array('id' => 'standard'),
-    'filter' => array('id' => 'string'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   $data['gbb_gmoof']['libl'] = array( 'help' => t('Libellé long'),

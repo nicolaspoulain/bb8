@@ -19,6 +19,9 @@ class OffresController extends ControllerBase {
     $content = [];
     $gets =\Drupal::request()->query->all();
     $nomu = $gets['nomu'];
+    $position = $gets['position'];
+    $no_offre = $gets['no_offre'];
+    $co_omodu = $gets['co_omodu'];
     $co_orie = $gets['co_orie'];
     $co_tpla = $gets['co_tpla'];
     $co_camp = $gets['co_camp'];
@@ -47,7 +50,7 @@ class OffresController extends ControllerBase {
     'nomu2'        => t('Resp. péda.'),
     'co_moda'      => t('Hybr'),
     'ecarte'         => array('data' => t('Ecartée'), 'class' => 'jaune'),
-    'ptrim'         => array('data' => t('Prem trim'), 'class' => 'jaune'),
+    'ptrim'         => array('data' => t('Prem semestre'), 'class' => 'jaune'),
     'hybridable'         => array('data' => t('Hybri dable'), 'class' => 'jaune'),
     'echange'         => array('data' => t('Ech. coll.'), 'class' => 'jaune'),
     'oral'         => array('data' => t('Oral'), 'class' => 'jaunepia'),
@@ -92,11 +95,20 @@ class OffresController extends ControllerBase {
     $query ->leftjoin('gbb_gresp', 'r', 'd.co_resp = r.co_resp AND r.co_degre = 2');
     $query ->leftjoin('gbb_gresp', 'r2', 'm.co_resp = r2.co_resp AND r2.co_degre = 2');
     // $query ->condition('d.no_offre', '20190000', '>');
+    $query ->condition('m.co_omodu', '24982', '>');
     if (strlen($nomu)>0)    $query ->condition('r.nomu', $nomu, 'like');
-    if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie, 'like');
+    if (strlen($co_omodu)>0) $query ->condition('m.co_omodu', $co_omodu.'%', 'like');
+    if (strlen($no_offre)>0) $query ->condition('d.no_offre', $no_offre.'%', 'like');
+    if (strlen($co_orie)>0) $query ->condition('d.co_orie', $co_orie.'%', 'like');
     if (strlen($co_tpla)>0) $query ->condition('d.co_tpla', $co_tpla, 'like');
     if (strlen($co_offreur)>0) $query ->condition('d.co_offreur', $co_offreur."%", 'like');
     if (strlen($annee)>0) $query ->condition('d.no_offre', $annee."0000", '>');
+    if ($position=='500') $query ->condition('dd.position', '500');
+    if ($position=='800') $query ->condition('dd.position', '800');
+    if ($position=='autre') {
+      $query ->condition('dd.position', '500', '<>');
+      $query ->condition('dd.position', '800', '<>');
+    }
     if ($co_camp=='FIL') $query ->condition('r.nomu', 'mouttapa', 'like');
     if ($co_camp=='PAF') $query ->condition('r.nomu', 'mouttapa', 'not like');
     $query ->fields('m', array(
