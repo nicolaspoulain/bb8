@@ -399,6 +399,35 @@ function bb_views_data() {
   );
   //}}
 
+  $data['taxonomy_term_field_data_ng']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term_field_data',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'tid',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term_field_data_ng']['tid'] = array( 'help' => t('Terme de taxonomie NG'),
+  //{{
+    'title' => t('tid NG'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['taxonomy_term_field_data_ng']['name'] = array( 'help' => t('nom de l elt de taxonomie NG'),
+  //{{
+    'title' => t('name NG'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
 
 
   $data['taxonomy_term_data_dafor']['table'] = array( 'group' => t('gbb_gmodu'),

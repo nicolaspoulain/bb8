@@ -85,6 +85,7 @@ class DraggableForm extends FormBase {
     $query->condition('t.tid', $tid);
     $query->condition('m.co_anmo', '04', 'not like');
     $query->condition('d.co_camp', 'BS', 'not like');
+    $query->condition('t.type',"w");
     if ($co_orie == "WEB") {
     $query->condition('t.weight', 100, '<');
     } elseif ($co_orie == "WEB2") {
@@ -96,8 +97,9 @@ class DraggableForm extends FormBase {
 
     $query->fields('t')
       ->fields('m')
-      ->fields('d')
-      ->orderBy('weight');
+      ->fields('d');
+    $query->addField('m', 'lib', 'libm');
+    $query->orderBy('weight');
     $results = $query->execute()->fetchAll();
     // dpm($results);
     foreach ($results as $row) {
@@ -111,7 +113,7 @@ class DraggableForm extends FormBase {
 
       // Some table columns containing raw markup.
       $pub_des = ($row->co_tcan == 3)? "Ⓓ " : "";
-      $str = $row->co_modu." ".$row->lib." ".$pub_des;
+      $str = $row->co_modu." ".$row->libm." ".$pub_des;
       $form['table-row'][$row->id]['text'] = [
         '#markup' => $str,
       ];
