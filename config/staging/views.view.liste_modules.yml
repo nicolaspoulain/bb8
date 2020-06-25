@@ -92,63 +92,21 @@ display:
           summary: ''
           description: ''
           columns:
-            current_path: current_path
             co_degre: co_degre
-            co_anmo: co_anmo
-            co_andi: co_andi
-            co_tcan: co_tcan
             co_tpla: co_tpla
-            co_camp: co_camp
-            lib_1: lib_1
             id_disp: id_disp
-            co_orie: co_orie
-            lib_court: lib_court
-            ficand: ficand
-            reforme: reforme
-            color: color
-            prioritaire: prioritaire
-            co_etab_dem: co_etab_dem
             co_modu: co_modu
             lib: lib
-            rorgacolor: rorgacolor
-            nomu: nomu
-            rpedacolor: rpedacolor
             nomu_1: nomu_1
-            co_offreur: co_offreur
-            lib_court_1: lib_court_1
-            prio_nat: prio_nat
-            lib_long: lib_long
-            thematique: thematique
+            nomu: nomu
+            name: name
+            semestre: semestre
+            name_1: name_1
+            tid: tid
+            vid: vid
+            type: type
           info:
-            current_path:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             co_degre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_anmo:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_andi:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_tcan:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -162,70 +120,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            co_camp:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             id_disp:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_orie:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib_court:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            ficand:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            reforme:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            color:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            prioritaire:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_etab_dem:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -246,8 +141,8 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            rorgacolor:
-              sortable: false
+            nomu_1:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -260,49 +155,42 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            rpedacolor:
+            name:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            nomu_1:
+            semestre:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            co_offreur:
+            name_1:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            lib_court_1:
+            tid:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            prio_nat:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib_long:
+            vid:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            thematique:
+            type:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -20949,6 +20837,63 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        semestre:
+          id: semestre
+          table: gbb_gmodu_plus
+          field: semestre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: S
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if semestre >0 %}\r\nS{{ semestre }}\r\n{% else %}\r\n-\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         name_1:
           id: name_1
           table: taxonomy_term_field_data_ng

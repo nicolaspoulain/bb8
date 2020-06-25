@@ -22,3 +22,14 @@ pia_sort_w:
   requirements:
     _permission: 'access content'
 
+pia.modal_semestre_form:
+  path: '/modal_semestre_form/{co_degre}/{co_modu}/{type}'
+  defaults:
+    _form:  '\Drupal\pia\Form\ModalSemestreForm'
+    _title_callback:  '\Drupal\pia\Form\ModalSemestreForm::getTitle'
+    co_degre: 2
+    co_modu: 1
+    type: 'edit'
+  requirements:
+    _permission: 'access bb usual'
+

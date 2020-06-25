@@ -23,6 +23,7 @@ class PiaController extends ControllerBase {
         '#markup' => '<h1>'.$co_modu.' '.$r->lib.'</h1>',
       ];
     };
+    $content['semestre_form']= \Drupal::formBuilder()->getForm('Drupal\pia\Form\SemestreForm', $co_modu, $co_degre, 'edit');
     $content['message'] = [
       '#markup' => $this->t('Multi-affichage. Nombre >100 pour les domanies ou disc. non porteurs'),
     ];
