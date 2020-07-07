@@ -352,6 +352,49 @@ function bb_views_data() {
   );
   //}}
 
+  $data['gbb_grcoof_gdisp']['table'] = array( 'group' => t('gbb_gdisp'),
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'gbb_grcoof',
+        'left_table' => 'gbb_gdisp',
+        'left_field' => 'co_offreur',
+        'field' => 'code',
+      ),
+    ),
+  );
+    $data['gbb_grcoof_gdisp']['groupe'] = array( 'help' => t('Groupe code_offreur'),
+  //{{
+    'title' => t('groupe co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof_gdisp']['entree'] = array( 'help' => t('Entree code_offreur'),
+  //{{
+    'title' => t('Entree co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof_gdisp']['axe'] = array( 'help' => t('Axe code_offreur'),
+  //{{
+    'title' => t('axe co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+    $data['gbb_grcoof_gdisp']['prio'] = array( 'help' => t('Prio code_offreur'),
+  //{{
+    'title' => t('prio co_offreur'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+
   $data['gbb_gmofl']['table'] = array( 'group' => t('gbb_gmodu'),
   //{{
     'join' => array(
@@ -365,7 +408,7 @@ function bb_views_data() {
   //}}
   $data['gbb_gmofl']['lib'] = array( 'help' => t('Libellé'),
   //{{
-    'title' => t('lib'),
+    'title' => t('lib gmofl'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -432,6 +475,74 @@ function bb_views_data() {
   $data['taxonomy_term_field_data_ng']['name'] = array( 'help' => t('nom de l elt de taxonomie NG'),
   //{{
     'title' => t('name NG'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term_field_data_ng']['weight'] = array( 'help' => t('Poids du terme de taxonomie'),
+  //{{
+    'title' => t('weight ng'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term__field_co_orie']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term__field_co_orie',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'entity_id',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term__field_co_orie']['field_co_orie_value'] = array( 'help' => t('Co_orie du terme de taxonomie NG'),
+  //{{
+    'title' => t('co_orie taxo'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term__field_plan']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term__field_plan',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'entity_id',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term__field_plan']['field_plan_value'] = array( 'help' => t('Plan du terme de taxonomie NG'),
+  //{{
+    'title' => t('plan taxo'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['taxonomy_term__field_dom_disc']['table'] = array( 'group' => t('gbb_gmodu'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'table' => 'taxonomy_term__field_dom_disc',
+        'left_table' => 'gbb_gmodu_taxonomy',
+        'left_field' => 'tid',
+        'field' => 'entity_id',
+      ),
+    ),
+  );
+  //}}
+  $data['taxonomy_term__field_dom_disc']['field_dom_disc_value'] = array( 'help' => t('Dom_disc du terme de taxonomie NG'),
+  //{{
+    'title' => t('dom_disc taxo'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),

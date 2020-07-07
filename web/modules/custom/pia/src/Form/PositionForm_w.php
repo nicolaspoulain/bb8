@@ -137,7 +137,7 @@ class PositionForm_w extends FormBase {
       'co_degre'  => $co_degre,
       'type'  => $type,
       'tid'  => $tid,
-      'co_orie'  => $co_orie,
+      // 'co_orie'  => $co_orie,
     );
     // dpm($entry);
     if ($check) {
