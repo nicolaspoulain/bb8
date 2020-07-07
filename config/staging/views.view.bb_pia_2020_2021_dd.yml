@@ -72,6 +72,10 @@ display:
               field: name
               rendered: true
               rendered_strip: false
+            -
+              field: semestre
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           type: ul
@@ -1914,7 +1918,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}❶{% endif %}\r\n{% if semestre==\"2\" %}❷{% endif %}\r\n "
+            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}Semestre ❶ : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in suscipit nunc.{% endif %}\r\n{% if semestre==\"2\" %}Semestre ❷ : Fusce a sollicitudin dolor, id posuere libero. Donec mattis euismod velit et pharetra.{% endif %}\r\n "
             make_link: false
             path: ''
             absolute: false
@@ -2281,7 +2285,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ weight }}{{ semestre }} {{ id_disp }}/{{ co_modu }} {{ lib }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}'
+            text: '{{ weight }} {{ id_disp }}/{{ co_modu }} {{ lib }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}'
             make_link: false
             path: ''
             absolute: false

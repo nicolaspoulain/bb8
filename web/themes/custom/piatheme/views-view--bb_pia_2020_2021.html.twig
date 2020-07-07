@@ -61,6 +61,8 @@
     </header>
   {% endif %}
 
+  <h1>{{ plan|replace({'S': 'Second degré', 'P': 'Premier degré', 'A': 'IATSS', 'E': 'Encadrement'}) }} -  Semestre {{ semestre }}</h1>
+
   {{ exposed }}
   {{ attachment_before }}
 

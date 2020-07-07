@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Bartik theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function piatheme_preprocess_views_view__bb_pia_2020_2021(&$variables) {
+    $query = \Drupal::request()->query->all();
+    $variables['semestre'] = $query['semestre'];
+    $variables['plan'] = $query['field_plan_value'];
+}
+
+function piatheme_preprocess_views_view_grouping__bb_pia_2020_2021(&$variables) {
+    if (preg_match('/approfondir/', $variables['title'])) {
+    $variables['couleur'] = '#484D7A';
+    }
+    if (preg_match('/territoire/', $variables['title'])) {
+    $variables['couleur'] = '#169B62';
+    }
+    if (preg_match('/intermétiers/', $variables['title'])) {
+    $variables['couleur'] = '#91AE4F';
+    }
+    if (preg_match('/débuter/', $variables['title'])) {
+    $variables['couleur'] = '#FF8D7E';
+    }
+    if (preg_match('/ressources/', $variables['title'])) {
+    $variables['couleur'] = '#7D4E5B';
+    }
+}

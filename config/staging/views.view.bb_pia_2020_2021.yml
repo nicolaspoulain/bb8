@@ -69,6 +69,10 @@ display:
         options:
           grouping:
             -
+              field: prio
+              rendered: true
+              rendered_strip: false
+            -
               field: entree
               rendered: true
               rendered_strip: false
@@ -1410,7 +1414,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<h1> {{ prio }} </h1>'
+            text: '<h2> {{ prio }} </h2>'
             make_link: false
             path: ''
             absolute: false
@@ -1458,7 +1462,7 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: true
+            alter_text: false
             text: '<h2>{{ entree }}</h2>'
             make_link: false
             path: ''
@@ -2462,6 +2466,13 @@ display:
           plugin_id: numeric
       defaults:
         fields: false
+        header: false
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
