@@ -33,10 +33,10 @@ function piatheme_preprocess_views_view_grouping__bb_pia_2020_2021(&$variables) 
     $variables['couleur'] = '#FF8D7E';
     }
     if (preg_match('/ressources/', $variables['title'])) {
-    $variables['couleur'] = '#7D4E5B';
+    $variables['couleur'] = '#FF6F4C';
     }
     if (preg_match('/qualifier/', $variables['title'])) {
-    $variables['couleur'] = '#000';
+    $variables['couleur'] = '#FF8D7E';
     }
     if (preg_match('/promotion/', $variables['title'])) {
     $variables['couleur'] = '#000';
