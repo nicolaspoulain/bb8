@@ -1918,7 +1918,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}Semestre ❶ : Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in suscipit nunc.{% endif %}\r\n{% if semestre==\"2\" %}Semestre ❷ : Fusce a sollicitudin dolor, id posuere libero. Donec mattis euismod velit et pharetra.{% endif %}\r\n "
+            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<span class=\"semestreone\">Semestre ❶</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in suscipit nunc.{% endif %}\r\n{% if semestre==\"2\" %}<span class=\"semestretwo\">Semestre ❷</span> Fusce a sollicitudin dolor, id posuere libero. Donec mattis euismod velit et pharetra.{% endif %}\r\n "
             make_link: false
             path: ''
             absolute: false
@@ -2330,11 +2330,11 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Priorité
+          label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: '<h1> {{ prio }} </h1>'
+            alter_text: true
+            text: '{% if prio != "prio" %} <span class="priorite"><b>Priorité</b> : {{ prio }}</span> {% endif %}'
             make_link: false
             path: ''
             absolute: false
@@ -2362,8 +2362,8 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
+          element_label_class: priorite
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true

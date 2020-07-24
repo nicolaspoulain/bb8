@@ -35,4 +35,13 @@ function piatheme_preprocess_views_view_grouping__bb_pia_2020_2021(&$variables) 
     if (preg_match('/ressources/', $variables['title'])) {
     $variables['couleur'] = '#7D4E5B';
     }
+    if (preg_match('/qualifier/', $variables['title'])) {
+    $variables['couleur'] = '#000';
+    }
+    if (preg_match('/promotion/', $variables['title'])) {
+    $variables['couleur'] = '#000';
+    }
+    if (preg_match('/mobilité/', $variables['title'])) {
+    $variables['couleur'] = '#000';
+    }
 }

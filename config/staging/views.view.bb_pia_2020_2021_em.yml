@@ -1,11 +1,11 @@
-uuid: 011e95c5-18f5-4790-b9ea-e8710e5bc0c6
+uuid: 9579acf6-b79a-405d-bd2e-4f66a7151b32
 langcode: fr
 status: true
 dependencies:
   module:
     - bb
-id: bb_pia_2020_2021
-label: 'BB : PIA 2020-2021'
+id: bb_pia_2020_2021_em
+label: 'BB : PIA 2020-2021 EM'
 module: views
 description: ''
 tag: ''
@@ -67,14 +67,6 @@ display:
         type: html_list
         options:
           grouping:
-            -
-              field: prio
-              rendered: true
-              rendered_strip: false
-            -
-              field: entree
-              rendered: true
-              rendered_strip: false
             -
               field: name
               rendered: true
@@ -1443,7 +1435,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pia20_metier
+      path: pia20_em
       display_description: ''
       fields:
         axe:
@@ -2569,18 +2561,6 @@ display:
           field: area_text_custom
           plugin_id: text_custom
       sorts:
-        groupe:
-          id: groupe
-          table: gbb_grcoof_gdisp
-          field: groupe
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
         weight_1:
           id: weight_1
           table: taxonomy_term_field_data_ng
@@ -2857,7 +2837,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
+          operator: '='
           value: '990'
           group: 1
           exposed: false
