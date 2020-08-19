@@ -1649,6 +1649,18 @@ display:
           expose:
             label: ''
           plugin_id: standard
+        co_tcan:
+          id: co_tcan
+          table: gbb_gdisp
+          field: co_tcan
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         weight:
           id: weight
           table: gbb_gmodu_taxonomy
@@ -1918,7 +1930,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<span class=\"semestreone\">Semestre ❶</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in suscipit nunc.{% endif %}\r\n{% if semestre==\"2\" %}<span class=\"semestretwo\">Semestre ❷</span> Fusce a sollicitudin dolor, id posuere libero. Donec mattis euismod velit et pharetra.{% endif %}\r\n "
+            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<span class=\"semestreone\">Semestre ❶</span> Formations avec possible mise en œuvre en distanciel ou en hybride : diversité des élèves, réforme des lycées, numérique, entrée dans le métier, professionnalisation des formateurs, formations de proximité{% endif %}\r\n{% if semestre==\"2\" %}<span class=\"semestretwo\">Semestre ❷</span> Offre de formations complémentaire{% endif %}\r\n "
             make_link: false
             path: ''
             absolute: false
@@ -2130,7 +2142,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">D</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">CC</span>{% endif %}{# Cand. Coll #}"
+            text: "{% if co_tcan == '3' %}<span class=\"logoP\" title=\"Stage à public désigné\">D</span>{% endif %}{# PUB DES #}\r\n{% if co_tcan == '2' %}<span class=\"logoG\" title=\"Stage à candidature collective\">FIL</span>{% endif %}{# Cand. Coll #}"
             make_link: false
             path: ''
             absolute: false
@@ -2285,7 +2297,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ weight }} {{ id_disp }}/{{ co_modu }} {{ lib }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}'
+            text: "{{ weight }} {{ id_disp }}/{{ co_modu }} {{ lib |replace({'&amp;#8217;':\"'\", '&#039;':\"'\", '&amp;#039;':\"'\", '&amp;':\" et \", '&':\" et \"}) }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -2364,104 +2376,6 @@ display:
           element_label_type: strong
           element_label_class: priorite
           element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lcibl:
-          id: lcibl
-          table: gbb_gmodu
-          field: lcibl
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Public
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lpeda:
-          id: lpeda
-          table: gbb_gmodu
-          field: lpeda
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Objectif
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: strong
-          element_label_class: ''
-          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2568,6 +2482,55 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        lpeda:
+          id: lpeda
+          table: gbb_gmodu
+          field: lpeda
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Objectif
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         lcont:
           id: lcont
           table: gbb_gmodu
@@ -2576,6 +2539,55 @@ display:
           group_type: group
           admin_label: ''
           label: Contenus
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: strong
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lcibl:
+          id: lcibl
+          table: gbb_gmodu
+          field: lcibl
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Public
           exclude: false
           alter:
             alter_text: false
