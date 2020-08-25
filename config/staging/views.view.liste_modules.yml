@@ -3174,6 +3174,18 @@ display:
             group_items: {  }
           plugin_id: string
       sorts:
+        semestre:
+          id: semestre
+          table: gbb_gmodu_plus
+          field: semestre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         id_disp:
           id: id_disp
           table: gbb_gdisp
@@ -13913,6 +13925,63 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
+        semestre:
+          id: semestre
+          table: gbb_gmodu_plus
+          field: semestre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: semestre
+          exclude: true
+          alter:
+            alter_text: true
+            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<span class=\"green\">❶</span>{% endif %}\r\n{% if semestre==\"2\" %}<span class=\"green\">❷</span>{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         lib_1:
           id: lib_1
           table: gbb_gdisp
@@ -14234,7 +14303,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_andi>0 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\r\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\r\n{% else %} \r\n  {% if sess_id_8!= '' or sess_id_9!= ''%}\r\n  <span class={{ co_camp }}>&nbsp;{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n   {% else %} \r\n  <span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n  {% endif %}\r\n{% endif %} \r\n\r\n\r\n\r\n"
+            text: "{{ semestre }}\r\n{% if co_andi>0 %}\r\n<i class=\"fa fa-times-circle fa-lg\" aria-hidden=\"true\"></i>\r\n<span class=\"{{ co_camp }}\">{{ co_camp }} <span class=\"strike\">{{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; {{ co_orie }} <span class=\"small\">{{ lib_court }}</span>\r\n{% else %} \r\n  {% if sess_id_8!= '' or sess_id_9!= ''%}\r\n  <span class={{ co_camp }}>&nbsp;{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n   {% else %} \r\n  <span class={{ co_camp }}>{{ co_camp }} {{ id_disp }} {{ lib_1 }}</span> &nbsp;&nbsp;Plan {{ co_tpla }} &nbsp; &nbsp; <a href=\"https://daforbb.scola.ac-paris.fr/bb8/web/liste-gaia?co_anmo=1&id_disp=1&co_orie={{ co_orie }}\">{{ co_orie }} <span class=\"small\">{{ lib_court }}</span></a>\r\n  {% endif %}\r\n{% endif %} \r\n\r\n\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -16354,53 +16423,53 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2021-22
+                operator: starts
+                value: '21'
+              2:
                 title: 2020-21
                 operator: starts
                 value: '20'
-              2:
+              3:
                 title: 2019-20
                 operator: starts
                 value: '19'
-              3:
-                title: 2018-19
-                operator: starts
-                value: '18'
               4:
+                title: '[1D] 2021-22'
+                operator: starts
+                value: 21D
+              5:
                 title: '[1D] 2020-21'
                 operator: starts
                 value: 20D
-              5:
+              6:
                 title: '[1D] 2019-20'
                 operator: starts
                 value: 19D
-              6:
-                title: '[1D] 2018-19'
-                operator: starts
-                value: 18D
               7:
+                title: 2018-19
+                operator: starts
+                value: '18'
+              8:
                 title: 2017-18
                 operator: starts
                 value: '17'
-              8:
+              9:
                 title: 2016-17
                 operator: starts
                 value: '16'
-              9:
+              10:
                 title: 2015-16
                 operator: starts
                 value: '15'
-              10:
+              11:
                 title: 2014-15
                 operator: starts
                 value: '14'
-              11:
+              12:
                 title: 2013-14
                 operator: starts
                 value: '13'
-              12:
-                title: 2012-13
-                operator: starts
-                value: '12'
           plugin_id: string
         resp_filter:
           id: resp_filter
