@@ -1969,7 +1969,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<span class=\"semestreone\">Semestre ❶</span> Formations avec possible mise en œuvre en distanciel ou en hybride : diversité des élèves, réforme des lycées, numérique, entrée dans le métier, professionnalisation des formateurs, formations de proximité{% endif %}\r\n{% if semestre==\"2\" %}<span class=\"semestretwo\">Semestre ❷</span> Offre de formations complémentaire{% endif %}\r\n "
+            text: "{% if semestre==\"0\" %}<span class=\"red\">⓿</span>{% endif %}\r\n{% if semestre==\"1\" %}<div class=\"wrapper\"><div class=\"semestreone\">Semestre ❶</div><div class=\"semone\">Formations avec possible mise en œuvre en distanciel ou en hybride : diversité des élèves, réforme des lycées, numérique, entrée dans le métier, professionnalisation des formateurs, formations de proximité</div><div class=\"endfloat\"></div></div>{% endif %}\r\n{% if semestre==\"2\" %}<div class=\"wrapper\"><div class=\"semestretwo\">Semestre ❷</div><div class=\"semtwo\">Offre de formations complémentaire</div><div class=\"endfloat\"></div></div>{% endif %}\r\n "
             make_link: false
             path: ''
             absolute: false
