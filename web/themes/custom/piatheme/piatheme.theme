@@ -19,6 +19,11 @@ function piatheme_preprocess_views_view__bb_pia_2020_2021(&$variables) {
     $variables['plan'] = $query['field_plan_value'];
 }
 
+function piatheme_preprocess_views_view_list__bb_pia_2020_2021(&$variables) {
+    $query = \Drupal::request()->query->all();
+    $variables['plan'] = $query['field_plan_value'];
+}
+
 function piatheme_preprocess_views_view_grouping__bb_pia_2020_2021(&$variables) {
     $query = \Drupal::request()->query->all();
     $variables['plan'] = $query['field_plan_value'];

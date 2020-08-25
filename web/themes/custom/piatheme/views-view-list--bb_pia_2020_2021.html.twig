@@ -23,11 +23,19 @@
 {% endif %}
 {% set alea=random(100000000, 999999999) %}
 
+{% set displaystyle = "none" %}
+{% if plan == 'P' %}
+  {% set displaystyle = "block" %}
+{% endif %}
+{% if plan == 'E' %}
+  {% set displaystyle = "block" %}
+{% endif %}
+
 {% if title %}
     <h4 style="cursor: pointer;" onclick="yourFunction('{{alea}}')">{{ title }}</h4>
 {% endif %}
 
-<div style="display:none" class='{{alea}}'>
+<div style="display:{{ displaystyle }}" class='{{alea}}'>
   <{{ list.type }}{{ list.attributes }}>
 
     {% for row in rows %}
