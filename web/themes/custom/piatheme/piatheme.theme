@@ -20,6 +20,9 @@ function piatheme_preprocess_views_view__bb_pia_2020_2021(&$variables) {
 }
 
 function piatheme_preprocess_views_view_grouping__bb_pia_2020_2021(&$variables) {
+    $query = \Drupal::request()->query->all();
+    $variables['plan'] = $query['field_plan_value'];
+
     if (preg_match('/approfondir/', $variables['title'])) {
     $variables['couleur'] = '#484D7A';
     }

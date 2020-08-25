@@ -16,11 +16,19 @@
  * @ingroup themeable
  */
 #}
+{% set displaystyle = "none" %}
+{% if plan == 'P' %}
+  {% set displaystyle = "block" %}
+{% endif %}
+{% if plan == 'E' %}
+  {% set displaystyle = "block" %}
+{% endif %}
+
 {% set alea=random(100000000, 999999999) %}
 
 {% if grouping_level==1 %}
-  <h3 style="color:white; background-color:{{ couleur }}; padding:10px; border-radius:5px; cursor: pointer;" onclick="yourFunction('{{alea}}')">{{ title }}</h3>
-<div style="display:none" class='{{alea}}'>
+<h3 style="color:white; background-color:{{ couleur }}; padding:10px; border-radius:5px; cursor: pointer;" onclick="yourFunction('{{alea}}')">{{ title }}</h3>
+<div style="display:{{ displaystyle }}" class='{{alea}}'>
 {{ content }}
 </div>
 {% else %}
