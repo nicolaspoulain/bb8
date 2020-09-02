@@ -21,6 +21,10 @@
 .views-exposed-form {
   display: none;
 }
+#views-exposed-form-bb-pia-2020-2021-search-page-2 {
+  display: block;
+  padding: 30px;
+}
 #views-exposed-form-bb-pia-04-page-2 {
   display: block;
 }

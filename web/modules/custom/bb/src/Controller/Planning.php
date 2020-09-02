@@ -17,6 +17,7 @@ class Planning extends ControllerBase {
    */
   public function page($id_disp,$co_anmo,$filter) {
     $co_orie = 'All';
+    $gestionnaire = 'All';
     $resp_filter = '';
     $co_offreur = 'All';
     $date = date("Y-m-d");
@@ -27,7 +28,7 @@ class Planning extends ControllerBase {
       $resp_filter = $user->get('field_name')->value;
     };
     if ($filter == "BD") {
-      $co_offreur = 1;
+      $gestionnaire = 1;
     };
     if ($filter == "AP") {
       $co_orie = "1";
@@ -35,7 +36,7 @@ class Planning extends ControllerBase {
     // query parameters
     $routeparameters = array(
       'date_ts' => $date,
-      'co_offreur' => $co_offreur,
+      'gestionnaire' => $gestionnaire,
       'co_orie' => $co_orie,
       'resp_filter' => $resp_filter);
     return $this->redirect('view.planning.page_1',$routeparameters);

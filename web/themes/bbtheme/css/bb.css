@@ -510,3 +510,8 @@ box-shadow:inset 1em 0 black;
  border:1px solid red;
  padding:3px;
  }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

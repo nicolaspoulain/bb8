@@ -968,6 +968,8 @@ display:
             description: null
             use_operator: false
             operator: id_disp_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp
             required: false
             remember: false
@@ -975,8 +977,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -990,17 +990,17 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 21-22
+                operator: starts
+                value: '21'
+              2:
                 title: 20-21
                 operator: starts
                 value: '20'
-              2:
+              3:
                 title: 19-20
                 operator: starts
                 value: '19'
-              3:
-                title: 18-19
-                operator: starts
-                value: '18'
           plugin_id: string
         nomu:
           id: nomu

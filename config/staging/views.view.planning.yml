@@ -1068,14 +1068,14 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        co_offreur:
-          id: co_offreur
+        gestionnaire:
+          id: gestionnaire
           table: gbb_gdisp
-          field: co_offreur
+          field: gestionnaire
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: gestionnaire
           exclude: true
           alter:
             alter_text: false
@@ -1108,7 +1108,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1128,7 +1128,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if lib_court_1 == 'INDIVIDUEL' %}\n{% if co_degre == 1 %}VO{% else %}Indiv.{% endif %}\n{% elseif lib_court_1 == 'COLLECTIV.' %}\nColl.\n{% else %}\n{% if co_degre == 1 %}NE{% else %}{{ lib_court_1|capitalize }}{% endif %}\n{% endif %}\n{% if co_degre ==1 %}\n  {{ co_offreur }}\n{% endif %}"
+            text: "{% if lib_court_1 == 'INDIVIDUEL' %}\r\n{% if co_degre == 1 %}VO{% else %}Indiv.{% endif %}\r\n{% elseif lib_court_1 == 'COLLECTIV.' %}\r\nColl.\r\n{% else %}\r\n{% if co_degre == 1 %}NE{% else %}{{ lib_court_1|capitalize }}{% endif %}\r\n{% endif %}\r\n{% if co_degre ==1 %}\r\n  {{ gestionnaire}}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1479,6 +1479,57 @@ display:
                 title: BDL
                 operator: '='
                 value: BDL
+          plugin_id: string
+        gestionnaire:
+          id: gestionnaire
+          table: gbb_gdisp
+          field: gestionnaire
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: gestionnaire_op
+            label: gestionnaire
+            description: null
+            use_operator: false
+            operator: gestionnaire_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: gestionnaire
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Type Rmpl. new'
+            description: ''
+            identifier: gestionnaire
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'BD*'
+                operator: starts
+                value: BD
+              2:
+                title: HTS
+                operator: '='
+                value: HTS
+              3:
+                title: SR
+                operator: '='
+                value: SR
           plugin_id: string
         co_orie:
           id: co_orie

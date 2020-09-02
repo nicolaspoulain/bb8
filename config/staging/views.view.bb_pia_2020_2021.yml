@@ -2420,7 +2420,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% if co_tcan_1 != '2' %}\r\n<b>Objectif</b> : {{ lpeda }}<br/>\r\n<b>Contenus</b> : {{ lcont }} \r\n{% endif %}"
+            text: "{% if co_tcan_1 != '2' %}\r\n<b>Objectif</b> : {{ lpeda |replace({'&amp;#8217;':\"'\", '&#039;':\"'\", '&amp;#039;':\"'\", '&amp;':\" et \", '&':\" et \"}) }}<br/>\r\n<b>Contenus</b> : {{ lcont |replace({'&amp;#8217;':\"'\", '&#039;':\"'\", '&amp;#039;':\"'\", '&amp;':\" et \", '&':\" et \"}) }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -2517,8 +2517,8 @@ display:
           label: Forme
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lform |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2566,8 +2566,8 @@ display:
           label: Modalités
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lmoda |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -3034,6 +3034,45 @@ display:
           admin_label: ''
           operator: '!='
           value: '990'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: shorterthan
+          value: '1'
           group: 1
           exposed: false
           expose:

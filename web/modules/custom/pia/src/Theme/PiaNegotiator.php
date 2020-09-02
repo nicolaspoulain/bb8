@@ -31,6 +31,7 @@ class PiaNegotiator implements ThemeNegotiatorInterface {
       'view.bb_pia_05.page_2',
       'view.bb_pia_05.page_3',
       'view.bb_pia_05.page_4',
+      'view.bb_pia_2020_2021_search.page_2',
       'view.bb_pia_2020_2021.page_1',
       'view.bb_pia_2020_2021_dd.page_2',
       'view.bb_pia_2020_2021_em.page_1',

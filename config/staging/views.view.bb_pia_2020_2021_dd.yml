@@ -1653,12 +1653,96 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        semestre:
+          id: semestre
+          table: gbb_gmodu_plus
+          field: semestre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: shorterthan
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       defaults:
         filters: false
         filter_groups: false
         sorts: false
         fields: false
         pager: false
+        cache: false
       filter_groups:
         operator: AND
         groups:
@@ -2336,7 +2420,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ weight }} {{ id_disp }}/{{ co_modu }} {{ lib |replace({'&amp;#8217;':\"'\", '&#039;':\"'\", '&amp;#039;':\"'\", '&amp;':\" et \", '&':\" et \"}) }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}\r\n"
+            text: "{{ weight }} {{ id_disp }}/{{ co_modu }} {{ lib |replace({'&amp;#8217;':\"'\", '&amp;#8211;':\"-\", '&#039;':\"'\", '&amp;#039;':\"'\", '&amp;':\" et \", '&':\" et \"}) }} {{ co_tpla }} {{ co_tcan }} {{ co_moda }}\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -2531,8 +2615,8 @@ display:
           label: Objectif
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lpeda |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2580,8 +2664,8 @@ display:
           label: Contenus
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lcont |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2629,8 +2713,8 @@ display:
           label: Public
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lcibl |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2678,8 +2762,8 @@ display:
           label: Forme
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lform |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2727,8 +2811,8 @@ display:
           label: Modalités
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ lmoda |replace({''&amp;#8217;'':"''", ''&#039;'':"''", ''&amp;#039;'':"''", ''&amp;'':" et ", ''&'':" et "}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -2827,6 +2911,13 @@ display:
         type: none
         options:
           offset: 0
+      cache:
+        type: time
+        options:
+          results_lifespan: 3600
+          results_lifespan_custom: 0
+          output_lifespan: 3600
+          output_lifespan_custom: 0
     cache_metadata:
       max-age: -1
       contexts:

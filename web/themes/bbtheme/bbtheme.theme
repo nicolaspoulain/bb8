@@ -19,8 +19,9 @@ function bbtheme_preprocess_views_view_table__liste_modules__page_1(&$variables)
       $tab[] = "$k=$v";
     }
     $str = implode("&",$tab);
-    $str = "xls?$str";
-    $variables['xlsUrl'] = $str;
+    $variables['xlsUrlA'] = "xlsA?$str";
+    $variables['xlsUrlB'] = "xlsB?$str";
+    $variables['xlsUrlC'] = "xlsC?$str";
 }
 function bbtheme_preprocess_views_view_table__bb_liste_offres__page_1(&$variables) {
     $query = \Drupal::request()->query->all();
