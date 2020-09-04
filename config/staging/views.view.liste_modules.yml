@@ -3226,7 +3226,7 @@ display:
     display_plugin: excel_export
     id: excel_export_1
     display_title: 'Excel export'
-    position: 1
+    position: 4
     display_options:
       display_extenders: {  }
       path: xlsB
@@ -7064,7 +7064,7 @@ display:
     display_plugin: excel_export
     id: excel_export_2
     display_title: 'Excel Détail-sessions'
-    position: 3
+    position: 9
     display_options:
       display_extenders: {  }
       path: liste-sessions_xls
@@ -8028,7 +8028,7 @@ display:
     display_plugin: excel_export
     id: excel_export_3
     display_title: 'XLS BIGexport'
-    position: 1
+    position: 5
     display_options:
       display_extenders: {  }
       path: xlsbig
@@ -11857,7 +11857,7 @@ display:
     display_plugin: excel_export
     id: excel_export_4
     display_title: 'Excel light'
-    position: 1
+    position: 3
     display_options:
       display_extenders: {  }
       path: xlsA
@@ -11867,6 +11867,7 @@ display:
         query: false
         filters: false
         filter_groups: false
+        sorts: false
       displays:
         page_1: page_1
         default: '0'
@@ -12255,6 +12256,153 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        co_offreur:
+          id: co_offreur
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Co_offreur (type rempl.)'
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: 1
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        prio:
+          id: prio
+          table: gbb_grcoof_gdisp
+          field: prio
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
+        entree:
+          id: entree
+          table: gbb_grcoof_gdisp
+          field: entree
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: 0
+          alter:
+            alter_text: 0
+            text: ''
+            make_link: 0
+            path: ''
+            absolute: 0
+            external: 0
+            replace_spaces: 0
+            path_case: none
+            trim_whitespace: 0
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: 0
+            max_length: '0'
+            word_boundary: 1
+            ellipsis: 1
+            more_link: 0
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: 0
+            trim: 0
+            preserve_tags: ''
+            html: 0
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: 1
+          empty: ''
+          hide_empty: 0
+          empty_zero: 0
+          hide_alter_empty: 1
+          plugin_id: standard
         id_disp:
           id: id_disp
           table: gbb_gdisp
@@ -12510,55 +12658,6 @@ display:
           empty_zero: 0
           hide_alter_empty: 1
           plugin_id: standard
-        co_offreur:
-          id: co_offreur
-          table: gbb_gdisp
-          field: co_offreur
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Co_offreur (type rempl.)'
-          exclude: 0
-          alter:
-            alter_text: 0
-            text: ''
-            make_link: 0
-            path: ''
-            absolute: 0
-            external: 0
-            replace_spaces: 0
-            path_case: none
-            trim_whitespace: 0
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: 0
-            max_length: '0'
-            word_boundary: 1
-            ellipsis: 1
-            more_link: 0
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: 0
-            trim: 0
-            preserve_tags: ''
-            html: 0
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: 1
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: 1
-          empty: ''
-          hide_empty: 0
-          empty_zero: 0
-          hide_alter_empty: 1
-          plugin_id: standard
         nomu:
           id: nomu
           table: gbb_gresp_orga
@@ -12665,55 +12764,6 @@ display:
           group_type: group
           admin_label: ''
           label: Modalité
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_court_2:
-          id: lib_court_2
-          table: gbb_nobjt
-          field: lib_court
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Objectif
           exclude: false
           alter:
             alter_text: false
@@ -14496,11 +14546,167 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        co_offreur_1:
+          id: co_offreur_1
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: '1'
+          exposed: true
+          expose:
+            operator_id: co_offreur_1_op
+            label: 'Code Offreur'
+            description: 'p.ex.: 23 ou 2311'
+            use_operator: 0
+            operator: co_offreur_1_op
+            operator_limit_selection: 0
+            operator_list: {  }
+            identifier: co_offreur_1
+            required: 0
+            remember: 0
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: 0
+              administrator: 0
+              d_cons: 0
+              d_admi: 0
+              d_de: 0
+              d_inspec: 0
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        entree:
+          id: entree
+          table: gbb_grcoof_gdisp
+          field: entree
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: '1'
+          exposed: true
+          expose:
+            operator_id: entree_op
+            label: 'Bandeau priorité'
+            description: 'p.ex : territoire ou inermétiers'
+            use_operator: 0
+            operator: entree_op
+            operator_limit_selection: 0
+            operator_list: {  }
+            identifier: entree
+            required: 0
+            remember: 0
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: 0
+              administrator: 0
+              d_cons: 0
+              d_admi: 0
+              d_de: 0
+              d_inspec: 0
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: 0
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
       filter_groups:
         operator: AND
         groups:
           1: AND
       display_description: ''
+      sorts:
+        prio:
+          id: prio
+          table: gbb_grcoof_gdisp
+          field: prio
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        semestre:
+          id: semestre
+          table: gbb_gmodu_plus
+          field: semestre
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        entree:
+          id: entree
+          table: gbb_grcoof_gdisp
+          field: entree
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        co_orie:
+          id: co_orie
+          table: gbb_gdisp
+          field: co_orie
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        id_disp:
+          id: id_disp
+          table: gbb_gdisp
+          field: id_disp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: id_disp
+          plugin_id: standard
+        co_modu:
+          id: co_modu
+          table: gbb_gmodu
+          field: co_modu
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -14513,7 +14719,7 @@ display:
     display_plugin: page
     id: page_1
     display_title: 'The List'
-    position: 2
+    position: 1
     display_options:
       display_extenders: {  }
       path: liste-modules
@@ -17046,57 +17252,6 @@ display:
                   min: ''
                   max: ''
           plugin_id: numeric
-        co_offreur:
-          id: co_offreur
-          table: gbb_gdisp
-          field: co_offreur
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: co_offreur_op
-            label: co_offreur
-            description: null
-            use_operator: false
-            operator: co_offreur_op
-            identifier: co_offreur
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: true
-          group_info:
-            label: 'Type Rmpl'
-            description: ''
-            identifier: co_offreur
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: BD
-                operator: '='
-                value: BD
-              2:
-                title: HTS
-                operator: '='
-                value: HTS
-              3:
-                title: SR
-                operator: '='
-                value: SR
-          plugin_id: string
         co_orie:
           id: co_orie
           table: gbb_gdisp
@@ -17819,7 +17974,7 @@ display:
           group_type: group
           admin_label: ''
           operator: not_starts
-          value: 18N
+          value: 20N
           group: 1
           exposed: false
           expose:
@@ -17828,6 +17983,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -17835,8 +17992,96 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        co_offreur_1:
+          id: co_offreur_1
+          table: gbb_gdisp
+          field: co_offreur
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: starts
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: co_offreur_1_op
+            label: 'Code offreur'
+            description: 'p.ex.: 23 ou 2311'
+            use_operator: false
+            operator: co_offreur_1_op
             operator_limit_selection: false
             operator_list: {  }
+            identifier: co_offreur_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        entree:
+          id: entree
+          table: gbb_grcoof_gdisp
+          field: entree
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: entree_op
+            label: 'Bandeau CDC'
+            description: 'p.ex : territoire ou inermétiers'
+            use_operator: false
+            operator: entree_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: entree
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -17866,7 +18111,7 @@ display:
     display_plugin: page
     id: page_2
     display_title: Détail-sessions
-    position: 3
+    position: 10
     display_options:
       display_extenders: {  }
       path: liste-sessions
@@ -18919,7 +19164,7 @@ display:
     display_plugin: page
     id: page_3
     display_title: Détail-gaia
-    position: 4
+    position: 11
     display_options:
       display_extenders: {  }
       path: liste-gaia
@@ -21041,7 +21286,7 @@ display:
     display_plugin: page
     id: page_4
     display_title: liste-pia
-    position: 2
+    position: 8
     display_options:
       display_extenders: {  }
       path: liste-pia
@@ -22768,7 +23013,7 @@ display:
     display_plugin: page
     id: page_5
     display_title: liste-pia-w
-    position: 2
+    position: 6
     display_options:
       display_extenders: {  }
       path: liste-pia-w
@@ -24752,7 +24997,7 @@ display:
     display_plugin: page
     id: page_6
     display_title: 'The List_AFAC'
-    position: 2
+    position: 7
     display_options:
       display_extenders: {  }
       path: liste-modules_afac

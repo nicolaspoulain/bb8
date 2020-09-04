@@ -43,7 +43,8 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
     $co_anmo   = \Drupal::request()->query->get('co_anmo');
     $co_tpla   = \Drupal::request()->query->get('co_tpla');
     $co_camp   = \Drupal::request()->query->get('co_camp');
-    $co_offreur= \Drupal::request()->query->get('co_offreur');
+    $co_offreur_1= \Drupal::request()->query->get('co_offreur_1');
+    $entree    = \Drupal::request()->query->get('entree');
     $co_moda   = \Drupal::request()->query->get('co_moda');
     $co_modu   = \Drupal::request()->query->get('co_modu');
     $co_orie   = \Drupal::request()->query->get('co_orie');
@@ -83,9 +84,13 @@ function bbtheme_preprocess_views_exposed_form__liste_modules__page_1(&$variable
       $test = 1;
       $variables['form']['co_camp']['#attributes'] = array('class' => array('warning'));
     }
-    if ($co_offreur != '' AND $co_offreur != 'All') {
+    if ($co_offreur_1 != '' AND $co_offreur_1 != 'All') {
       $test = 1;
-      $variables['form']['co_offreur']['#attributes'] = array('class' => array('warning'));
+      $variables['form']['co_offreur_1']['#attributes'] = array('class' => array('warning'));
+    }
+    if ($entree != '' AND $entree != 'All') {
+      $test = 1;
+      $variables['form']['entree']['#attributes'] = array('class' => array('warning'));
     }
     if ($co_tcan != '' AND $co_tcan != 'All') {
       $test = 1;
