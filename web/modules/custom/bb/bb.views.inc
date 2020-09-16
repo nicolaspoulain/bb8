@@ -2950,12 +2950,10 @@ function bb_views_data() {
   //}}
   //}}
 
-
-
-
   // ********************************************************
-  // * gbb_gentme ** (entrée dans le métier) et toutes ses colonnes
+  // * gbb_gentme ** (entrée dans le métier) et ses colonnes
   // ********************************************************
+  //{{
   $data['gbb_gentme']['table'] = array( 'group' => t('gbb_gentme'),
   //{{
     'base' => array(
@@ -3101,7 +3099,107 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  //}}
 
+  // ********************************************************
+  // * gbb_gmfra ** et toutes ses colonnes
+  // ********************************************************
+  //{{
+  $data['gbb_gmfra']['table'] = array( 'group' => t('gbb_gmfra'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_field' => 'co_modu',
+        'field' => 'co_modu',
+        'extra' => 'gbb_gmfra.co_degre = gbb_gmodu.co_degre',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_gfrai']['table'] = array( 'group' => t('gbb_gmfra'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gmfra',
+        'left_field' => 'co_frai',
+        'field' => 'co_frai',
+        'extra' => 'gbb_gmfra.co_degre = gbb_gfrai.co_degre',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gfrai']['lib'] = array( 'title' => t('lib'),
+  //{{
+    'help' => t('lib'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gfrai']['taux'] = array( 'title' => t('taux'),
+  //{{
+    'help' => t('taux'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gfrai']['unite'] = array( 'title' => t('unite'),
+  //{{
+    'help' => t('gfrai.unite'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+
+  $data['gbb_gmfra']['co_frai'] = array( 'title' => t('co_frai'),
+  //{{
+    'help' => t('code frais'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gmfra']['montant'] = array( 'title' => t('montant'),
+  //{{
+    'help' => t('montant'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gmfra']['unite'] = array( 'title' => t('unite'),
+  //{{
+    'help' => t('gmfra.unite'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gmfra']['nb_pers'] = array( 'title' => t('nb_pers'),
+  //{{
+    'help' => t('nb_pers'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_gmfra']['coeff'] = array( 'title' => t('coeff'),
+  //{{
+    'help' => t('coeff'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  //}}
 
 
   return $data;
