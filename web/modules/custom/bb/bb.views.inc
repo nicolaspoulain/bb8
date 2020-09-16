@@ -2951,5 +2951,158 @@ function bb_views_data() {
   //}}
 
 
+
+
+  // ********************************************************
+  // * gbb_gentme ** (entrée dans le métier) et toutes ses colonnes
+  // ********************************************************
+  $data['gbb_gentme']['table'] = array( 'group' => t('gbb_gentme'),
+  //{{
+    'base' => array(
+      'database' => $gaia_db,
+      'field' => 'numen',
+      'title' => t('GaiaBB2'),
+      'help'  => t('Tables du module GaiaBB2.'),
+    ),
+  );
+  //}}
+  $data['gbb_gpers_entme']['table'] = array( 'group' => t('gbb_entme'),
+  //{{
+    'join' => array(
+      'gbb_gentme' => array(
+        'table' => 'gbb_gpers',
+        'left_table' => 'gbb_gentme',
+        'left_field' => 'numen',
+        'field' => 'numen',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_netab_entme']['table'] = array( 'group' => t('gbb_entme'),
+    'join' => array(
+      'gbb_gentme' => array(
+        'table' => 'gbb_netab',
+        'left_field' => 'co_etabaff',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
+
+
+  $data['gbb_gentme']['nom'] = array( 'help' => t('nom'),
+  //{{
+    'title'  => t('nom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['prenom'] = array( 'help' => t('prenom'),
+  //{{
+    'title'  => t('prenom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['co_disrec'] = array( 'help' => t('co_disrec'),
+  //{{
+    'title'  => t('co_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['lib_disrec'] = array( 'help' => t('lib_disrec'),
+  //{{
+    'title'  => t('lib_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['co_grad'] = array( 'help' => t('co_grad'),
+  //{{
+    'title'  => t('co_grad'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['lib_grad'] = array( 'help' => t('lib_grad'),
+  //{{
+    'title'  => t('lib_grad'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['co_etabaff'] = array( 'help' => t('co_etabaff'),
+  //{{
+    'title'  => t('co_etabaff'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['co_discposte'] = array( 'help' => t('co_discposte'),
+  //{{
+    'title'  => t('co_discposte'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['lib_discposte'] = array( 'help' => t('lib_discposte'),
+  //{{
+    'title'  => t('lib_discposte'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_gentme']['dt_deb_ts'] = array( 'help' => t('dt_deb_ts'),
+    //{{
+    'title' => t('dt_deb_ts'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_gentme']['dt_fin_ts'] = array( 'help' => t('dt_fin_ts'),
+    //{{
+    'title' => t('dt_fin_ts'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_gentme']['dt_titular_ts'] = array( 'help' => t('dt_titular_ts'),
+    //{{
+    'title' => t('dt_titular_ts'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_netab_entme']['denom_comp'] = array( 'help' => t('denom_comp'),
+  //{{
+    'title' => t('denom_comp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_entme']['sigle'] = array( 'help' => t('sigle'),
+  //{{
+    'title' => t('sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+
+
+
   return $data;
 }
