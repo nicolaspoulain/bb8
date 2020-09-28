@@ -3107,6 +3107,15 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_netab_entme']['cp'] = array( 'help' => t('cp'),
+  //{{
+    'title' => t('netab_entme.cp'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   //}}
 
   // ********************************************************
@@ -3272,6 +3281,15 @@ function bb_views_data() {
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_entme_ctct']['cp'] = array( 'help' => t('cp'),
+  //{{
+    'title' => t('netab_ctct.cp'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
   );
   //}}
   //}}

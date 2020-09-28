@@ -308,6 +308,63 @@ display:
           custom_date_format: d/m/Y
           timezone: ''
           plugin_id: date
+        cp:
+          id: cp
+          table: gbb_netab_entme
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: CP
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         co_etabaff:
           id: co_etabaff
           table: gbb_gentme
@@ -704,6 +761,81 @@ display:
           timezone: ''
           plugin_id: date
       filters:
+        dt_titular_ts:
+          id: dt_titular_ts
+          table: gbb_gentme
+          field: dt_titular_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: dt_titular_ts_op
+            label: dt_titular_ts
+            description: ''
+            use_operator: true
+            operator: dt_titular_ts_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: dt_titular_ts
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'T1 - T2 - T3'
+            description: ''
+            identifier: dt_titular_ts
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: T1
+                operator: '>='
+                value:
+                  type: date
+                  value: '2020-09-01'
+                  min: ''
+                  max: ''
+              2:
+                title: T2
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2019-09-01'
+                  max: '2020-08-31'
+              3:
+                title: T3
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2018-09-01'
+                  max: '2019-08-31'
+          plugin_id: date
         lib_disrec:
           id: lib_disrec
           table: gbb_gentme
@@ -941,6 +1073,56 @@ display:
                 operator: '='
                 value: TECHNOLOGI
           plugin_id: string
+        cp:
+          id: cp
+          table: gbb_netab_entme
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: cp_op
+            label: 'Code postal'
+            description: 'p.ex. : 75018'
+            use_operator: false
+            operator: cp_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: cp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
         lib_grad:
           id: lib_grad
           table: gbb_gentme
@@ -986,81 +1168,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        dt_titular_ts:
-          id: dt_titular_ts
-          table: gbb_gentme
-          field: dt_titular_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: dt_titular_ts_op
-            label: dt_titular_ts
-            description: ''
-            use_operator: true
-            operator: dt_titular_ts_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: dt_titular_ts
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: true
-          group_info:
-            label: 'T1 - T2 - T3'
-            description: ''
-            identifier: dt_titular_ts
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: T1
-                operator: '>='
-                value:
-                  type: date
-                  value: '2020-09-01'
-                  min: ''
-                  max: ''
-              2:
-                title: T2
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2019-09-01'
-                  max: '2020-08-31'
-              3:
-                title: T3
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2018-09-01'
-                  max: '2019-08-31'
-          plugin_id: date
       sorts: {  }
       title: Titulaires
       header:
