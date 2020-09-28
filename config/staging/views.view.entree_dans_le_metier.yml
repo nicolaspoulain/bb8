@@ -2,8 +2,13 @@ uuid: 5125ab08-9ab3-4a34-973e-97c2648afddd
 langcode: fr
 status: true
 dependencies:
+  config:
+    - user.role.administrator
+    - user.role.d_cons
+    - user.role.d_inspec
   module:
     - bb
+    - user
 id: entree_dans_le_metier
 label: 'Entrée dans le métier'
 module: views
@@ -19,8 +24,12 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            administrator: administrator
+            d_cons: d_cons
+            d_inspec: d_inspec
       cache:
         type: tag
         options: {  }
@@ -75,49 +84,11 @@ display:
           summary: ''
           description: ''
           columns:
-            dt_deb_ts: dt_deb_ts
-            dt_fin_ts: dt_fin_ts
-            co_etabaff: co_etabaff
-            sigle: sigle
-            denom_comp: denom_comp
-            nom: nom
-            prenom: prenom
-            co_disrec: co_disrec
             lib_disrec: lib_disrec
-            co_grad: co_grad
-            lib_grad: lib_grad
-            dt_titular_ts: dt_titular_ts
+            nom: nom
           info:
-            dt_deb_ts:
+            lib_disrec:
               sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            dt_fin_ts:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_etabaff:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            sigle:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            denom_comp:
-              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -130,53 +101,109 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            prenom:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_disrec:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib_disrec:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_grad:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib_grad:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            dt_titular_ts:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
+          default: lib_disrec
           empty_table: false
       row:
         type: fields
       fields:
+        nom:
+          id: nom
+          table: gbb_gentme
+          field: nom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         dt_deb_ts:
           id: dt_deb_ts
           table: gbb_gentme
@@ -391,104 +418,6 @@ display:
           alter:
             alter_text: true
             text: '<small>({{ co_etabaff }})</small> {{ sigle }} {{ denom_comp }}'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        nom:
-          id: nom
-          table: gbb_gentme
-          field: nom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Nom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        prenom:
-          id: prenom
-          table: gbb_gentme
-          field: prenom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Prénom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -775,57 +704,6 @@ display:
           timezone: ''
           plugin_id: date
       filters:
-        dt_deb_ts:
-          id: dt_deb_ts
-          table: gbb_gentme
-          field: dt_deb_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: dt_deb_ts_op
-            label: dt_deb_ts
-            description: dt_deb_ts
-            use_operator: true
-            operator: dt_deb_ts_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: dt_deb_ts
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: date
         lib_disrec:
           id: lib_disrec
           table: gbb_gentme
@@ -858,18 +736,210 @@ display:
               d_de: '0'
               d_inspec: '0'
             placeholder: ''
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'Disc. recrutement'
             description: ''
-            identifier: ''
+            identifier: lib_disrec
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: ALLEMAND
+                operator: '='
+                value: ALLEMAND
+              2:
+                title: 'ANG.LETTRE '
+                operator: '='
+                value: ANG.LETTRE
+              3:
+                title: ANGLAIS
+                operator: '='
+                value: ANGLAIS
+              4:
+                title: 'ART LIVRE'
+                operator: '='
+                value: 'ART LIVRE'
+              5:
+                title: ARTAPP.DES
+                operator: '='
+                value: ARTAPP.DES
+              6:
+                title: 'ARTS APPL.'
+                operator: '='
+                value: 'ARTS APPL.'
+              7:
+                title: 'ARTS PLAST '
+                operator: '='
+                value: 'ARTS PLAST'
+              8:
+                title: BIOCHIMIE-
+                operator: '='
+                value: BIOCHIMIE-
+              9:
+                title: 'BIOT.CHIM '
+                operator: '='
+                value: BIOT.CHIM
+              10:
+                title: CHINOIS
+                operator: '='
+                value: CHINOIS
+              11:
+                title: COIFFURE
+                operator: '='
+                value: COIFFURE
+              12:
+                title: 'E.P.S '
+                operator: '='
+                value: E.P.S
+              13:
+                title: EBENIS.ART
+                operator: '='
+                value: EBENIS.ART
+              14:
+                title: ECO.GE.
+                operator: starts
+                value: ECO.GE.
+              15:
+                title: 'EDUC MUSIC'
+                operator: '='
+                value: 'EDUC MUSIC'
+              16:
+                title: EDUCATION
+                operator: '='
+                value: EDUCATION
+              17:
+                title: 'ENTR. TEXT'
+                operator: '='
+                value: 'ENTR. TEXT'
+              18:
+                title: ESP.LETTRE
+                operator: '='
+                value: ESP.LETTRE
+              19:
+                title: ESPAGNOL
+                operator: '='
+                value: ESPAGNOL
+              20:
+                title: 'G. I. S. M'
+                operator: '='
+                value: 'G. I. S. M'
+              21:
+                title: 'G. I. T. C'
+                operator: '='
+                value: 'G. I. T. C'
+              22:
+                title: G.M.MAINTE
+                operator: '='
+                value: G.M.MAINTE
+              23:
+                title: 'GC EQ.T.E'
+                operator: '='
+                value: 'GC EQ.T.E'
+              24:
+                title: 'GE IND BOI'
+                operator: '='
+                value: 'GE IND BOI'
+              25:
+                title: GEOGRAPHIE
+                operator: '='
+                value: GEOGRAPHIE
+              26:
+                title: H.SERV.COM
+                operator: '='
+                value: H.SERV.COM
+              27:
+                title: 'HIST GEO'
+                operator: '='
+                value: 'HIST GEO'
+              28:
+                title: 'IND.GRAPHI '
+                operator: '='
+                value: IND.GRAPHI
+              29:
+                title: JAPONAIS
+                operator: '='
+                value: JAPONAIS
+              30:
+                title: 'LET CLASSI'
+                operator: '='
+                value: 'LET CLASSI'
+              31:
+                title: 'LET HIST G'
+                operator: '='
+                value: 'LET HIST G'
+              32:
+                title: 'LET MODERN'
+                operator: '='
+                value: 'LET MODERN'
+              33:
+                title: 'LETTRES CL'
+                operator: '='
+                value: 'LETTRES CL'
+              34:
+                title: LSF
+                operator: '='
+                value: LSF
+              35:
+                title: 'MATH SC PH'
+                operator: '='
+                value: 'MATH SC PH'
+              36:
+                title: MATHEMATIQ
+                operator: '='
+                value: MATHEMATIQ
+              37:
+                title: RUSSE
+                operator: '='
+                value: RUSSE
+              38:
+                title: S.T.M.S.
+                operator: '='
+                value: S.T.M.S.
+              39:
+                title: 'SANTE ENV.'
+                operator: '='
+                value: 'SANTE ENV.'
+              40:
+                title: 'SC V T UNI'
+                operator: '='
+                value: 'SC V T UNI'
+              41:
+                title: SC.ECO.SOC
+                operator: contains
+                value: SC.ECO.SOC
+              42:
+                title: SC.PH
+                operator: starts
+                value: SC.PH
+              43:
+                title: SC.SOCIALE
+                operator: '='
+                value: SC.SOCIALE
+              44:
+                title: 'SC.VIE TER'
+                operator: '='
+                value: 'SC.VIE TER'
+              45:
+                title: SERV.ACC
+                operator: '='
+                value: SERV.ACC
+              46:
+                title: SII.ING.
+                operator: starts
+                value: SII.ING.
+              47:
+                title: TECH.CULIN
+                operator: '='
+                value: TECH.CULIN
+              48:
+                title: TECHNOLOGI
+                operator: '='
+                value: TECHNOLOGI
           plugin_id: string
         lib_grad:
           id: lib_grad
@@ -954,23 +1024,68 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: 'T1 - T2 - T3'
             description: ''
-            identifier: ''
+            identifier: dt_titular_ts
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: T1
+                operator: '>='
+                value:
+                  type: date
+                  value: '2020-09-01'
+                  min: ''
+                  max: ''
+              2:
+                title: T2
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2019-09-01'
+                  max: '2020-08-31'
+              3:
+                title: T3
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2018-09-01'
+                  max: '2019-08-31'
           plugin_id: date
       sorts: {  }
-      title: 'Entrée dans le métier'
-      header: {  }
-      footer: {  }
+      title: Titulaires
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<ul>\r\n<li><a href=\"titulaires\">Liste des titulaires (avec affectation éventuellement multiples)</a></li>\r\n<li><a href=\"titulaires2\">Liste des noms des titulaires </a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
+          plugin_id: text_custom
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
       empty: {  }
       relationships: {  }
       arguments: {  }
@@ -985,6 +1100,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
       tags: {  }
   page_1:
     display_plugin: page
@@ -993,11 +1109,448 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: ent-me
+      path: titulaires
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user.roles
+      tags: {  }
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: titulaires2
+      fields:
+        nom:
+          id: nom
+          table: gbb_gentme
+          field: nom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: lib_disrec
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        dt_titular_ts:
+          id: dt_titular_ts
+          table: gbb_gentme
+          field: dt_titular_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Titularisation
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
+      defaults:
+        fields: false
+        query: false
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: null
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags: {  }
+  page_3:
+    display_plugin: page
+    id: page_3
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: titulaires_stats
+      filters:
+        dt_titular_ts:
+          id: dt_titular_ts
+          table: gbb_gentme
+          field: dt_titular_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: dt_titular_ts_op
+            label: dt_titular_ts
+            description: ''
+            use_operator: true
+            operator: dt_titular_ts_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: dt_titular_ts
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'T1 - T2 - T3'
+            description: ''
+            identifier: dt_titular_ts
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: T1
+                operator: '>='
+                value:
+                  type: date
+                  value: '2020-09-01'
+                  min: ''
+                  max: ''
+              2:
+                title: T2
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2019-09-01'
+                  max: '2020-08-31'
+              3:
+                title: T3
+                operator: between
+                value:
+                  type: date
+                  value: ''
+                  min: '2018-09-01'
+                  max: '2019-08-31'
+          plugin_id: date
+      defaults:
+        filters: false
+        filter_groups: false
+        fields: false
+        group_by: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc. recrutement'
+          exclude: false
+          alter:
+            alter_text: false
+            text: '<small>({{ co_disrec }})</small> {{ lib_disrec }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        numen:
+          id: numen
+          table: gbb_gentme
+          field: numen
+          relationship: none
+          group_type: count_distinct
+          admin_label: ''
+          label: Nombre
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ','
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: standard
+      group_by: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
       tags: {  }

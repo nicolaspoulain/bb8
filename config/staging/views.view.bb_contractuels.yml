@@ -1,21 +1,21 @@
-uuid: a43730ba-3148-44d0-9a20-b67fa73849da
+uuid: 24c32202-2763-4f4d-85f8-1d0bba12d7e9
 langcode: fr
 status: true
 dependencies:
   config:
     - user.role.administrator
-    - user.role.d_admi
     - user.role.d_cons
+    - user.role.d_inspec
   module:
     - bb
     - user
-id: a_traiter
-label: 'BB: Session - à traiter'
+id: bb_contractuels
+label: 'BB : Contractuels'
 module: views
-description: 'Les sessions à traiter par le service administratif'
-tag: bb
-base_table: gbb_gmodu
-base_field: co_modu
+description: ''
+tag: ''
+base_table: gbb_gentme_ctct
+base_field: numen
 display:
   default:
     display_plugin: default
@@ -29,15 +29,15 @@ display:
           role:
             administrator: administrator
             d_cons: d_cons
-            d_admi: d_admi
+            d_inspec: d_inspec
       cache:
-        type: none
+        type: tag
         options: {  }
       query:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: true
+          distinct: false
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -52,9 +52,26 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: full
         options:
+          items_per_page: 50
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« Premier'
+            last: 'Dernier »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Tout -'
+            offset: false
+            offset_label: Décalage
+          quantity: 9
       style:
         type: table
         options:
@@ -67,241 +84,104 @@ display:
           summary: ''
           description: ''
           columns:
-            date_ts: date_ts
-            status: status
-            nothing: nothing
-            co_degre: co_degre
-            co_modu: co_modu
-            lib: lib
-            nomu: nomu
-            nomu_1: nomu_1
-            nothing_1: nothing_1
+            nom_1: nom_1
+            prenom: prenom
+            co_etabaff: co_etabaff
+            dt_ent_grad_ts: dt_ent_grad_ts
+            fonction: fonction
+            lib_discposte: lib_discposte
+            lib_disrec: lib_disrec
+            moda_aff: moda_aff
+            dt_deb_ts: dt_deb_ts
+            dt_fin_ts: dt_fin_ts
           info:
-            date_ts:
+            nom_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            prenom:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            status:
+            co_etabaff:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_ent_grad_ts:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            fonction:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib_discposte:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib_disrec:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            moda_aff:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_deb_ts:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_fin_ts:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            nothing:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_degre:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_modu:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            lib:
-              sortable: false
-              default_sort_order: asc
-              align: views-align-left
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nomu:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nomu_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            nothing_1:
-              sortable: false
-              default_sort_order: asc
-              align: views-align-right
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
+          default: nom_1
           empty_table: false
       row:
         type: fields
       fields:
-        co_modu:
-          id: co_modu
-          table: gbb_gmodu
-          field: co_modu
+        nom_1:
+          id: nom_1
+          table: gbb_gentme_ctct
+          field: nom
           relationship: none
           group_type: group
           admin_label: ''
-          label: comodu
+          label: Nom
           exclude: false
           alter:
-            alter_text: true
-            text: "{{ co_modu }} {{ lib }}\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          entity_type: null
-          entity_field: null
-          plugin_id: numeric
-        date:
-          id: date
-          table: gbb_session
-          field: date
-          plugin_id: standard
-      filters: {  }
-      sorts:
-        date_ts:
-          id: date_ts
-          table: gbb_session
-          field: date_ts
-          plugin_id: standard
-      title: 'Sessions à traiter'
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - user.roles
-      tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: 'Sessions à traiter'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: a_traiter
-      fields:
-        color:
-          id: color
-          table: gbb_gmodu_plus
-          field: color
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{% if color!='' %}\ncolor-{{ color|trim('#')|lower }}\n{% else %}\ncolor-white\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        reforme:
-          id: reforme
-          table: gbb_gmodu_plus
-          field: reforme
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: reforme
-          exclude: true
-          alter:
-            alter_text: true
-            text: '{%if reforme==1 %}<i class="fas fa-registered fa-lg red"></i>{% endif %}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -338,27 +218,19 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        date_ts:
-          id: date_ts
-          table: gbb_session
-          field: date_ts
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme_ctct
+          field: prenom
           relationship: none
           group_type: group
           admin_label: ''
-          label: Date
+          label: Prénom
           exclude: false
           alter:
-            alter_text: true
-            text: '{{ date_ts }} {{ reforme }} '
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -387,7 +259,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -395,231 +267,117 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          date_format: date_courte
-          custom_date_format: ''
+          plugin_id: standard
+        co_etabaff:
+          id: co_etabaff
+          table: gbb_gentme_ctct
+          field: co_etabaff
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: etabaff
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        dt_ent_grad_ts:
+          id: dt_ent_grad_ts
+          table: gbb_gentme_ctct
+          field: dt_ent_grad_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'ent grad'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
           timezone: ''
           plugin_id: date
-        ficand:
-          id: ficand
-          table: gbb_session
-          field: ficand
+        fonction:
+          id: fonction
+          table: gbb_gentme_ctct
+          field: fonction
           relationship: none
           group_type: group
           admin_label: ''
-          label: ficand
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{% if ficand == 1 %}\r\n<i class=\"no-link fab fa-fonticons-fi red fa-lg\" title=\"Ficcand non-traité\"></i>\r\n{% elseif ficand == 2 %}\r\n<i class=\"no-link fab fa-fonticons-fi green fa-lg\" title=\"Ficcand traité\"></i>\r\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        status:
-          id: status
-          table: gbb_session
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{% if status == \"0\" %}\r\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\r\n{% elseif status == \"1\" %}\r\n<i class=\"fa fa-lg fa-pause gray\"></i>\r\n{% elseif status == \"2\" %}\r\n<i class=\"fa fa-lg fa-flag red \"></i>\r\n{% elseif status == \"3\" %}\r\n<i class=\"fa fa-lg fa-envelope green\"></i>\r\n{% elseif status == \"4\" %}\r\n<i class=\"fa fa-lg fa-user orange\"></i>\r\n{% elseif status == \"5\" %}\r\n<i class=\"fa fa-lg fa-users pink\"></i>\r\n{% elseif status == \"6\" %}\r\n<i class=\"fa fa-lg orange\">DE</i>\r\n{% elseif status == \"7\" %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i>\r\n{% elseif status == \"8\" %}\r\n<i class=\"fa fa-lg green\">DE</i>\r\n{% elseif status == \"9\" %}\r\n<i class=\"fa fa-lg fa-spin red\">DE</i>\r\n{% elseif status == \"10\" %}\r\n<i class=\"fa fa-lg orange\">DE</i> <i class=\"fa fa-lg fa-flag red\"></i>\r\n{% endif %}"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-        id_disp:
-          id: id_disp
-          table: gbb_gdisp
-          field: id_disp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        co_degre:
-          id: co_degre
-          table: gbb_gmodu
-          field: co_degre
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: co_degre
-          exclude: true
+          label: fonction
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -659,131 +417,15 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          plugin_id: numeric
-        co_modu:
-          id: co_modu
-          table: gbb_gmodu
-          field: co_modu
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: "{{ co_modu }} {{ lib }}\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          set_precision: false
-          precision: 0
-          decimal: .
-          separator: ''
-          format_plural: false
-          format_plural_string: !!binary MQNAY291bnQ=
-          prefix: ''
-          suffix: ''
-          entity_type: null
-          entity_field: null
-          plugin_id: numeric
-        lib:
-          id: lib
-          table: gbb_gmodu
-          field: lib
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Module
-          exclude: false
-          alter:
-            alter_text: true
-            text: '{{ nothing }}  {{ ficand }}  {{ id_disp }}/<a href="moduleng/{{ co_degre }}/{{ co_modu }}"><span class="bg-{{color}}">{{ co_modu }}</span> {{ lib }}</a> '
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
           plugin_id: standard
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga
-          field: nomu
+        lib_discposte:
+          id: lib_discposte
+          table: gbb_gentme_ctct
+          field: lib_discposte
           relationship: none
           group_type: group
           admin_label: ''
-          label: Resp.Orga.
+          label: 'disc poste'
           exclude: false
           alter:
             alter_text: false
@@ -816,7 +458,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -825,18 +467,18 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_camp:
-          id: co_camp
-          table: gbb_gdisp
-          field: co_camp
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_ctct
+          field: lib_disrec
           relationship: none
           group_type: group
           admin_label: ''
-          label: Camp.
+          label: 'disc rec'
           exclude: false
           alter:
-            alter_text: true
-            text: "{% if  co_camp  == \"BS\" %}\n    FIL\n{% else %}\n    PAF\n{% endif %}"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -874,18 +516,18 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        co_tcan:
-          id: co_tcan
-          table: gbb_gdisp
-          field: co_tcan
+        moda_aff:
+          id: moda_aff
+          table: gbb_gentme_ctct
+          field: moda_aff
           relationship: none
           group_type: group
           admin_label: ''
-          label: Cand.
+          label: 'moda aff'
           exclude: false
           alter:
-            alter_text: true
-            text: "{% if co_tcan == \"1\" %}\nIndiv.\n{% elseif co_tcan == \"2\" %}\nColl.\n{% elseif co_tcan == \"3\" %}\nSans\n{% endif %}"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -923,89 +565,115 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-      defaults:
-        fields: false
-        pager: false
-        filters: false
-        filter_groups: false
-        sorts: false
-      pager:
-        type: full
-        options:
-          items_per_page: 50
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Précédent'
-            next: 'Suivant ›'
-            first: '« Premier'
-            last: 'Dernier »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Éléments par page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Tout -'
-            offset: false
-            offset_label: Décalage
-          quantity: 9
+        dt_deb_ts:
+          id: dt_deb_ts
+          table: gbb_gentme_ctct
+          field: dt_deb_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: deb
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
+        dt_fin_ts:
+          id: dt_fin_ts
+          table: gbb_gentme_ctct
+          field: dt_fin_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: fin
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
       filters:
-        id_disp:
-          id: id_disp
-          table: gbb_gdisp
-          field: id_disp
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: starts
-          value: '16'
-          group: 1
-          exposed: true
-          expose:
-            operator_id: id_disp_op
-            label: id_disp
-            description: null
-            use_operator: false
-            operator: id_disp_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: id_disp
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: true
-          group_info:
-            label: Année
-            description: ''
-            identifier: id_disp
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: '2'
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: 21-22
-                operator: starts
-                value: '21'
-              2:
-                title: 20-21
-                operator: starts
-                value: '20'
-              3:
-                title: 19-20
-                operator: starts
-                value: '19'
-          plugin_id: string
-        nomu:
-          id: nomu
-          table: gbb_gresp_orga
-          field: nomu
+        fonction:
+          id: fonction
+          table: gbb_gentme_ctct
+          field: fonction
           relationship: none
           group_type: group
           admin_label: ''
@@ -1014,12 +682,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: nomu_op
-            label: Resp.Orga
-            description: ''
+            operator_id: fonction_op
+            label: Fonction
+            description: 'ENS, EDU, PSY ou DOC'
             use_operator: false
-            operator: nomu_op
-            identifier: nomu
+            operator: fonction_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: fonction
             required: false
             remember: false
             multiple: false
@@ -1029,9 +699,9 @@ display:
               administrator: '0'
               d_cons: '0'
               d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1045,37 +715,38 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        status_2:
-          id: status_2
-          table: gbb_session
-          field: status
+        lib_discposte:
+          id: lib_discposte
+          table: gbb_gentme_ctct
+          field: lib_discposte
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
-          value:
-            min: ''
-            max: ''
-            value: '1'
+          operator: contains
+          value: ''
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: lib_discposte_op
+            label: 'Disc. poste'
             description: ''
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: lib_discposte_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: lib_discposte
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1088,38 +759,39 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
-        status_3:
-          id: status_3
-          table: gbb_session
-          field: status
+          plugin_id: string
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_ctct
+          field: lib_disrec
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '!='
-          value:
-            min: ''
-            max: ''
-            value: '3'
+          operator: contains
+          value: ''
           group: 1
-          exposed: false
+          exposed: true
           expose:
-            operator_id: ''
-            label: ''
+            operator_id: lib_disrec_op
+            label: 'Disc. recrutement'
             description: ''
             use_operator: false
-            operator: ''
-            identifier: ''
+            operator: lib_disrec_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: lib_disrec
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
             placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1132,11 +804,11 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
-        id_disp_1:
-          id: id_disp_1
-          table: gbb_gdisp
-          field: id_disp
+          plugin_id: string
+        moda_aff:
+          id: moda_aff
+          table: gbb_gentme_ctct
+          field: moda_aff
           relationship: none
           group_type: group
           admin_label: ''
@@ -1145,72 +817,73 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: id_disp_1_op
-            label: id_disp
-            description: null
+            operator_id: moda_aff_op
+            label: 'Moda Aff'
+            description: 'NA, REP, SUP'
             use_operator: false
-            operator: id_disp_1_op
+            operator: moda_aff_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: id_disp_1
+            identifier: moda_aff
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
-          is_grouped: true
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
           group_info:
-            label: Degré
+            label: ''
             description: ''
-            identifier: id_disp_1
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: 1D
-                operator: starts
-                value: 20D
-              2:
-                title: 2D
-                operator: starts
-                value: 20A
-              3:
-                title: Min
-                operator: starts
-                value: 20NDGS
+            group_items: {  }
           plugin_id: string
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      sorts:
-        date_ts:
-          id: date_ts
-          table: gbb_session
-          field: date_ts
+      sorts: {  }
+      title: Contractuels
+      header: {  }
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      display_description: ''
-      menu:
-        type: none
-        title: 'À traiter'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: contractuels
     cache_metadata:
       max-age: -1
       contexts:
