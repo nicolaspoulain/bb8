@@ -8,9 +8,12 @@ dependencies:
     - user.role.d_inspec
   module:
     - bb
+    - rest
+    - serialization
     - user
+    - xls_serialization
 id: entree_dans_le_metier
-label: 'Entrée dans le métier'
+label: 'BB: EntMe - Titulaires'
 module: views
 description: ''
 tag: ''
@@ -84,9 +87,83 @@ display:
           summary: ''
           description: ''
           columns:
-            lib_disrec: lib_disrec
             nom: nom
+            prenom: prenom
+            dt_deb_ts: dt_deb_ts
+            dt_fin_ts: dt_fin_ts
+            cp: cp
+            co_etabaff: co_etabaff
+            sigle: sigle
+            denom_comp: denom_comp
+            co_disrec: co_disrec
+            lib_disrec: lib_disrec
+            co_grad: co_grad
+            lib_grad: lib_grad
+            dt_titular_ts: dt_titular_ts
           info:
+            nom:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            prenom:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_deb_ts:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_fin_ts:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            cp:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_etabaff:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            sigle:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            denom_comp:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            co_disrec:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             lib_disrec:
               sortable: true
               default_sort_order: asc
@@ -94,8 +171,22 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            nom:
-              sortable: true
+            co_grad:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib_grad:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_titular_ts:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -474,7 +565,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<small>({{ co_etabaff }})</small> {{ sigle }} {{ denom_comp }}'
+            text: '{{ denom_comp }} <small>({{ sigle }})</small>'
             make_link: false
             path: ''
             absolute: false
@@ -925,150 +1016,154 @@ display:
                 operator: '='
                 value: COIFFURE
               12:
+                title: DOCUMENT.
+                operator: '='
+                value: DOCUMENT.
+              13:
                 title: 'E.P.S '
                 operator: '='
                 value: E.P.S
-              13:
+              14:
                 title: EBENIS.ART
                 operator: '='
                 value: EBENIS.ART
-              14:
+              15:
                 title: ECO.GE.
                 operator: starts
                 value: ECO.GE.
-              15:
+              16:
                 title: 'EDUC MUSIC'
                 operator: '='
                 value: 'EDUC MUSIC'
-              16:
+              17:
                 title: EDUCATION
                 operator: '='
                 value: EDUCATION
-              17:
+              18:
                 title: 'ENTR. TEXT'
                 operator: '='
                 value: 'ENTR. TEXT'
-              18:
+              19:
                 title: ESP.LETTRE
                 operator: '='
                 value: ESP.LETTRE
-              19:
+              20:
                 title: ESPAGNOL
                 operator: '='
                 value: ESPAGNOL
-              20:
+              21:
                 title: 'G. I. S. M'
                 operator: '='
                 value: 'G. I. S. M'
-              21:
+              22:
                 title: 'G. I. T. C'
                 operator: '='
                 value: 'G. I. T. C'
-              22:
+              23:
                 title: G.M.MAINTE
                 operator: '='
                 value: G.M.MAINTE
-              23:
+              24:
                 title: 'GC EQ.T.E'
                 operator: '='
                 value: 'GC EQ.T.E'
-              24:
+              25:
                 title: 'GE IND BOI'
                 operator: '='
                 value: 'GE IND BOI'
-              25:
+              26:
                 title: GEOGRAPHIE
                 operator: '='
                 value: GEOGRAPHIE
-              26:
+              27:
                 title: H.SERV.COM
                 operator: '='
                 value: H.SERV.COM
-              27:
+              28:
                 title: 'HIST GEO'
                 operator: '='
                 value: 'HIST GEO'
-              28:
+              29:
                 title: 'IND.GRAPHI '
                 operator: '='
                 value: IND.GRAPHI
-              29:
+              30:
                 title: JAPONAIS
                 operator: '='
                 value: JAPONAIS
-              30:
+              31:
                 title: 'LET CLASSI'
                 operator: '='
                 value: 'LET CLASSI'
-              31:
+              32:
                 title: 'LET HIST G'
                 operator: '='
                 value: 'LET HIST G'
-              32:
+              33:
                 title: 'LET MODERN'
                 operator: '='
                 value: 'LET MODERN'
-              33:
+              34:
                 title: 'LETTRES CL'
                 operator: '='
                 value: 'LETTRES CL'
-              34:
+              35:
                 title: LSF
                 operator: '='
                 value: LSF
-              35:
+              36:
                 title: 'MATH SC PH'
                 operator: '='
                 value: 'MATH SC PH'
-              36:
+              37:
                 title: MATHEMATIQ
                 operator: '='
                 value: MATHEMATIQ
-              37:
+              38:
                 title: RUSSE
                 operator: '='
                 value: RUSSE
-              38:
+              39:
                 title: S.T.M.S.
                 operator: '='
                 value: S.T.M.S.
-              39:
+              40:
                 title: 'SANTE ENV.'
                 operator: '='
                 value: 'SANTE ENV.'
-              40:
+              41:
                 title: 'SC V T UNI'
                 operator: '='
                 value: 'SC V T UNI'
-              41:
+              42:
                 title: SC.ECO.SOC
                 operator: contains
                 value: SC.ECO.SOC
-              42:
+              43:
                 title: SC.PH
                 operator: starts
                 value: SC.PH
-              43:
+              44:
                 title: SC.SOCIALE
                 operator: '='
                 value: SC.SOCIALE
-              44:
+              45:
                 title: 'SC.VIE TER'
                 operator: '='
                 value: 'SC.VIE TER'
-              45:
+              46:
                 title: SERV.ACC
                 operator: '='
                 value: SERV.ACC
-              46:
+              47:
                 title: SII.ING.
                 operator: starts
                 value: SII.ING.
-              47:
+              48:
                 title: TECH.CULIN
                 operator: '='
                 value: TECH.CULIN
-              48:
+              49:
                 title: TECHNOLOGI
                 operator: '='
                 value: TECHNOLOGI
@@ -1209,30 +1304,14 @@ display:
         - url.query_args
         - user.roles
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  excel_export_1:
+    display_plugin: excel_export
+    id: excel_export_1
+    display_title: 'Excel export'
     position: 1
     display_options:
       display_extenders: {  }
-      path: titulaires
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.roles
-      tags: {  }
-  page_2:
-    display_plugin: page
-    id: page_2
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: titulaires2
+      path: titulaires2_xls
       fields:
         nom:
           id: nom
@@ -1291,6 +1370,55 @@ display:
           group_type: group
           admin_label: ''
           label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        mel:
+          id: mel
+          table: gbb_gentme
+          field: mel
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: mel
           exclude: false
           alter:
             alter_text: false
@@ -1444,6 +1572,344 @@ display:
           replica: false
           query_comment: ''
           query_tags: null
+      filename: titulaires
+      style:
+        type: excel_export
+        options:
+          formats:
+            xlsx: xlsx
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      pager:
+        type: none
+        options:
+          offset: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user.roles
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: titulaires
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags: {  }
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: titulaires2
+      fields:
+        nom:
+          id: nom
+          table: gbb_gentme
+          field: nom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        mel:
+          id: mel
+          table: gbb_gentme
+          field: mel
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: mel
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: lib_disrec
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        dt_titular_ts:
+          id: dt_titular_ts
+          table: gbb_gentme
+          field: dt_titular_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Titularisation
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
+      defaults:
+        fields: false
+        query: false
+        header: false
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: null
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<ul>\r\n<li><a href=\"titulaires\">Liste des titulaires (avec affectation éventuellement multiples)</a></li>\r\n<li><a href=\"titulaires2\">Liste des noms des titulaires </a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
+          plugin_id: text_custom
+        display_link:
+          id: display_link
+          table: views
+          field: display_link
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          display_id: excel_export_1
+          label: '-> EXCEL export'
+          plugin_id: display_link
     cache_metadata:
       max-age: -1
       contexts:

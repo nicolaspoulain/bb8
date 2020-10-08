@@ -81,11 +81,10 @@ display:
             co_modu: co_modu
             lib: lib
             co_lieu: co_lieu
-            denom_princ: denom_princ
             denom_comp: denom_comp
           info:
             id_disp:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -99,20 +98,13 @@ display:
               empty_column: false
               responsive: ''
             lib:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            co_lieu:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            denom_princ:
+            co_lieu:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -404,6 +396,8 @@ display:
             description: ''
             use_operator: false
             operator: id_disp_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp
             required: false
             remember: false
@@ -415,8 +409,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Année
@@ -430,13 +422,13 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: 18-19
+                title: 20-21
                 operator: starts
-                value: '18'
+                value: '20'
               2:
-                title: 17-18
+                title: 19-20
                 operator: starts
-                value: '17'
+                value: '19'
               3:
                 title: ''
                 operator: starts

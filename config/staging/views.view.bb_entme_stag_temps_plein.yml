@@ -1,4 +1,4 @@
-uuid: 24c32202-2763-4f4d-85f8-1d0bba12d7e9
+uuid: c7e92ca7-c3c9-4962-b361-7f59acb476c7
 langcode: fr
 status: true
 dependencies:
@@ -11,12 +11,12 @@ dependencies:
     - serialization
     - user
     - xls_serialization
-id: bb_contractuels
-label: 'BB : EntMe - Contractuels'
+id: bb_entme_stag_temps_plein
+label: 'BB: EntMe - Stag Temps plein'
 module: views
 description: ''
 tag: ''
-base_table: gbb_gentme_ctct
+base_table: gbb_gentme_sttp
 base_field: numen
 display:
   default:
@@ -87,17 +87,18 @@ display:
           columns:
             nom_1: nom_1
             prenom: prenom
+            mel: mel
             cp: cp
-            co_etabaff: co_etabaff
             sigle: sigle
             denom_comp: denom_comp
-            dt_ent_grad_ts: dt_ent_grad_ts
-            fonction: fonction
-            lib_discposte: lib_discposte
-            lib_disrec: lib_disrec
-            moda_aff: moda_aff
             dt_deb_ts: dt_deb_ts
             dt_fin_ts: dt_fin_ts
+            fonction: fonction
+            lib_conc: lib_conc
+            lib_discposte: lib_discposte
+            lib_disrec: lib_disrec
+            lib_grad: lib_grad
+            moda_aff: moda_aff
           info:
             nom_1:
               sortable: true
@@ -113,14 +114,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            cp:
+            mel:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            co_etabaff:
+            cp:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -141,7 +142,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            dt_ent_grad_ts:
+            dt_deb_ts:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            dt_fin_ts:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -149,6 +157,13 @@ display:
               empty_column: false
               responsive: ''
             fonction:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            lib_conc:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -169,6 +184,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            lib_grad:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             moda_aff:
               sortable: true
               default_sort_order: asc
@@ -176,28 +198,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            dt_deb_ts:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            dt_fin_ts:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: nom_1
+          default: '-1'
           empty_table: false
       row:
         type: fields
       fields:
         nom_1:
           id: nom_1
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: nom
           relationship: none
           group_type: group
@@ -235,7 +243,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -246,7 +254,7 @@ display:
           plugin_id: standard
         prenom:
           id: prenom
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: prenom
           relationship: none
           group_type: group
@@ -284,7 +292,56 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        mel:
+          id: mel
+          table: gbb_gentme_sttp
+          field: mel
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -295,7 +352,7 @@ display:
           plugin_id: standard
         cp:
           id: cp
-          table: gbb_netab_entme_ctct
+          table: gbb_netab_entme_sttp
           field: cp
           relationship: none
           group_type: group
@@ -333,7 +390,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -350,63 +407,14 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
-        co_etabaff:
-          id: co_etabaff
-          table: gbb_gentme_ctct
-          field: co_etabaff
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: etabaff
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
         sigle:
           id: sigle
-          table: gbb_netab_entme_ctct
+          table: gbb_netab_entme_sttp
           field: sigle
           relationship: none
           group_type: group
           admin_label: ''
-          label: sigle
+          label: ''
           exclude: true
           alter:
             alter_text: false
@@ -439,7 +447,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -450,7 +458,7 @@ display:
           plugin_id: standard
         denom_comp:
           id: denom_comp
-          table: gbb_netab_entme_ctct
+          table: gbb_netab_entme_sttp
           field: denom_comp
           relationship: none
           group_type: group
@@ -488,255 +496,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'ent grad'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          date_format: custom
-          custom_date_format: d/m/Y
-          timezone: ''
-          plugin_id: date
-        fonction:
-          id: fonction
-          table: gbb_gentme_ctct
-          field: fonction
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: fonction
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_discposte:
-          id: lib_discposte
-          table: gbb_gentme_ctct
-          field: lib_discposte
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'disc poste'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_disrec:
-          id: lib_disrec
-          table: gbb_gentme_ctct
-          field: lib_disrec
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'disc rec'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        moda_aff:
-          id: moda_aff
-          table: gbb_gentme_ctct
-          field: moda_aff
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'moda aff'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -747,7 +507,7 @@ display:
           plugin_id: standard
         dt_deb_ts:
           id: dt_deb_ts
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: dt_deb_ts
           relationship: none
           group_type: group
@@ -785,7 +545,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -799,7 +559,7 @@ display:
           plugin_id: date
         dt_fin_ts:
           id: dt_fin_ts
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: dt_fin_ts
           relationship: none
           group_type: group
@@ -837,7 +597,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -849,71 +609,394 @@ display:
           custom_date_format: d/m/Y
           timezone: ''
           plugin_id: date
-      filters:
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
+        fonction:
+          id: fonction
+          table: gbb_gentme_sttp
+          field: fonction
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
+          label: fonction
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Concours
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_discposte:
+          id: lib_discposte
+          table: gbb_gentme_sttp
+          field: lib_discposte
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc poste'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_sttp
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc rec'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Grade
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        moda_aff:
+          id: moda_aff
+          table: gbb_gentme_sttp
+          field: moda_aff
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Moda aff'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+      filters:
+        fonction:
+          id: fonction
+          table: gbb_gentme_sttp
+          field: fonction
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: dt_ent_grad_ts_op
-            label: dt_ent_grad_ts
-            description: null
+            operator_id: fonction_op
+            label: Fonction
+            description: ''
             use_operator: false
-            operator: dt_ent_grad_ts_op
+            operator: fonction_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: dt_ent_grad_ts
+            identifier: fonction
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
           group_info:
-            label: 'Entrée dans le grade'
+            label: ''
             description: ''
-            identifier: dt_ent_grad_ts
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              2:
-                title: 2019-20
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2019-09-01'
-                  max: '2020-08-31'
-              3:
-                title: 2020-21
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2020-09-01'
-                  max: '2021-08-31'
-          plugin_id: date
+            group_items: {  }
+          plugin_id: string
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_conc_op
+            label: Concours
+            description: ''
+            use_operator: false
+            operator: lib_conc_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: lib_conc
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
         lib_disrec:
           id: lib_disrec
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: lib_disrec
           relationship: none
           group_type: group
@@ -945,7 +1028,7 @@ display:
             placeholder: ''
           is_grouped: true
           group_info:
-            label: lib_disrec
+            label: 'Disc. recrutement'
             description: ''
             identifier: lib_disrec
             optional: true
@@ -957,163 +1040,163 @@ display:
             group_items:
               1:
                 title: ALLEMAND
-                operator: '='
+                operator: contains
                 value: ALLEMAND
               2:
-                title: 'ANG.LETTRE '
-                operator: '='
-                value: 'ANG.LETTRE '
+                title: ANG.LETTRE
+                operator: contains
+                value: ANG.LETTRE
               3:
                 title: ANGLAIS
-                operator: '='
+                operator: contains
                 value: ANGLAIS
               4:
                 title: 'ART LIVRE'
-                operator: '='
+                operator: contains
                 value: 'ART LIVRE'
               5:
                 title: ARTAPP.DES
-                operator: '='
+                operator: contains
                 value: ARTAPP.DES
               6:
                 title: 'ARTS APPL.'
-                operator: '='
+                operator: contains
                 value: 'ARTS APPL.'
               7:
-                title: 'ARTS PLAST '
-                operator: '='
-                value: 'ARTS PLAST '
+                title: 'ARTS PLAST'
+                operator: contains
+                value: 'ARTS PLAST'
               8:
                 title: BIOCHIMIE-
-                operator: '='
+                operator: contains
                 value: BIOCHIMIE-
               9:
-                title: 'BIOT.CHIM '
-                operator: '='
-                value: 'BIOT.CHIM '
+                title: BIOT.CHIM
+                operator: contains
+                value: BIOT.CHIM
               10:
                 title: CHINOIS
-                operator: '='
+                operator: contains
                 value: CHINOIS
               11:
                 title: COIFFURE
-                operator: '='
+                operator: contains
                 value: COIFFURE
               12:
                 title: E.P.S
-                operator: '='
+                operator: contains
                 value: E.P.S
               13:
                 title: EBENIS.ART
-                operator: '='
+                operator: contains
                 value: EBENIS.ART
               14:
                 title: ECO.GE.
-                operator: starts
+                operator: contains
                 value: ECO.GE.
               15:
                 title: 'EDUC MUSIC'
-                operator: '='
+                operator: contains
                 value: 'EDUC MUSIC'
               16:
                 title: EDUCATION
-                operator: '='
+                operator: contains
                 value: EDUCATION
               17:
                 title: 'ENTR. TEXT'
-                operator: '='
+                operator: contains
                 value: 'ENTR. TEXT'
               18:
                 title: ESP.LETTRE
-                operator: '='
+                operator: contains
                 value: ESP.LETTRE
               19:
                 title: ESPAGNOL
-                operator: '='
+                operator: contains
                 value: ESPAGNOL
               20:
                 title: 'G. I. S. M'
-                operator: '='
+                operator: contains
                 value: 'G. I. S. M'
               21:
                 title: 'G. I. T. C'
-                operator: '='
+                operator: contains
                 value: 'G. I. T. C'
               22:
                 title: G.M.MAINTE
-                operator: '='
+                operator: contains
                 value: G.M.MAINTE
               23:
                 title: 'GC EQ.T.E'
-                operator: '='
+                operator: contains
                 value: 'GC EQ.T.E'
               24:
                 title: 'GE IND BOI'
-                operator: '='
+                operator: contains
                 value: 'GE IND BOI'
               25:
                 title: GEOGRAPHIE
-                operator: '='
+                operator: contains
                 value: GEOGRAPHIE
               26:
                 title: H.SERV.COM
-                operator: '='
+                operator: contains
                 value: H.SERV.COM
               27:
                 title: 'HIST GEO'
-                operator: '='
+                operator: contains
                 value: 'HIST GEO'
               28:
                 title: IND.GRAPHI
-                operator: '='
+                operator: contains
                 value: IND.GRAPHI
               29:
                 title: JAPONAIS
-                operator: '='
+                operator: contains
                 value: JAPONAIS
               30:
                 title: 'LET CLASSI'
-                operator: '='
+                operator: contains
                 value: 'LET CLASSI'
               31:
                 title: 'LET HIST G'
-                operator: '='
+                operator: contains
                 value: 'LET HIST G'
               32:
                 title: 'LET MODERN'
-                operator: '='
+                operator: contains
                 value: 'LET MODERN'
               33:
                 title: 'LETTRES CL'
-                operator: '='
+                operator: contains
                 value: 'LETTRES CL'
               34:
                 title: LSF
-                operator: '='
+                operator: contains
                 value: LSF
               35:
                 title: 'MATH SC PH'
-                operator: '='
+                operator: contains
                 value: 'MATH SC PH'
               36:
                 title: MATHEMATIQ
-                operator: '='
+                operator: contains
                 value: MATHEMATIQ
               37:
                 title: RUSSE
-                operator: '='
+                operator: contains
                 value: RUSSE
               38:
                 title: S.T.M.S.
-                operator: '='
+                operator: contains
                 value: S.T.M.S.
               39:
                 title: 'SANTE ENV.'
-                operator: '='
+                operator: contains
                 value: 'SANTE ENV.'
               40:
                 title: 'SC V T UNI'
-                operator: '!='
+                operator: contains
                 value: 'SC V T UNI'
               41:
                 title: SC.ECO.SOC
@@ -1121,19 +1204,19 @@ display:
                 value: SC.ECO.SOC
               42:
                 title: SC.PH
-                operator: starts
+                operator: contains
                 value: SC.PH
               43:
                 title: SC.SOCIALE
-                operator: '='
+                operator: contains
                 value: SC.SOCIALE
               44:
                 title: 'SC.VIE TER'
-                operator: '='
+                operator: contains
                 value: 'SC.VIE TER'
               45:
                 title: SERV.ACC
-                operator: '='
+                operator: contains
                 value: SERV.ACC
               46:
                 title: SII.ING.
@@ -1141,28 +1224,1221 @@ display:
                 value: SII.ING.
               47:
                 title: TECH.CULIN
-                operator: '!='
+                operator: contains
                 value: TECH.CULIN
               48:
                 title: TECHNOLOGI
-                operator: '!='
+                operator: contains
                 value: TECHNOLOGI
           plugin_id: string
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_grad_op
+            label: Grade
+            description: ''
+            use_operator: false
+            operator: lib_grad_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: lib_grad
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      sorts: {  }
+      title: 'Stagiaires Temps plein'
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: "<ul>\r\n<li><a href=\"stagiaires\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"stagiaires2\">Sans doublons et infos réduites</a></li>\r\n</ul>\r\n<br/>"
+          plugin_id: text_custom
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.roles
+      tags: {  }
+  excel_export_1:
+    display_plugin: excel_export
+    id: excel_export_1
+    display_title: 'Excel export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: stagiaires2_xls
+      fields:
+        nom_1:
+          id: nom_1
+          table: gbb_gentme_sttp
+          field: nom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme_sttp
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        mel:
+          id: mel
+          table: gbb_gentme_sttp
+          field: mel
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Mel
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
         fonction:
           id: fonction
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: fonction
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          label: fonction
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Concours
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Grade
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_sttp
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc rec'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+      defaults:
+        fields: false
+        query: false
+        footer: false
+        filters: true
+        filter_groups: true
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_comment: ''
+          query_tags: null
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
+      style:
+        type: excel_export
+        options:
+          formats:
+            xlsx: xlsx
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      filename: stagiaires
+      pager:
+        type: none
+        options:
+          offset: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - request_format
+        - url
+        - user.roles
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: stagiaires
+      fields:
+        nom_1:
+          id: nom_1
+          table: gbb_gentme_sttp
+          field: nom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Nom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        prenom:
+          id: prenom
+          table: gbb_gentme_sttp
+          field: prenom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Prénom
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        mel:
+          id: mel
+          table: gbb_gentme_sttp
+          field: mel
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        cp:
+          id: cp
+          table: gbb_netab_entme_sttp
+          field: cp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: CP
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
+        sigle:
+          id: sigle
+          table: gbb_netab_entme_sttp
+          field: sigle
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        denom_comp:
+          id: denom_comp
+          table: gbb_netab_entme_sttp
+          field: denom_comp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Établissement
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ denom_comp }} <small>({{ sigle }})</small>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        dt_deb_ts:
+          id: dt_deb_ts
+          table: gbb_gentme_sttp
+          field: dt_deb_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: deb
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
+        dt_fin_ts:
+          id: dt_fin_ts
+          table: gbb_gentme_sttp
+          field: dt_fin_ts
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: fin
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          date_format: custom
+          custom_date_format: d/m/Y
+          timezone: ''
+          plugin_id: date
+        fonction:
+          id: fonction
+          table: gbb_gentme_sttp
+          field: fonction
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: fonction
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Concours
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Grade
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_discposte:
+          id: lib_discposte
+          table: gbb_gentme_sttp
+          field: lib_discposte
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc poste'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_sttp
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc rec'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        moda_aff:
+          id: moda_aff
+          table: gbb_gentme_sttp
+          field: moda_aff
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Moda aff'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+      defaults:
+        fields: false
+        filters: false
+        filter_groups: false
+      filters:
+        fonction:
+          id: fonction
+          table: gbb_gentme_sttp
+          field: fonction
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
           value: ''
           group: 1
           exposed: true
           expose:
             operator_id: fonction_op
             label: Fonction
-            description: 'ENS, EDU, PSY ou DOC'
+            description: ''
             use_operator: false
             operator: fonction_op
             operator_limit_selection: false
@@ -1193,10 +2469,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        lib_discposte:
-          id: lib_discposte
-          table: gbb_gentme_ctct
-          field: lib_discposte
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
           relationship: none
           group_type: group
           admin_label: ''
@@ -1205,14 +2481,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: lib_discposte_op
-            label: 'Disc. poste'
+            operator_id: lib_conc_op
+            label: Concours
             description: ''
             use_operator: false
-            operator: lib_discposte_op
+            operator: lib_conc_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: lib_discposte
+            identifier: lib_conc
             required: false
             remember: false
             multiple: false
@@ -1238,26 +2514,263 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
-        moda_aff:
-          id: moda_aff
-          table: gbb_gentme_ctct
-          field: moda_aff
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_sttp
+          field: lib_disrec
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: moda_aff_op
-            label: 'Moda Aff'
-            description: 'NA, REP, SUP'
+            operator_id: lib_disrec_op
+            label: 'Disc. recrutement'
+            description: ''
             use_operator: false
-            operator: moda_aff_op
+            operator: lib_disrec_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: moda_aff
+            identifier: lib_disrec
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              d_cons: '0'
+              d_admi: '0'
+              d_de: '0'
+              d_inspec: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: 'Disc. recrutement'
+            description: ''
+            identifier: lib_disrec
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: ALLEMAND
+                operator: contains
+                value: ALLEMAND
+              2:
+                title: ANG.LETTRE
+                operator: contains
+                value: ANG.LETTRE
+              3:
+                title: ANGLAIS
+                operator: contains
+                value: ANGLAIS
+              4:
+                title: 'ART LIVRE'
+                operator: contains
+                value: 'ART LIVRE'
+              5:
+                title: ARTAPP.DES
+                operator: contains
+                value: ARTAPP.DES
+              6:
+                title: 'ARTS APPL.'
+                operator: contains
+                value: 'ARTS APPL.'
+              7:
+                title: 'ARTS PLAST'
+                operator: contains
+                value: 'ARTS PLAST'
+              8:
+                title: BIOCHIMIE-
+                operator: contains
+                value: BIOCHIMIE-
+              9:
+                title: BIOT.CHIM
+                operator: contains
+                value: BIOT.CHIM
+              10:
+                title: CHINOIS
+                operator: contains
+                value: CHINOIS
+              11:
+                title: COIFFURE
+                operator: contains
+                value: COIFFURE
+              12:
+                title: E.P.S
+                operator: contains
+                value: E.P.S
+              13:
+                title: EBENIS.ART
+                operator: contains
+                value: EBENIS.ART
+              14:
+                title: ECO.GE.
+                operator: contains
+                value: ECO.GE.
+              15:
+                title: 'EDUC MUSIC'
+                operator: contains
+                value: 'EDUC MUSIC'
+              16:
+                title: EDUCATION
+                operator: contains
+                value: EDUCATION
+              17:
+                title: 'ENTR. TEXT'
+                operator: contains
+                value: 'ENTR. TEXT'
+              18:
+                title: ESP.LETTRE
+                operator: contains
+                value: ESP.LETTRE
+              19:
+                title: ESPAGNOL
+                operator: contains
+                value: ESPAGNOL
+              20:
+                title: 'G. I. S. M'
+                operator: contains
+                value: 'G. I. S. M'
+              21:
+                title: 'G. I. T. C'
+                operator: contains
+                value: 'G. I. T. C'
+              22:
+                title: G.M.MAINTE
+                operator: contains
+                value: G.M.MAINTE
+              23:
+                title: 'GC EQ.T.E'
+                operator: contains
+                value: 'GC EQ.T.E'
+              24:
+                title: 'GE IND BOI'
+                operator: contains
+                value: 'GE IND BOI'
+              25:
+                title: GEOGRAPHIE
+                operator: contains
+                value: GEOGRAPHIE
+              26:
+                title: H.SERV.COM
+                operator: contains
+                value: H.SERV.COM
+              27:
+                title: 'HIST GEO'
+                operator: contains
+                value: 'HIST GEO'
+              28:
+                title: IND.GRAPHI
+                operator: contains
+                value: IND.GRAPHI
+              29:
+                title: JAPONAIS
+                operator: contains
+                value: JAPONAIS
+              30:
+                title: 'LET CLASSI'
+                operator: contains
+                value: 'LET CLASSI'
+              31:
+                title: 'LET HIST G'
+                operator: contains
+                value: 'LET HIST G'
+              32:
+                title: 'LET MODERN'
+                operator: contains
+                value: 'LET MODERN'
+              33:
+                title: 'LETTRES CL'
+                operator: contains
+                value: 'LETTRES CL'
+              34:
+                title: LSF
+                operator: contains
+                value: LSF
+              35:
+                title: 'MATH SC PH'
+                operator: contains
+                value: 'MATH SC PH'
+              36:
+                title: MATHEMATIQ
+                operator: contains
+                value: MATHEMATIQ
+              37:
+                title: RUSSE
+                operator: contains
+                value: RUSSE
+              38:
+                title: S.T.M.S.
+                operator: contains
+                value: S.T.M.S.
+              39:
+                title: 'SANTE ENV.'
+                operator: contains
+                value: 'SANTE ENV.'
+              40:
+                title: 'SC V T UNI'
+                operator: contains
+                value: 'SC V T UNI'
+              41:
+                title: SC.ECO.SOC
+                operator: contains
+                value: SC.ECO.SOC
+              42:
+                title: SC.PH
+                operator: contains
+                value: SC.PH
+              43:
+                title: SC.SOCIALE
+                operator: contains
+                value: SC.SOCIALE
+              44:
+                title: 'SC.VIE TER'
+                operator: contains
+                value: 'SC.VIE TER'
+              45:
+                title: SERV.ACC
+                operator: contains
+                value: SERV.ACC
+              46:
+                title: SII.ING.
+                operator: contains
+                value: SII.ING.
+              47:
+                title: TECH.CULIN
+                operator: contains
+                value: TECH.CULIN
+              48:
+                title: TECHNOLOGI
+                operator: contains
+                value: TECHNOLOGI
+          plugin_id: string
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: lib_grad_op
+            label: Grade
+            description: ''
+            use_operator: false
+            operator: lib_grad_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: lib_grad
             required: false
             remember: false
             multiple: false
@@ -1285,7 +2798,7 @@ display:
           plugin_id: string
         cp:
           id: cp
-          table: gbb_netab_entme_ctct
+          table: gbb_netab_entme_sttp
           field: cp
           relationship: none
           group_type: group
@@ -1300,7 +2813,7 @@ display:
           expose:
             operator_id: cp_op
             label: 'Code postal'
-            description: 'p.ex. : 75018'
+            description: ''
             use_operator: false
             operator: cp_op
             operator_limit_selection: false
@@ -1333,953 +2846,10 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-        moda_aff_1:
-          id: moda_aff_1
-          table: gbb_gentme_ctct
-          field: moda_aff
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '!='
-          value: na
-          group: 1
-          exposed: false
-          expose:
-            operator_id: moda_aff_1_op
-            label: moda_aff
-            description: 'n''est pas'
-            use_operator: false
-            operator: moda_aff_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: moda_aff_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        dt_ent_grad_ts_1:
-          id: dt_ent_grad_ts_1
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: '2019-09-01'
-            type: date
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: date
-      sorts: {  }
-      title: Contractuels
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: "<ul>\r\n<li><a href=\"contractuels\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"contractuels2\">Sans doublons et infos réduites</a></li>\r\n</ul>\r\n<br/>"
-          plugin_id: text_custom
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: 'Affichage de @start à @end sur @total'
-          plugin_id: result
-        area_text_custom_1:
-          id: area_text_custom_1
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<p>&nbsp;</p>'
-          plugin_id: text_custom
-      footer:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: 'Affichage de @start à @end sur @total'
-          plugin_id: result
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.roles
-      tags: {  }
-  excel_export_1:
-    display_plugin: excel_export
-    id: excel_export_1
-    display_title: 'Excel export'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: contractuels2_xls
-      fields:
-        nom_1:
-          id: nom_1
-          table: gbb_gentme_ctct
-          field: nom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Nom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        prenom:
-          id: prenom
-          table: gbb_gentme_ctct
-          field: prenom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Prénom
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        mel:
-          id: mel
-          table: gbb_gentme_ctct
-          field: mel
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: mel
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'ent grad'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          date_format: custom
-          custom_date_format: d/m/Y
-          timezone: ''
-          plugin_id: date
-        fonction:
-          id: fonction
-          table: gbb_gentme_ctct
-          field: fonction
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: fonction
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-        lib_disrec:
-          id: lib_disrec
-          table: gbb_gentme_ctct
-          field: lib_disrec
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'disc rec'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: standard
-      defaults:
-        fields: false
-        query: false
-        filters: false
-        filter_groups: false
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: true
-          replica: false
-          query_comment: ''
-          query_tags: null
-      filters:
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: dt_ent_grad_ts_op
-            label: dt_ent_grad_ts
-            description: null
-            use_operator: false
-            operator: dt_ent_grad_ts_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: dt_ent_grad_ts
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
-          group_info:
-            label: 'Entrée dans le grade'
-            description: ''
-            identifier: dt_ent_grad_ts
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              2:
-                title: 2019-20
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2019-09-01'
-                  max: '2020-08-31'
-              3:
-                title: 2020-21
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2020-09-01'
-                  max: '2021-08-31'
-          plugin_id: date
-        lib_disrec:
-          id: lib_disrec
-          table: gbb_gentme_ctct
-          field: lib_disrec
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: lib_disrec_op
-            label: 'Disc. recrutement'
-            description: ''
-            use_operator: false
-            operator: lib_disrec_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: lib_disrec
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: true
-          group_info:
-            label: lib_disrec
-            description: ''
-            identifier: lib_disrec
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: ALLEMAND
-                operator: '='
-                value: ALLEMAND
-              2:
-                title: 'ANG.LETTRE '
-                operator: '='
-                value: 'ANG.LETTRE '
-              3:
-                title: ANGLAIS
-                operator: '='
-                value: ANGLAIS
-              4:
-                title: 'ART LIVRE'
-                operator: '='
-                value: 'ART LIVRE'
-              5:
-                title: ARTAPP.DES
-                operator: '='
-                value: ARTAPP.DES
-              6:
-                title: 'ARTS APPL.'
-                operator: '='
-                value: 'ARTS APPL.'
-              7:
-                title: 'ARTS PLAST '
-                operator: '='
-                value: 'ARTS PLAST '
-              8:
-                title: BIOCHIMIE-
-                operator: '='
-                value: BIOCHIMIE-
-              9:
-                title: 'BIOT.CHIM '
-                operator: '='
-                value: 'BIOT.CHIM '
-              10:
-                title: CHINOIS
-                operator: '='
-                value: CHINOIS
-              11:
-                title: COIFFURE
-                operator: '='
-                value: COIFFURE
-              12:
-                title: E.P.S
-                operator: '='
-                value: E.P.S
-              13:
-                title: EBENIS.ART
-                operator: '='
-                value: EBENIS.ART
-              14:
-                title: ECO.GE.
-                operator: starts
-                value: ECO.GE.
-              15:
-                title: 'EDUC MUSIC'
-                operator: '='
-                value: 'EDUC MUSIC'
-              16:
-                title: EDUCATION
-                operator: '='
-                value: EDUCATION
-              17:
-                title: 'ENTR. TEXT'
-                operator: '='
-                value: 'ENTR. TEXT'
-              18:
-                title: ESP.LETTRE
-                operator: '='
-                value: ESP.LETTRE
-              19:
-                title: ESPAGNOL
-                operator: '='
-                value: ESPAGNOL
-              20:
-                title: 'G. I. S. M'
-                operator: '='
-                value: 'G. I. S. M'
-              21:
-                title: 'G. I. T. C'
-                operator: '='
-                value: 'G. I. T. C'
-              22:
-                title: G.M.MAINTE
-                operator: '='
-                value: G.M.MAINTE
-              23:
-                title: 'GC EQ.T.E'
-                operator: '='
-                value: 'GC EQ.T.E'
-              24:
-                title: 'GE IND BOI'
-                operator: '='
-                value: 'GE IND BOI'
-              25:
-                title: GEOGRAPHIE
-                operator: '='
-                value: GEOGRAPHIE
-              26:
-                title: H.SERV.COM
-                operator: '='
-                value: H.SERV.COM
-              27:
-                title: 'HIST GEO'
-                operator: '='
-                value: 'HIST GEO'
-              28:
-                title: IND.GRAPHI
-                operator: '='
-                value: IND.GRAPHI
-              29:
-                title: JAPONAIS
-                operator: '='
-                value: JAPONAIS
-              30:
-                title: 'LET CLASSI'
-                operator: '='
-                value: 'LET CLASSI'
-              31:
-                title: 'LET HIST G'
-                operator: '='
-                value: 'LET HIST G'
-              32:
-                title: 'LET MODERN'
-                operator: '='
-                value: 'LET MODERN'
-              33:
-                title: 'LETTRES CL'
-                operator: '='
-                value: 'LETTRES CL'
-              34:
-                title: LSF
-                operator: '='
-                value: LSF
-              35:
-                title: 'MATH SC PH'
-                operator: '='
-                value: 'MATH SC PH'
-              36:
-                title: MATHEMATIQ
-                operator: '='
-                value: MATHEMATIQ
-              37:
-                title: RUSSE
-                operator: '='
-                value: RUSSE
-              38:
-                title: S.T.M.S.
-                operator: '='
-                value: S.T.M.S.
-              39:
-                title: 'SANTE ENV.'
-                operator: '='
-                value: 'SANTE ENV.'
-              40:
-                title: 'SC V T UNI'
-                operator: '!='
-                value: 'SC V T UNI'
-              41:
-                title: SC.ECO.SOC
-                operator: contains
-                value: SC.ECO.SOC
-              42:
-                title: SC.PH
-                operator: starts
-                value: SC.PH
-              43:
-                title: SC.SOCIALE
-                operator: '='
-                value: SC.SOCIALE
-              44:
-                title: 'SC.VIE TER'
-                operator: '='
-                value: 'SC.VIE TER'
-              45:
-                title: SERV.ACC
-                operator: '='
-                value: SERV.ACC
-              46:
-                title: SII.ING.
-                operator: contains
-                value: SII.ING.
-              47:
-                title: TECH.CULIN
-                operator: '!='
-                value: TECH.CULIN
-              48:
-                title: TECHNOLOGI
-                operator: '!='
-                value: TECHNOLOGI
-          plugin_id: string
-        fonction:
-          id: fonction
-          table: gbb_gentme_ctct
-          field: fonction
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: fonction_op
-            label: Fonction
-            description: 'ENS, EDU, PSY ou DOC'
-            use_operator: false
-            operator: fonction_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: fonction
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        moda_aff_1:
-          id: moda_aff_1
-          table: gbb_gentme_ctct
-          field: moda_aff
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '!='
-          value: na
-          group: 1
-          exposed: false
-          expose:
-            operator_id: moda_aff_1_op
-            label: moda_aff
-            description: 'n''est pas'
-            use_operator: false
-            operator: moda_aff_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: moda_aff_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        dt_ent_grad_ts_1:
-          id: dt_ent_grad_ts_1
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: '2019-09-01'
-            type: date
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: date
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      filename: contractuels
-      style:
-        type: excel_export
-        options:
-          formats:
-            xlsx: xlsx
-          xls_settings:
-            xls_format: Excel2007
-            metadata:
-              creator: ''
-              last_modified_by: ''
-              title: ''
-              description: ''
-              subject: ''
-              keywords: ''
-              category: ''
-              manager: ''
-              company: ''
-      pager:
-        type: none
-        options:
-          offset: '0'
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - request_format
-        - url
-        - user.roles
-      tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: contractuels
     cache_metadata:
       max-age: -1
       contexts:
@@ -2295,11 +2865,11 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: contractuels2
+      path: stagiaires2
       fields:
         nom_1:
           id: nom_1
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: nom
           relationship: none
           group_type: group
@@ -2337,7 +2907,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2348,7 +2918,7 @@ display:
           plugin_id: standard
         prenom:
           id: prenom
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: prenom
           relationship: none
           group_type: group
@@ -2386,7 +2956,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2397,12 +2967,12 @@ display:
           plugin_id: standard
         mel:
           id: mel
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: mel
           relationship: none
           group_type: group
           admin_label: ''
-          label: mel
+          label: Mel
           exclude: false
           alter:
             alter_text: false
@@ -2435,7 +3005,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2444,61 +3014,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'ent grad'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          date_format: custom
-          custom_date_format: d/m/Y
-          timezone: ''
-          plugin_id: date
         fonction:
           id: fonction
-          table: gbb_gentme_ctct
+          table: gbb_gentme_sttp
           field: fonction
           relationship: none
           group_type: group
@@ -2536,7 +3054,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2545,14 +3063,14 @@ display:
           empty_zero: false
           hide_alter_empty: true
           plugin_id: standard
-        lib_disrec:
-          id: lib_disrec
-          table: gbb_gentme_ctct
-          field: lib_disrec
+        lib_conc:
+          id: lib_conc
+          table: gbb_gentme_sttp
+          field: lib_conc
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'disc rec'
+          label: Concours
           exclude: false
           alter:
             alter_text: false
@@ -2585,7 +3103,105 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_grad:
+          id: lib_grad
+          table: gbb_gentme_sttp
+          field: lib_grad
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Grade
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        lib_disrec:
+          id: lib_disrec
+          table: gbb_gentme_sttp
+          field: lib_disrec
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Disc rec'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2597,8 +3213,9 @@ display:
       defaults:
         fields: false
         query: false
-        filters: false
-        filter_groups: false
+        footer: false
+        filters: true
+        filter_groups: true
         header: false
       query:
         type: views_query
@@ -2608,444 +3225,17 @@ display:
           replica: false
           query_comment: ''
           query_tags: null
-      filters:
-        dt_ent_grad_ts:
-          id: dt_ent_grad_ts
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
+      footer:
+        result:
+          id: result
+          table: views
+          field: result
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: dt_ent_grad_ts_op
-            label: dt_ent_grad_ts
-            description: null
-            use_operator: false
-            operator: dt_ent_grad_ts_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: dt_ent_grad_ts
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: null
-            min_placeholder: null
-            max_placeholder: null
-          is_grouped: true
-          group_info:
-            label: 'Entrée dans le grade'
-            description: ''
-            identifier: dt_ent_grad_ts
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              2:
-                title: 2019-20
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2019-09-01'
-                  max: '2020-08-31'
-              3:
-                title: 2020-21
-                operator: between
-                value:
-                  type: date
-                  value: ''
-                  min: '2020-09-01'
-                  max: '2021-08-31'
-          plugin_id: date
-        lib_disrec:
-          id: lib_disrec
-          table: gbb_gentme_ctct
-          field: lib_disrec
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: lib_disrec_op
-            label: 'Disc. recrutement'
-            description: ''
-            use_operator: false
-            operator: lib_disrec_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: lib_disrec
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: true
-          group_info:
-            label: lib_disrec
-            description: ''
-            identifier: lib_disrec
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: ALLEMAND
-                operator: '='
-                value: ALLEMAND
-              2:
-                title: 'ANG.LETTRE '
-                operator: '='
-                value: 'ANG.LETTRE '
-              3:
-                title: ANGLAIS
-                operator: '='
-                value: ANGLAIS
-              4:
-                title: 'ART LIVRE'
-                operator: '='
-                value: 'ART LIVRE'
-              5:
-                title: ARTAPP.DES
-                operator: '='
-                value: ARTAPP.DES
-              6:
-                title: 'ARTS APPL.'
-                operator: '='
-                value: 'ARTS APPL.'
-              7:
-                title: 'ARTS PLAST '
-                operator: '='
-                value: 'ARTS PLAST '
-              8:
-                title: BIOCHIMIE-
-                operator: '='
-                value: BIOCHIMIE-
-              9:
-                title: 'BIOT.CHIM '
-                operator: '='
-                value: 'BIOT.CHIM '
-              10:
-                title: CHINOIS
-                operator: '='
-                value: CHINOIS
-              11:
-                title: COIFFURE
-                operator: '='
-                value: COIFFURE
-              12:
-                title: E.P.S
-                operator: '='
-                value: E.P.S
-              13:
-                title: EBENIS.ART
-                operator: '='
-                value: EBENIS.ART
-              14:
-                title: ECO.GE.
-                operator: starts
-                value: ECO.GE.
-              15:
-                title: 'EDUC MUSIC'
-                operator: '='
-                value: 'EDUC MUSIC'
-              16:
-                title: EDUCATION
-                operator: '='
-                value: EDUCATION
-              17:
-                title: 'ENTR. TEXT'
-                operator: '='
-                value: 'ENTR. TEXT'
-              18:
-                title: ESP.LETTRE
-                operator: '='
-                value: ESP.LETTRE
-              19:
-                title: ESPAGNOL
-                operator: '='
-                value: ESPAGNOL
-              20:
-                title: 'G. I. S. M'
-                operator: '='
-                value: 'G. I. S. M'
-              21:
-                title: 'G. I. T. C'
-                operator: '='
-                value: 'G. I. T. C'
-              22:
-                title: G.M.MAINTE
-                operator: '='
-                value: G.M.MAINTE
-              23:
-                title: 'GC EQ.T.E'
-                operator: '='
-                value: 'GC EQ.T.E'
-              24:
-                title: 'GE IND BOI'
-                operator: '='
-                value: 'GE IND BOI'
-              25:
-                title: GEOGRAPHIE
-                operator: '='
-                value: GEOGRAPHIE
-              26:
-                title: H.SERV.COM
-                operator: '='
-                value: H.SERV.COM
-              27:
-                title: 'HIST GEO'
-                operator: '='
-                value: 'HIST GEO'
-              28:
-                title: IND.GRAPHI
-                operator: '='
-                value: IND.GRAPHI
-              29:
-                title: JAPONAIS
-                operator: '='
-                value: JAPONAIS
-              30:
-                title: 'LET CLASSI'
-                operator: '='
-                value: 'LET CLASSI'
-              31:
-                title: 'LET HIST G'
-                operator: '='
-                value: 'LET HIST G'
-              32:
-                title: 'LET MODERN'
-                operator: '='
-                value: 'LET MODERN'
-              33:
-                title: 'LETTRES CL'
-                operator: '='
-                value: 'LETTRES CL'
-              34:
-                title: LSF
-                operator: '='
-                value: LSF
-              35:
-                title: 'MATH SC PH'
-                operator: '='
-                value: 'MATH SC PH'
-              36:
-                title: MATHEMATIQ
-                operator: '='
-                value: MATHEMATIQ
-              37:
-                title: RUSSE
-                operator: '='
-                value: RUSSE
-              38:
-                title: S.T.M.S.
-                operator: '='
-                value: S.T.M.S.
-              39:
-                title: 'SANTE ENV.'
-                operator: '='
-                value: 'SANTE ENV.'
-              40:
-                title: 'SC V T UNI'
-                operator: '!='
-                value: 'SC V T UNI'
-              41:
-                title: SC.ECO.SOC
-                operator: contains
-                value: SC.ECO.SOC
-              42:
-                title: SC.PH
-                operator: starts
-                value: SC.PH
-              43:
-                title: SC.SOCIALE
-                operator: '='
-                value: SC.SOCIALE
-              44:
-                title: 'SC.VIE TER'
-                operator: '='
-                value: 'SC.VIE TER'
-              45:
-                title: SERV.ACC
-                operator: '='
-                value: SERV.ACC
-              46:
-                title: SII.ING.
-                operator: contains
-                value: SII.ING.
-              47:
-                title: TECH.CULIN
-                operator: '!='
-                value: TECH.CULIN
-              48:
-                title: TECHNOLOGI
-                operator: '!='
-                value: TECHNOLOGI
-          plugin_id: string
-        fonction:
-          id: fonction
-          table: gbb_gentme_ctct
-          field: fonction
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: fonction_op
-            label: Fonction
-            description: 'ENS, EDU, PSY ou DOC'
-            use_operator: false
-            operator: fonction_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: fonction
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        moda_aff_1:
-          id: moda_aff_1
-          table: gbb_gentme_ctct
-          field: moda_aff
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '!='
-          value: na
-          group: 1
-          exposed: false
-          expose:
-            operator_id: moda_aff_1_op
-            label: moda_aff
-            description: 'n''est pas'
-            use_operator: false
-            operator: moda_aff_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: moda_aff_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              d_cons: '0'
-              d_admi: '0'
-              d_de: '0'
-              d_inspec: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        dt_ent_grad_ts_1:
-          id: dt_ent_grad_ts_1
-          table: gbb_gentme_ctct
-          field: dt_ent_grad_ts
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: '2019-09-01'
-            type: date
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: date
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+          empty: false
+          content: 'Affichage de @start à @end sur @total'
+          plugin_id: result
       header:
         area_text_custom:
           id: area_text_custom
@@ -3056,7 +3246,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<ul>\r\n<li><a href=\"contractuels\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"contractuels2\">Sans doublons et infos réduites</a></li>\r\n</ul>\r\n<br/>"
+          content: "<ul>\r\n<li><a href=\"stagiaires\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"stagiaires2\">Sans doublons et infos réduites</a></li>\r\n</ul>\r\n<br/>"
           plugin_id: text_custom
         display_link:
           id: display_link
@@ -3069,46 +3259,6 @@ display:
           display_id: excel_export_1
           label: '-> EXCEL export'
           plugin_id: display_link
-        area_text_custom_1:
-          id: area_text_custom_1
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<p>&nbsp;</p>'
-          plugin_id: text_custom
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: 'Affichage de @start à @end sur @total'
-          plugin_id: result
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.roles
-      tags: {  }
-  page_3:
-    display_plugin: page
-    id: page_3
-    display_title: Page
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: contractuels1bis
-      group_by: true
-      defaults:
-        group_by: false
     cache_metadata:
       max-age: -1
       contexts:

@@ -1155,7 +1155,7 @@ display:
             identifier: id_disp_1
             required: false
             remember: false
-            multiple: false
+            multiple: true
             remember_roles:
               authenticated: authenticated
             placeholder: null
@@ -1182,7 +1182,11 @@ display:
               3:
                 title: Min
                 operator: starts
-                value: 20NDGS
+                value: 20N
+              4:
+                title: InterAca
+                operator: starts
+                value: 20I
           plugin_id: string
       filter_groups:
         operator: AND

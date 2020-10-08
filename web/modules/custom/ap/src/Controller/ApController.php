@@ -28,7 +28,7 @@ class ApController {
       '0750088N'=>'CIRCONSCRIPTION 18A LA CHAPELLE',
       '0750089P'=>'CIRCONSCRIPTION 18B GOUTTE D OR',
       '0753385X'=>'CIRCONSCRIPTION 18C MONTMARTRE',
-      '0755240N'=>'CIRCONSCRIPTION 18D JULES JOFFRIN',
+      // '0755240N'=>'CIRCONSCRIPTION 18D JULES JOFFRIN',
       '0750086L'=>'CIRCONSCRIPTION 19A BUTTES CHAUMONT',
       '0754335E'=>'CIRCONSCRIPTION 19B STALINGRAD',
       '0753073H'=>'CIRCONSCRIPTION 19C JAURES',
@@ -42,10 +42,10 @@ class ApController {
     );
 
     // setlocale(LC_CTYPE, 'fr_FR.ISO-8859-1');
-    $str  = "<p>Vous trouverez la liste des modules de formation auxquels vous pouvez vous inscrire en cliquant sur votre circonscription de rattachement administratif.</p>";
+    $str  = "<p>Pour consulter le catalogue des animations pédagogiques proposées par votre circonscription, cliquez sur le nom de votre circonscription de rattachement administratif.</p>";
     $str .= self::gbb_ap_index($circo_tab);
     return array(
-      '#title' => 'GAIA animations pédagogiques - 2019/2020',
+      '#title' => 'GAIA animations pédagogiques - 2020/2021',
       '#markup' => $str,
     );
   }
@@ -70,7 +70,10 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('m.co_anmo', '', '=');
+  $query->condition('d.co_andi', '', '=');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('co_orie', "1P14" , 'LIKE');
   $query->fields('f', array('co_modu'))
         ->groupBy('f.co_modu');
@@ -88,7 +91,8 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -130,7 +134,8 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -170,7 +175,8 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -210,7 +216,8 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -250,7 +257,8 @@ class ApController {
   $query = db_select('gbb_gmofl', 'f');
   $query->join('gbb_gmodu', 'm', 'm.co_modu=f.co_modu AND m.co_degre = 1');
   $query->join('gbb_gdisp', 'd', 'd.co_disp=m.co_disp AND d.co_degre = 1');
-  $query->condition('d.id_disp', "19D%" , 'LIKE');
+  $query->condition('d.id_disp', "20D%" , 'LIKE');
+  $query->condition('d.co_camp', "CC" , 'NOT LIKE');
   $query->condition('f.co_lieu', $circo , 'LIKE');
   $query->condition('m.co_anmo', '', '=');
   $query->condition('d.co_andi', '', '=');
@@ -325,7 +333,7 @@ class ApController {
       '0750088N'=>'CIRCONSCRIPTION 18A LA CHAPELLE',
       '0750089P'=>'CIRCONSCRIPTION 18B GOUTTE D OR',
       '0753385X'=>'CIRCONSCRIPTION 18C MONTMARTRE',
-      '0755240N'=>'CIRCONSCRIPTION 18D JULES JOFFRIN',
+      // '0755240N'=>'CIRCONSCRIPTION 18D JULES JOFFRIN',
       '0750086L'=>'CIRCONSCRIPTION 19A BUTTES CHAUMONT',
       '0754335E'=>'CIRCONSCRIPTION 19B STALINGRAD',
       '0753073H'=>'CIRCONSCRIPTION 19C JAURES',
@@ -336,8 +344,8 @@ class ApController {
       '0750083H'=>'CIRCONSCRIPTION 20D BELLEVILLE',
       // '0754460R'=>'CIRCONSCRIPTION ASH',
       '0750082G'=>'CIRCONSCRIPTION ASH1',
-      '0750087M'=>'CIRCONSCRIPTION ASH2',
-      '0755967D'=>'CIRCONSCRIPTION ASH3',
+      // '0750087M'=>'CIRCONSCRIPTION ASH2',
+      // '0755967D'=>'CIRCONSCRIPTION ASH3',
     );
 
     return array(
