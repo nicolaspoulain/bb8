@@ -1173,20 +1173,24 @@ display:
             group_items:
               1:
                 title: 1D
-                operator: starts
-                value: 20D
+                operator: regular_expression
+                value: ^\d\dD
               2:
-                title: 2D
-                operator: starts
-                value: 20A
+                title: 2D+InterAca
+                operator: regular_expression
+                value: ^(\d\dA|\d\dI)
               3:
-                title: Min
-                operator: starts
-                value: 20N
+                title: 2D
+                operator: regular_expression
+                value: ^\d\dA
               4:
                 title: InterAca
-                operator: starts
-                value: 20I
+                operator: regular_expression
+                value: ^\d\dI
+              5:
+                title: Min
+                operator: regular_expression
+                value: ^\d\dN
           plugin_id: string
       filter_groups:
         operator: AND
