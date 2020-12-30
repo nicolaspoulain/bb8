@@ -30,7 +30,7 @@ class Liste extends ControllerBase {
     // query parameters
     $routeparameters = array(
       'id_disp' => $id_disp,
-      'co_degre' => $co_degre,
+      // 'co_degre' => $co_degre,
       'co_anmo' => $co_anmo,
       'resp_filter' => $resp_filter);
     return $this->redirect('view.liste_modules.page_1',$routeparameters);

@@ -299,6 +299,8 @@ display:
             description: 'ex : 15'
             use_operator: false
             operator: id_disp_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: id_disp
             required: false
             remember: false
@@ -310,8 +312,6 @@ display:
               d_cons: '0'
               d_admi: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Période
@@ -325,25 +325,25 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
+                title: 2020-2021
+                operator: starts
+                value: '20'
+              2:
                 title: 2019-2020
                 operator: starts
                 value: '19'
-              2:
+              3:
                 title: 2018-2019
                 operator: starts
                 value: '18'
-              3:
+              4:
                 title: 2017-2018
                 operator: starts
                 value: '17'
-              4:
+              5:
                 title: 2016-2017
                 operator: starts
                 value: '16'
-              5:
-                title: 2015-2016
-                operator: starts
-                value: '15'
           plugin_id: string
         co_resp:
           id: co_resp

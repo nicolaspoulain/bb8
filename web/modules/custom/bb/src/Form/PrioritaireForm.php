@@ -58,7 +58,7 @@ class PrioritaireForm extends FormBase {
     );
     $form['prioritaire'] = array(
       '#type' => 'checkbox', // WYSIWYG != textarea
-      '#title' => '<i class="fa fa-bell fa-lg orange"></i> Prioritaire',
+      '#title' => '<i class="fa fa-bell fa-lg orange"></i> Cloche',
       '#default_value' => (!empty($module))? $module[0]->prioritaire : '',
       '#description' => '',
       '#ajax' => [

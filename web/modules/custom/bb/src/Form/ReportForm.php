@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains Drupal\bb\Form\ReformeForm.
+ * Contains Drupal\bb\Form\ReportForm.
  */
 
 namespace Drupal\bb\Form;
@@ -21,7 +21,7 @@ use Drupal\bb\Controller\BbCrudController;
 /**
  * Implements the ModalForm form controller.
  */
-class ReformeForm extends FormBase {
+class ReportForm extends FormBase {
 
   /**
    * {@inheritdoc}
@@ -34,7 +34,7 @@ class ReformeForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'ReformeForm';
+    return 'ReportForm';
   }
 
   /**
@@ -56,10 +56,11 @@ class ReformeForm extends FormBase {
       '#type'    => 'hidden',
       '#value' => $co_modu,
     );
-    $form['reforme'] = array(
+    if ($co_degre==1) {
+    $form['report'] = array(
       '#type' => 'checkbox', // WYSIWYG != textarea
-      '#title' => '<i class="fas fa-parking fa-lg red"></i> Prioritaire COVID-19',
-      '#default_value' => (!empty($module))? $module[0]->reforme : '',
+      '#title' => '<i class="fas fa-registered fa-lg pink"></i> Report COVID-19',
+      '#default_value' => (!empty($module))? $module[0]->report : '',
       '#description' => '',
       '#ajax' => [
         'callback' => '::saveAjax',
@@ -70,6 +71,7 @@ class ReformeForm extends FormBase {
         ),
       ],
     );
+    }
     // $form['submit'] = array(
       // '#type' => 'submit',
       // '#value' => t('Submit'),
@@ -85,7 +87,7 @@ class ReformeForm extends FormBase {
       'co_modu' => $form_state->getValue('co_modu'),
     );
     $entry = array(
-      'reforme'  => $form_state->getValue('reforme')['value'],
+      'report'  => $form_state->getValue('report')['value'],
     );
     $row = BbCrudController::load('gbb_gmodu_plus', $condition);
     if (!empty($row)) {
@@ -113,7 +115,7 @@ class ReformeForm extends FormBase {
       'co_modu' => $form_state->getValue('co_modu'),
     );
     $entry = array(
-      'reforme'  => $form_state->getValue('reforme'),
+      'report'  => $form_state->getValue('report'),
     );
     $row = BbCrudController::load('gbb_gmodu_plus', $condition);
     if (!empty($row)) {

@@ -241,6 +241,112 @@ display:
       display_extenders: {  }
       path: a_traiter
       fields:
+        co_anmo:
+          id: co_anmo
+          table: gbb_gmodu
+          field: co_anmo
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_anmo
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        co_andi:
+          id: co_andi
+          table: gbb_gdisp
+          field: co_andi
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: co_andi
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         color:
           id: color
           table: gbb_gmodu_plus
@@ -301,7 +407,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '{%if reforme==1 %}<i class="fas fa-registered fa-lg red"></i>{% endif %}'
+            text: '{%if reforme==1 %}<i class="fas fa-parking fa-lg red" title="Prioritaire COVID"></i>{% endif %}'
             make_link: false
             path: ''
             absolute: false
@@ -347,6 +453,63 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: numeric
+        report:
+          id: report
+          table: gbb_gmodu_plus
+          field: report
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{%if report==1 %}<i class="fas fa-registered fa-lg pink" title="Report COVID"></i>{% endif %}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: false
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
+          plugin_id: numeric
         date_ts:
           id: date_ts
           table: gbb_session
@@ -358,7 +521,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ date_ts }} {{ reforme }} '
+            text: '{{ date_ts }} {{ reforme }} {{ report }} '
             make_link: false
             path: ''
             absolute: false
@@ -524,7 +687,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: "{% if status == \"0\" %}\r\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\r\n{% elseif status == \"1\" %}\r\n<i class=\"fa fa-lg fa-pause gray\"></i>\r\n{% elseif status == \"2\" %}\r\n<i class=\"fa fa-lg fa-flag red \"></i>\r\n{% elseif status == \"3\" %}\r\n<i class=\"fa fa-lg fa-envelope green\"></i>\r\n{% elseif status == \"4\" %}\r\n<i class=\"fa fa-lg fa-user orange\"></i>\r\n{% elseif status == \"5\" %}\r\n<i class=\"fa fa-lg fa-users pink\"></i>\r\n{% elseif status == \"6\" %}\r\n<i class=\"fa fa-lg orange\">DE</i>\r\n{% elseif status == \"7\" %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i>\r\n{% elseif status == \"8\" %}\r\n<i class=\"fa fa-lg green\">DE</i>\r\n{% elseif status == \"9\" %}\r\n<i class=\"fa fa-lg fa-spin red\">DE</i>\r\n{% elseif status == \"10\" %}\r\n<i class=\"fa fa-lg orange\">DE</i> <i class=\"fa fa-lg fa-flag red\"></i>\r\n{% endif %}"
+            text: "{% if status == \"0\" %}\r\n<i class=\"fa fa-lg fa-play-circle blue\"></i>\r\n{% elseif status == \"1\" %}\r\n<i class=\"fa fa-lg fa-pause gray\"></i>\r\n{% elseif status == \"2\" %}\r\n<i class=\"fa fa-lg fa-flag red \"></i>\r\n{% elseif status == \"3\" %}\r\n<i class=\"fa fa-lg fa-envelope green\"></i>\r\n{% elseif status == \"4\" %}\r\n<i class=\"fa fa-lg fa-user orange\"></i>\r\n{% elseif status == \"5\" %}\r\n<i class=\"fa fa-lg fa-users pink\"></i>\r\n{% elseif status == \"6\" %}\r\n<i class=\"fa fa-lg orange\">DE</i>\r\n{% elseif status == \"7\" %}\r\n<i class=\"fa fa-lg fa-cog fa-spin\"></i>\r\n{% elseif status == \"8\" %}\r\n<i class=\"fa fa-lg green\">DE</i>\r\n{% elseif status == \"9\" %}\r\n<i class=\"fa fa-lg fa-spin red\">DE</i>\r\n{% elseif status == \"10\" %}\r\n<i class=\"fa fa-lg orange\">DE</i> <i class=\"fa fa-lg fa-flag red\"></i>\r\n{% elseif status == \"13\" %}\r\n<i class=\"fas fa-times-circle fa-lg red\"></i>\r\n{% elseif status == \"14\" %}\r\n<i class=\"fas fa-times-circle fa-lg green\"></i>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -738,7 +901,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ nothing }}  {{ ficand }}  {{ id_disp }}/<a href="moduleng/{{ co_degre }}/{{ co_modu }}"><span class="bg-{{color}}">{{ co_modu }}</span> {{ lib }}</a> '
+            text: "{% if co_andi>0 or co_anmo !=\"\" %}\r\n<i class=\"fas fa-times-circle\"></i> <span class=\"strike\">\r\n{% endif %}\r\n{{ nothing }}  {{ ficand }}  {{ id_disp }}/<a href=\"moduleng/{{ co_degre }}/{{ co_modu }}\"><span class=\"bg-{{color}}\">{{ co_modu }}</span> {{ lib }}</a>\r\n{% if co_andi>0 or co_anmo !=\"\" %}\r\n</span>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1120,6 +1283,50 @@ display:
             max_placeholder: ''
             operator_limit_selection: false
             operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        status:
+          id: status
+          table: gbb_session
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '!='
+          value:
+            min: ''
+            max: ''
+            value: '14'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''

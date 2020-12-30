@@ -98,6 +98,12 @@ class ModuleNG extends ControllerBase {
       case '12': // Inspec red
         $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 12, 'date_modif' => date("Y-m-d H:i:s"));
         break;
+      case '13': // Annule session red
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 13, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
+      case '14': // Annule session green
+        $entry = array('en_attente' => 0, 'session_alert' => 0, 'convoc_sent' => 4, 'status' => 14, 'date_modif' => date("Y-m-d H:i:s"));
+        break;
     }
     $account = \Drupal::currentUser();
     $entry['uid'] = $account->id();
@@ -202,6 +208,8 @@ class ModuleNG extends ControllerBase {
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\PrioritaireForm', $co_degre, $co_modu);
     $content['reforme'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\ReformeForm', $co_degre, $co_modu);
+    $content['report'] =
+      \Drupal::formBuilder()->getForm('Drupal\bb\Form\ReportForm', $co_degre, $co_modu);
     $content['cfile'] =
       \Drupal::formBuilder()->getForm('Drupal\bb\Form\CfileForm', $co_degre, $co_modu);
     $content['afile'] =

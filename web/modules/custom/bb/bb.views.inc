@@ -254,6 +254,15 @@ function bb_views_data() {
     'argument' => array('id' => 'numeric'),
   );
   //}}
+  $data['gbb_gmodu_plus']['report'] = array( 'help' => t('report'),
+  //{{
+    'title' => t('report'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
   $data['gbb_gmodu_plus']['reforme'] = array( 'help' => t('reforme'),
   //{{
     'title' => t('reforme'),
@@ -1782,6 +1791,17 @@ function bb_views_data() {
     ),
   );
   //}}
+  $data['gbb_ndisrec']['table'] = array( 'group' => t('gbb_gcamo'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gpers',
+        'left_field' => 'co_disrec',
+        'field' => 'co_disrec',
+      ),
+    ),
+  );
+  //}}
   $data['gbb_gaffe']['table'] = array( 'group' => t('gbb_gcamo'),
   //{{
     'join' => array(
@@ -1865,6 +1885,14 @@ function bb_views_data() {
     'filter' => array('id' => 'string'),
   );
   //}}
+  $data['gbb_gcamo']['co_avis'] = array( 'help' => t('Avis du CE'),
+  //{{
+    'title'  => t('Avis du CE'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gpers']['nomu'] = array( 'help' => t('Nom du candidat retenu'),
   //{{
     'title'  => t('nomu'),
@@ -1884,6 +1912,14 @@ function bb_views_data() {
   $data['gbb_gpers']['co_disrec'] = array( 'help' => t('Code disc. de recrutement'),
   //{{
     'title'  => t('co_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_ndisrec']['lib_disrec'] = array( 'help' => t('Lib disc. de recrutement'),
+  //{{
+    'title'  => t('lib_disrec'),
     'field'  => array('id' => 'standard',),
     'sort'   => array('id' => 'standard'),
     'filter' => array('id' => 'string'),
@@ -3530,6 +3566,27 @@ function bb_views_data() {
   );
   //}}
 
+  $data['gbb_gfrai_dafor']['table'] = array( 'group' => t('gbb_gmfra'),
+  //{{
+    'join' => array(
+      'gbb_gmodu' => array(
+        'left_table' => 'gbb_gmfra',
+        'left_field' => 'co_frai',
+        'field' => 'co_frai',
+        'extra' => 'gbb_gmfra.co_degre = gbb_gfrai_dafor.co_degre',
+      ),
+    ),
+  );
+  //}}
+
+  $data['gbb_gfrai_dafor']['type'] = array( 'title' => t('type'),
+  //{{
+    'help' => t('type'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
   $data['gbb_gfrai']['lib'] = array( 'title' => t('lib'),
   //{{
     'help' => t('lib'),
@@ -3602,6 +3659,229 @@ function bb_views_data() {
   //}}
   //}}
 
+  // ********************************************************
+  // * gbb_entree_metier ** et ses colonnes
+  // ********************************************************
+  //{{
+  $data['gbb_entree_metier']['table'] = array( 'group' => t('gbb_entree_metier'),
+  //{{
+    'base' => array(
+      'database' => $gaia_db,
+      'field' => 'numen',
+      'title' => t('GaiaBB_entree_metier'),
+      'help'  => t('Tables du module GaiaBB Entree Metier.'),
+    ),
+  );
+  //}}
+  $data['gbb_gpers_entree_metier']['table'] = array( 'group' => t('gbb_entree_metier'),
+  //{{
+    'join' => array(
+      'gbb_entree_metier' => array(
+        'table' => 'gbb_gpers',
+        'left_table' => 'gbb_entree_metier',
+        'left_field' => 'numen',
+        'field' => 'numen',
+      ),
+    ),
+  );
+  //}}
+  $data['gbb_netab_entree_metier']['table'] = array( 'group' => t('gbb_entree_metier'),
+    'join' => array(
+      'gbb_entree_metier' => array(
+        'table' => 'gbb_netab',
+        'left_field' => 'co_etabaff',
+        'field' => 'co_lieu',
+      ),
+    ),
+  );
+
+
+  $data['gbb_entree_metier']['type'] = array( 'help' => t('type'),
+  //{{
+    'title'  => t('type'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['numen'] = array( 'help' => t('numen'),
+  //{{
+    'title'  => t('numen'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['nom'] = array( 'help' => t('nom'),
+  //{{
+    'title'  => t('nom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['prenom'] = array( 'help' => t('prenom'),
+  //{{
+    'title'  => t('prenom'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['mel'] = array( 'help' => t('mel'),
+  //{{
+    'title'  => t('mel'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['co_disrec'] = array( 'help' => t('co_disrec'),
+  //{{
+    'title'  => t('co_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['lib_disrec'] = array( 'help' => t('lib_disrec'),
+  //{{
+    'title'  => t('lib_disrec'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['co_grad'] = array( 'help' => t('co_grad'),
+  //{{
+    'title'  => t('co_grad'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['lib_grad'] = array( 'help' => t('lib_grad'),
+  //{{
+    'title'  => t('lib_grad'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['co_etabaff'] = array( 'help' => t('co_etabaff'),
+  //{{
+    'title'  => t('co_etabaff'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['co_discposte'] = array( 'help' => t('co_discposte'),
+  //{{
+    'title'  => t('co_discposte'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['lib_discposte'] = array( 'help' => t('lib_discposte'),
+  //{{
+    'title'  => t('lib_discposte'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['dt_deb'] = array( 'help' => t('dt_deb'),
+    //{{
+    'title' => t('dt_deb'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_entree_metier']['dt_fin'] = array( 'help' => t('dt_fin'),
+    //{{
+    'title' => t('dt_fin'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_entree_metier']['dt_titular'] = array( 'help' => t('dt_titular'),
+    //{{
+    'title' => t('dt_titular'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_netab_entree_metier']['denom_comp'] = array( 'help' => t('denom_comp'),
+  //{{
+    'title' => t('denom_comp'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_entree_metier']['sigle'] = array( 'help' => t('sigle'),
+  //{{
+    'title' => t('sigle'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_netab_entree_metier']['cp'] = array( 'help' => t('cp'),
+  //{{
+    'title' => t('netab_entree_metier.cp'),
+    'field'  => array('id' => 'numeric',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'numeric'),
+    'argument' => array('id' => 'numeric'),
+  );
+  //}}
+  $data['gbb_entree_metier']['fonction'] = array( 'help' => t('fonction'),
+  //{{
+    'title'  => t('fonction'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['moda_aff'] = array( 'help' => t('moda_aff'),
+  //{{
+    'title'  => t('moda_aff'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['dt_ent_grad'] = array( 'help' => t('dt_ent_grad'),
+  //{{
+    'title'  => t('dt_ent_grad'),
+    'field'  => array('id' => 'date',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'date'),
+  );
+  //}}
+  $data['gbb_entree_metier']['co_conc'] = array( 'help' => t('co_conc'),
+  //{{
+    'title'  => t('co_conc'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  $data['gbb_entree_metier']['lib_conc'] = array( 'help' => t('lib_conc'),
+  //{{
+    'title'  => t('lib_conc'),
+    'field'  => array('id' => 'standard',),
+    'sort'   => array('id' => 'standard'),
+    'filter' => array('id' => 'string'),
+  );
+  //}}
+  //}}
 
   return $data;
 }

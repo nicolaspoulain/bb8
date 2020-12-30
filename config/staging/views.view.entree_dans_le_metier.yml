@@ -1275,7 +1275,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<ul>\r\n<li><a href=\"titulaires\">Liste des titulaires (avec affectation éventuellement multiples)</a></li>\r\n<li><a href=\"titulaires2\">Liste des noms des titulaires </a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
+          content: "<ul>\r\n<li><a href=\"titulaires\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"titulaires2\">Sans doublons et infos réduites</a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
           plugin_id: text_custom
       footer:
         result:
@@ -1897,7 +1897,7 @@ display:
           admin_label: ''
           empty: false
           tokenize: false
-          content: "<ul>\r\n<li><a href=\"titulaires\">Liste des titulaires (avec affectation éventuellement multiples)</a></li>\r\n<li><a href=\"titulaires2\">Liste des noms des titulaires </a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
+          content: "<ul>\r\n<li><a href=\"titulaires\">Avec doublons et toutes les infos</a></li>\r\n<li><a href=\"titulaires2\">Sans doublons et infos réduites</a></li>\r\n<li><a href=\"titulaires_stats\">Statistiques par discipline</a></li>\r\n</ul>"
           plugin_id: text_custom
         display_link:
           id: display_link

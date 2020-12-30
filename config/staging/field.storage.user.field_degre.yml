@@ -17,6 +17,9 @@ settings:
     -
       value: 2
       label: '2'
+    -
+      value: 0
+      label: Tout
   allowed_values_function: ''
 module: options
 locked: false

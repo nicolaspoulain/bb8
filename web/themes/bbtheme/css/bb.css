@@ -515,3 +515,6 @@ box-shadow:inset 1em 0 black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+.hidden {
+  disaplay: none;
+}

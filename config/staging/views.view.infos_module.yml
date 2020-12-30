@@ -35,7 +35,7 @@ display:
             d_de: d_de
             d_inspec: d_inspec
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
